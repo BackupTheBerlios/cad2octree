@@ -1,0 +1,374 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>ScanLine Klassenreferenz</h1>Klasse zum Berechnen des 'Nachfolgepunktes' einer <a class="el" href="classLine.html">Line</a> auf <a class="el" href="classNodeIndex.html">NodeIndex</a>-Basis. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="scan__line_8h-source.html">scan_line.h</a>&gt;</code>
+<p>
+<a href="classScanLine-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="classScanLine.html#a0">ScanLine</a> (<a class="el" href="classNodeIndex.html">NodeIndex</a> start, <a class="el" href="classNodeIndex.html">NodeIndex</a> <a class="el" href="classScanLine.html#o2">end</a>)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Konstruktor.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classScanLine.html#a1">getCurrent</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den aktuellen Linienpunkt.</em> <a href="#a1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classScanLine.html#a2">hasNext</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ob der Endpunkt noch nicht erreicht ist.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a3" doxytag="ScanLine::next"></a>
+void&nbsp;</td><td valign=bottom><a class="el" href="classScanLine.html#a3">next</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Geht zum nächsten Linienpunkt.</em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classScanLine.html#c0">getError</a> (<a class="el" href="global_8h.html#a17">Axis</a> testAx)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den absoluten Fehler zur Ideallinie, wenn zum nächsten Punkt entlang der Achse testAx gegangen wird.</em> <a href="#c0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classScanLine.html#c1">getErrorVec</a> (<a class="el" href="global_8h.html#a17">Axis</a> testAx)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Fehlervektor, wenn auf der Achse testAx weitergegangen wird.</em> <a href="#c1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classScanLine.html#c2">getNext</a> (<a class="el" href="global_8h.html#a17">Axis</a> ax)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Nachbarpunkt in ax-Richtung.</em> <a href="#c2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classScanLine.html#c3">maxError</a> (<a class="el" href="classNodeIndex.html">NodeIndex</a> testError)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die maximale Komponente des Fehlervektors testError.</em> <a href="#c3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classScanLine.html#c4">minError</a> (<a class="el" href="classNodeIndex.html">NodeIndex</a> testError)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die minimale Komponente des Fehlervektors testError.</em> <a href="#c4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="c5" doxytag="ScanLine::refreshError"></a>
+void&nbsp;</td><td valign=bottom><a class="el" href="classScanLine.html#c5">refreshError</a> (<a class="el" href="global_8h.html#a17">Axis</a> stepAx)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Passt das interne Fehlerregister an.</em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="o0" doxytag="ScanLine::current"></a>
+<a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classScanLine.html#o0">current</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Aktuelle Scan-Position.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o1" doxytag="ScanLine::dir"></a>
+<a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classScanLine.html#o1">dir</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Richtung der Linie.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o2" doxytag="ScanLine::end"></a>
+<a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classScanLine.html#o2">end</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Linien-Endpunkt.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o3" doxytag="ScanLine::error"></a>
+<a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classScanLine.html#o3">error</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Fehlervektor.</em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Klasse zum Berechnen des 'Nachfolgepunktes' einer <a class="el" href="classLine.html">Line</a> auf <a class="el" href="classNodeIndex.html">NodeIndex</a>-Basis.
+<p>
+<hr><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a name="a0" doxytag="ScanLine::ScanLine"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> ScanLine::ScanLine </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>start</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>end</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Konstruktor.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>start</em>&nbsp;</td><td>
+Anfangspunkt der Linie </td></tr>
+<tr><td valign=top><em>end</em>&nbsp;</td><td>
+Endpunkt der Linie qpre start.getHight() = end.getHight() </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="a1" doxytag="ScanLine::getCurrent"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classNodeIndex.html">NodeIndex</a> ScanLine::getCurrent </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den aktuellen Linienpunkt.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+aktueller Index der Linie </dl>    </td>
+  </tr>
+</table>
+<a name="c0" doxytag="ScanLine::getError"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="node__index_8h.html#a2">AxIndex</a> ScanLine::getError </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="global_8h.html#a17">Axis</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>testAx</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den absoluten Fehler zur Ideallinie, wenn zum nächsten Punkt entlang der Achse testAx gegangen wird.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>testAx</em>&nbsp;</td><td>
+Achse  </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Absoluter Fehler </dl>    </td>
+  </tr>
+</table>
+<a name="c1" doxytag="ScanLine::getErrorVec"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classNodeIndex.html">NodeIndex</a> ScanLine::getErrorVec </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="global_8h.html#a17">Axis</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>testAx</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Fehlervektor, wenn auf der Achse testAx weitergegangen wird.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>testAx</em>&nbsp;</td><td>
+Achse  </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Fehlervektor </dl>    </td>
+  </tr>
+</table>
+<a name="c2" doxytag="ScanLine::getNext"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classNodeIndex.html">NodeIndex</a> ScanLine::getNext </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="global_8h.html#a17">Axis</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>ax</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Nachbarpunkt in ax-Richtung.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>ax</em>&nbsp;</td><td>
+Achse </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a2" doxytag="ScanLine::hasNext"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool ScanLine::hasNext </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ob der Endpunkt noch nicht erreicht ist.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+('interner aktueller Punkt') != Endunkt </dl>    </td>
+  </tr>
+</table>
+<a name="c3" doxytag="ScanLine::maxError"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="node__index_8h.html#a2">AxIndex</a> ScanLine::maxError </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>testError</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die maximale Komponente des Fehlervektors testError.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>testError</em>&nbsp;</td><td>
+Fehlervektor </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+maximale Komponente </dl>    </td>
+  </tr>
+</table>
+<a name="c4" doxytag="ScanLine::minError"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="node__index_8h.html#a2">AxIndex</a> ScanLine::minError </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>testError</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die minimale Komponente des Fehlervektors testError.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>testError</em>&nbsp;</td><td>
+Fehlervektor </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+minmale Komponente </dl>    </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="scan__line_8h-source.html">scan_line.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:52 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

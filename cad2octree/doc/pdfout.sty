@@ -1,0 +1,58 @@
+%% doc/pdfout.sty
+%% Anpassungen fuer pdf-Ausgabe
+%%
+%% Style-Definitionen fuer die Ausarbeitung
+%% Diplomarbeit Nr. 2035
+%% "Erzeugung und Evaluierung von Oktalbaumstrukturen als Schnittstelle 
+%%   zu CAD-Programmen"
+%%
+%% Autor: Stefan Mahler 2002
+%%   Universitaet Stuttgart, SgS
+%% Betreuer: Ralf Mundani%%
+%%
+
+%% Quellen: TETEXDOC.tex des Pakets tetex-beta.20020207-130 von Thomas Esser 
+%%	und srcguide2.tex des KOMA-Scripts (2002-09-06) von Markus Kohm
+
+\makeatletter
+
+% Detect, if we are using pdftex to create pdf output. The following
+\newif\ifpdfoutput
+\@ifundefined{pdfoutput}
+  {\let\pdfoutput\@undefined}
+  {\ifcase\pdfoutput
+     \let\pdfoutput\@undefined
+   \else
+     \pdfoutputtrue
+  }%
+
+\makeatother
+
+%\newcommand{\psext}{ps}
+%\newcommand{\pdfext}{pdf}
+%\newcommand{\dviext}{dvi}
+
+\ifpdfoutput
+\RequirePackage[%pdftex, 
+		hypertexnames= false, linktocpage, pdfpagelabels, 
+		bookmarks, bookmarksnumbered, %pdfpagemode= none, 
+		colorlinks, linkcolor= black, citecolor= black, 
+		pagecolor= black, urlcolor= black
+	       ]{hyperref}
+\hypersetup{%
+              pdfcreator= {LaTeX2e, KOMA-Script (scrbook), hyperref},%
+              pdfkeywords= {Oktalbaum octree DXF Generierung %Volumenmodell
+	                    Oberflächenmodell %raumpartionierende Strukturen
+                            %Preorder-Traversation 
+			    Preorder-Traversierung %Verfahren Algorithmus
+			   },%
+	      pdfauthor= {Stefan Mahler},
+	      pdftitle= {Erzeugung und Evaluierung von Oktalbaumstrukturen 
+                         als Schnittstelle zu CAD-Programmen},
+	      pdfsubject= Diplomarbeit
+	   }
+\fi
+
+\makeatletter
+
+% %%

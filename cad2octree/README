@@ -1,0 +1,82 @@
+cad2octree Version 0.2.0, 6. März 2003
+
+benötigte Bibliotheken und Programme
+====================================
+
+optional: - Maketools 
+		(gmake >= 3.79)
+		
+src:	- C++-Compiler (z.B. g++ 2.95) mit ld und ar
+	- dime >= 0.9
+
+classref: - doxygen >= 1.2.16
+
+doc:	- latex / pdflatex mit koma-script, fancychap und hyperref 
+
+
+Installation
+============
+siehe INSTALL
+
+
+Optionsschalter
+===============
+
+Je nach Definition verschiedener CPP-Makros in der Datei ./src/utils/global.h 
+verwendet cad2octree (nach Neucompilierung der Sourcen!) unterschiedliche 
+Verfahren zur Oktalbaumerzeugung: 
+
+NDEBUG:			- assert-check ausschalten
+
+CLASSIC_MODE:		- Nutze den 'klassischen' Baumerzeugungsalgorithmus.
+
+FILL_SOLIDS:		- Fülle Körper. Ist dies ausgeschaltet, werden nur die 
+			  Oberflächen der Körper generiert. (falls CLASSIC_MODE
+			  ausgeschaltet)
+
+ALGORITHM_ISIN:		- Nutze einen der IsIn-Polygon-Agorithmen (hybrides 
+			  Verfahren, falls CLASSIC_MODE ausgeschaltet) 
+
+ALGORITHM_CHECK_DET:	- Nutze den det-check-Algorithmus für 
+			  Polygon::isInPlane()
+
+CHK_CP_ONLY:		- Zur Lokalisation von Punkten (z.B. beim Füllen) 
+			  gegenüber Splines wird nur das Kontrollpunktnetz 
+			  verwendet.
+
+EXTRACT_PART:		- Zur Lokalisaton von Punkten (z.B. beim Füllen) 
+			  gegenüber Splines werden wird nur das aus 
+			  Oberflächenpolygonen erzeugte Netz verwendet.
+                          Es sollte nicht gleichzeitig CHK_CP_ONLY ein- und 
+                          EXTRACT_PART ausgeschaltet sein!  (Wohl aber können 
+			  beide eingeschaltet sein.)
+
+COMB_SCAN_LINE:         - In ScanLine ist es möglich gleichzeitig auf mehreren 
+			  Achsen weiterzugehen (und so direkt zum 'diagonalen' 
+			  Nachbarn als nächsten Punkt zu gehen).
+			  (falls CLASSIC_MODE und ALGORITHM_ISIN ausgeschaltet)
+
+SAVED_FILL:		- Sichere Bestimmung der Füllfarbe: 
+			  Bei Füllausangspunkten der untersten Ebene werden 
+			  auch die Nachbarpunkte in die Füllfarbbestimmung 
+			  einbezogen. 
+
+USE_QUEUE:		- Anstatt eines Stacks wird eine Queue benutzt. 
+			  MARK_BORDER, LIMITED_STACK und MAX_RECURSIVE_DEEP 
+			  haben eine analoge Wirkung. 
+
+MARK_BORDER:		- Setzt die Knoten, die bei MAX_RECURSIVE hätten 
+			  gefüllt werden müssen, auf eine Randfarbe, aus der 
+			  die 'richtige' Farbe wieder konstruiert werden kann. 
+			  Das Füllen kann dann ab diesen Knoten mit leeren 
+			  Stack wieder begonnen werden. Dieser Schalter stellt 
+			  eine Alternative zu LIMITED_STACK dar. Dieser 
+			  Schalter ist nur dann relevant, falls der Schlater 
+			  FILL_SOLIDS eingeschaltet ist.
+
+LIMITED_STACK:		- Begrenzung des Aufrufstapels von FillOct::fillNext().
+			  Dieser Schalter ist nur relevant, falls der Schalter 
+			  FILL_SOLIDS eingeschaltet ist. Ist der Schalter 
+			  eingeschaltet, wird maximal MAX_RECURSIVE_DEEP Mal
+			  FillOct::fillNext() ineinander aufgerufen.
+

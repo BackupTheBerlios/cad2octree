@@ -1,0 +1,202 @@
+% grundlagen/vol_models.tex
+% Volumenmodelle
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%
+% Autor: Stefan Mahler 2002
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\subsection{Volumenmodelle}
+\label{volmodels}
+Mit Hilfe von Volumenmodellen werden direkt die zu den beschreibenden 
+K"orpern geh"orenden Volumina definiert. Prinzipiell sind hierf"ur zwei 
+Wege m"oglich:
+\begin{enumerate}
+\item \label{raumpart_volmodel} Der Raum wird diskretisiert in Zellen 
+    aufgeteilt und die einzelnen Zellen als zum K"orper zugeh"orig oder 
+    nicht definiert oder
+\item \label{konstr_volmodel} der K"orper wird konstruktiv aus Primitiven 
+    aufgebaut. Die Primitive k"onnen eventuell parametrisierbar sein.
+\end{enumerate}
+Modelle des Typ \ref{raumpart_volmodel} werden auch raumpartitionierende 
+Modelle genannt. Beispiele hierf"ur sind das Normzellen-Aufz"ahlungsschema 
+oder das Oktalbaumschema. Hauptvorteil dieser Schemata ist, dass die 
+Lokalisation eines Punktes (Befindet sich der Punkt innerhalb oder 
+au"serhalb des K"orpers?) direkt aus dem Modell ermittelt werden kann und 
+nicht hierf"ur aufw"andige Berechnungen erfolgen m"ussen. Dies ist gerade 
+im Bereich der Simulation wichtig. Ein Vertreter des Typ 
+\ref{konstr_volmodel} ist das CSG-Schema, welches im Bereich des CAD 
+Anwendung findet.
+
+\subsubsection[Normzellen-Aufz"ahlungsschema]{%
+    Normzellen-Aufz"ahlungsschema (NAZ)}
+\label{normzellen}
+{
+\let\mywidth=\linewidth
+\parbox[t]{0.7\mywidth}{%
+    Das zu betrachtende dreidimensionale endliche Teilgebiet wird vollst"andig 
+    in gleich gro"se dreidimensionale Zellen, meistens W"urfel aufgeteilt. 
+    Jede Zelle wird nun nach festgelegten Regeln als zum K"orper geh"orend 
+    oder nicht geh"orend definiert. F"ur den K"orperrand findet h"aufig 
+    folgende Regel Anwendung: Wird die Zelle von der K"orperoberfl"ache 
+    geschnitten, so wird dem K"orper zugeordnet, wenn der Zellmittelpunkt sich 
+    innerhalb des K"orpers befindet, ansonsten nicht. Abb. \ref{abb_naz} 
+    zeigt ein Normzellen-Aufz"ahlungsschema im 2-Dimensionalen. 
+}
+\hspace{1em}
+\parbox[t][4.5cm][c]{0.25\mywidth}{\bild{\linewidth}{abb_naz}{%
+    NAZ}{naz}}
+F"ur eine gegebene Zellgr"o"se ist die Pr"asentation des K"orpers durch 
+Normzellen somit eindeutig. Je kleiner die Zellgr"o"se
+desto genauer kann der K"orper dargestellt werden. Als Datenstruktur wird 
+im dreidimensionalen Fall am einfachsten ein dreidimensionales Feld verwendet. 
+Eine Verdopplung der Aufl"osung in alle Raumrichtungen hat damit aber auch 
+eine Verachtfachung des Speicheraufwands zur Folge. 
+Da aus dem Schema nicht direkt ersichtlich ist, welche Zellen den Rand 
+eines Objekts widerspiegeln und sich in einem solcen Fall die Gr"o"se 
+aller Zellen sich "andert, m"ussen alle Zellen f"ur eine 
+verfeinerte Darstellung neu ermittelt werden.
+Modelle in Normzellen-Aufz"ahlungsschemata werden h"aufig zur Aufbewahrung 
+komprimiert.
+
+\subsubsection{Zellzerlegungsschema}
+{
+\let\mywidth=\linewidth
+\parbox[t]{0.5\mywidth}{%
+    Wird nicht wie beim Normzellen-Aufz"ahlungsschema nur ein Primitiv 
+    verwendet, sondern k"onnen unterschiedliche Zellarten genutzt werden, 
+    spricht man allgemein vom Zellzerlegungsschema. 
+}
+\hspace{1em}
+\parbox[t][2cm][c]{0.45\mywidth}{\bild{\linewidth}{abb_zellzerl}{%
+    Mehrdeutige Darstellung beim Zellzerlegungsschema}{zellzerl}}
+}
+
+Neben Zellen mit glatter Oberfl"ache k"onnen auch Zellen mit gekr"ummter 
+Oberfl"ache als Basisobjekte zum Einsatz kommen. 
+Entsprechend dem Lego-Prinzip wird der K"orper aus den Basisobjekten, 
+den Primitiven, zusammengesetzt. 
+
+Wie Abb. \ref{abb_zellzerl} zeigt, muss die Pr"asentation des K"orpers nicht 
+eindeutig sein, da unterschiedliche Primitive und in unterschiedlicher 
+Reihenfolge zur Konstruktion des Objekts verwendet werden k"onnen.  
+
+\subsubsection{Constructive Solid Geometry}
+{
+\let\mywidth=\linewidth
+\parbox[t]{0.37\mywidth}{%
+    Bei der Constructive Solid Geometry - kurz CSG-Schema - wird der 
+    modellierte K"orper als Konstruktion durch Nutzung von bin"aren 
+    Mengenoperationen auf Basisobjekte dargestellt. 
+    Verwendbare Basisobjekte, auch Primitive genannt, sind z.B. Quader, 
+    Kugeln, Kegel und Zylinder, die zuvor definiert wurden. 
+}
+\hspace{1em}
+\parbox[t][4.5cm][c]{0.58\mywidth}{\begin{center}
+    \bild{0.9\linewidth}{abb_csg}{CSG-Schema mit Konstruktionsbaum}{csg}
+    \end{center}}
+}
+
+Typische Mengenoperationen sind Schnitt, Vereinigung und Differenz.
+Als Erweiterung des Schemas k"onnen noch zus"atzlich die Transformationen 
+Rotation, Translation bzw. Skalierung als Operationen neben 
+Mengenoperationen zugelassen werden. 
+
+Ein CSG-Schema kann durch einen Bin"arbaum dargestellt werden (vgl. 
+Abb. \ref{abb_csg}). 
+Dabei repr"asentieren die Bl"atter die verwendeten Primitive, an den 
+inneren Knoten werden die genutzten Operationen vermerkt. 
+Von den Bl"attern ausgehend wird mit Hilfe der Operationen sukzessive 
+der K"orper konstruiert. 
+Um eine eindeutige Darstellung des K"orpers zu erhalten, muss der 
+Konstruktionsbaum normalisiert werden. Als Normalform k"onnen die disjunktive
+oder konjunktive Normalform (DNF bzw. KNF) auftreten. 
+
+\subsubsection{Verschiebegeometrieschema}
+\label{vschiebgeom}
+{
+\let\mywidth=\linewidth
+\parbox[t]{0.62\mywidth}{%
+Beim Verschiebegeometrieschema wird eine endliche Fl"ache (z.B. Polygon)
+entlang einer Verschiebekurve bewegt. 
+Das "uberstrichene Gebiet wird als das Volumen des modellierten K"orpers 
+aufgefasst. Wird z.B. ein Rechteck einen Vektor
+entlang verschoben, dessen Richtung senkrecht zur Rechtecksfl"ache verl"auft,
+entsteht ein Quader. 
+Verschiebt man das Rechteck entlang einer Kurve, die
+eine Kreislinie darstellt, wird ein (Hohl)Zylinder erzeugt (vgl. Abb.  
+\ref{abb_verschgeo}).
+}
+\hspace{1em}
+\parbox[t][4cm][c]{0.33\mywidth}{\bild{\linewidth}{abb_verschgeo}{%
+    Ver\-schiebe\-geometrie\-schema}{verschgeo}}
+}
+
+\subsubsection{Primitiven-Instanzierung}
+{
+\let\mywidth=\linewidth
+\parbox[t]{0.6\mywidth}{%
+    Bei der Primitiven-Instanzierung werden alle K"orper aus einem 
+    parametrisierbaren Grundobjekt erzeugt. Das Grundobjekt kann dabei 
+    durchaus komplex sein. Ist das Grundprimiv z.B. eine Metallschraube mit 
+    den Parametern Steigung, L"ange und Kopfgr"o"se, k"onnen verschiedene 
+    Metallschraubenarten beschrieben werden. In Abb.  
+    \ref{abb_primitivinst} ist ein 6-etagiges Geb"aude mit  
+    6 Fensterspalten, das aus dem Primitiv 
+    'Blockhaus' erzeugt wurde.
+}
+\hspace{1em}
+\parbox[t][4cm][c]{0.35\mywidth}{\bild{\linewidth}{abb_primitivinst}{%
+    Primitiven"=Instanzierung}{primitivinst}}
+
+
+\subsubsection{Oktalb"aume}
+\label{einf_octree}
+{
+\let\mywidth=\linewidth
+\parbox[t]{0.65\mywidth}{%
+    Beim Oktalbaumschema handelt es sich um ein hierachisch, rekursives 
+    Schema, bei dem der zu diskretisierende Raum in Zellen unterteilt wird. 
+    Es wird von einem, den gesamten K"orper umschlie"senden W"urfel 
+    (boundary cube) ausgegangen. 
+
+    Beginnend mit diesem W"urfel erfolgt eine sukzessive 
+    Zerlegung bis der betrachtete W"urfel sich vollst"andig innerhalb oder 
+    au"serhalb des K"orpers befindet oder die zuvor festgelegte Aufl"osung 
+    den W"urfelabmessungen entspricht (dies ergibt sich direkt aus der 
+    maximalen Anzahl der Zerlegungsschritte, welche auch der maximalen 
+    Baumtiefe entspricht).
+    Bei jedem Zerlegungsschritt wird der W"urfel in jede Achsrichtung 
+    halbiert, woraus sich $8$ Unterw"urfel (Oktanten) ergeben. 
+}
+\hspace{1em}
+\parbox[t][6cm][c]{0.3\mywidth}{\bild{\linewidth}{abb_quadtree}{%
+    Raum\-partio\-nie\-rung durch Quadtree}{quadtree}}
+
+Die Bl"atter werden als im K"orper befindlich oder nicht zum K"orper 
+geh"orend markiert. 
+F"ur Bl"atter, die Zellen repr"asentieren, die den K"orper teilweise 
+enthalten, kann eine spezielle Markierung definiert werden. 
+Alternativ werden solche Zellen je nach Anwendungsszenario entsprechend dem 
+Normzellen-Aufz"ahlungsschema einfach zum K"orper mitgerechnet oder als 
+au"serhalb des K"orpers liegend aufgefasst. Abb. \ref{abb_quadtree} 
+zeigt einen Quadtree, das 2-dimensionale Pendant des Oktalbaums. 
+
+Jedes Normzellen-Aufz"ahlungsschema mit W"urfeln als Primitive l"asst sich 
+leicht in das entsprechende Oktalbaumschema "uberf"uhren und umgekehrt. 
+Da nur die Randbereiche des K"orpers beim Oktalbaumschema maximal aufgel"ost 
+werden m"ussen, ergibt sich im Allgemeinen ein signifikant geringerer 
+Speicheraufwand als beim Normzellen-Aufz"ahlungsschema. Eine weitere Folge 
+dieser Eigenschaft ist, dass bei jeder Verdopplung der Aufl"osungsgenauigkeit 
+in jede Achsrichtung nur mit einer Vervierfachung des Speicheraufwands 
+gerechnet werden muss\footnote{Diese Aussage ist nicht auf K"orper mit
+fraktaler Struktur anwendbar. Solche Strukturen sind jedoch 
+innerhalb des CAD eher untypisch.}. Zur persistenten Datenhaltung empfiehlt 
+sich einer Linearisierung des Oktalbaums. Weitergehende Betrachtungen 
+zu Eigenschaften von Oktalb"aumen finden sich im Abschnitt 
+\ref{schnittstelle_octree}. Auf Oktalb"aumen arbeitende Algorithmen 
+sind im Kapitel \ref{algo} dargestellt.
+
+%% End of Document

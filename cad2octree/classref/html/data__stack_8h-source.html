@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>data_stack.h</h1><a href="data__stack_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00014 <font class="preprocessor">#ifndef __DATA_STACK_H__</font>
+00015 <font class="preprocessor"></font><font class="preprocessor">#define __DATA_STACK_H__</font>
+00016 <font class="preprocessor"></font>
+00017 <font class="preprocessor">#include &lt;<a class="code" href="data__holder_8h.html">data_holder.h</a>&gt;</font>
+00018 
+<a name="l00024"></a><a class="code" href="classDataStack.html">00024</a> <font class="keyword">template</font> &lt;<font class="keyword">class</font> ItemType&gt; <font class="keyword">class </font><a class="code" href="classDataStack.html">DataStack</a> : <font class="keyword">protected</font> <a class="code" href="classDataHolder.html">DataHolder</a>&lt;ItemType&gt; {
+00025  <font class="keyword">public</font>:
+<a name="l00030"></a><a class="code" href="classDataStack.html#a0">00030</a>   <a class="code" href="classDataStack.html#a0">DataStack</a>(<font class="keywordtype">unsigned</font> <font class="keywordtype">long</font> size) <font class="keywordflow">throw</font> (NotEnoughMemoryException) 
+00031       : <a class="code" href="classDataHolder.html">DataHolder&lt;ItemType&gt;</a>(size) {
+00032   }
+00033 
+<a name="l00039"></a><a class="code" href="classDataStack.html#a1">00039</a>   <font class="keyword">inline</font> ItemType <a class="code" href="classDataStack.html#a1">get</a>() {
+00040     assert (!<a class="code" href="classDataStack.html#a2">isEmpty</a>());
+00041     
+00042     --<a class="code" href="classDataHolder.html#n0">last</a>;
+00043     <font class="keywordflow">return</font> <a class="code" href="classDataHolder.html#n1">pool</a>[<a class="code" href="classDataHolder.html#n0">last</a>];
+00044   }
+00045   
+<a name="l00050"></a><a class="code" href="classDataStack.html#a2">00050</a>   <font class="keyword">inline</font> <font class="keywordtype">bool</font> <a class="code" href="classDataStack.html#a2">isEmpty</a>() {
+00051     <font class="keywordflow">return</font> <a class="code" href="classDataHolder.html#n0">last</a> == 0;
+00052   }
+00053 
+<a name="l00059"></a><a class="code" href="classDataStack.html#a3">00059</a>   <font class="keyword">inline</font> <font class="keywordtype">bool</font> <a class="code" href="classDataStack.html#a3">isFull</a>() {
+00060     <font class="keywordflow">return</font> <a class="code" href="classDataHolder.html#n0">last</a> == (<a class="code" href="classDataHolder.html#b0">getSize</a>() - 1);
+00061   }
+00062 
+00063 };
+00064 
+00065 <font class="preprocessor">#endif // ! __DATA_STACK_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

@@ -1,0 +1,161 @@
+% grundlagen/modell_arten.tex
+% Wichtige Oberflaechen- und Volumenmodelle
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%
+% Autor: Stefan Mahler 2002
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\section{Wichtige Oberflächen- und Volumenmodelle}
+\label{modell_arten}
+%Oberflaechen: Trianguliert, Freiformflaechen
+%(Bernstein, Spline, Casteljau (math. Grundlagen))
+%
+%Volumen: CSG, Normzellenschema, raumpartionierende Datenstrukturen
+Der folgende Abschnitt widmet sich den wichtigsten Oberfl"achen- und 
+Volumenmodellen. Umfangreichere Beschreibungen liefern 
+\cite{bungartz, comp_graf, aumann_spitzmueller, pareigis, abramowski}.
+
+\subsection{Oberfl"achenmodelle}
+\label{flmodels}
+Von Oberfl"achendarstellungen spricht man, wenn ein Objekt nicht durch 
+sein Volumen, sondern -- indirekt -- durch die das Objekt begrenzenden Fl"achen 
+beschrieben wird. Sie werden deshalb auch boundary representations oder 
+kurz B-Rep genannt. 
+
+Allerdings repr"asentiert nicht jede Ansammlung von Fl"achen einen 
+starren K"orper im Sinne der geometrischen Modellierung. Hiermit ist gemeint, 
+dass f"ur jeden beliebigen Raumpunkt entschieden werden kann, ob er sich
+innerhalb, au"serhalb oder auf der Oberfl"ache des K"orpers befindet. Um dies 
+zu gew"ahrleisten, m"ussen weitere Bedingungen erf"ullt sein:
+\begin{enumerate}
+\item \label{oberflbed_geschl}\textbf{Geschlossenheit:}
+    Jeder Kantenpunkt ist Randpunkt zweier Fl"achen. Eckpunkte werden 
+    von jeweils mindestens drei Fl"achen gebildet. 
+    Der Rand einer jeder Fl"ache besitzt 
+    genauso viele Kanten wie Eckpunkte. Es gibt also insbesondere keine 
+    Unterbrechungen in den Kanten oder L"ocher in den Fl"achen, es sei denn, 
+    dass der Lochrand von weiteren Fl"achen, wie bei einem Hohlzylinder,
+    ummandelt ist.
+\item \label{oberflbed_orientiert}\textbf{Orientierheit der Oberfl"achen:}
+    Eine Fl"ache ist dann orientierbar, wenn sie zwei wohlunterscheidbare 
+    Seiten besitzt.
+    Bedingung \ref{oberflbed_geschl} und Bedingung \ref{oberflbed_noselfcut}
+    garantieren zusammen die Orientierbarkeit der Oberfl"achen.
+\item \label{oberflbed_noselfcut}\textbf{Kein Eigenschnitt:}
+    Es muss noch gew"ahrleistet sein, dass die Fl"achen und K"orper 
+    sich nicht selbst schneiden.
+\end{enumerate}
+Sind alle drei Bedingungen erf"ullt, kann durch die Orientierung der Fl"achen 
+festgelegt werden, welche Punkte sich innerhalb bzw. au"serhalb eines K"orpers
+befinden. Besteht das Oberfl"achenmodell aus mehreren Zusammenhangskomponenten,
+ist dies auch notwendig, um entscheiden zu k"onnen, ob es sich z.B. hierbei um 
+ein Hohlk"orper oder mehrere K"orper handelt, da sonst eventuell mehrere 
+Zuordnungsm"oglichkeiten von K"orper"au"serem und K"orperinnerem bestehen.
+
+Als Teilfl"achen sind im einfachsten Fall Dreiecke m"oglich. Diese Form der 
+Modellierung eines K"orpers wird auch als Triangulierung bezeichnet.
+Die K"orperoberfl"achen werden also hierbei durch Dreiecksnetze approximiert.
+Der Vorteil des Einsatzes von Dreiecksnetzen liegt in dem in Vergleich zu
+anderen Oberfl"achenmodellen relativ einfachen Handling der Geometrie:
+\begin{itemize}
+\item Zur Beschreibung eines Dreiecks sind immer genau $3$ Eckpunkte 
+    erforderlich, woraus sich eine einfache Struktur f"ur ein 
+    Oberfl"achenelement 'Dreieck' ergibt.
+\item Dreiecke spannen immer eine Ebene auf, die durch die $3$ Punkte genau
+    beschrieben werden. (Bei Vierecken beispielsweise k"onnte der vierte 
+    Eckpunkt au"serhalb der Ebene, die durch die $3$ anderen Eckpunkte 
+    aufgespannt wird, liegen.)
+\item Dreiecke sind stets konvexe Polygone. F"ur den Test, ob ein Punkt
+    innerhalb oder au"serhalb eines Dreiecks liegt, gibt es aufgrund dieser 
+    Eigenschaft effiziente Algorithmen.
+\item Welche Seite des Dreiecks K"orperau"senfl"ache und welche Innenfl"ache 
+    ist, l"asst sich leicht aus den drei Eckpunkten bestimmen, wenn folgende 
+    Festlegung bez"uglich der Reihenfolge der Eckpunkte eingehalten wird: \\
+    Der Normalenvektor der Ebene \(\vct{n_E}\), 
+    der durch die Vektoren aufgespannt wird, die sich zwischen zweiten ($B$) 
+    bzw. drittem Eckpunkt ($C$) als Endpunkte und dem ersten Eckpunkt ($A$) 
+    als Anfangspunkt ergeben:
+    \gl{gl_flaechenorientierung}{\vct{n_E} ~ = ~ {\vct{AB} \crossprod \vct{AC}
+	 \over |\vct{AB}| ~ |\vct{AC}| }\mbox{,}}
+    ist immer in Richtung des K"orper"au"seren gerichtet. 
+\end{itemize}
+Besitzt ein K"orper eine Oberfl"ache mit starken Kr"ummungen, so m"ussen die 
+Dreiecke sehr klein gew"ahlt werden, um den K"orper "uberhaupt approximieren 
+zu k"onnen. Das erzeugte Modell wirkt kantig, obwohl der zu modellierende 
+K"orper (z.B. bei einer Kugel) keine Kanten besitzt. Meist werden jedoch 
+stetige Verl"aufe und nicht kantige Modelle ben"otigt. 
+Zur Beschreibung von K"orpern mit gekr"ummter Oberfl"ache werden daher h"aufig 
+Freiformkurven-/fl"achen zur Modellierung eingesetzt. Die Nutzung von 
+Freiformfl"achen erlaubt die exakte Modellierung von Kugeln, Kegeln und 
+Kugel-/Kegelteil\-k"orpern. Freiformkurven-/fl"achen eigenen sich 
+insbesondere f"ur die geometrische Modellierung der h"aufig ben"otigten
+\contii-stetigen\footnote{Die Kurve/Fl"ache ist zwei Mal (partiell) 
+differenzierbar. Die zweite Ableitung ist stetig.} Verl"aufe.
+
+Im Folgenden wird auf die Freiformtypen \bez-Kurven, B-Splines
+und NURBS eingegangen. Anschlie"send wird die Freiformfl"achenerzeugung aus 
+dem Freiformkurven-Schema hergeleitet. F"ur weiterf"uhrende Erl"auterungen ist
+\cite{farin} zu empfehlen. \cite{boor, boor2} geben n"ahere  
+Erl"auterungen f"ur das Verst"andnis von Splinefunktionen. Hier werden 
+Algorithmen zum Einf"ugen und L"oschen von Knoten ausf"uhrlich beschrieben. 
+\cite{nurbs_book} gibt eine ausf"uhrliche und dennoch "ubersichtliche
+Darstellung wesentlicher Zusammenh"ange zwischen \bez-Kurven/-Fl"achen, 
+Splines und NURBS. Es werden f"ur den Umgang wichtige Algorithmen
+vorgestellt. Das Buch enth"alt auch praktische Tipps zur Anwendung der 
+Algorithmen und Implementierungen der Verfahren im C-Code.
+
+Um neben glatten Oberfl"achen auch gekr"ummte Verl"aufe modellieren zu 
+k"onnen, wird nun die lineare Darstellung zu einer polynomiellen erweitert. 
+Polynome besitzen f"ur die Modellierung gekr"ummter Verl"aufe viele geeignete 
+Eigenschaften:
+\begin{itemize}
+\item Sie sind "uber den ganzen Bereich der reellen Zahlen definiert und sind 
+    $n$-mal differenzierbar, wenn $n$ der Grad des Polynoms ist. 
+    Sie haben also insbesondere keine Unstetigkeitsstellen oder 'Knickstellen'.
+\item Mit $n+1$ Punkten k"onnen beliebige Polynome $n$-ten Grades eindeutig 
+    dargestellt werden und umgekehrt.
+\item Polynome sind relativ leicht berechenbar. Es m"ussen also keine 
+    aufw"andigen Berechnungsroutinen implementiert werden. Des Weiteren sind 
+    Polynome einfach analysierbar.
+\item Lineare Funktionen k"onnen als Polynome ersten Grades aufgefasst werden 
+    und sind somit nur ein spezielles Polynom.
+\end{itemize}
+Die polynomielle Interpolation erweist sich jedoch in vielen F"allen als 
+ung"unstig, da sie f"ur Polynome h"oheren Grades im Allgemeinen 
+unerw"unschte numerische Eigenschaften besitzt:
+Die Funktion ist schlecht konditioniert. Kleine lokale "Anderungen haben 
+starke globale Ver"anderung. Diese Ver"anderungen sind nicht intuitiv. Schon 
+deshalb ist dieser Ansatz f"ur den konstruktiven Entwurf unbrauchbar.
+
+%\begin{samepage}
+Daraus ergeben sich zwei Kriterien:
+\begin{description}
+\item[Kontrollierbarkeit:] Ver"anderungen der Kurven-/Fl"achen-Parameter
+    f"uhren zu voraussagbaren und kontrollierbaren Effekten bez"uglich
+    der Kurvengestalt.
+\item[Lokalit"atsprinzip:]
+    Lokale Ver"anderungen bedingen maximal nur geringe globale Ver"anderungen.
+    Verschiebt man z.B. einen Kontrollpunkt, so ver"andert sich
+    der Verlauf entfernter Kurven-/Fl"achenst"ucke nur wenig oder 
+    --~idealerweise~-- garnicht.
+\end{description}
+Die drei Approximationsverfahren, die Modellierung durch \bez-Kurven, Splines
+und NURBS, erf"ullen diese beiden Kriterien.
+%\end{samepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{grundlagen/bezier}
+
+\input{grundlagen/splines}
+
+\input{grundlagen/nurbs}
+
+\input{grundlagen/k2flaechen}
+
+\input{grundlagen/vol_models}
+
+%% End of Document

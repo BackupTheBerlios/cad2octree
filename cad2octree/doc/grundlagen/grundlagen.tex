@@ -1,0 +1,66 @@
+% grundlagen/grundlagen.tex
+% Grundlagen zu raumpartitionierenden Datenstrukturen und Freiformflaechen
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%
+% Autor: Stefan Mahler 2002
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\chapter{Darstellungsarten eines K"orpers}
+\label{geombeschr}
+%Basiswissen
+%
+%Octalbaeume, raumpartionierende Datenstrukturen, Vor-/Nachteile Octree
+%(Datenstrukturen)
+%
+%Grundlagen der Freiformflaechen
+%
+%Bernstein, Spline, Casteljau (math. Grundlagen)
+
+Die Beschreibung und Darstellung geometrischer K"orper wird als geometrische 
+Modellierung bezeichnet. Zur rechnerorientierten Beschreibung solcher Modelle 
+sind entsprechende Datenstrukturen erforderlich.
+
+Im Weiteren wird ausschlie"slich die Modellierung von K"orpern mit
+zeitlich fester Geometrie (also keine dynamischen Geometrien) behandelt.
+
+Es gibt unterschiedliche Repr"asentationsm"oglichkeiten der geometrischen 
+Verh"altnisse. Zur Bildung dreidimensionaler Modelle existieren 
+kanten"~, fl"achen- und volumenorientierte Datenstrukturen. Diese besitzen 
+verschiedene Eigenschaften.
+Abschnitt \ref{modell_arten} gibt einen "Uberblick "uber wichtige 
+Oberfl"achen- und Volumenmodelle und deren Eigenschaften.
+
+Volumenmodelle werden auch als direkte Schemata bezeichnet. Die 
+Information "uber die K"orpergeometrie und die Lokalisation der K"orper 
+kann direkt aus dem Datenmodell extrahiert werden. Im Gegensatz dazu 
+sind Oberfl"achen- und Kantenmodelle indirekte Schemata. Um die Gestalt 
+eines K"orpers ermitteln zu k"onnen, m"ussen hier z.T. aufw"andige zus"atzliche 
+Berechnungen erfolgen. Durch das Modell kann nicht sichergestellt werden,
+dass die Datenstruktur nur Rigid-Bodies (die Randgebiete sind 
+geschlossen; es gibt also z.B. beim Oberfl"achenmodell immer eine 
+Begrenzungsfl"ache zwischen K"orperinnerem und -"au"serem) repr"asentiert.
+Entsprechnend aufw"andig ist i.A. die Berechnung, ob sich ein Raumpunkt 
+im K"orperinneren befindet oder nicht.
+Je nach Fachgebiet werden bestimmte Repr"asentationsformen bevorzugt, die 
+f"ur die jeweilige Anwendung am besten geeignet scheinen.
+Kantenorientierte Darstellungen sind f"ur die Darstellung eindimensionaler 
+Geometrieen gut geeignet. 
+Volumen- und Oberfl"achenmodelle sind in der Lage, auch komplexe 
+dreidimensionale Objekte zu beschreiben. W"ahrend bei der geometrischen 
+Modellierung Oberfl"achenmodelle zumeist in CAD-Systemen verwendet werden, 
+kommen bei Simulationen h"aufig Berechnungsgitter zum Einsatz, die durch 
+r"aumliche Diskretisierung erzeugt wurden, also spezielle Volumenmodelle.
+Die Nutzung unterschiedlicher geometrischer Modelle ist eines der gr"o"sten
+Hindernisse zur Integration u.a. von CAD und Simulation.
+Abschnitt \ref{schnittstelle_octree} erkl"art die Besonderheiten der 
+Oktalbaumstruktur, die es erm"oglichen, sie als Schnittstelle zwischen 
+CAD und Simulation zu verwenden.
+
+\input{grundlagen/modell_arten}
+
+\input{grundlagen/octree}
+
+%% End of Document

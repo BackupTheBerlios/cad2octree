@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>point.h</h1><a href="point_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00012 <font class="preprocessor">#ifndef __POINT_H__</font>
+00013 <font class="preprocessor"></font><font class="preprocessor">#define __POINT_H__</font>
+00014 <font class="preprocessor"></font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="global_8h.html">global.h</a>&gt;</font>
+00016 <font class="preprocessor">#include &lt;<a class="code" href="cad__object_8h.html">cad_object.h</a>&gt;</font>
+00017 
+00018 <font class="preprocessor">#include &lt;math.h&gt;</font>
+00019 <font class="preprocessor">#include &lt;values.h&gt;</font>
+00020 
+<a name="l00024"></a><a class="code" href="point_8h.html#a0">00024</a> <font class="preprocessor">#define NULL_POINT Point(0, 0, 0)</font>
+00025 <font class="preprocessor"></font>
+<a name="l00029"></a><a class="code" href="point_8h.html#a1">00029</a> <font class="preprocessor">#define MAXIMUM_POSSIBLE_POINT Point(MAXFLOAT, MAXFLOAT, MAXFLOAT)</font>
+00030 <font class="preprocessor"></font>
+<a name="l00034"></a><a class="code" href="point_8h.html#a2">00034</a> <font class="preprocessor">#define MINIMUM_POSSIBLE_POINT Point(-MAXFLOAT, -MAXFLOAT, -MAXFLOAT)</font>
+00035 <font class="preprocessor"></font>
+<a name="l00039"></a><a class="code" href="classPoint.html">00039</a> <font class="keyword">class </font><a class="code" href="classPoint.html">Point</a> : <font class="keyword">public</font> <a class="code" href="classCadObject.html">CadObject</a> {
+00040  <font class="keyword">public</font>:
+00048   <a class="code" href="classPoint.html#a0">Point</a>(<a class="code" href="global_8h.html#a16">Coordinate</a> x, <font class="comment">//= (Coordinate)0, </font>
+00049         <a class="code" href="global_8h.html#a16">Coordinate</a> y, <font class="comment">//= (Coordinate)0, </font>
+00050         <a class="code" href="global_8h.html#a16">Coordinate</a> z); <font class="comment">//= (Coordinate)0);</font>
+00051 
+00058   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classPoint.html#a1">getCoordinate</a>(<a class="code" href="global_8h.html#a17">Axis</a> axis);
+00059 
+00064   <font class="keyword">virtual</font> <font class="keyword">const</font> <a class="code" href="classCadObject.html#s4">DataType</a> <a class="code" href="classPoint.html#a2">getDataType</a>();
+00065 
+00070   <font class="keyword">virtual</font> <font class="keywordtype">int</font> <a class="code" href="classPoint.html#a3">getDimension</a>();
+00071 
+00076   <font class="keyword">virtual</font> <a class="code" href="classPoint.html">Point</a> <a class="code" href="classPoint.html#a4">getMaxPoint</a>();
+00077 
+00082   <font class="keyword">virtual</font> <a class="code" href="classPoint.html">Point</a> <a class="code" href="classPoint.html#a5">getMinPoint</a>();
+00083 
+00088   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classPoint.html#a6">getX</a>();
+00089 
+00094   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classPoint.html#a7">getY</a>();
+00095 
+00100   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classPoint.html#a8">getZ</a>();
+00101 
+00105   <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classPoint.html#a9">print</a>();
+00106 
+00114   <font class="keywordtype">void</font> <a class="code" href="classPoint.html#a10">set</a>(<a class="code" href="global_8h.html#a16">Coordinate</a> x, <a class="code" href="global_8h.html#a16">Coordinate</a> y, <a class="code" href="global_8h.html#a16">Coordinate</a> z);
+00115 
+00122   <font class="keywordtype">void</font> <a class="code" href="classPoint.html#a11">setCoordinate</a>(<a class="code" href="global_8h.html#a17">Axis</a> axis, <a class="code" href="global_8h.html#a16">Coordinate</a> value);
+00123 
+00128   <font class="keywordtype">void</font> <a class="code" href="classPoint.html#a12">setX</a>(<a class="code" href="global_8h.html#a16">Coordinate</a> value);
+00129 
+00134   <font class="keywordtype">void</font> <a class="code" href="classPoint.html#a13">setY</a>(<a class="code" href="global_8h.html#a16">Coordinate</a> value);
+00135 
+00140   <font class="keywordtype">void</font> <a class="code" href="classPoint.html#a14">setZ</a>(<a class="code" href="global_8h.html#a16">Coordinate</a> value);
+00141 
+00146   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classPoint.html#a15">operator[]</a>(<a class="code" href="global_8h.html#a17">Axis</a> axis);
+00147 
+00148  <font class="keyword">private</font>:
+<a name="l00152"></a><a class="code" href="classPoint.html#o0">00152</a>   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classPoint.html#o0">coordinates</a>[<a class="code" href="global_8h.html#a7">DIMENSIONS</a>];
+00153 }; <font class="comment">// class Point</font>
+00154 
+00155 <font class="comment">// ##### zugehörige Vergleichsoperatoren #############################</font>
+00156 
+00164 <font class="keywordtype">bool</font> <a class="code" href="node__index_8h.html#a6">operator==</a>(<a class="code" href="classPoint.html">Point</a> p1, <a class="code" href="classPoint.html">Point</a> p2);
+00165 
+00174 <font class="keywordtype">bool</font> <a class="code" href="node__index_8h.html#a7">operator&lt;</a>(<a class="code" href="classPoint.html">Point</a> p1, <a class="code" href="classPoint.html">Point</a> p2);
+00175 
+00183 <font class="keywordtype">bool</font> <a class="code" href="point_8h.html#a5">operator&lt;&lt;</a>(<a class="code" href="classPoint.html">Point</a> p1, <a class="code" href="classPoint.html">Point</a> p2);
+00184 
+00185 <font class="preprocessor">#endif // ! __POINT_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

@@ -1,0 +1,138 @@
+% grundlagen/bezier.tex
+% Bezier-Kurven
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%
+% Autor: Stefan Mahler 2002
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\subsubsection{\bez-Kurven}
+\label{bezier}
+%-Bernstein-Polynome
+%-Casteljau-Algorithmus
+%-Zusammengesetzte Bezier-Kurven
+
+Eine Kurve, die durch 
+\gl{gl_bezier_kurve}{{\bf x}(t) = \sum_{i=0}^n ~B_i^n(t)~{ \bf b}_i\mbox{, }~
+    ~t \in{} [0, 1]}
+beschrieben wird, wird als \bez-Kurve bezeichnet. Dabei sind die 
+Bernstein-Polynome $ B_i^n $ definiert durch
+\gl{gl_bernstein_2d}{B_i^n(t) = \binom{n}{i} ~(1 - t)^{n-i}~t^i\mbox{, }~ 
+    ~t \in{} [0, 1]\mbox{, }~i= 0,\dots,n\mbox{.}}
+Damit gilt
+\gl{gl_sum_bernstein_eins}{\sum_{i=0}^n B_i^n(t) = 1\mbox{, }~
+    ~\forall{} t \in [0, 1]}
+und 
+\gl{gl_bernstein_rand_a}{B_0^n(0) = B_n^n(1) = 1} bzw.
+\gl{gl_bernstein_rand_b}{B_0^n(1) = B_n^n(0) = 0\mbox{.}}
+
+\bez-Kurven sind die einfachste Form einer symmetrischen Darstellung 
+durch polynomielle Approximation mit Kontrollpunkten. Die 
+Kontrollpunkte ${\bf b}_i$ einer \bez-Kurve werden \bez-Punkte genannt. 
+Sie bilden ein Kontrollpolygon.
+\bez-Kurven besitzen folgende wichtige Eigenschaften: \label{bez_props}
+\begin{enumerate}
+\newcommand\nritem[2]{\item \textbf{#1:} \label{#2}}
+\nritem{Konvexe-H"ullen-Eigenschaft}{bez_prop_convex_hull}
+    Eine \bez-Kurve liegt in der konvexen H"ulle ihres Kontrollpolygons.
+\nritem{Stetigkeit, Differenzierbarkeit}{bez_prop_diff}
+    \bez-Kurven sind stetig. Besitzt die \bez-Kurve Mehrfachkontrollpunkte 
+    oder besitzt der die Kontrollpunkte miteinander verbindende Kantenzug 
+    Schleifen (das Kontrollpolygon ist also nicht konvex), kann die Kurve 
+    jedoch an einigen Stellen eventuell nicht differenzierbar sein.
+\nritem{Interpolation der Kurvenenden}{bez_prop_intpol_kurvend}
+    Kontrollpolygon und \bez-Kurve stimmen in Anfangs- und Endpunkt 
+    "uberein. Die inneren \bez-Punkte werden i.A. nur approximiert und 
+    liegen somit dann auch nicht auf der \bez-Kurve.
+\nritem{Kurvenanstieg an den Kurvenenden}{bez_prop_diff_kuvend}
+    Die Strecken $\overline{{\bf b}_0{\bf b}_1}$ und 
+    $\overline{{\bf b}_{n-1}{\bf b}_n}$ des Kontrollpolygons verlaufen im 
+    Anfangs- und Endpunkt tangential zur \bez-Kurve.
+\nritem{Einfluss von Kontrollpunkten, Globale Modifikation}{bez_prop_cp_einfl}
+    ${\bf b}_i$ hat den gr"o"sten Einflu"s auf ${\bf x}(t)$ bei $t = i/n$. 
+    Bis auf Anfangs- und Endpunkt der Bezierkurve werden zur Berechung 
+    eines Kurvenpunkts \emph{alle} Kontrollpunkte (wenn auch in 
+    unterschiedlichem Ausma"s) ber"ucksichtigt.
+    Die Modifikation eines Kontrollpunktes wirkt sich global auf die
+    \bez-Kurve aus.
+\nritem{Formerhaltungs-Eigenschaft}{bez_prop_formerh}
+    Ist das Kontrollpolygon konvex, so ist es auch die \bez-Kurve.
+\nritem{Beschr"ankte Schwankung}{bez_prop_beschr_schw}(auch \emph{variation
+    diminishing} genannt)
+    Keine Gerade schneidet die \bez-Kurve "ofter als das entsprechende 
+    Kontrollpolygon.
+    Daraus ist auch direkt die Eigenschaft der \emph{linearen Pr"azision} 
+    ableitbar: Liegen die Kontrollpunkte ${ \bf b}_0, \dots, { \bf b}_n$ einer 
+    \bez-Kurve kollinear, dann liegt die \bez-Kurve auf der Strecke 
+    $\overline{{\bf b}_0{\bf b}_n}$.
+\nritem{Graderh"ohung}{bez_prop_grad_incr}
+    Bei fortgesetzter Graderh"ohung durch Einf"ugen zus"atzlicher 
+    Kontrollpunkte konvergiert das Kontrollpolygon gegen die \bez-Kurve.
+\nritem{Affine Invarianz}{bez_prop_aff_inv}
+    \bez-Kurven sind bez"uglich Rotation, Skalierung ($\not= 0$), Spiegelung 
+    und Translation invariant.
+\end{enumerate}
+
+Eine effiziente und numerisch stabile M"oglichkeit zur Berechnung der 
+Kurvenpunkte ${ \bf x}(t)$ ist der \emph{Algorithmus von de Casteljau}. 
+Abbildung \ref{abb_alg_casteljau} zeigt ein Schema zur geometrischen 
+Konstruktion von ${\bf x}(t=\frac{2}{3})$ f"ur $n=3$ nach diesem Algorithmus. 
+
+\graf{abb_alg_casteljau}{Algorithmus von de Casteljau (\emph{geom.})}{%
+    casteljau}
+
+Die Eigenschaften \ref{bez_prop_diff} und \ref{bez_prop_cp_einfl} k"onnen sich 
+nachteilig auf die Modellierung von \bez-Kurven auswirken. Diese Nachteile 
+wie mangelnde Diffenrenzierbarkeit und unerw"unschte Ausgleichseffekte von 
+Kontrollpunkten infolge fehlender Lokalit"at der Kontrollpunktwirkung werden 
+h"aufig bei h"ohergradigen \bez-Kurven sichtbar. Zudem sind mathematische 
+Beschreibungen der \bez-Kurven vom Grad $\ge 10$ unhandlich, Berechnungen sind 
+rechenzeitintensiv. Andereseits erfordert das Nachbilden komplexer realer 
+Kurven evtl. viele Kontrollpunkte. 
+
+Einen Ausweg bieten \textbf{zusammengesetzte \bez-Kurven}. Die Gesamtkurve 
+wird aus einzelnen Kurvensegmenten gleichen Grads zusammengesetzt. 
+Das Segment $i$ der \bez-Kurve besteht somit aus den Kontrollpunkten 
+${\bf b}_{0,i}, \dots, {\bf b}_{p, i}$, wenn die Segmente vom Grad $p$ sind. 
+Nun wird zweckm"a"siger Weise ein Verfahren ben"otigt, was zu einem globalen 
+Parameter $u$ eindeutig den lokalen Parameter $t$ des $i$-ten Segments 
+bestimmt. O.B.d.A. sei angenommen, dass die Gesamtkurve normalisiert, also 
+$u \in [0, 1]$, sei. L"auft $u$ somit "uber $[0, 1]$ wird die Gesamtkurve 
+"uberstrichen. Mit Hilfe der Zerlegung $0=u_0<u_1<\dots<u_n<u_{n+1}=1$ des 
+Intervalls $[0, 1]$ kann das $i$-te Segment "uber dem Intervall 
+$I_i = [u_i, u_{i+1}]$ definiert werden. Der lokale Paramterwert $t$ des 
+Intervalls $I_i$ kann dann mit
+\gl{gl_def_t_durch_u}{t = {{u - u_i} \over {u_{i+1} - u_i}}\mbox{, }~
+    ~u \in{} [u_i, u_{i+1}]}
+definiert werden. 
+
+Wegen Eigenschaft \ref{bez_prop_intpol_kurvend} l"asst 
+sich die Stetigkeit von zusammengesetzten \bez-Kurven leicht bewerkstelligen: 
+Hierf"ur m"ussen die Anfangspunkte des nachfolgenden Segments nur mit den 
+jeweiligen Endunkten des Vorg"angersegments "ubereinstimmen:
+\gl{gl_bez_zusammenges_cnt}{{ \bf b}_{n, i} = { \bf b}_{0, i+1}\mbox{.}} 
+Schwieriger l"asst sich allerdings hinreichende Differenzierbarkeit an den 
+Segment"uberg"angen gew"ahrleisten. Um an den Segment"uberg"angen 
+\conti-Stetigkeit zu erhalten, muss
+\gl{gl_bez_picewise_diff}{
+    {{{ \bf b}_{n, i} - { \bf b}_{n-1, i}} \over {u_{i+1} - u_i}} 
+    = {{{ \bf b}_{1, i+1} - { \bf b}_{n, i}} \over {u_{i+2} - u_{i+1}}}}
+gelten. Dies bedeutet, dass die drei Punkte ${\bf b}_{n-1, i}$, 
+${\bf b}_{n, i}={\bf b}_{0, i+1}$ und ${\bf b}_{1, i+1}$ kollinear sein 
+m"ussen \emph{und} dass ${\bf b}_{n, i}$ die Strecke 
+$\overline{{\bf b}_{n-1, i}{\bf b}_{1, i+1}}$ im Verh"altnis 
+\hbox{\((u_{i+1} - u_i) : (u_{i+2} - u_{i+1})\)} teilt. 
+Um die h"aufig geforderte \contii-Stetigkeit zu erhalten, muss das Schema 
+unter Einbeziehung der Punkte ${\bf b}_{n-2, i}$ und ${\bf b}_{2, i+1}$ 
+entsprechend erweitert werden. 
+
+Nachteilig an zusammengesetzten \bez-Kurven ist, dass die ersten und letzten 
+Kontrollpunkte eines jeden Segments die Bedingungen 
+\glref{gl_bez_zusammenges_cnt} und \glref{gl_bez_picewise_diff} erf"ullen 
+m"ussen, um die Differenzierbarkeit der Gesamtkurve sicherzustellen. Daf"ur 
+m"ussen eventuell zus"atzliche Kontrollpunkte eingef"ugt werden. Dieses 
+Problem kann durch die Nutzung von B-Spline-Kurven umgangen werden.
+
+%% End of Document

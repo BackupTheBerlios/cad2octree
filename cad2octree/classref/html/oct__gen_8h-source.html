@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>oct_gen.h</h1><a href="oct__gen_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00016 <font class="preprocessor">#ifndef __OCT_GEN_H__</font>
+00017 <font class="preprocessor"></font><font class="preprocessor">#define __OCT_GEN_H__</font>
+00018 <font class="preprocessor"></font>
+00019 <font class="preprocessor">#include &lt;<a class="code" href="cad__model_8h.html">cad/cad_model.h</a>&gt;</font>
+00020 <font class="preprocessor">#include &lt;<a class="code" href="gen__help_8h.html">generator/gen_help.h</a>&gt;</font>
+00021 <font class="preprocessor">#include &lt;<a class="code" href="index__oct_8h.html">octree/index_oct.h</a>&gt;</font>
+00022 
+00023 <font class="preprocessor">#include &lt;<a class="code" href="node__index_8h.html">node_index.h</a>&gt;</font>
+00024 <font class="preprocessor">#include &lt;<a class="code" href="exception_8h.html">exception.h</a>&gt;</font>
+00025 
+00026 <font class="comment">// ##### Exceptions ##################################################</font>
+<a name="l00032"></a><a class="code" href="classWrongModelException.html">00032</a> <font class="comment"></font><font class="keyword">class </font><a class="code" href="classWrongModelException.html">WrongModelException</a> : <a class="code" href="classException.html">Exception</a> {
+00033  <font class="keyword">public</font>:
+<a name="l00037"></a><a class="code" href="classWrongModelException.html#a0">00037</a>   <a class="code" href="classWrongModelException.html#a0">WrongModelException</a>() : <a class="code" href="classException.html">Exception</a>("Wrong <a class="code" href="classCadModel.html">CadModel</a>") {}
+00038 };
+00039 
+00040 <font class="comment">// ###### OctGen #####################################################</font>
+<a name="l00048"></a><a class="code" href="classOctGen.html">00048</a> <font class="comment"></font><font class="keyword">class </font><a class="code" href="classOctGen.html">OctGen</a> {
+00049  <font class="keyword">public</font>:
+00054   <a class="code" href="classOctGen.html#a0">OctGen</a>(<a class="code" href="classCadModel.html">CadModel</a>* model);
+00055 
+00063   <font class="keywordtype">void</font> <a class="code" href="classOctGen.html#a1">add</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p, <a class="code" href="global_8h.html#a23">Color</a> color)
+00064     <font class="keywordflow">throw</font> (<a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*);
+00065 
+00078   <font class="keywordtype">void</font> <a class="code" href="classOctGen.html#a2">addQuadrilateral</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> pA, <a class="code" href="classNodeIndex.html">NodeIndex</a> pB, <a class="code" href="classNodeIndex.html">NodeIndex</a> pC,
+00079                         <a class="code" href="classNodeIndex.html">NodeIndex</a> pD, <a class="code" href="global_8h.html#a23">Color</a> color)
+00080     <font class="keywordflow">throw</font> (<a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*);
+00081 
+00093   <font class="keywordtype">void</font> <a class="code" href="classOctGen.html#a3">addTriangle</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> pA, <a class="code" href="classNodeIndex.html">NodeIndex</a> pB, <a class="code" href="classNodeIndex.html">NodeIndex</a> pC,
+00094                    <a class="code" href="global_8h.html#a23">Color</a> color)
+00095     <font class="keywordflow">throw</font> (<a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*);
+00096 
+00102   <a class="code" href="classCadModel.html">CadModel</a>* <a class="code" href="classOctGen.html#a4">getCadModel</a>();
+00103 
+00104 <font class="preprocessor">#ifndef CLASSIC_MODE</font>
+00105 <font class="preprocessor"></font>
+00114   <a class="code" href="global_8h.html#a23">Color</a> <a class="code" href="classOctGen.html#a5">getColor</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p);
+00115 <font class="preprocessor">#endif</font>
+00116 <font class="preprocessor"></font>
+00122   <a class="code" href="classGenHelp.html">GenHelp</a>* <a class="code" href="classOctGen.html#a6">getGenHelp</a>();
+00123 
+00128   <a class="code" href="classIndexOct.html">IndexOct</a>* <a class="code" href="classOctGen.html#a7">getGenTree</a>();
+00129 
+00140   <a class="code" href="classIndexOct.html">IndexOct</a>* <a class="code" href="classOctGen.html#a8">getOctree</a>(<a class="code" href="global_8h.html#a21">Hight</a> maxTreeHight)
+00141     <font class="keywordflow">throw</font> (<a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*, <a class="code" href="classWrongModelException.html">WrongModelException</a>*);
+00142 
+00143  <font class="keyword">private</font>:
+00154   <font class="keywordtype">void</font> <a class="code" href="classOctGen.html#c0">addLine</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> start, <a class="code" href="classNodeIndex.html">NodeIndex</a> end, <a class="code" href="global_8h.html#a23">Color</a> color)
+00155     <font class="keywordflow">throw</font> (<a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*);
+00156 
+00166   <font class="keywordtype">void</font> <a class="code" href="classOctGen.html#c1">addObject</a>(<a class="code" href="classCadObject.html">CadObject</a>* object, <a class="code" href="global_8h.html#a23">Color</a> color)
+00167     <font class="keywordflow">throw</font> (<a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*);
+00168 
+00177   <font class="keywordtype">void</font> <a class="code" href="classOctGen.html#c2">checkModel</a>() <font class="keywordflow">throw</font> (<a class="code" href="classWrongModelException.html">WrongModelException</a>*);
+00178 
+00189   <a class="code" href="global_8h.html#a23">Color</a> <a class="code" href="classOctGen.html#c3">nextPointColor</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p);
+00190 
+00191 <font class="preprocessor">#ifndef CLASSIC_MODE</font>
+00192 <font class="preprocessor"></font>
+00204   <a class="code" href="global_8h.html#a23">Color</a> <a class="code" href="classOctGen.html#c4">testRayColor</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p);
+00205 <font class="preprocessor">#else</font>
+00206 <font class="preprocessor"></font>
+00207   <font class="keywordtype">void</font> generateClassic(<a class="code" href="classNodeIndex.html">NodeIndex</a> idx);
+00208 
+00222   <a class="code" href="global_8h.html#a23">Color</a> <a class="code" href="classOctGen.html#c4">testRayColor</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p, <font class="keywordtype">bool</font> &amp;isAtBorder);
+00223 <font class="preprocessor">#endif</font>
+00224 <font class="preprocessor"></font>
+<a name="l00228"></a><a class="code" href="classOctGen.html#o0">00228</a>   <a class="code" href="classCadModel.html">CadModel</a>* <a class="code" href="classOctGen.html#o0">cadModel</a>;
+00229 
+<a name="l00233"></a><a class="code" href="classOctGen.html#o1">00233</a>   <a class="code" href="classGenHelp.html">GenHelp</a>* <a class="code" href="classOctGen.html#o1">genHelp</a>;
+00234 
+<a name="l00238"></a><a class="code" href="classOctGen.html#o2">00238</a>   <a class="code" href="classIndexOct.html">IndexOct</a>* <a class="code" href="classOctGen.html#o2">octree</a>;
+00239 };
+00240 
+00241 <font class="preprocessor">#endif // ! __OCT_GEN_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

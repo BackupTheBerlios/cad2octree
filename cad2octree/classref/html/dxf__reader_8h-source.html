@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>dxf_reader.h</h1><a href="dxf__reader_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00012 <font class="preprocessor">#ifndef __DXF_READER_H__</font>
+00013 <font class="preprocessor"></font><font class="preprocessor">#define __DXF_READER_H__</font>
+00014 <font class="preprocessor"></font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="reader_8h.html">reader/reader.h</a>&gt;</font>
+00016 
+<a name="l00025"></a><a class="code" href="classDxfReader.html">00025</a> <font class="keyword">class </font><a class="code" href="classDxfReader.html">DxfReader</a> : <font class="keyword">public</font> <a class="code" href="classReader.html">Reader</a> {
+00026  <font class="keyword">public</font>:
+00031   <font class="keyword">virtual</font> <font class="keyword">const</font> <font class="keywordtype">char</font>* <a class="code" href="classDxfReader.html#a0">getFormatName</a>();
+00032 
+00037   <font class="keyword">virtual</font> <font class="keyword">const</font> <a class="code" href="classReader.html#s1">Reader::FormatType</a> <a class="code" href="classDxfReader.html#a1">getFormatType</a>();
+00038 
+00046   <font class="keyword">static</font> <a class="code" href="classReader.html">Reader</a>* <a class="code" href="classDxfReader.html#d0">readFile</a>(<font class="keyword">const</font> <font class="keywordtype">char</font>* fileName)
+00047     <font class="keywordflow">throw</font> (ReadFileException*, FileFormatException*);
+00048 }; <font class="comment">// class DxfReader</font>
+00049 
+00050 <font class="preprocessor">#endif // ! DXF_READER_H</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

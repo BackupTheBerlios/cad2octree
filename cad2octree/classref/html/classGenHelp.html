@@ -1,0 +1,605 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>GenHelp Klassenreferenz</h1>Klasse, die Routinen enthält, die zum Generieren der Oktalbaumstruktur benötigt werden. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="gen__help_8h-source.html">gen_help.h</a>&gt;</code>
+<p>
+<a href="classGenHelp-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="classGenHelp.html#a0">GenHelp</a> (<a class="el" href="global_8h.html#a21">Hight</a> maxTreeHight, <a class="el" href="classPoint.html">Point</a> minPoint, <a class="el" href="classPoint.html">Point</a> maxPoint)  throw (NotEnoughMemoryException)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Konstruktor.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="global_8h.html#a17">Axis</a>&nbsp;</td><td valign=bottom><a class="el" href="classGenHelp.html#a1">bestAxis</a> (<a class="el" href="classNodeIndex.html">NodeIndex</a> current, <a class="el" href="classNodeIndex.html">NodeIndex</a> end, <a class="el" href="classNodeVec.html">NodeVec</a> line, <a class="el" href="node__vec_8h.html#a1">Direction</a> direction)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Achse, auf der weitergegangen werden muss, um die Ideallinie am besten zu aproximieren.</em> <a href="#a1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classPoint.html">Point</a>&nbsp;</td><td valign=bottom><a class="el" href="classGenHelp.html#a2">getCadPoint</a> (<a class="el" href="classGeomPoint.html">GeomPoint</a> p)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den zugehörigen <a class="el" href="classPoint.html">Point</a> des <a class="el" href="classCadModel.html">CadModel</a> zum <a class="el" href="classGeomPoint.html">GeomPoint</a> p.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td><td valign=bottom><a class="el" href="classGenHelp.html#a3">getGeomPoint</a> (<a class="el" href="classPoint.html">Point</a> p)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den zugehörigen <a class="el" href="classGeomPoint.html">GeomPoint</a> zum <a class="el" href="classPoint.html">Point</a> p des <a class="el" href="classCadModel.html">CadModel</a>.</em> <a href="#a3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classGenHelp.html#a4">getNodeIndex</a> (<a class="el" href="classPoint.html">Point</a> p)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den zugehörigen Knotenindex zum Punkt p.</em> <a href="#a4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classPolygon.html">Polygon</a>&nbsp;</td><td valign=bottom><a class="el" href="classGenHelp.html#a5">getPolygon</a> (<a class="el" href="classQuadrilateral.html">Quadrilateral</a> *q, <a class="el" href="classPolygon.html">Polygon</a> *&amp;t2)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert das zugehörige <a class="el" href="classPolygon.html">Polygon</a> zum <a class="el" href="classQuadrilateral.html">Quadrilateral</a> q.</em> <a href="#a5"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classPolygon.html">Polygon</a>&nbsp;</td><td valign=bottom><a class="el" href="classGenHelp.html#a6">getPolygon</a> (<a class="el" href="classTriangle.html">Triangle</a> *t)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert das zugehörige <a class="el" href="classPolygon.html">Polygon</a> zum <a class="el" href="classTriangle.html">Triangle</a> t.</em> <a href="#a6"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="global_8h.html#a16">Coordinate</a>&nbsp;</td><td valign=bottom><a class="el" href="classGenHelp.html#c0">getCadCoord</a> (<a class="el" href="classGeomPoint.html">GeomPoint</a> p, <a class="el" href="global_8h.html#a17">Axis</a> axis)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die zugehörige Koordinate im <a class="el" href="classCadModel.html">CadModel</a> zum Punkt p der Achse axis.</em> <a href="#c0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="global_8h.html#a16">Coordinate</a>&nbsp;</td><td valign=bottom><a class="el" href="classGenHelp.html#c1">getError</a> (<a class="el" href="classNodeVec.html">NodeVec</a> fromTestpoint, <a class="el" href="classNodeVec.html">NodeVec</a> line)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Abstand des Testpunktes zur Ideallinie.</em> <a href="#c1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="global_8h.html#a16">Coordinate</a>&nbsp;</td><td valign=bottom><a class="el" href="classGenHelp.html#c2">getGeomCoord</a> (<a class="el" href="classPoint.html">Point</a> p, <a class="el" href="global_8h.html#a17">Axis</a> axis)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die zugehörige geometrische Koordinate zum Punkt p der Achse axis.</em> <a href="#c2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="global_8h.html#a16">Coordinate</a>&nbsp;</td><td valign=bottom><a class="el" href="classGenHelp.html#c3">getMaxExtent</a> (<a class="el" href="classPoint.html">Point</a> <a class="el" href="classGenHelp.html#o1">min</a>, <a class="el" href="classPoint.html">Point</a> max)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den größten Abstand entlang einer Koordinatenachse zwischen den Punkten min und max.</em> <a href="#c3"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="o0" doxytag="GenHelp::density"></a>
+<a class="el" href="global_8h.html#a16">Coordinate</a>&nbsp;</td><td valign=bottom><a class="el" href="classGenHelp.html#o0">density</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Reziproke der Kantenlänge eines Oktalwürfels auf der untersten Ebene.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o1" doxytag="GenHelp::min"></a>
+<a class="el" href="classPoint.html">Point</a>&nbsp;</td><td valign=bottom><a class="el" href="classGenHelp.html#o1">min</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>unterer hinterer linker Punkt des vom Oktalbaum beschriebenen Areas</em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Klasse, die Routinen enthält, die zum Generieren der Oktalbaumstruktur benötigt werden.
+<p>
+Dies umfasst eine Konvertierungsfunktion: <a class="el" href="classPoint.html">Point</a> --&gt; <a class="el" href="classNodeIndex.html">NodeIndex</a> und Methoden zum Berechnen der nächsten zunehmenden Achse zur Linienaproximation basierend auf dem Cohem-Sutherland-Algorithmus (in leicht abgewandelter Form). 
+<p>
+<hr><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a name="a0" doxytag="GenHelp::GenHelp"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> GenHelp::GenHelp </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="global_8h.html#a21">Hight</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>maxTreeHight</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classPoint.html">Point</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>minPoint</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classPoint.html">Point</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>maxPoint</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2">  throw (<a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>)</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Konstruktor.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>maxTreeHight</em>&nbsp;</td><td>
+maximale Höhe des Oktalbaums </td></tr>
+<tr><td valign=top><em>minPoint</em>&nbsp;</td><td>
+unterer vorderer linker Punkt des umschließenden Quaders </td></tr>
+<tr><td valign=top><em>maxPoint</em>&nbsp;</td><td>
+oberer hinterer rechter Punkt des umschließenden Quaders </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+minPoint &lt;&lt; maxPoint </dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="a1" doxytag="GenHelp::bestAxis"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="global_8h.html#a17">Axis</a> GenHelp::bestAxis </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>current</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>end</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classNodeVec.html">NodeVec</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>line</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="node__vec_8h.html#a1">Direction</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>direction</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Achse, auf der weitergegangen werden muss, um die Ideallinie am besten zu aproximieren.
+<p>
+Falls direction für alle Achsen 0 ist (Start- und Endpunkt der Ideallinie sind gleich), wird die x-Achse zurückgeliefert. Ansonsten werden nur Achsen berücksichtigt für die direction ungleich 0 ist. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>current</em>&nbsp;</td><td>
+aktueller Punkt </td></tr>
+<tr><td valign=top><em>end</em>&nbsp;</td><td>
+End-Punkt </td></tr>
+<tr><td valign=top><em>line</em>&nbsp;</td><td>
+Vektor der Ideallinie </td></tr>
+<tr><td valign=top><em>direction</em>&nbsp;</td><td>
+Richtung der Ideallinie </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+die Achse, auf der am günstigen weitergegangen wird </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+current.getHight() = end.getHight() = line.getHight() </dl>    </td>
+  </tr>
+</table>
+<a name="c0" doxytag="GenHelp::getCadCoord"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="global_8h.html#a16">Coordinate</a> GenHelp::getCadCoord </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>p</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a17">Axis</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>axis</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die zugehörige Koordinate im <a class="el" href="classCadModel.html">CadModel</a> zum Punkt p der Achse axis.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Punkt als <a class="el" href="classGeomPoint.html">GeomPoint</a> </td></tr>
+<tr><td valign=top><em>axis</em>&nbsp;</td><td>
+Koordinaten-Achse </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Koordinate im <a class="el" href="classCadModel.html">CadModel</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a2" doxytag="GenHelp::getCadPoint"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classPoint.html">Point</a> GenHelp::getCadPoint </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>p</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den zugehörigen <a class="el" href="classPoint.html">Point</a> des <a class="el" href="classCadModel.html">CadModel</a> zum <a class="el" href="classGeomPoint.html">GeomPoint</a> p.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Punkt als <a class="el" href="classGeomPoint.html">GeomPoint</a> </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+<a class="el" href="classPoint.html">Point</a> des <a class="el" href="classCadModel.html">CadModel</a> </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+p.getHight() == BASE_NODE_HIGHT </dl>    </td>
+  </tr>
+</table>
+<a name="c1" doxytag="GenHelp::getError"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="global_8h.html#a16">Coordinate</a> GenHelp::getError </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classNodeVec.html">NodeVec</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>fromTestpoint</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classNodeVec.html">NodeVec</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>line</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Abstand des Testpunktes zur Ideallinie.
+<p>
+Je kleiner der Fehler, desto besser wird die Ideallinie aproximiert. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>fromTestpoint</em>&nbsp;</td><td>
+Strecke vom Testpunkt zum Endpunkt der <a class="el" href="classLine.html">Line</a> </td></tr>
+<tr><td valign=top><em>line</em>&nbsp;</td><td>
+Strecke vom Startpunkt zum Endpunkt der Ideallinie </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+vorzeichenloser Abstand zur Ideallinie </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+fromTestpoint.getHight() = line.getHight() </dl>    </td>
+  </tr>
+</table>
+<a name="c2" doxytag="GenHelp::getGeomCoord"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="global_8h.html#a16">Coordinate</a> GenHelp::getGeomCoord </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classPoint.html">Point</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>p</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a17">Axis</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>axis</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die zugehörige geometrische Koordinate zum Punkt p der Achse axis.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Punkt des <a class="el" href="classCadModel.html">CadModel</a> </td></tr>
+<tr><td valign=top><em>axis</em>&nbsp;</td><td>
+Koordinaten-Achse </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+geometrische Koordinate (entspr. real-wertigen Index) </dl>    </td>
+  </tr>
+</table>
+<a name="a3" doxytag="GenHelp::getGeomPoint"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classGeomPoint.html">GeomPoint</a> GenHelp::getGeomPoint </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classPoint.html">Point</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>p</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den zugehörigen <a class="el" href="classGeomPoint.html">GeomPoint</a> zum <a class="el" href="classPoint.html">Point</a> p des <a class="el" href="classCadModel.html">CadModel</a>.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Punkt des <a class="el" href="classCadModel.html">CadModel</a> </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+<a class="el" href="classGeomPoint.html">GeomPoint</a> </dl>    </td>
+  </tr>
+</table>
+<a name="c3" doxytag="GenHelp::getMaxExtent"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="global_8h.html#a16">Coordinate</a> GenHelp::getMaxExtent </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classPoint.html">Point</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>min</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classPoint.html">Point</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>max</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den größten Abstand entlang einer Koordinatenachse zwischen den Punkten min und max.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>min</em>&nbsp;</td><td>
+'kleiner' Punkt </td></tr>
+<tr><td valign=top><em>max</em>&nbsp;</td><td>
+'größerer' Punkt </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+min &lt;&lt; max </dl>    </td>
+  </tr>
+</table>
+<a name="a4" doxytag="GenHelp::getNodeIndex"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classNodeIndex.html">NodeIndex</a> GenHelp::getNodeIndex </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classPoint.html">Point</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>p</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den zugehörigen Knotenindex zum Punkt p.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Punkt des <a class="el" href="classCadModel.html">CadModel</a> </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Knoten-Index </dl>    </td>
+  </tr>
+</table>
+<a name="a6" doxytag="GenHelp::getPolygon"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classPolygon.html">Polygon</a> GenHelp::getPolygon </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classTriangle.html">Triangle</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>t</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert das zugehörige <a class="el" href="classPolygon.html">Polygon</a> zum <a class="el" href="classTriangle.html">Triangle</a> t.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>t</em>&nbsp;</td><td>
+Dreieck des <a class="el" href="classCadModel.html">CadModel</a> </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+<a class="el" href="classPolygon.html">Polygon</a> des Geometrie-Modells </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+t != NULL </dl>    </td>
+  </tr>
+</table>
+<a name="a5" doxytag="GenHelp::getPolygon"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classPolygon.html">Polygon</a> GenHelp::getPolygon </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classQuadrilateral.html">Quadrilateral</a> *&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>q</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classPolygon.html">Polygon</a> *&amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>t2</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert das zugehörige <a class="el" href="classPolygon.html">Polygon</a> zum <a class="el" href="classQuadrilateral.html">Quadrilateral</a> q.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>q</em>&nbsp;</td><td>
+Viereck des <a class="el" href="classCadModel.html">CadModel</a> </td></tr>
+<tr><td valign=top><em>t2</em>&nbsp;</td><td>
+Falls die 4 Punkte nicht in einer Ebene, wird in t2 das obere und als Rückgabewert das untere Dreieck zurückgegeben.  Liegen die vier Punkte in einer Ebene wird t2 auf NULL gesetzt. </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+<a class="el" href="classPolygon.html">Polygon</a> des Geometrie-Modells </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+q != NULL </dl>    </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="gen__help_8h-source.html">gen_help.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

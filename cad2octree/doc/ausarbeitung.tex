@@ -1,0 +1,40 @@
+% doc/ausarbeitung.tex
+% Hauptdatei
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035
+% "Erzeugung und Evaluierung von Oktalbaumstrukturen als Schnittstelle
+%   zu CAD-Programmen"
+%
+% Autor: Stefan Mahler 2002
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\documentclass[a4paper, pagesize, twoside, final]{scrbook}
+
+\usepackage{diplomtitel, ausarbeitung}
+
+\input{titledefs}
+
+\begin{document}
+
+\input{macros}
+
+\Titelblatt
+
+\frontmatter
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+\sloppy
+
+\input{mainbody}
+
+\cleardoublepage
+\pagestyle{empty}%% <<== fuer "normales" Dokument evtl. entfernen
+\Versicherung
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,23 @@
+Benchmarks 06.10.2002 auf v0.0.6b
+
+P(III)M 1000, 256MB RAM, 1GB swap, SuSE Linux 8.0, g++ -O3
+
+isNullVec sqrLength() < 0.81, isInPlane det/areaABC < 0.75
+
+				d= 7		d= 8		d= 9		d= 10
+"Schrafieren"
+wuerfel.dxf			2.5M/2s		12M/7s		50M/32s		197M/2:24
+2_kugeln_poly_u_nurbs.dxf	1.5M/2s		5.7M/9s		17M/36s		65M/3:04
+ship.dxf			1.3M/1s		1.5M/2s		3.5M/12s	21M/1:02
+
+				d= 7		d= 8		d= 9		d= 10
+isIn angle / isPlan det
+wuerfel.dxf			1.6M/6s		3.2M/30s	50M/2:45	197M/10:21
+2_kugeln_poly_u_nurbs.dxf	1.9M/22s	5.3M/1:00	18M/3:02	98M/9:42
+ship.dxf			2.3M/31s	2.9M/56s	6.0M/2:09	26M/5:31
+
+				d= 7		d= 8		d= 9		d= 10
+isIn angle / isPlan getFootpoint
+wuerfel.dxf			1.6M/7s		3.3M/36s	50M/2:32	196M/10:36
+2_kugeln_poly_u_nurbs.dxf	2.0M/28s	5.2M/1:16	20M/3:29	81M/11:03
+ship.dxf			2.4M/39s	3.1M/1:12	5.3M/2:27	33M/6:04

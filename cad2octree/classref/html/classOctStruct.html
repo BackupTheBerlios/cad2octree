@@ -1,0 +1,1166 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>OctStruct Klassenreferenz</h1>Oktalbaumstruktur. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="oct__struct_8h-source.html">oct_struct.h</a>&gt;</code>
+<p>
+<p>Klassendiagramm für OctStruct:
+<p><center><img src="classOctStruct.png" usemap="#OctStruct_map" border="0"></center>
+<map name="OctStruct_map">
+<area href="classIndexOct.html" alt="IndexOct" shape="rect" coords="0,56,65,80">
+<area href="classPotWriter.html" alt="PotWriter" shape="rect" coords="75,56,140,80">
+</map>
+<a href="classOctStruct-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Typen</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="s0" doxytag="OctStruct::_octree"></a>
+typedef <a class="el" href="structOctStruct_1_1Node.html">Node</a> *&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#s0">_octree</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Oktalbaumstruktur-Typ.</em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#a0">clear</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Löscht die Oktalbaumstruktur.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#a1">empty</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ist die Oktalbaumstruktur leer?</em> <a href="#a1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#a2">flush</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gewährleistet, dass die Oktalbaumstruktur minimiert ist.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#a3">getMaxColor</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den höchsten Farbwert zurück, den die Oktalbaumblätter enthalten.</em> <a href="#a3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>size_t&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#a4">getNodeSize</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Größe eines Knotens im Speicher in Bytes.</em> <a href="#a4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classOctStruct.html#s0">_octree</a> &amp;&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#a5">getTree</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Oktalbaumstruktur.</em> <a href="#a5"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a6" doxytag="OctStruct::print"></a>
+void&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#a6">print</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gibt den Oktalbaum auf der Konsole aus.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#a7">stat</a> (<a class="el" href="global_8h.html#a21">Hight</a> h, unsigned &amp;sumNodes, unsigned &amp;leafs, unsigned &amp;innerNodes, unsigned &amp;borderNodes, unsigned &amp;normCells)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Statistik über das Modell.</em> <a href="#a7"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Geschützte Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#b0">OctStruct</a> ()  throw (NotEnoughMemoryException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Default-Konstruktor.</em> <a href="#b0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classOctStruct.html#s0">_octree</a>&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#b1">createLeafs</a> ()  throw (NotEnoughMemoryException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Erzeugt ein neue Oktalbaumstruktur mit OCT_PARTS Blättern, die zu keinem Körper gehören.</em> <a href="#b1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classOctStruct.html#s0">_octree</a>&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#b2">createOneLeaf</a> ()  throw (NotEnoughMemoryException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Erzeugt ein Blattknoten, der zu keinem Körper gehören.</em> <a href="#b2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#b3">exist</a> (<a class="el" href="classOctStruct.html#s0">_octree</a> tree)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gibt es tree?</em> <a href="#b3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classOctStruct.html#s0">_octree</a>&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#b4">getChild</a> (<a class="el" href="classOctStruct.html#s0">_octree</a> parent, <a class="el" href="oct__struct_8h.html#a0">PartType</a> i)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Zeiger auf die i-te direkte Unterpartition.</em> <a href="#b4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#b5">getColor</a> (<a class="el" href="structOctStruct_1_1Node.html">Node</a> node)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Farbe eines Blattknotens.</em> <a href="#b5"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#b6">isLeaf</a> (<a class="el" href="structOctStruct_1_1Node.html">Node</a> node)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ist der Knoten node ein Blatt?</em> <a href="#b6"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#b7">isNoObject</a> (<a class="el" href="structOctStruct_1_1Node.html">Node</a> node)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gehört der Knoten zu keinem Körper?</em> <a href="#b7"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#b8">isUndefObj</a> (<a class="el" href="structOctStruct_1_1Node.html">Node</a> node)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ist undefiniert, ob der Knoten zu einem / zu welchem Körper gehört?</em> <a href="#b8"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#b9">remove</a> (<a class="el" href="classOctStruct.html#s0">_octree</a> &amp;subtree)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Löscht die Teil-Oktalbaumstruktur und gibt den Speicher wieder frei.</em> <a href="#b9"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#b10">setColor</a> (<a class="el" href="structOctStruct_1_1Node.html">Node</a> &amp;node, <a class="el" href="global_8h.html#a23">Color</a> color)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Setzt die Farbe des Blatts.</em> <a href="#b10"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#b11">setTree</a> (<a class="el" href="classOctStruct.html#s0">_octree</a> &amp;tree)  throw (NotEnoughMemoryException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ersetzt die Oktalbaumstruktur durch tree.</em> <a href="#b11"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Geschützte Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="n0" doxytag="OctStruct::countBorderNodes"></a>
+unsigned&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#n0">countBorderNodes</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Anzahl der eingef"ugten Randknoten.</em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#c0">canCompact</a> (<a class="el" href="structOctStruct_1_1Node.html">Node</a> node, <a class="el" href="global_8h.html#a23">Color</a> &amp;color)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Überprüft, ob sich die direkten Unterpartitionen zusammenfassen lassen.</em> <a href="#c0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#c1">compact</a> (<a class="el" href="structOctStruct_1_1Node.html">Node</a> &amp;node)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Minimiert den gesamten Baum, der sich unter node befindet, indem Unterpartitionen mit gleicher Farbe zusammengefasst werden.</em> <a href="#c1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#c2">compact</a> (<a class="el" href="structOctStruct_1_1Node.html">Node</a> &amp;node, <a class="el" href="global_8h.html#a23">Color</a> color)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Kompaktisiert den Knoten node zu einem Blatt der Farbe color.</em> <a href="#c2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#c3">printTree</a> (<a class="el" href="structOctStruct_1_1Node.html">Node</a> node)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gibt den Oktalbaum, der sich node befindet (incl.</em> <a href="#c3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#c4">setLeaf</a> (<a class="el" href="structOctStruct_1_1Node.html">Node</a> &amp;node)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Definiert node als Blattknoten.</em> <a href="#c4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#c5">stat</a> (<a class="el" href="classOctStruct.html#s0">_octree</a> tree, <a class="el" href="global_8h.html#a21">Hight</a> h, unsigned &amp;sumNodes, unsigned &amp;leafs, unsigned &amp;innerNodes, unsigned &amp;normCells)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Traversiert über den Oktalbaum, um die Statistik für das Modell zu ermitteln.</em> <a href="#c5"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classOctStruct.html#s0">_octree</a>&nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html#o0">root</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Adresse des Wurzelknotens der Oktalbaumstruktur.</em> <a href="#o0"></a><em></em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Oktalbaumstruktur.
+<p>
+Unterste Schicht. Stellt Low-Level-Operationen für die Oktalbaumsturktur zur Verfügung. 
+<p>
+<hr><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a name="b0" doxytag="OctStruct::OctStruct"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> OctStruct::OctStruct </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (<a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*)<code> [protected]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Default-Konstruktor.
+<p>
+Erzeugt einen neuen leeren Oktalbaum. <dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a></em>&nbsp;</td><td>
+ Nicht genügend Speicher, um die neue Oktalbaumstruktur zu allozieren. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="c0" doxytag="OctStruct::canCompact"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool OctStruct::canCompact </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structOctStruct_1_1Node.html">Node</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>node</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a23">Color</a> &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>color</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Überprüft, ob sich die direkten Unterpartitionen zusammenfassen lassen.
+<p>
+In die Überprüfung werden nur die direkten Kinderknoten einbezogen. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>node</em>&nbsp;</td><td>
+Knoten </td></tr>
+<tr><td valign=top><em>color</em>&nbsp;</td><td>
+Farbe aller Unterpartitionen, wenn alle die gleiche Farbe  haben. Undefiniert, falls sich die direkten Unterpartitionen  nicht zusammenfassen lassen. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a0" doxytag="OctStruct::clear"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctStruct::clear </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Löscht die Oktalbaumstruktur.
+<p>
+Gibt den für den Oktalbaum eventuell allozierten Speicher wieder frei und definiert den Wurzelknoten als Blatt, welches zu keinem Körper gehört.     </td>
+  </tr>
+</table>
+<a name="c2" doxytag="OctStruct::compact"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctStruct::compact </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structOctStruct_1_1Node.html">Node</a> &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>node</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>color</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Kompaktisiert den Knoten node zu einem Blatt der Farbe color.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>node</em>&nbsp;</td><td>
+Knoten </td></tr>
+<tr><td valign=top><em>color</em>&nbsp;</td><td>
+Farbe </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="c1" doxytag="OctStruct::compact"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctStruct::compact </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structOctStruct_1_1Node.html">Node</a> &amp;&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>node</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Minimiert den gesamten Baum, der sich unter node befindet, indem Unterpartitionen mit gleicher Farbe zusammengefasst werden.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>node</em>&nbsp;</td><td>
+Knoten </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="b1" doxytag="OctStruct::createLeafs"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classOctStruct.html#s0">_octree</a> OctStruct::createLeafs </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (<a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*)<code> [protected]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Erzeugt ein neue Oktalbaumstruktur mit OCT_PARTS Blättern, die zu keinem Körper gehören.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+neue Oktalbaumstruktur </dl><dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a></em>&nbsp;</td><td>
+ Nicht genügend Speicher, um die neue Oktalbaumstruktur zu allozieren. </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Nachbedingung: </b><dd>
+<code>return</code> != NULL </dl>    </td>
+  </tr>
+</table>
+<a name="b2" doxytag="OctStruct::createOneLeaf"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classOctStruct.html#s0">_octree</a> OctStruct::createOneLeaf </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (<a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*)<code> [protected]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Erzeugt ein Blattknoten, der zu keinem Körper gehören.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+neuer Blattknoten </dl><dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a></em>&nbsp;</td><td>
+ Nicht genügend Speicher, um den neuen Blattknoten zu allozieren. </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Nachbedingung: </b><dd>
+<code>return</code> != NULL </dl>    </td>
+  </tr>
+</table>
+<a name="a1" doxytag="OctStruct::empty"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool OctStruct::empty </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ist die Oktalbaumstruktur leer?
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+<em>true</em>, falls nach einem <a class="el" href="classOctStruct.html#a2">flush</a>() der Wurzelknoten ein Blatt ist, welches zu keinem Körper gehört.<br>
+ <em>false</em>, ansonsten </dl>    </td>
+  </tr>
+</table>
+<a name="b3" doxytag="OctStruct::exist"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool OctStruct::exist </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classOctStruct.html#s0">_octree</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>tree</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [protected]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Gibt es tree?
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+tree != NULL </dl>    </td>
+  </tr>
+</table>
+<a name="a2" doxytag="OctStruct::flush"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctStruct::flush </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Gewährleistet, dass die Oktalbaumstruktur minimiert ist.
+<p>
+Sugessive: Falls ein Knoten nur Blätter gleicher Farbe enthält, werden die Blätter gelöscht. Der Knoten wird zum Blatt und übernimmt die Farbe seiner Blätter.     </td>
+  </tr>
+</table>
+<a name="b4" doxytag="OctStruct::getChild"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classOctStruct.html#s0">_octree</a> OctStruct::getChild </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classOctStruct.html#s0">_octree</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="oct__struct_8h.html#a0">PartType</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>i</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [protected]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Zeiger auf die i-te direkte Unterpartition.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>parent</em>&nbsp;</td><td>
+Baum-Vaterknoten </td></tr>
+<tr><td valign=top><em>i</em>&nbsp;</td><td>
+Nr. der Unterpartition </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Zeiger auf den i-ten Kindsknoten </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+exist(parent) <dd>
+!isLeaf(*parent) </dl>    </td>
+  </tr>
+</table>
+<a name="b5" doxytag="OctStruct::getColor"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="global_8h.html#a23">Color</a> OctStruct::getColor </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structOctStruct_1_1Node.html">Node</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>node</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [protected]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Farbe eines Blattknotens.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>node</em>&nbsp;</td><td>
+Blattknoten </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Farbe des Blattknotens </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+isLeaf(node) </dl>    </td>
+  </tr>
+</table>
+<a name="a3" doxytag="OctStruct::getMaxColor"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="global_8h.html#a23">Color</a> OctStruct::getMaxColor </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den höchsten Farbwert zurück, den die Oktalbaumblätter enthalten.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+\f{ \max_{ {\mbox{node}\ \in \ \mbox{OctStruct}\ |\  \mbox{isLeaf(node)} } } {\mbox{getColor(node)} } \f} </dl>    </td>
+  </tr>
+</table>
+<a name="a4" doxytag="OctStruct::getNodeSize"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> size_t OctStruct::getNodeSize </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Größe eines Knotens im Speicher in Bytes.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+von einem Knoten belegter Speicher / Bytes </dl>    </td>
+  </tr>
+</table>
+<a name="a5" doxytag="OctStruct::getTree"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classOctStruct.html#s0">_octree</a>&amp; OctStruct::getTree </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Oktalbaumstruktur.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+Adresse des Wurzelknotens der Oktalbaumstruktur. </dl>    </td>
+  </tr>
+</table>
+<a name="b6" doxytag="OctStruct::isLeaf"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool OctStruct::isLeaf </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structOctStruct_1_1Node.html">Node</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>node</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [protected]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ist der Knoten node ein Blatt?
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+true, falls node ein Blatt ist.<br>
+ false, falls node ein innerer Knoten ist. </dl>    </td>
+  </tr>
+</table>
+<a name="b7" doxytag="OctStruct::isNoObject"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool OctStruct::isNoObject </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structOctStruct_1_1Node.html">Node</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>node</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [protected]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Gehört der Knoten zu keinem Körper?
+<p>
+<dl compact><dt><b>
+Vorbedingung: </b><dd>
+isLeaf(node) return getColor(node) == NO_OBJECT </dl>    </td>
+  </tr>
+</table>
+<a name="b8" doxytag="OctStruct::isUndefObj"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool OctStruct::isUndefObj </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structOctStruct_1_1Node.html">Node</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>node</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [protected]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ist undefiniert, ob der Knoten zu einem / zu welchem Körper gehört?
+<p>
+<dl compact><dt><b>
+Vorbedingung: </b><dd>
+isLeaf(node) return getColor(node) == UNDEF_OBJ </dl>    </td>
+  </tr>
+</table>
+<a name="c3" doxytag="OctStruct::printTree"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctStruct::printTree </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structOctStruct_1_1Node.html">Node</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>node</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Gibt den Oktalbaum, der sich node befindet (incl.
+<p>
+node) auf dem Bildschirm aus. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>node</em>&nbsp;</td><td>
+Knoten </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="b9" doxytag="OctStruct::remove"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctStruct::remove </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classOctStruct.html#s0">_octree</a> &amp;&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>subtree</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [protected]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Löscht die Teil-Oktalbaumstruktur und gibt den Speicher wieder frei.
+<p>
+Tut nichts, falls subtree == NULL. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>subtree</em>&nbsp;</td><td>
+Teil-Oktalbaumstruktur </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="b10" doxytag="OctStruct::setColor"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctStruct::setColor </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structOctStruct_1_1Node.html">Node</a> &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>node</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>color</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [protected]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Setzt die Farbe des Blatts.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>node</em>&nbsp;</td><td>
+Blattknoten </td></tr>
+<tr><td valign=top><em>color</em>&nbsp;</td><td>
+Blattfarbe </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+isLeaf(node); <dd>
+color &gt;= NO_OBJECT </dl>    </td>
+  </tr>
+</table>
+<a name="c4" doxytag="OctStruct::setLeaf"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctStruct::setLeaf </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structOctStruct_1_1Node.html">Node</a> &amp;&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>node</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Definiert node als Blattknoten.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>node</em>&nbsp;</td><td>
+Knoten  </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Zu beachten: </b><dd>
+Für Unterpartitionen eventuell allozierter Speicher wird nictht wieder freigegeben. </dl>    </td>
+  </tr>
+</table>
+<a name="b11" doxytag="OctStruct::setTree"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctStruct::setTree </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classOctStruct.html#s0">_octree</a> &amp;&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>tree</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (<a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*)<code> [protected]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ersetzt die Oktalbaumstruktur durch tree.
+<p>
+Zum Freigeben des Speichers, der durch die alte Oktalbaumstruktur belegt ist, muss explizit <a class="el" href="classOctStruct.html#a0">clear</a>() aufgerufen werden. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>tree</em>&nbsp;</td><td>
+neue Oktalbaumstruktur </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a></em>&nbsp;</td><td>
+ Nicht genügend Speicher, um die neue Oktalbaumstruktur zu allozieren. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="c5" doxytag="OctStruct::stat"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctStruct::stat </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classOctStruct.html#s0">_octree</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>tree</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a21">Hight</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>h</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>unsigned &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>sumNodes</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>unsigned &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>leafs</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>unsigned &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>innerNodes</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>unsigned &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>normCells</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Traversiert über den Oktalbaum, um die Statistik für das Modell zu ermitteln.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>tree</em>&nbsp;</td><td>
+Oktal(teil)baum </td></tr>
+<tr><td valign=top><em>h</em>&nbsp;</td><td>
+(Teil)Baumhöhe </td></tr>
+<tr><td valign=top><em>sumNodes</em>&nbsp;</td><td>
+Anzahl aller Oktalbaum-Knoten </td></tr>
+<tr><td valign=top><em>leafs</em>&nbsp;</td><td>
+Anzahl der Blätter </td></tr>
+<tr><td valign=top><em>innerNodes</em>&nbsp;</td><td>
+Anzahl der inneren Knoten </td></tr>
+<tr><td valign=top><em>normCells</em>&nbsp;</td><td>
+Anzahl der Normzellen der Geometrie (unterste Ebene) </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a7" doxytag="OctStruct::stat"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctStruct::stat </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="global_8h.html#a21">Hight</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>h</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>unsigned &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>sumNodes</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>unsigned &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>leafs</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>unsigned &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>innerNodes</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>unsigned &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>borderNodes</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>unsigned &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>normCells</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Statistik über das Modell.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>h</em>&nbsp;</td><td>
+Baumhöhe </td></tr>
+<tr><td valign=top><em>sumNodes</em>&nbsp;</td><td>
+Anzahl aller Oktalbaum-Knoten </td></tr>
+<tr><td valign=top><em>leafs</em>&nbsp;</td><td>
+Anzahl der Blätter </td></tr>
+<tr><td valign=top><em>borderNodes</em>&nbsp;</td><td>
+Anzahl der Randknoten der Geometrie </td></tr>
+<tr><td valign=top><em>innerNodes</em>&nbsp;</td><td>
+Anzahl der inneren Knoten </td></tr>
+<tr><td valign=top><em>normCells</em>&nbsp;</td><td>
+Anzahl der Normzellen der Geometrie (unterste Ebene) </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Datenelemente</h2>
+<a name="o0" doxytag="OctStruct::root"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classOctStruct.html#s0">_octree</a> OctStruct::root<code> [private]</code>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Adresse des Wurzelknotens der Oktalbaumstruktur.
+<p>
+<dl compact><dt><b>
+Invariant: </b><dd>
+root != NULL </dl>    </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="oct__struct_8h-source.html">oct_struct.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

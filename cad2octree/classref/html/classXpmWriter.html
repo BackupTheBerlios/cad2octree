@@ -1,0 +1,467 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>XpmWriter Klassenreferenz</h1>Konkreter <a class="el" href="classWriter.html">Writer</a> für das XPM-Format. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="xpm__writer_8h-source.html">xpm_writer.h</a>&gt;</code>
+<p>
+<p>Klassendiagramm für XpmWriter:
+<p><center><img src="classXpmWriter.png" usemap="#XpmWriter_map" border="0"></center>
+<map name="XpmWriter_map">
+<area href="classWriter.html" alt="Writer" shape="rect" coords="0,0,71,24">
+</map>
+<a href="classXpmWriter-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#a0">XpmWriter</a> (const char *<a class="el" href="classXpmWriter.html#o1">fileName</a>)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Konstruktor.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a1" doxytag="XpmWriter::~XpmWriter"></a>
+virtual&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#a1">~XpmWriter</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Destruktor.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual const char *&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#a2">getFormatName</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Namen Formats.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual const <a class="el" href="classWriter.html#s2">FormatType</a>&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#a3">getFormatType</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Format-Typ.</em> <a href="#a3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#a4">writeFile</a> (<a class="el" href="classIndexOct.html">IndexOct</a> *tree)  throw (WriteFileException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Schreibt "Schnitte durch die Oktalbaumstruktur" in XPM-Dateien.</em> <a href="#a4"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>char&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#c0">getColorChar</a> (<a class="el" href="node__index_8h.html#a2">AxIndex</a> h, <a class="el" href="node__index_8h.html#a2">AxIndex</a> i[2])</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert das Farbzeichen.</em> <a href="#c0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>const char *&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#c1">getFileName</a> (int number)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den vollständigen Namen der zu schreibenden Datei mit der Nummer number.</em> <a href="#c1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#c2">getWidth</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Breite der zu schreibenden XPM-Datei.</em> <a href="#c2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#c3">write</a> (char colorChar)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Schreibt den Farbcode colorChar in die Ausgabedatei.</em> <a href="#c3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="c4" doxytag="XpmWriter::writeFooter"></a>
+void&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#c4">writeFooter</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Schreibt den Teil der XPM-Datei, der sich hinter der Voxeltabelle befindet.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#c5">writeHeader</a> (int number)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Schreibt den Dateikopf.</em> <a href="#c5"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="c6" doxytag="XpmWriter::writeLineBegin"></a>
+void&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#c6">writeLineBegin</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Schreibt den Zeilenanfang.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#c7">writeLineEnd</a> (bool isLast)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Schreibt das Zeilenende.</em> <a href="#c7"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="o0" doxytag="XpmWriter::extension"></a>
+const char *&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#o0">extension</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Verwendete Dateierweiterung.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o1" doxytag="XpmWriter::fileName"></a>
+const char *&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#o1">fileName</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Namenstamm der Ausgabedatei ohne Erweiterung.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o2" doxytag="XpmWriter::octree"></a>
+<a class="el" href="classIndexOct.html">IndexOct</a> *&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#o2">octree</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Oktalbaum.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o3" doxytag="XpmWriter::out"></a>
+ofstream&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#o3">out</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ausgabestream.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o4" doxytag="XpmWriter::sectAxis"></a>
+<a class="el" href="global_8h.html#a17">Axis</a>&nbsp;</td><td valign=bottom><a class="el" href="classXpmWriter.html#o4">sectAxis</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Achse, entlang welcher die Schnitte erfolgen.</em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Konkreter <a class="el" href="classWriter.html">Writer</a> für das XPM-Format.
+<p>
+<hr><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a name="a0" doxytag="XpmWriter::XpmWriter"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> XpmWriter::XpmWriter </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>fileName</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Konstruktor.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>fileName</em>&nbsp;</td><td>
+Namensstamm der XPM-Datei. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="c0" doxytag="XpmWriter::getColorChar"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> char XpmWriter::getColorChar </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>h</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>i</em>[2]</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert das Farbzeichen.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>h</em>&nbsp;</td><td>
+Koordinate der Schnittachse </td></tr>
+<tr><td valign=top><em>i</em>&nbsp;</td><td>
+Koordinaten der anderen beiden Schnittachse </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Farbcode der Normzelle (h; i) </dl>    </td>
+  </tr>
+</table>
+<a name="c1" doxytag="XpmWriter::getFileName"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> const char* XpmWriter::getFileName </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>number</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den vollständigen Namen der zu schreibenden Datei mit der Nummer number.
+<p>
+Der Dateiname wird wiefolgt gebildet:<br>
+ \t &lt;Namenstamm der Ausgabedatei&gt;_&lt;number&gt;.&lt;Dateierweiterung&gt; <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>number</em>&nbsp;</td><td>
+Lfd. Nr.; entspricht Höhenzahl der Schnittachse </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a2" doxytag="XpmWriter::getFormatName"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual const char* XpmWriter::getFormatName </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Namen Formats.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+"XPM" </dl>
+<p>
+Implementiert <a class="el" href="classWriter.html#a0">Writer</a>.    </td>
+  </tr>
+</table>
+<a name="a3" doxytag="XpmWriter::getFormatType"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual const <a class="el" href="classWriter.html#s2">FormatType</a> XpmWriter::getFormatType </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Format-Typ.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+<a class="el" href="classWriter.html#s2s1">Writer::XPM</a> </dl>
+<p>
+Implementiert <a class="el" href="classWriter.html#a1">Writer</a>.    </td>
+  </tr>
+</table>
+<a name="c2" doxytag="XpmWriter::getWidth"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="node__index_8h.html#a2">AxIndex</a> XpmWriter::getWidth </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Breite der zu schreibenden XPM-Datei.
+<p>
+Entspricht der Anzahl der unterliegenden Normzellen in eine Achsrichtung des Oktalbaums auf tiefster Ebene. <dl compact><dt><b>
+Rückgabe: </b><dd>
+Bild-Breite </dl>    </td>
+  </tr>
+</table>
+<a name="c3" doxytag="XpmWriter::write"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void XpmWriter::write </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">char&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>colorChar</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Schreibt den Farbcode colorChar in die Ausgabedatei.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>colorChar</em>&nbsp;</td><td>
+zu schreibender Farbcode </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a4" doxytag="XpmWriter::writeFile"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void XpmWriter::writeFile </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classIndexOct.html">IndexOct</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>tree</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (WriteFileException*)<code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Schreibt "Schnitte durch die Oktalbaumstruktur" in XPM-Dateien.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>tree</em>&nbsp;</td><td>
+zu verwendeter Oktalbaum </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>WriteFileException</em>&nbsp;</td><td>
+ Dateischreibefehler </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+DIMENSIONS == 3 </dl>
+<p>
+Implementiert <a class="el" href="classWriter.html#a2">Writer</a>.    </td>
+  </tr>
+</table>
+<a name="c5" doxytag="XpmWriter::writeHeader"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void XpmWriter::writeHeader </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>number</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Schreibt den Dateikopf.
+<p>
+Dies umfasst den Teil bis zur Voxeltablle, also XPM-Kennung und Farbdefinitionen. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>number</em>&nbsp;</td><td>
+Dagteinummer; entspricht Höhenzahl der Schnittachse </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="c7" doxytag="XpmWriter::writeLineEnd"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void XpmWriter::writeLineEnd </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">bool&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>isLast</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Schreibt das Zeilenende.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>isLast</em>&nbsp;</td><td>
+Ob es die letzte Voxelzeile ist. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="xpm__writer_8h-source.html">xpm_writer.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:52 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

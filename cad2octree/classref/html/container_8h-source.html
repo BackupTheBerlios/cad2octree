@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>container.h</h1><a href="container_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00011 <font class="preprocessor">#ifndef __CONTAINER_H__</font>
+00012 <font class="preprocessor"></font><font class="preprocessor">#define __CONTAINER_H__</font>
+00013 <font class="preprocessor"></font>
+00014 <font class="preprocessor">#include &lt;<a class="code" href="exception_8h.html">exception.h</a>&gt;</font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="face_8h.html">cad/objects/face.h</a>&gt;</font>
+00016 
+<a name="l00020"></a><a class="code" href="container_8h.html#a0">00020</a> <font class="keyword">typedef</font> <a class="code" href="classFace.html">Face</a>* <a class="code" href="classFace.html">Element</a>;
+00021 
+<a name="l00025"></a><a class="code" href="classContainer.html">00025</a> <font class="keyword">class </font><a class="code" href="classContainer.html">Container</a> {
+00026  <font class="keyword">public</font>:
+00027   <font class="comment">// ##### Exceptions ################################################</font>
+<a name="l00032"></a><a class="code" href="classContainer_1_1OutOfModelException.html">00032</a> <font class="comment"></font>  <font class="keyword">class </font><a class="code" href="classContainer_1_1OutOfModelException.html">OutOfModelException</a> : <a class="code" href="classException.html">Exception</a> {
+00033   <font class="keyword">public</font>:
+<a name="l00037"></a><a class="code" href="classContainer_1_1OutOfModelException.html#a0">00037</a>     <a class="code" href="classContainer_1_1OutOfModelException.html#a0">OutOfModelException</a>() : <a class="code" href="classException.html">Exception</a>("Access out of <a class="code" href="classCadModel.html">CadModel</a>-<a class="code" href="classContainer.html">Container</a>") {}
+00038   };
+00039 
+00040   <font class="comment">// ##### Container #################################################</font>
+00046 <font class="comment"></font>  <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classContainer.html#a0">add</a>(Element object)= 0;
+00047 
+00052   <font class="keyword">virtual</font> <font class="keywordtype">unsigned</font> <a class="code" href="classContainer.html#a1">count</a>()= 0;
+00053 
+00059   <font class="keyword">virtual</font> <font class="keywordtype">bool</font> <a class="code" href="classContainer.html#a2">empty</a>()= 0;
+00060 
+00068   <font class="keyword">virtual</font> <font class="keywordtype">bool</font> <a class="code" href="classContainer.html#a3">exist</a>(Element object)= 0;
+00069 
+00076   <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classContainer.html#a4">first</a>()= 0;
+00077 
+00084   <font class="keyword">virtual</font> <a class="code" href="classCadObject.html">CadObject</a>* <a class="code" href="classContainer.html#a5">getObject</a>() <font class="keywordflow">throw</font> (OutOfModelException*)= 0;
+00085 
+00092   <font class="keyword">virtual</font> <font class="keywordtype">bool</font> <a class="code" href="classContainer.html#a6">hasObject</a>()= 0;
+00093 
+00099   <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classContainer.html#a7">next</a>() <font class="keywordflow">throw</font> (OutOfModelException*)= 0;
+00100 
+00104   <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classContainer.html#a8">print</a>()= 0;
+00105 
+00106 }; <font class="comment">// class Container</font>
+00107 
+00108 <font class="preprocessor">#endif // ! __CONTAINER_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

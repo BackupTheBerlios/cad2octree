@@ -1,0 +1,188 @@
+% doc/impl/test.tex
+% Leistungstest (verwendete Modelle, Testumgebung, Testresultate)
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%   
+% Autor: Stefan Mahler 2002
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\section{Leistungstest}
+\label{leistungstest}
+Wie bereits im letzten Abschnitt erl"autert wurde, sind in \emph{cad2octree} 
+verschiedene Verfahren zur Oktalbaumgenerierung implementiert worden. 
+Diese Verfahren wurden mit Hilfe von unterschiedlichen Modellen (vgl. 
+Abschnitt \ref{models}) auf den im Abschnitt \ref{testenv} beschriebenen 
+Systemen ausgef"uhrt. Die Ergebnisse (insbesondere Laufzeit- und 
+Speicherbedarf-Vergleiche) sind in Abschnitt \ref{test_results} aufgelistet. 
+
+\subsection{Verwendete Modelle}
+\label{models}
+Die verwendeten Oberfl"achenmodelle lassen sich in zwei Gruppen unterteilen. 
+W"ahrend die Modelle der ersten Gruppe nur glatte Oberfl"achen besitzen, 
+wurden bei den Modellen der zweiten Gruppe auch (oder ausschlie"slich) 
+kubische B-Spline-Fl"achen eingesetzt. 
+
+Zur Erzeugung der Oberfl"achenmodelle im DXF-Format wurde ausschlie"slich 
+Maya Unlimited 4.0 von Alias|Wavefront 
+eingesetzt. 
+
+Die (Datei-)Namen der Modelle werden ohne die Erweiterung \emph{.dxf} 
+angegeben. Abk"urzend wird f"ur \emph{2\_kugeln\_nurbs\_u\_poly.dxf} nur 
+\emph{2\_kugeln} geschrieben. 
+
+\subsubsection{Modelle mit polygonaler Oberfl"ache}
+\label{models_plane}
+In Tabelle \ref{tbl_models_plane} sind die verwendeten Modelle mit 
+ausschlie"slich glatten Oberfl"achen aufgelistet.
+
+\tabbeg
+\newcounter{piccount}
+\newcommand\picref{
+    \stepcounter{piccount}\ref{abb_models_plane} \alph{piccount})}
+\newcommand\myitem[7]{\hline \emph{#1} & {\hfill #2} & {\hfill #3} & 
+    {\hfill #4} & {\hfill #5} & {\hfill #6} & {\hfill #7}}
+\begin{tabularx}{\linewidth}{|l|c|X|X|c|X|c|}
+\hline
+\bf\emph{Modell} & \bf bungalow & \bf {\hfil gear} & \bf {\hfil gear2} 
+    & \bf kugel\_poly & \bf {\hfil ship} & \bf wuerfel \\
+\myitem{\# Vertices}{1 200}{1 440}{9 940}{1 560}{3 712}{24}\\
+\myitem{\# Dreiecke}{  200}{    0}{  100}{   40}{    0}{ 0}\\
+\myitem{\# Vierecke}{  150}{  360}{2 410}{  360}{  928}{ 6}\\
+\myitem{Dateigr"o"se [kB]}{104}{114}{738}{104}{270}{2}\\
+\myitem{Abbildung}{\picref}{\picref}{\picref}{\picref}{\picref}{\picref}\\
+\hline
+\end{tabularx}
+\tabend{tbl_models_plane}{Modelle mit polygonaler Oberfl"ache}
+
+\begin{figure}
+\begin{center}
+\setcounter{piccount}{0}
+\newcommand*\picname[1]{\stepcounter{piccount}\alph{piccount}) \emph{#1}}
+\newcommand\mypics[4]{\extpic{#1}  & & \extpic{#3} \\ 
+		      \picname{#2} & & \picname{#4} \\}
+\begin{tabular}{cp{0.5cm}c}
+    \mypics{bungalow}{bungalow}{gear}{gear} \\ 
+    \mypics{gear2}{gear2}{kugel_poly}{kugel\_poly} \\
+    \mypics{ship}{ship}{wuerfel}{wuerfel}
+\end{tabular}
+\caption{Modelle mit polygonaler Oberfl"ache}
+\label{abb_models_plane}
+\end{center}
+\end{figure}
+
+\begin{description}
+\item[bungalow] Modell eines kleinen Gartenshauses. Die einzelnen Bauteile 
+    wie Decke, Boden, W"ande, St"utzpfeiler und Fensterrahmen wurden als 
+    separate Teile modelliert. 
+\item[gear] Modell eines einzelnen Zahnrads. Das Zahnrad enth"alt in der Mitte 
+    eine Bohrung. 
+\item[gear2] In der Mitte des Modells befindet sich ein Sonnenritzel  
+    (ohne Bohrung), um welches sich innerhalb des Planetentr"agers 
+    $4$ Planeten um das Sonnenritzel drehen. Unter den getesteten Modellen 
+    mit rein polygonaler Oberfl"ache ist es das Komplexeste.  
+\item[kugel\_poly]\label{model_kugel_poly} 
+    Modell einer durch polygonale Oberfl"achenst"ucke approximierten Kugel. 
+\item[ship] 
+    Modell eines Raumschiffs. Es enth"alt Einbuchtungen, ist also nicht 
+    vollst"andig konvex. 
+\item[wuerfel]
+    Achsparalleler W"urfel. Das einfachste getestete Modell. 
+\end{description}
+
+\subsubsection{Modelle mit Spline-Oberfl"ache}
+Tabelle \ref{tbl_models_spline} gibt einen "Uberblick "uber die verwendeten 
+Modelle, die B-Spline-Oberfl"achen enthalten. 
+
+\tabbeg
+\setcounter{piccount}{0}
+\newcommand\picref{
+    \stepcounter{piccount}\ref{abb_models_spline} \alph{piccount})}
+\newcommand\myitem[5]{\hline %
+    \emph{#1} & {\hfill #2} & {\hfill #3} & {\hfill #4} & {\hfill #5}}
+\begin{tabularx}{\linewidth}{|l|X|X|X|X|}
+\hline
+\bf\emph{Modell} & \bf {\hfil 2\_kugeln} & \bf {\hfil gelenk} & 
+    \bf {\hfil kugel\_nurbs} & \bf {\hfil sgs\_logo}\\
+\myitem{\# Splinefl"achen}{    1}{   13}{  1}{  114}\\
+\myitem{\# Kontrollpunkte}{  176}{2 273}{176}{5 168}\\
+\myitem{\# Vertices      }{1 736}{2 273}{176}{5 168}\\
+\myitem{\# Dreiecke      }{   40}{    -}{  -}{    -}\\
+\myitem{\# Vierecke      }{  360}{    -}{  -}{    -}\\
+\myitem{Dateigr"o"se [kB]}{131}{445}{27}{826}\\
+\myitem{Abbildung}{\picref}{\picref}{\picref}{\picref}\\
+\hline
+\end{tabularx}
+\tabend{tbl_models_spline}{Modelle mit Spline-Oberfl"ache}
+
+\begin{figure}[ht]
+\begin{center}
+\setcounter{piccount}{0}
+\newcommand*\picname[1]{\stepcounter{piccount}\alph{piccount}) \emph{#1}}
+\newcommand\mypics[4]{\extpic{#1}& &\extpic{#3}\\ 
+		      \picname{#2} & & \picname{#4} \\}
+\begin{tabular}{cp{0.5cm}c}
+    \mypics{2_kugeln}{2\_kugeln}{gelenk}{gelenk} \\ 
+    \mypics{kugel_nurbs}{kugel\_nurbs}{sgs_logo}{sgs\_logo}
+\end{tabular}
+\caption{Modelle mit Spline-Oberfl"ache}
+\label{abb_models_spline}
+\end{center}
+\end{figure}
+
+\begin{description}
+\item[2\_kugeln] Modell zweier nebeneinanderliedenen Kugeln. Die eine 
+    Kugeloberfl"ache ist durch Polygone approximiert, die andere Kugel 
+    durch eine Spline-Fl"ache modelliert. 
+\item[gelenk] Das Modell besteht aus sieben Segmenten. Das Mittelsegment 
+    ist eine Kugel. In jeder Achsrichtung schlie"sen sich beidseitig 
+    Zylinder (Tuben) an. Alle Segment\-oberfl"achen sind abgeschlossen und 
+    durch Spline-Fl"achen modelliert. 
+\item[kugel\_nurbs] Eine Kugel, die durch eine Spline-Fl"ache modelliert ist. 
+\item[sgs\_logo] Das Modell zeigt einen d"unnen Torus, der sich in einem 
+    Oktalbaumgitter (als Rohre) befindet. 
+    In der Mitte sind die drei Buchstaben 'SgS' auf d"unnen Quadern 
+    dargestellt. Alle Element sind "uber (bis auf die Buchstaben) 
+    Spline-Fl"achen modelliert. 
+    Die Buchstaben werden bei der Oktalbaumgenerierung ignoriert (und sind 
+    in der Abbildung nicht darbestellt). 
+\end{description}
+
+\subsection{Testumgebung}
+\label{testenv}
+Als Basistestsystem kam SuSE Linux 8.0 auf einem Rechner mit 
+Mobile~Pentium~(III)~1000MHz CPU, 256~MB RAM und einer 124~MB gro"sen 
+swap-Partition zum Einsatz. Als Compiler wurde g++ Version 2.95.3 verwendet, 
+der als Zielprozessor \texttt{i486-suse-linux} gebrauchte. 
+
+Als alternatives Testsystem wurde ein Rechner mit Mandrake Linux 8.2, 
+Pentium (II)~350~MHz CPU, 192~MB RAM und 93MB gro"ser swap-Partition genutzt. 
+Als Compiler kam g++ Version 2.96 zum Einsatz, der Code f"ur 
+\texttt{i586-mandrake-linux-gnu} erzeugte.
+
+Zur "Uberpr"ufung der Korrektheit der erzeugten Oktalbaumstrukturen wurden 
+unterschiedliche Werkzeuge verwendet. Eine zentrale Rolle spielte dabei  
+der Betrachter \emph{glView}. glView ist eine abteilungseigene 
+Entwicklung, die mit Hilfe von OpenGL Oktalb"aume im POT-Format (vgl. 
+Abschnitt \ref{export_pot}) 
+dreidimensional darstellen kann. Zum Zweck der Validierung der erzeugten 
+Geometrie, wurde zus"atzlich ein weiterer Export-Filter in cad2octree 
+integriert. Durch diesen Export-Filter k"onnen 
+XPM-Dateien\footnote{X Windows system pixmap file} erzeugt werden, die 
+achsparallele Schnitte --~"ahnlich dem bekannten Verfahren bei der 
+Computer-Tomographie~-- durch den generierten Oktalbaum zeigen. 
+
+Zum Visualisieren der DXF-Modelle wurde neben Maya Unlimited 4.0 von 
+Alias|Wavefront, in dem die DXF-Modelle erzeugt wurden, \cite{dxfview}, AC3D 
+Version 3.5 von Inivis\footnote{\url{http://www.ac3d.org}} und 
+Volvo~View~Express Version 2000-129 f"ur Windows von Autodesk\footnote{\url{%
+http://usa.autodesk.com/adsk/section/0,,837637-123112,00.html}} eingesetzt.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{impl/results}
+
+
+%% End of Document

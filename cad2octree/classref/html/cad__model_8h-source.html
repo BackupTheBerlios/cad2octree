@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>cad_model.h</h1><a href="cad__model_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00011 <font class="preprocessor">#ifndef __CAD_MODEL_H__</font>
+00012 <font class="preprocessor"></font><font class="preprocessor">#define __CAD_MODEL_H__</font>
+00013 <font class="preprocessor"></font>
+00014 <font class="preprocessor">#include &lt;<a class="code" href="faces_8h.html">cad/container/faces.h</a>&gt;</font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="point_8h.html">point.h</a>&gt;</font>
+00016 
+<a name="l00026"></a><a class="code" href="classCadModel.html">00026</a> <font class="keyword">class </font><a class="code" href="classCadModel.html">CadModel</a> : <font class="keyword">public</font> <a class="code" href="classFaces.html">Faces</a> {
+00027  <font class="keyword">public</font>:
+00031   <a class="code" href="classCadModel.html#a0">CadModel</a>();
+00032 
+00042   <font class="keywordtype">void</font> <a class="code" href="classCadModel.html#a1">add</a>(<a class="code" href="classFace.html">Element</a> object, <a class="code" href="global_8h.html#a23">Color</a> color);
+00043 
+00050   <a class="code" href="classPoint.html">Point</a> <a class="code" href="classCadModel.html#a2">getMaxPoint</a>();
+00051 
+00058   <a class="code" href="classPoint.html">Point</a> <a class="code" href="classCadModel.html#a3">getMinPoint</a>();
+00059 
+00066   <a class="code" href="global_8h.html#a23">Color</a> <a class="code" href="classCadModel.html#a4">getObjColor</a>() <font class="keywordflow">throw</font> (OutOfModelException*);
+00067 
+00076   <font class="keywordtype">void</font> <a class="code" href="classCadModel.html#a5">print</a>();  
+00077 
+00078  <font class="keyword">private</font>:
+00084   <a class="code" href="classPoint.html">Point</a> <a class="code" href="classCadModel.html#o0">maxPoint</a>;
+00085 
+00091   <a class="code" href="classPoint.html">Point</a> <a class="code" href="classCadModel.html#o1">minPoint</a>;
+00092 
+00096   <a class="code" href="global_8h.html#a23">Color</a> <a class="code" href="classCadModel.html#o2">objColor</a>;
+00097 
+00098 }; <font class="comment">// class CadModel</font>
+00099 
+00100 <font class="preprocessor">#endif // ! __CAD_MODEL_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

@@ -1,0 +1,141 @@
+% doc/macros.tex
+% Allgemeine Makro-Definitionen
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%
+% Autor: Stefan Mahler 2002
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\newcommand\hide[1]{} %
+
+\newcommand*\extpic[1]{%
+    \includegraphics[width=0.4\linewidth]{#1}
+}
+
+\renewcommand\cases[1]{%
+    \left\{
+    \begin{array}{rl}
+    #1
+    \end{array}
+    \right.
+}
+
+\newcommand\alg[4][t]{%
+    \begin{figure}[#1]\renewcommand*\figurename{Algorithmus}
+    \hrule width\textwidth\vspace{0.5em}\begin{flushleft}\begin{alltt}
+    #4%\vspace{0.5em}\hrule width\textwidth
+    \end{alltt}\end{flushleft}\setlength{\belowcaptionskip}{0pt}
+    \setcapwidth[l]{\textwidth}\caption{#3\hspace{-0.8em}}
+    \label{#2}\vspace{0.5em}\hrule width\textwidth\end{figure}}
+
+\newcommand\bild[4]{%
+    \includegraphics[width=#1]{#4}
+    \begin{center}
+    \renewcommand\figurename{Abb.}
+    \setcapindent{1em}\captionof{figure}{#3}
+    \label{#2}
+    \vspace{1em}
+    \end{center}
+}
+
+\newcommand\graf[3]{\begin{figure} \begin{center} \input{graf/#3} 
+    \caption{#2} \label{#1} \end{center} \end{figure}
+}
+
+\newcommand*\diabeg[1][t]{\begin{figure}[#1] \begin{center}}
+\newcommand*\diaend{\end{center} \end{figure}}
+
+\newcommand\dia[7][t]{%
+    \diabeg[#1] \begin{tabular}{cc}
+    \includegraphics[width=0.44\linewidth]{#5}
+    & \includegraphics[width=0.44\linewidth]{#7} \\
+    \multicolumn{1}{c}{\emph{#4}} & \multicolumn{1}{c}{\emph{#6}} 
+    \end{tabular} \caption{#3} \label{#2} \diaend}
+
+\newcommand*\tabbeg[1][t]{\begin{table}[#1] \begin{center}}
+\newcommand*\tabend[3][1]{\ifnumber{#1}{\caption{#3}}{\caption[#1]{#3}}
+    \label{#2} \end{center} \end{table}}
+
+\newcommand*\opitemlabel{$\rhd$}
+\newcommand*\opitem{\item }
+\newcommand\oplistbeg{\begin{itemize}\renewcommand\labelitemi{\opitemlabel}
+    \renewcommand\labelitemii{\opitemlabel}
+    \renewcommand\labelitemiii{\opitemlabel}}
+\newcommand*\oplistend{\end{itemize}}
+\newcommand\gl[2]{%
+    \begin{equation} \label{#1} {#2} \end{equation}}
+
+\newcommand*\glref[1]{(\ref{#1})}
+\newcommand*\gvref[1]{(\ref{#1}) \vpageref{#1}}
+\newcommand*\algref[1]{Algorithmus \ref{#1}}
+\newcommand*\modelref[2]{Modell {\tt #2} Abschnitt \ref{#1}}
+
+\newcommand*\positive{$+$\hspace{0.13em}}
+\newcommand*\neutral{$\bigcirc$}
+\newcommand*\negative{$-$\hspace{0.13em}}
+
+\newcommand*\alt{^{\circ}}
+\newcommand*\onehalf{\mbox{\textonehalf}}
+\newcommand*\threequarters{\mbox{\textthreequarters}}
+
+\newcommand*\Realnumbers{\mathbf{\mathcal{R}}}
+
+\newcommand*\crossprod{ ~ \times ~ }
+\newcommand*\mod{\bmod}
+\newcommand*\sign{\mathrm{sign}}
+\newcommand*\abs[1]{\left|#1\right|}
+\newcommand*\trunc[1]{{ \left\lfloor { #1 } \right\rfloor } }
+\newcommand*\equival{\iff}
+\newcommand*\band{{\mathrm{and}}}
+
+\newcommand*\vct[1]{\stackrel{\longrightarrow}{#1}}
+\newcommand*\strch[1]{\stackrel{\longmapsto}{#1}}
+\newcommand*{\conti}{$\mathcal{C}^1$}
+\newcommand*{\contii}{$\mathcal{C}^2$}
+\newcommand*\binom[2]{{{#1} \choose {#2}}}
+
+\newcommand*\bez{B\'ezier}
+
+\newcommand\funcdef[4][]{\texttt{\textbf{function} \textrm{#2}(\param{#3})#1
+    \textbf{return}~{#4}}~}
+\newcommand*\funcbeg{\\ \textbf{begin} \begin{labeling}{ii} \item}
+\newcommand*\procbeg{\funcbeg}
+\newcommand\procdef[2]{\texttt{\textbf{procedure} \textrm{#1}(\param{#2})}~}
+\newcommand*\pre[1]{\textit{\{ Vorbedingung: {#1} \}}}
+\newcommand*\func[2]{\texttt{\textrm{#1}(\param{#2})}}
+\newcommand*\proc[2]{\func{#1}{#2}}
+\newcommand*\param[1]{\texttt{\emph{#1}}}
+\newcommand*\outparam[1]{\textbf{out} #1}
+\newcommand*\type[1]{\texttt{#1}}
+\newcommand*\class[1]{\texttt{\textbf{class} #1}}
+\newcommand*\const[1]{\textsc{#1}}
+\newcommand*\switch[1]{\texttt{\textsc{#1}}}
+\newcommand*\typedef[1]{\textbf{typedef}~#1;}
+\newcommand*\struct[1]{\textbf{struct}~#1;}
+\newcommand*\closefunc{\end{labeling} \textbf{end function}}
+\newcommand*\closeproc{\end{labeling} \textbf{end procedure}}
+\newcommand*\forlooptext[4]{\textbf{for} #1 \textbf{from} \(#2\) 
+    \textbf{to} \(#3\) \textbf{step} \(#4\) \textbf{loop}}
+\newcommand*\forloop[4]{\forlooptext{#1}{#2}{#3}{#4} 
+    \begin{labeling}{ii} \item}
+\newcommand*\closefortext{\textbf{end for}\\}
+\newcommand*\closefor{\end{labeling} \closefortext}
+\newcommand*\whileloop[1]{\textbf{while} \(#1\) \textbf{loop} 
+    \begin{labeling}{ii} \item}
+\newcommand*\closewhile{\end{labeling} \textbf{end for}\\}
+\newcommand*\ifthen[1]{\textbf{if} \(#1\) \textbf{then} 
+    \begin{labeling}{ii} \item}
+\newcommand*\orelse[1]{~\mbox{\textbf{or else}}~#1}
+\newcommand*\ifelse{\end{labeling} \textbf{else} \begin{labeling}{ii} \item}
+\newcommand*\closeif{\end{labeling} \textbf{end if}\\}
+\newcommand*\ret[1]{\textbf{return} #1\\}
+\newcommand*\field[2]{\textbf{array} #1 \textbf{of} #2}
+
+\newcommand*\integer{\textrm{integer}}
+\newcommand*\bool{\textrm{boolean}}
+\newcommand*\true{\textrm{true}}
+\newcommand*\false{\textrm{false}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,101 @@
+% grundlagen/splines.tex
+% B-Splines
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%
+% Autor: Stefan Mahler 2002
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\subsubsection{B-Splines}
+\label{spline}
+%-De-Boor-Algorithmus
+%-B-Spline-Funktionen
+%-B-Spline-Kurven
+B-Spline-Kurven vom Grad $p$ sind definiert durch
+\gl{gl_b_spline_kurve}{{\bf x}(u) = \sum_{i=0}^{n}~ N_i^p(u)~
+    { \bf c}_i\mbox{,}}
+wobei ${ \bf c}_i$ die Kontrollpunkte und $N_i^p$ die zur B-Spline-Kurve 
+geh"origen Basisfunktionen "uber den Knotenvektor $U = \{u_0, \dots, u_n\}$ 
+darstellen. Analog zu den zusammengesetzten \bez-Kurven ist $u_{\min} = u_0 < 
+u_1 < \dots < u_n = u_{\max}$ eine Zerlegung des Intervalls $[u_{\min}, 
+u_{\max}]$. 
+Wieder ergeben sich Teilkurven zu jedem Teilintervall. Die Glattheit der 
+Gesamtkurve ist hier jedoch auch "uber die Sto"sstellen der Teilkurven 
+gesichert, da B-Spline-Basisfunktionen anstelle der Bernsteinpolynome 
+verwendet werden. 
+
+Die Basisfunktionen $p$-ter Ordnung $N_i^p$ k"onnen ausgehend von der 
+Basisfunktion erster Ordnung $N_i^1$
+\gl{gl_basis_fkt_lin}{%
+    N_i^1(u) = \left\{
+    \begin{array}{rl}
+	1 & u_i \le u < u_{i+1}\\
+	0 & \mbox{sonst}~
+    \end{array} \right.
+    ~(0 \le i < n)}
+rekursiv mit
+\gl{gl_basis_fkt_rek}{N_i^p(u) = {{u - u_i}\over{u_{i+p-1} - u_i}}~N_i^{p-1}(u) 
+    + {{u_{i+p} - u}\over{u_{i+p} - u_{i+1}}}}
+berechnet werden. 
+Alle Terme $(u_i-u)/(u_{i+p-1}-u_i)$ und $(u_{i+p}-u)/(u_{i+p}-u_{i+1})$ 
+werden f"ur $u_{i+p-1}=u_i$ bzw. $u_{i+p}=u_{i+1}$ mit $0$ festgelegt.
+Somit gilt 
+\gl{gl_sum_basisfuns_eins}{\sum_{i=0}^{n-p} N_i^p(u) = 1\mbox{,}~
+    ~\forall{} u \in [u_{p-1}, u_{n-p+1}]}
+und
+\gl{gl_basis_funs_null_gr_null}{N_i^p(u) \left\{
+    \begin{array}{rl}
+	> 0 & u \in (u_i, u_{i+p})\\
+	= 0 & \mbox{sonst.}
+    \end{array} \right.}
+
+Mit Hilfe des \emph{de-Boor-Algorithmus} k"onnen B-Spline-Kurven beliebigen 
+Grades ohne Kenntnis der Basisfunktionen erzeugt werden. Er ist das 
+"Aquivalent des Algorithmus von Casteljau f"ur B-Spline-Kurven:
+Sei eine B-Spline-Kurve $p$-ten Grades durch die Kontrollpunkte 
+${\bf c}_0, \dots, {\bf c}_n$ mit zugeordneten Parameterwerten 
+$u_0, \dots, u_n$, wobei $u_{\min} = u_0 < \dots < u_n = u_{\max}$ ist, 
+gegeben. 
+
+Setzt man 
+${\bf b}_i^{(0)} = \cases{ {\bf c}_i & i \in [0, n]\\
+			   0	     & \mbox{sonst,} }$
+dann enth"alt ${\bf b}_{\phi}^{(p-1)}(u)$ nach $p-1$-maliger Anwendung der 
+Rekursionsformel
+\gl{gl_de_boor}{{\bf b}_i^{(r)}(u) = {{u_{i+p-r} - u}\over{u_{i+p-r} - u_i}}~
+    { \bf b}_{i-1}^{(r-1)}(u) + {{u - u_i}\over{u_{i+p-r} - u_i}}~
+    { \bf b}_{i}^{(r-1)}(u)}
+den Punkt der B-Spline-Kurve zu $u$ mit $u \in [u_{\phi}, u_{\phi+1}]$ und 
+$0 \le \phi < n$.
+Substituiert man 
+\gl{gl_subst_u_term}{\alpha_i^r = {{u - u_i}\over{u_{i+p-r} - u_i}}}
+erh"alt man die zum Algorithmus von Casteljau analoge Darstellung
+\gl{gl_de_boor_Subst}{{ \bf b}_i^{(r)} = (1 - \alpha_i^r)~
+    { \bf b}_{i-1}^{(r-1)} + \alpha_i^r~{ \bf b}_i^{(r-1)}\mbox{.}}
+Mit $p = n + 1$, dem Knotenvektor $U = \{0, \underbrace{1, \dots, 1}_{n}\}$ 
+und $u_{-n} = \dots = u_{-1} = u_{\min}$ ergibt sich $\alpha_i^r = u$.
+\bez-Kurven sind somit nur ein Spezialfall von B-Spline-Kurven.
+
+B-Splines besitzten viele Eigenschaften von \bez-Kurven 
+(vgl. Seite \pageref{bez_props}):
+\begin{itemize}
+\item Konvexe-H"ullen-Eigenschaft (sogar in strengerer Form)
+\item Invarianz bez"uglich affiner Transformationen 
+\item Endpunkt-Interpolation, falls die ersten bzw. letzten $p+1$ Knoten den 
+    gleichen Wert besitzen
+\item Kontrollpunkt-Symmetrie
+\item Formerhaltungs-Eigenschaft 
+\item Beschr"ankte Schwankung (variation diminishing)
+\end{itemize}
+
+Hinzu kommt die lokale Tr"agereigenschaft 
+(vgl. \glref{gl_basis_funs_null_gr_null}): 
+Modifikationen an einem Kontrollpunkt bleiben auf $p$ Nachbarn (bei einer 
+B-Spline-Kurve $p$-ten Grades) begrenzt.
+
+Allerdings sind B-Splines wie \bez-Kurven \emph{nicht} invariant bez"uglich 
+projektiven Abbildungen. Diesen Nachteil kann man durch NURBS beseitigen.
+
+%% End of Document

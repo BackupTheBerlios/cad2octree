@@ -1,0 +1,45 @@
+% grundlagen/nurbs.tex
+% NURBS
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%
+% Autor: Stefan Mahler 2002
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\subsubsection{NURBS}
+\label{nurbs}
+%- projektive Invarianz
+%- Einf"uhren von Gewichten
+NURBS ist die Kurzform f"ur \emph{Non Uniform Rational B-Splines}. 
+Wie schon aus den Namen hervorgeht, werden hier im Gegensatz zu \bez-Kurven 
+und Splines rationale Funktionen zur Beschreibung verwendet. 
+NURBS sind definiert durch
+\gl{gl_nurbs}{{ \bf x}(u) = {\scriptstyle{\sum^n_{i=0}} ~ N_i^p(u) ~ w_i 
+    ~ { \bf c}_i \over \scriptstyle{\sum^n_{i=0}} ~ N_i^p(u) ~ w_i}\mbox{.}}
+Den Kontrollpunkten ${\bf c}_i$ werden noch zus"atzlich Gewichte $w_i$ 
+zugeordnet, die "uberlicherweise als Formparameter verwendet werden.
+Je gr"o"ser das Gewicht eines Kontrollpunkts ist, desto st"arker ist sein 
+Einfluss auf den Kurvenverlauf, indem sich die NURBS-Kurve st"arker diesem 
+Kontrollpunkt ann"ahert.
+
+Werden allerdings alle Gewichte um den gleichen Faktor ver"andert, "andert das 
+nichts am Verlauf der NURBS-Kurve. Besitzen alle Kontrollpunkte das gleiche 
+Gewicht, so ergibt das wieder die 'gew"ohnliche' B-Spline. B-Splines (und 
+somit auch \bez-Kurven) sind also Spezialf"alle von NURBS.
+
+Eine NURBS-Kurve kann man sich als eine in den 3-dimesionalen Raum projezierte 
+4-dimensionale B-Spline-Kurve vorstellen.
+Wie sich zeigen l"asst, sind NURBS-Kurven bez"uglich projektiven Abbildungen 
+invariant.
+
+\bez-Kurven, B-Splines und NURBS besitzen somit i.A. unterschiedliche 
+Eigenschaften. Andererseits sind ihre Datenstrukturen unterschiedlich komplex. 
+Es existieren Algorithmen zum Konvertieren geometrischer Modelle von 
+NURBS-Darstellung in \bez-Kurven. Die drei Darstellungsformen \bez-Kurven, 
+B-Splines und NURBS sind somit gleichm"achtig. Je nach Aufgabenstellung 
+kann es evtl. g"unstig sein, vor der Bearbeitung des Modells die eine in eine 
+andere Darstellungsform umzuwandeln.
+
+%% End of Document

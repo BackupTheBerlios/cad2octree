@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>quadrilateral.h</h1><a href="quadrilateral_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00012 <font class="preprocessor">#ifndef __QUADRILATERAL_H__</font>
+00013 <font class="preprocessor"></font><font class="preprocessor">#define __QUADRILATERAL_H__</font>
+00014 <font class="preprocessor"></font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="plane_8h.html">plane.h</a>&gt;</font>
+00016 <font class="preprocessor">#include &lt;<a class="code" href="point_8h.html">point.h</a>&gt;</font>
+00017 <font class="preprocessor">#include &lt;<a class="code" href="triangle_8h.html">triangle.h</a>&gt;</font>
+00018 
+<a name="l00022"></a><a class="code" href="classQuadrilateral.html">00022</a> <font class="keyword">class </font><a class="code" href="classQuadrilateral.html">Quadrilateral</a> : <font class="keyword">public</font> <a class="code" href="classPlane.html">Plane</a> {
+00023  <font class="keyword">public</font>:
+00031   <a class="code" href="classQuadrilateral.html#a0">Quadrilateral</a>(<a class="code" href="classPoint.html">Point</a> pA, <a class="code" href="classPoint.html">Point</a> pB, <a class="code" href="classPoint.html">Point</a> pC, <a class="code" href="classPoint.html">Point</a> pD);
+00032 
+00037   <font class="keyword">virtual</font> <font class="keywordtype">int</font> <a class="code" href="classQuadrilateral.html#a1">getCornerCount</a>();
+00038 
+00043   <font class="keyword">virtual</font> <font class="keyword">const</font> <a class="code" href="classCadObject.html#s4">DataType</a> <a class="code" href="classQuadrilateral.html#a2">getDataType</a>();
+00044 
+00049   <a class="code" href="classTriangle.html">Triangle</a>* <a class="code" href="classQuadrilateral.html#a3">getHiTriangle</a>();
+00050 
+00055   <a class="code" href="classTriangle.html">Triangle</a>* <a class="code" href="classQuadrilateral.html#a4">getLowTriangle</a>();
+00056 
+00063   <a class="code" href="classPoint.html">Point</a> <a class="code" href="classQuadrilateral.html#a5">operator[]</a>(<font class="keywordtype">int</font> idx);
+00064 
+00065  <font class="keyword">private</font>:
+<a name="l00069"></a><a class="code" href="classQuadrilateral.html#o0">00069</a>   <a class="code" href="classPoint.html">Point</a> <a class="code" href="classQuadrilateral.html#o0">pointA</a>;
+00070 
+<a name="l00074"></a><a class="code" href="classQuadrilateral.html#o1">00074</a>   <a class="code" href="classPoint.html">Point</a> <a class="code" href="classQuadrilateral.html#o1">pointB</a>;
+00075 
+<a name="l00079"></a><a class="code" href="classQuadrilateral.html#o2">00079</a>   <a class="code" href="classPoint.html">Point</a> <a class="code" href="classQuadrilateral.html#o2">pointC</a>;
+00080 
+<a name="l00084"></a><a class="code" href="classQuadrilateral.html#o3">00084</a>   <a class="code" href="classPoint.html">Point</a> <a class="code" href="classQuadrilateral.html#o3">pointD</a>;
+00085 }; <font class="comment">// class Quadrilateral</font>
+00086 
+00087 <font class="preprocessor">#endif // ! __QUADRILATERAL_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

@@ -1,0 +1,821 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>Polygon Klassenreferenz</h1>Drei- oder Viereck. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="polygon_8h-source.html">polygon.h</a>&gt;</code>
+<p>
+<p>Klassendiagramm für Polygon:
+<p><center><img src="classPolygon.png" usemap="#Polygon_map" border="0"></center>
+<map name="Polygon_map">
+<area href="classSurface.html" alt="Surface" shape="rect" coords="0,0,58,24">
+</map>
+<a href="classPolygon-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#a0">Polygon</a> (<a class="el" href="classGeomPoint.html">GeomPoint</a> pA, <a class="el" href="classGeomPoint.html">GeomPoint</a> pB, <a class="el" href="classGeomPoint.html">GeomPoint</a> pC)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Konstruktor.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#a1">Polygon</a> (<a class="el" href="classGeomPoint.html">GeomPoint</a> pA, <a class="el" href="classGeomPoint.html">GeomPoint</a> pB, <a class="el" href="classGeomPoint.html">GeomPoint</a> pC, <a class="el" href="classGeomPoint.html">GeomPoint</a> pD)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Konstruktor.</em> <a href="#a1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#a2">getCount</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert Die Anzahl der Eckpunkte.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>Polygon&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#a3">getDup</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert eine Kopie des Polygons.</em> <a href="#a3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual <a class="el" href="global_8h.html#a21">Hight</a>&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#a4">getHight</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die virtuelle Höhe des Polygons im Oktalbaum.</em> <a href="#a4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#a5">getFootpoint</a> (<a class="el" href="classGeomPoint.html">GeomPoint</a> p)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den auf der Ebene liegende Fußpunkt zu p.</em> <a href="#a5"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classGeomVec.html">GeomVec</a>&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#a6">getNormVec</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den normalisierten Normalenvektor zur Ebene.</em> <a href="#a6"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classGeomPoint.html">GeomPoint</a> &amp;&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#a7">getPoint</a> (int idx)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den idx-ten Eckpunkt.</em> <a href="#a7"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual bool&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#a8">isIn</a> (<a class="el" href="classGeomPoint.html">GeomPoint</a> p)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Befindet sich p in diesem Polygon?</em> <a href="#a8"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#a9">isInPlane</a> (<a class="el" href="classGeomPoint.html">GeomPoint</a> p)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Befindet p in der Ebene, die durch die ersten 3 Eckpunkte dieses Polygons definiert ist?</em> <a href="#a9"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a10" doxytag="Polygon::print"></a>
+void&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#a10">print</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gibt dieses Polygon auf der Konsole aus.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#a11">setHight</a> (<a class="el" href="global_8h.html#a21">Hight</a> h)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Setzt die virtuelle Höhe des Polygons im Oktalbaum.</em> <a href="#a11"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual bool&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#a12">testLine</a> (<a class="el" href="classGeomPoint.html">GeomPoint</a> p, <a class="el" href="classGeomPoint.html">GeomPoint</a> &amp;q, bool &amp;intersect, bool &amp;inside)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Lage, falls <a class="el" href="classPolygon.html#a12">testLine</a>() erfolgreich war.</em> <a href="#a12"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classGeomVec.html">GeomVec</a>&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#a13">operator[]</a> (int idx)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den idx-ten Eckpunkt.</em> <a href="#a13"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#c0">isAtBorder</a> (<a class="el" href="classGeomPoint.html">GeomPoint</a> p)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Überprüft, ob sich q auf dem Polygonrand befindet.</em> <a href="#c0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#c1">isCorner</a> (<a class="el" href="classGeomPoint.html">GeomPoint</a> p)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ist p Eckpunkt dieses Polygons?</em> <a href="#c1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#c2">isIn</a> (<a class="el" href="classGeomPoint.html">GeomPoint</a> q, <a class="el" href="global_8h.html#a17">Axis</a> proj)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert, ob q im Polygon liegt.</em> <a href="#c2"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#o0">cornerCount</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Zahl der Eckpunkte.</em> <a href="#o0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o1" doxytag="Polygon::pointA"></a>
+<a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#o1">pointA</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Eckpunkt A.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o2" doxytag="Polygon::pointB"></a>
+<a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#o2">pointB</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Eckpunkt B.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o3" doxytag="Polygon::pointC"></a>
+<a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#o3">pointC</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Eckpunkt C.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td><td valign=bottom><a class="el" href="classPolygon.html#o4">pointD</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Eckpunkt D.</em> <a href="#o4"></a><em></em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Drei- oder Viereck.
+<p>
+Die Eckpunkte sind geometrische Punkte (<a class="el" href="classGeomPoint.html">GeomPoint</a>). 
+<p>
+<hr><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a name="a0" doxytag="Polygon::Polygon"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> Polygon::Polygon </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pA</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pB</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pC</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Konstruktor.
+<p>
+Erzeugt ein Dreieck. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>pA</em>&nbsp;</td><td>
+erster Eckpunkt </td></tr>
+<tr><td valign=top><em>pB</em>&nbsp;</td><td>
+zweiter Eckpunkt </td></tr>
+<tr><td valign=top><em>pC</em>&nbsp;</td><td>
+dritter Eckpunkt </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a1" doxytag="Polygon::Polygon"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> Polygon::Polygon </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pA</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pB</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pC</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pD</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Konstruktor.
+<p>
+Erzeugt ein Viereck. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>pA</em>&nbsp;</td><td>
+erster Eckpunkt </td></tr>
+<tr><td valign=top><em>pB</em>&nbsp;</td><td>
+zweiter Eckpunkt </td></tr>
+<tr><td valign=top><em>pC</em>&nbsp;</td><td>
+dritter Eckpunkt </td></tr>
+<tr><td valign=top><em>pD</em>&nbsp;</td><td>
+vierter Eckpunkt </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+alle vier Punkte müssen in einer Ebene liegen. </dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="a2" doxytag="Polygon::getCount"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> int Polygon::getCount </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert Die Anzahl der Eckpunkte.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+<em>3</em>, für Dreieck und <em>4</em>, für Viereck </dl>    </td>
+  </tr>
+</table>
+<a name="a3" doxytag="Polygon::getDup"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> Polygon Polygon::getDup </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert eine Kopie des Polygons.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+Kopie </dl>    </td>
+  </tr>
+</table>
+<a name="a5" doxytag="Polygon::getFootpoint"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classGeomPoint.html">GeomPoint</a> Polygon::getFootpoint </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>p</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den auf der Ebene liegende Fußpunkt zu p.
+<p>
+Im entarteten Fall wird p zurückgegeben. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Prüfpunkt </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Fußpunkt zu p auf der Ebene </dl>    </td>
+  </tr>
+</table>
+<a name="a4" doxytag="Polygon::getHight"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual <a class="el" href="global_8h.html#a21">Hight</a> Polygon::getHight </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die virtuelle Höhe des Polygons im Oktalbaum.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+Polygonhöhe im Oktalbaum </dl>
+<p>
+Implementiert <a class="el" href="classSurface.html#a0">Surface</a>.    </td>
+  </tr>
+</table>
+<a name="a6" doxytag="Polygon::getNormVec"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classGeomVec.html">GeomVec</a> Polygon::getNormVec </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den normalisierten Normalenvektor zur Ebene.
+<p>
+Dieser Vektor steht senkrecht auf der Ebene und hat den Betrag 1,  falls es sich um eine echte Ebene handelt. Ist die Ebene entartet ist (Linie oder Punkt), wird ein Nullvektor zurückgeliefert. <dl compact><dt><b>
+Rückgabe: </b><dd>
+normalisierter Normalenvektor </dl>    </td>
+  </tr>
+</table>
+<a name="a7" doxytag="Polygon::getPoint"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classGeomPoint.html">GeomPoint</a>&amp; Polygon::getPoint </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>idx</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den idx-ten Eckpunkt.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>idx</em>&nbsp;</td><td>
+wievielter Eckpunkt </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Eckpunkt Nr. idx </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+0 &lt;= idx &lt; <a class="el" href="classPolygon.html#a2">getCount</a>() </dl>    </td>
+  </tr>
+</table>
+<a name="c0" doxytag="Polygon::isAtBorder"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool Polygon::isAtBorder </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>p</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Überprüft, ob sich q auf dem Polygonrand befindet.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Prüfpunkt </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Ob sich q auf dem Polygonrand befindet. </dl>    </td>
+  </tr>
+</table>
+<a name="c1" doxytag="Polygon::isCorner"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool Polygon::isCorner </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>p</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ist p Eckpunkt dieses Polygons?
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+Ob p ein Eckpunkt ist </dl>    </td>
+  </tr>
+</table>
+<a name="c2" doxytag="Polygon::isIn"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool Polygon::isIn </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>q</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a17">Axis</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>proj</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert, ob q im Polygon liegt.
+<p>
+Es wird die Umlaufsinn-Methode auf die Projektionsebene, die durch proj  gegeben ist, angewendet  <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>q</em>&nbsp;</td><td>
+zu betrachtender Punkt </td></tr>
+<tr><td valign=top><em>proj</em>&nbsp;</td><td>
+Achse. Wird zur Festlegung der Projektionsebene benötigt. Die Achse proj entf"allt durch die Projektion.  </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+isInPlane(q) </dl>    </td>
+  </tr>
+</table>
+<a name="a8" doxytag="Polygon::isIn"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual bool Polygon::isIn </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>p</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Befindet sich p in diesem Polygon?
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Prüfpunkt </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Ob sich p in diesem Polygon befindet. </dl>
+<p>
+Implementiert <a class="el" href="classSurface.html#a1">Surface</a>.    </td>
+  </tr>
+</table>
+<a name="a9" doxytag="Polygon::isInPlane"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool Polygon::isInPlane </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>p</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Befindet p in der Ebene, die durch die ersten 3 Eckpunkte dieses Polygons definiert ist?
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Prüfpunkt </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Ob sich p in der Polygonebene befindet. </dl>    </td>
+  </tr>
+</table>
+<a name="a13" doxytag="Polygon::operator[]"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classGeomVec.html">GeomVec</a> Polygon::operator[] </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>idx</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den idx-ten Eckpunkt.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>idx</em>&nbsp;</td><td>
+wievielter Eckpunkt </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Eckpunkt Nr. idx </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+0 &lt;= idx &lt; <a class="el" href="classPolygon.html#a2">getCount</a>() </dl>    </td>
+  </tr>
+</table>
+<a name="a11" doxytag="Polygon::setHight"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void Polygon::setHight </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="global_8h.html#a21">Hight</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>h</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Setzt die virtuelle Höhe des Polygons im Oktalbaum.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>h</em>&nbsp;</td><td>
+Dreieckshöhe im Oktalbaum </td></tr>
+</table>
+</dl>
+<p>
+Implementiert <a class="el" href="classSurface.html#a2">Surface</a>.    </td>
+  </tr>
+</table>
+<a name="a12" doxytag="Polygon::testLine"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual bool Polygon::testLine </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classGeomPoint.html">GeomPoint</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>p</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classGeomPoint.html">GeomPoint</a> &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>q</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>bool &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>intersect</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>bool &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>inside</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Lage, falls <a class="el" href="classPolygon.html#a12">testLine</a>() erfolgreich war.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Ausgangspunkt </td></tr>
+<tr><td valign=top><em>q</em>&nbsp;</td><td>
+den Schnittpunkt, falls die Testlinie die Oberfläche schneidet </td></tr>
+<tr><td valign=top><em>intersect</em>&nbsp;</td><td>
+die Testlinie, die parallel zur Achse RAY_AXIS durch p  verläuft, schneitet das Polygon. </td></tr>
+<tr><td valign=top><em>inside</em>&nbsp;</td><td>
+true, falls der Orientierungsvektor der Oberfläche bei q  in Richtung p verläuft. </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+true, falls die Testlinie nicht in der Polygonebene liegt </dl>
+<p>
+Implementiert <a class="el" href="classSurface.html#a3">Surface</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Datenelemente</h2>
+<a name="o0" doxytag="Polygon::cornerCount"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> int Polygon::cornerCount<code> [private]</code>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Zahl der Eckpunkte.
+<p>
+3 bei Dreieck und 4 bei Viereck.     </td>
+  </tr>
+</table>
+<a name="o4" doxytag="Polygon::pointD"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classGeomPoint.html">GeomPoint</a> Polygon::pointD<code> [private]</code>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Eckpunkt D.
+<p>
+Entspricht bei einem Dreieck pointC.     </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="polygon_8h-source.html">polygon.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

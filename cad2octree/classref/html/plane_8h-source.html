@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>plane.h</h1><a href="plane_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00012 <font class="preprocessor">#ifndef __PLANE_H__</font>
+00013 <font class="preprocessor"></font><font class="preprocessor">#define __PLANE_H__</font>
+00014 <font class="preprocessor"></font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="face_8h.html">face.h</a>&gt;</font>
+00016 
+<a name="l00020"></a><a class="code" href="classPlane.html">00020</a> <font class="keyword">class </font><a class="code" href="classPlane.html">Plane</a> : <font class="keyword">public</font> <a class="code" href="classFace.html">Face</a> {
+00021  <font class="keyword">public</font>:
+00026   <font class="keyword">virtual</font> <font class="keywordtype">int</font> <a class="code" href="classPlane.html#a0">getCornerCount</a>()= 0;
+00027 
+00034   <font class="keyword">virtual</font> <a class="code" href="classPoint.html">Point</a> <a class="code" href="classPlane.html#a1">getMaxPoint</a>();
+00035 
+00042   <font class="keyword">virtual</font> <a class="code" href="classPoint.html">Point</a> <a class="code" href="classPlane.html#a2">getMinPoint</a>();
+00043 
+00048   <font class="keyword">virtual</font> <font class="keywordtype">bool</font> <a class="code" href="classPlane.html#a3">isPlane</a>();
+00049 
+00053   <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classPlane.html#a4">print</a>();
+00054 
+00060   <font class="keyword">virtual</font> <a class="code" href="classPoint.html">Point</a> <a class="code" href="classPlane.html#a5">operator[]</a>(<font class="keywordtype">int</font> idx)= 0;
+00061 
+00062 };
+00063 
+00064 <font class="preprocessor">#endif // ! __PLANE_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

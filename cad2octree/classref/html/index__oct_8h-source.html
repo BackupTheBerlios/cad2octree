@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>index_oct.h</h1><a href="index__oct_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00012 <font class="preprocessor">#ifndef __INDEX_OCT_H__</font>
+00013 <font class="preprocessor"></font><font class="preprocessor">#define __INDEX_OCT_H__</font>
+00014 <font class="preprocessor"></font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="oct__struct_8h.html">octree/oct_struct.h</a>&gt;</font>
+00016 <font class="preprocessor">#include &lt;<a class="code" href="node__index_8h.html">node_index.h</a>&gt;</font>
+00017 <font class="preprocessor">#include &lt;<a class="code" href="polygon_8h.html">polygon.h</a>&gt;</font>
+00018 
+00019 <font class="preprocessor">#include &lt;<a class="code" href="exception_8h.html">exception.h</a>&gt;</font>
+00020 
+<a name="l00024"></a><a class="code" href="index__oct_8h.html#a0">00024</a> <font class="keyword">const</font> <a class="code" href="global_8h.html#a17">Axis</a> <a class="code" href="index__oct_8h.html#a0">AXIS_PARTS</a> = 2;
+00025 
+<a name="l00033"></a><a class="code" href="classIndexOct.html">00033</a> <font class="keyword">class </font><a class="code" href="classIndexOct.html">IndexOct</a> : <font class="keyword">public</font> <a class="code" href="classOctStruct.html">OctStruct</a> {
+00034  <font class="keyword">public</font>:
+00041   <a class="code" href="classIndexOct.html#a0">IndexOct</a>(<a class="code" href="global_8h.html#a21">Hight</a> maxTreeHight) <font class="keywordflow">throw</font>(<a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*);
+00042 
+00052   <font class="keywordtype">void</font> <a class="code" href="classIndexOct.html#a1">add</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p, <a class="code" href="global_8h.html#a23">Color</a> color) <font class="keywordflow">throw</font> (<a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*);
+00053 
+00063   <font class="keywordtype">void</font> <a class="code" href="classIndexOct.html#a1">add</a>(<a class="code" href="classSurface.html">Surface</a>* s, <a class="code" href="global_8h.html#a23">Color</a> color) <font class="keywordflow">throw</font> (<a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*);
+00064 
+00072   <font class="keywordtype">bool</font> <a class="code" href="classIndexOct.html#a3">exist</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p);
+00073 
+00081   <a class="code" href="classNodeIndex.html">NodeIndex</a> <a class="code" href="classIndexOct.html#a4">getChild</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> parent, <a class="code" href="oct__struct_8h.html#a0">PartType</a> i);
+00082 
+00090   <a class="code" href="global_8h.html#a23">Color</a> <a class="code" href="classIndexOct.html#a5">getColor</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p);
+00091 
+00101   <a class="code" href="classNodeIndex.html">NodeIndex</a> <a class="code" href="classIndexOct.html#a6">getExistNode</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p);
+00102 
+00107   <a class="code" href="global_8h.html#a21">Hight</a> <a class="code" href="classIndexOct.html#a7">getMaxTreeHight</a>();
+00108 
+00117   <font class="keyword">static</font> <a class="code" href="node__index_8h.html#a2">AxIndex</a> <a class="code" href="classIndexOct.html#d0">getPartOfs</a>(<a class="code" href="oct__struct_8h.html#a0">PartType</a> partNumber, <a class="code" href="global_8h.html#a17">Axis</a> axis);
+00118 
+00125   <font class="keywordtype">bool</font> <a class="code" href="classIndexOct.html#a8">isLeaf</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p);
+00126 
+00135   <font class="keywordtype">bool</font> <a class="code" href="classIndexOct.html#a9">isIn</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p);
+00136 
+00145   <font class="keywordtype">void</font> <a class="code" href="classIndexOct.html#a10">setColor</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p, <a class="code" href="global_8h.html#a23">Color</a> color);
+00146 
+00147  <font class="keyword">protected</font>:
+00158   <a class="code" href="global_8h.html#a21">Hight</a> <a class="code" href="classIndexOct.html#a6">getExistNode</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p, <a class="code" href="classOctStruct.html#s0">_octree</a> &amp;subtree);
+00159   
+00168   <font class="keywordtype">bool</font> <a class="code" href="classIndexOct.html#a9">isIn</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p, <a class="code" href="global_8h.html#a21">Hight</a> h);
+00169 
+00170 <font class="preprocessor">#ifdef MARK_BORDER</font>
+00171 <font class="preprocessor"></font>
+00178   <font class="keywordtype">void</font> setBorderColor(<a class="code" href="classNodeIndex.html">NodeIndex</a> p, <a class="code" href="global_8h.html#a23">Color</a> color);
+00179 <font class="preprocessor">#endif</font>
+00180 <font class="preprocessor"></font>
+00181  <font class="keyword">private</font>:
+00197   <font class="keywordtype">void</font> <a class="code" href="classIndexOct.html#a1">add</a>(<a class="code" href="classOctStruct.html#s0">_octree</a> parent, <a class="code" href="classNodeIndex.html">NodeIndex</a> myIdx, <a class="code" href="classSurface.html">Surface</a>* s, <a class="code" href="global_8h.html#a23">Color</a> color)
+00198     <font class="keywordflow">throw</font> (<a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*);
+00199 
+00207   <a class="code" href="oct__struct_8h.html#a0">PartType</a> <a class="code" href="classIndexOct.html#c1">getPart</a>(<a class="code" href="node__index_8h.html#a2">AxIndex</a> idx, <a class="code" href="global_8h.html#a21">Hight</a> h);
+00208 
+00216   <a class="code" href="oct__struct_8h.html#a0">PartType</a> <a class="code" href="classIndexOct.html#c1">getPart</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p, <a class="code" href="global_8h.html#a21">Hight</a> h);
+00217 
+00221   <a class="code" href="global_8h.html#a21">Hight</a> <a class="code" href="classIndexOct.html#o0">rootHight</a>;
+00222 };
+00223 
+00224 <font class="preprocessor">#endif // ! __INDEX_OCT_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

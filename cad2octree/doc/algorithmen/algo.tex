@@ -1,0 +1,81 @@
+% algorithmen/algo.tex
+% Genutzte Algorithmen (Grundalgorithmen, Besonderheiten, Probleme)
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%
+% Autor: Stefan Mahler 2002/2003
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\chapter{Algorithmen}
+\label{algo}
+Basierend auf den Erl"auterungen zu Oktalb"aumen und zu Oberfl"achenmodellen, 
+insbesondere zu B-Splines, werden die in dieser Arbeit verwendeten Algorithmen 
+zur Oktalbaumgenerierung aus Oberfl"achenmodellen mit glatten und gekr"ummten 
+Fl"achen n"aher beschrieben. 
+Hierzu m"ussen als erstes grundlegende geometrische Algorithmen, wie die 
+Lagebestimmung oder Schnitt von Objekten im Raum, erkl"art werden (Abschnitt 
+\ref{algo_gl_geom}). 
+Ausgehend von Punkten und Linien wird anschlie"send dargestellt, wie Drei- 
+oder Vierecke (und somit Objekte mit glatter Oberfl"ache) in den Oktalbaum 
+eingef"ugt werden k"onnen (Abschnitt \ref{algo_plane}). Abschlie"send widmet 
+sich Abschnitt \ref{algo_spline} der Generierung von Oktalb"aumen f"ur 
+K"orper mit gekr"ummter Oberfl"ache.
+
+\section{Grundlegende geometrische Algorithmen}
+\label{algo_gl_geom}
+Bei vielen 'klassischen' Algorithmen werden --~wie \cite[S.399]{algo_cpp} 
+vermerkt~-- "Text und Zahlen verwendet, die in den meisten Programmiersystemen 
+auf nat"urliche Art dargestellt und verarbeitet werden. Tats"achlich sind 
+die ben"otigten elementaren Operationen in den meisten Computersystemen 
+hardwarem"a"sig implementiert. Wir werden sehen, da"s die Situation bei 
+geometrischen Problemen anders ist: Selbst die einfachsten Operationen mit 
+Punkten und Linien k"onnen mittels Computer schwer realisierbar sein.\\
+Geometrische Probleme lassen sich leicht veranschaulichen, doch das kann 
+st"orend sein. Viele Probleme, die jemand l"osen kann, der ein St"uck Papier 
+betrachtet (Beispiel: Befindet sich ein gegebener Punkt innerhalb eines 
+Polygons?), erfordern nichttriviale Programme. F"ur komplizierte Probleme kann 
+sich (wie bei vielen anderen Anwendungen) das f"ur eine Implementation 
+geeignete L"osungsverfahren durchaus stark von der f"ur einen Menschen 
+geeigneten L"osungsmethode unterscheiden." 
+
+Es existieren viele Spezialf"alle (z.B. Dreieck zu Strecke oder Punkt 
+entartet), die einer gesonderten Behandlung bed"urfen. 
+Andererseits finden sich f"ur geometrische Probleme viele Algorithmen 
+in der Literatur, insbesondere im Internet. 
+Das Beachten (bzw. Nichtbeachten) von Spezialf"allen sowie die Effizienz der 
+vorgeschlagenen L"osungen ist aber meist nicht sofort ersichtlich und kann 
+von Anwendunsszenario zu Anwendungsszenario variieren. Die Missachtung 
+von Spezialf"allen ist ein h"aufiger Programmierfehler. 
+
+Dennoch lassen sich einige Prinzipien f"ur alle geometrischen Algorithmen 
+formulieren: Fast immer wird auf Mittel der Vektorrechnung zur"uckgegriffen. 
+Damit wird auch meist das Problem sehr anschaulich beschrieben. Die L"osung 
+ist auch einfach auf h"oherdimensionale analoge Probleme anwendbar. 
+(Allerdings gibt es manchmal L"osungen, die sich anderer geometrischer 
+Beziehungen bedienen, die effizienter sind und direkt (ohne Sonderbehandlung) 
+mehr Spezialf"alle abdecken). Algorithmen mit Ganzzahlarithmetik sind aus 
+Effizenzgr"unden ihren Flie"skommapendants vorzuziehen. Laufvariablen 
+sollten zur Vermeidung von Akkumulationsfehlern nie Flie"skommazahlen sein. 
+Besonderes Augenmerk verdient die diskrete Aufteilung des Raums in Zellen. 
+Allgemein sind Rundungsfehler und weitere numerische Probleme 
+(z.B. Ausl"oschung) zu beachten. 
+Wichtig ist hier die Frage nach der notwendigen Genauigkeit der L"osung. 
+Die Analyse unterschiedlicher Algorithmen zu einem geometrischen Problem 
+kann deshalb wichtig sein.
+
+Nachfolgend sollen einige verwendete geometrische Algorithmen vorgestellt 
+werden.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{algorithmen/lagebest}
+
+\input{algorithmen/schnitt}
+
+\input{algorithmen/plane}
+
+\input{algorithmen/spline}
+
+%% End of Document

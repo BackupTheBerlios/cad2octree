@@ -1,0 +1,328 @@
+% algorithmen/lagebest.tex
+% Lagebstimmung geometrischer Objekte im Raum
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%
+% Autor: Stefan Mahler 2002/2003
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\subsection{Lagebestimmung geometrischer Objekte}
+\label{lagebest}
+Die Bestimmung der Lage eines Objekts bez"uglich eines anderen hat zur 
+Oktalbaumgenerierung eine herausragende Bedeutung. Schlie"slich wird 
+die Geometrie des Oktalbaums "uber die Frage '\emph{Befindet sich das Objekt 
+ganz innerhalb oder au"serhalb oder teilweise inner-/au"serhalb einer 
+bestimmten Zelle?}' definiert. 
+
+\subsubsection{Punkt-in-Zellen-Test}
+Um einen Punkt einer Zelle zuordnen zu k"onnen, m"ussen die realen Koordinaten 
+des Punkts im gegebenen CAD-Modell auf die Koordinaten des virtuellen Gitters 
+abgebildet werden. Die Abbildung der CAD-Punkte auf das Gitter soll als 
+\type{GeomPoint} bezeichnet werden. 
+
+\begin{description}
+\item[Zuordnung eines realen Punktes zu einer Zelle unterster Baumebene]~\\
+\label{point_in_cell_lowest_level}
+Zun"achst wird von Zellen der tiefsten Ebene ausgegangen. Sie besitzen die 
+Knotenh"ohe $h_{\mbox{idx}}=0$ bzw. die Tiefe $d_{t_{\max}}$. 
+In jeder Achsrichtung befinden sich $2^{d_{t_{\max}}}$ Zellen, die mit $0$ 
+beginnend durchnummeriert seien. 
+F"ur einen beliebigen Zellindex $\mbox{\bf idx}$ dieser Ebene gilt deshalb 
+\gl{gl_idx_in_octree_basenode}{\mbox{\bf idx} \in \left[ \left( 
+	\left(0\right)^{\dim} | ~ 0 \right) ; \left( 
+	\left(2^{d_{t_{\max}}} - 1\right)^{\dim} | ~ 0 \right) 
+    \right]\mbox{.}} 
+Nachbarzellen besitzen in jede Achsrichtung den Index-Abstand $1$. F"ur ein 
+\type{GeomPoint} ${\bf g}$ gilt: 
+\gl{gl_geompoint_idx_basenode}{{ \bf g} \in \mbox{\bf idx} : 
+    { \bf g}[i] \in \left[\mbox{\bf idx}[i]; 
+	\mbox{\bf idx}[i] + 1 \right) ~ 
+    \land ~ h_{ \bf g} = h_{\mbox{\bf idx}} = 0%\mbox{,}~ 
+%    ~\forall i \in [0; \dim)\mbox{.}
+}
+mit $i = 0,\dots, {\dim}-1$. Dabei sind ${\bf g}[i]$ und $\mbox{\bf idx}[i]$ 
+die $i$-te Koordinate des \type{GeomPoint} bzw. der Anteil in $i$-Richtung des 
+Index. Alle Zellen besitzen die gleiche Breite. Unter Verwendung 
+\glref{gl_knotentiefe_zellgroesse} ergibt sich eine Maschenweite $\lambda$  
+von \[\lambda = \max_{i \in \left[0; {\dim}\right)} { \left\{ 
+    { \bf p}_{\max}[i] - { \bf p}_{\min}[i] \right\} } ~ / 
+    ~ 2^{d_{t_{\max}}}\mbox{.}\] 
+Dabei enthalten ${\bf p}_{\max}$ und ${\bf p}_{\min}$ die jeweils gr"o"sten 
+bzw. kleinsten Koordinaten der boundary cube. Somit kann jeder Punkt 
+${\bf p}$ des CAD-Modells mit ${\bf p} \in \left[{\bf p}_{\min}; 
+{\bf p}_{\max}\right)$ mit Hilfe der linearen Abbildung 
+\gl{gl_p_to_g_using_lambda}{{\bf g} = ({ \bf p} - { \bf p}_{\min}) 
+    ~ / ~ \lambda}
+als entsprechender \type{GeomPoint} ${\bf g}$ dargestellt werden. 
+Wird ${\bf p}_{\min}$ durch 
+\gl{gl_p_min}{{ \bf p}_{\min} = \left( \min_{{ \bf p}} 
+    \left\{ { \bf p}[i] \right\} \right)^{i = 0,\dots,\dim - 1}}
+bzw. ${\bf p}_{\max}$ durch 
+\gl{gl_p_max}{{ \bf p}_{\max} = \left( \max_{{ \bf p}} 
+    \left\{ { \bf p}[i] \right\} \right)^{i = 0,\dots,\dim - 1}} 
+definert, k"onnen jedoch die Punkte nicht in den Oktalbaum abgebildet werden, 
+die mindestens eine ${\max}$-Koordinate enthalten. Das sind alle Punkte der 
+drei Randfl"achen der boundary cube $x = { \bf p}_{\max}[0]$, $y = 
+{ \bf p}_{\max}[1]$ bzw. $z = { \bf p}_{\max}[2]$. Solche Punkte w"urden einer 
+Zelle zugeordnet, die wegen \glref{gl_geompoint_idx} einen Index-Anteil 
+von $2^{d_{t_{\max}}}$ ergeben und mit \glref{gl_idx_in_octree} au"serhalb 
+des Oktalbaums liegen. Eine L"osung w"are, ${\bf p}_{\max}$ in jeweils jede 
+Achsrichtung um $\epsilon : \epsilon > 0$ nach 'rechts' zu verschieben, also 
+${\bf p}_{\max}$ anstatt mit Hilfe von \glref{gl_p_max} durch 
+\[{ \bf p}_{\max} = \left( \max_{{ \bf p}} 
+    \left\{ { \bf p}[i] \right\} + \epsilon \right)^{i = 0,\dots,\dim - 1}\] 
+zu definieren. Der "ubersch"ussige relative Anteil w"are dann jedoch vom 
+CAD-Modell abh"angig. Besitzt die Geometrie nur kleine Abmessung, w"are dieser 
+Anteil unn"otig gro"s. Alternativ wird die Maschenweite auf 
+\gl{gl_lambda_basenode}{\lambda = { \max_{i \in \left[0; {\dim}\right)} 
+    { \left\{ {\bf p}_{\max}[i] - { \bf p}_{\min}[i] \right\} } ~ 
+    \over ~{ 2^{d_{t_{\max}}} - \epsilon } } }
+vergr"o"sert. Um eine besonders kleine Maschenweite zu erhalten, wird 
+$\epsilon \ll 1$ gesetzt. 
+
+Der \type{GemPoint} ${\bf g}$ befindet 
+(vgl. \glref{gl_geompoint_idx_basenode}) sich in der Zelle mit dem 
+Index $\mbox{\bf idx}$ 
+\gl{gl_gp_to_idx}{\mbox{\bf idx} = \trunc{{ \bf g}}\mbox{.}}
+
+\item[Verallgemeinerung auf beliebige Zellebenen]\label{point_in_cell_allg}~\\
+Die im letzten Punkt gemachten Betrachtungen lassen sich auf beliebige 
+Zell\-ebenen "ubertragen. Es gelten dementsprechend f"ur beliebige H"ohen des 
+die Zelle repr"asentierenden Oktalbaumknotens $h$ (bzw. Tiefen $d$) analog zu 
+\glref{gl_idx_in_octree_basenode}, \glref{gl_geompoint_idx_basenode} und 
+\glref{gl_lambda_basenode}:
+\gl{gl_idx_in_octree}{\mbox{\bf idx} \in \left[ \left( \left(0\right)^{\dim} 
+	| ~ h \right) ; \left( \left(2^d - 1\right)^{\dim} | ~ h \right) 
+    \right]\mbox{,}} 
+\gl{gl_geompoint_idx}{{\bf g} \in \mbox{\bf idx} : 
+    { \bf g}[i] \in \left[\mbox{\bf idx}[i]; 
+	\mbox{\bf idx}[i] + 1 \right) ~ 
+    \land ~ h_{ \bf g} = h_{\mbox{\bf idx}}}
+mit $i = 0, \dots ,\dim-1$ bzw.
+\gl{gl_lambda}{\lambda = { \max_{i \in \left[0; {\dim}\right)} 
+    { \left\{ {\bf p}_{\max}[i] - { \bf p}_{\min}[i] \right\} } ~ 
+    \over ~{ 2^d - \epsilon } } }
+und somit
+\gl{gl_p_to_g_allg}{{\bf g} = \left( ({ \bf p} - { \bf p}_{\min}) 
+    ~ * ~ \frac{2^d - \epsilon }{ \max_{i \in [0,\dots,\dim-1)} \left\{ 
+	{ \bf p}_{\max}[i] - { \bf p}_{\min}[i] \right\} } 
+    \left|\right. h \right)\mbox{.}}
+
+\item[Zuordnung des Zellindex zu einem \type{GeomPoint}]~\\
+$g_{\mbox{\bf idx}_{\downarrow}} = \mbox{\bf idx}$ liefert den 'rechten 
+unteren vorderen' \type{GeomPoint} der Zelle $\mbox{\bf idx}$.  
+Als \type{GeomPoint} $g_{\mbox{\bf idx}}$ einer Zelle wird h"aufig ihr 
+Mittelpunkt definiert. Wir setzen 
+\gl{gl_idx_to_geompoint}{g_{\mbox{ \bf idx}} = \mbox{ \bf idx} 
+    + \left( \onehalf \right)^{\dim}\mbox{.}}
+
+\item[Punktgleichheit]~\\
+Wann sind zwei Punkte ${\bf g}_1$ und ${\bf g}_2$ im Oktalbaum als identisch 
+anzusehen? Zum einem k"onnte man zwei Punkte als gleich betrachten, wenn sie 
+zur gleichen Zelle geh"oren, also $\trunc{{\bf g}_1} = \trunc{{\bf g}_2}$. 
+Unter anderem f"ur den \vpageref{point_in_plane_test} behandelten 
+\emph{Punkt-in-Ebene-Test} eignet sich eine Abstandsbeziehung besser. 
+Die Eckpunkte einer Zelle ${\bf g}_{{\mbox{ \bf idx}^{\ast}}}$ haben vom 
+Mittelpunkt ${\bf g}_{\mbox{\bf idx}}$ einen Abstand $a = \sqrt{3 * 
+{\onehalf}^2}$. Wir definieren 
+\gl{gl_geompoint_equ}{ { { \bf g}_1 = { \bf g}_2 } ~ \equival ~
+    { \left| { \bf g}_1 - { \bf g}_2 \right|^2 < \threequarters }\mbox{.}}
+\end{description}
+
+\subsubsection{Punkt-auf-Strecke-Test}
+Ein Punkt ${\bf Q}$ befindet sich auf der Strecke $\overline{{\bf A}{\bf B}}$
+falls
+\begin{itemize}
+\item ${\bf Q}$ ein Endpunkt der Strecke ist, also ${\bf Q} = {\bf A}$ oder 
+    ${\bf Q} = {\bf B}$, oder 
+\item ${\bf Q}$ sich auf der Geraden, die durch ${\bf A}$ und 
+    ${\bf B}$ verl"auft, befindet und zwischen ${\bf A}$ und ${\bf B}$ liegt.
+\end{itemize}
+
+${\bf Q}$ liegt auf der Geraden ${\bf A}{\bf B}$, wenn der Fu"spunkt 
+${\bf F}_{\bf Q}$ zu ${\bf Q}$ auf der Geraden ${\bf A}{\bf B}$ mit ${\bf Q}$ 
+zusammenf"allt, also gilt
+\gl{gl_q_at_line}{{ \bf Q} = { \bf F}_{ \bf Q}\mbox{.}}
+Der Fu"spunkt kann mit Hilfe des Skalarprodukts berechnet werden:
+\gl{gl_footpoint_at_line}{ \vct{O{F_Q}} = \frac{ < \vct{AQ}; \vct{AB} > }{%
+	| \vct{AB} |^2 } ~ \vct{AB} \: + \: \vct{OA}\mbox{.}}
+
+Ein Punkt ${\bf Q}$, der sich auf der Geraden ${\bf A}{\bf B}$ befindet, liegt 
+zwischen ${\bf A}$ und ${\bf B}$, wenn gilt: 
+\gl{gl_footpoint_at_stretch}{ | \overline{AQ} | < | \overline{AB} | ~ 
+    \land ~ | \overline{QB} | < | \overline{AB} |\mbox{.}}
+
+\subsubsection{Punkt-in-Ebene-Test}
+\label{point_in_plane_test}
+Im Folgenden werden zwei Methoden erl"autert, um zu bestimmen, ob sich ein 
+Punkt ${\bf Q}$ in der Ebene $E$, die durch die Punkte ${\bf A}$, 
+${\bf B}$ und ${\bf C}$ gegeben ist, befindet.
+Dabei ist zu beachten
+\begin{enumerate}
+\item\textbf{Sonderfälle:} Sind ${\bf A}$, ${\bf B}$ und ${\bf C}$ kollinear 
+    (oder gar identisch), so ist undefiniert, ob ${\bf Q}$ in $E$ liegt. 
+\item\textbf{\emph{'Abstandsregel'}:} Der Punkt-in-Ebene-Test wird 
+    insbesondere dazu benutzt, um zu bestimmen, ob $E$ durch eine Zelle mit 
+    dem Index ${\bf i}$ verl"auft. Der Zelle wird der Punkt ${\bf g}_i$ 
+    zugeordnet, der den Mittelpunkt der Zelle darstellt. Verl"auft die Ebene 
+    nicht durch den Zellmittelpunkt sondern lediglich durch die 
+    Zellrandfl"ache, muss dennoch die Zelle als zur Ebene geh"orig angesehen 
+    werden. Deshalb werden Punkte, die in einen Abstand 
+    von $\le\onehalf$ zu $E$ besitzen, mit zur Ebene $E$ gerechnet.
+\end{enumerate}
+
+\begin{description}
+%\renewcommand\item{\item ~\\}
+\item["Uber den Fu"spunkt] \label{descr_in_plane_footpoint}~\\ 
+    Gilt f"ur den Fu"spunkt ${\bf F}_{\bf Q}$ des Punktes ${\bf Q}$ auf der 
+    Ebene $E$
+    \gl{gl_point_in_plane_via_f}{{ \bf F}_{ \bf Q} = { \bf Q}\mbox{,}}
+    dann liegt ${\bf Q}$ in $E$. 
+    ${\bf F}_{\bf Q}$ kann "uber 
+    \gl{gl_footpoint_in_plane}{ \vct{O{F_Q}} = \vct{OQ} ~ - ~ 
+	\textstyle{ \left( \left< \vct{n_E}; \vct{OQ} \right> - d \right) } 
+	\vct{n_E} }
+    berechnet werden. Dabei ist $\vct{n_E}$ nach 
+    \glref{gl_flaechenorientierung} der Normalenvektor der Ebene.
+\item["Uber das Determinantenverfahren] \label{descr_in_plane_det}~\\ 
+    Das Volumen $V$ des durch die Vektoren $\vct{a}$, $\vct{b}$ und $\vct{c}$ 
+    gegebenen Spans kann durch 
+    \gl{gl_vol_ueber_det}{V = \det \left(\vct{a}; \vct{b}; \vct{c}\right)}
+    ermittelt werden. 
+    Damit ergibt sich folgende Beziehung f"ur den Abstand $a$ des 
+    Punktes ${\bf Q}$ zur Ebene $E$ 
+    \gl{gl_dist_point_plane}{\det{}^2 \left(\vct{AB}; \vct{AC}; \vct{AP}\right) 
+	< a^2 ~ \left| \vct{AB} \crossprod \vct{AC} \right|^2\mbox{.}} 
+    Mit einem maximal zul"assigen Abstandsquadrat von $a^2 = \onehalf$ ergibt 
+    sich
+    \gl{gl_point_in_plane_via_det}{{ \bf Q} \in E ~ \Longleftrightarrow ~ 
+	\det{}^2 \left(\vct{AB}; \vct{AC}; \vct{AP}\right) 
+	\le \onehalf ~ \left| \vct{AB} \crossprod \vct{AC} \right|^2\mbox{.}} 
+\end{description}
+
+\subsubsection{Punkt-in-Polygon-Test}
+F"ur den Test, ob sich ein Punkt ${\bf Q}$ in einem \emph{beliebigen} Polygon 
+befindet, bietet sich die \textbf{Strahlmethode} an:
+
+Sei ein Polygon $H$ durch den geschlossenen Streckenzug 
+$\overline{{\bf p}_0{\bf p}_1}$ $\dots$ 
+$\overline{{\bf p}_{n-2}{\bf p}_{n-1}}$ $\overline{{\bf p}_{n-1}{\bf p}_n}$ 
+mit ${\bf p}_n = {\bf p}_0$ gegeben. Dann kann mit Hilfe des Teststrahls 
+$\strch{{\bf Q}{\bf W}}$ "uberpr"uft werden, ob ${\bf Q}$ auf dem Rand, 
+innerhalb oder au"serhalb von $H$ liegt. Dabei muss garantiert sein, dass 
+sich ${\bf W}$ au"serhalb von $H$ befindet. Zu diesem Zweck wird ${\bf W}$ 
+am besten auf eine Position au"serhalb der boundary cube festgelegt, z.B. : 
+${\bf W} = \left({\bf Q}[0]; {\bf Q}[1]; 2^{d_{\bf Q}} | h_{\bf Q}\right)$.
+Nun wird f"ur alle Streckenz"uge $\overline{{\bf p}_{i}{\bf p}_{i+1}}$ mit 
+$i= 0,\dots,n-1$ "uberpr"uft, ob sie den Teststrahl schneiden. 
+Liegt ${\bf Q}$ auf einem Streckenzug, liegt ${\bf Q}$ auf dem Polygonrand 
+und der Test kann abgebrochen werden. Ist ansonsten die Anzahl der Schnitte 
+gerade, dann liegt ${\bf Q}$ innerhalb, ist die Anzahl der Schnitte ungerade, 
+befindet sich ${\bf Q}$ au"serhalb des Polygons, also gilt: 
+\gl{gl_point_in_polygon_via_ray}{{ \bf Q} \cases{
+    \mbox{on} ~ H\mbox{,} & { \bf Q} \in \overline{{ \bf p}_i{ \bf p}_{i+1}}\\
+    \mbox{in} ~ H\mbox{,} & \nu \mod 2 = 0\\
+    \notin    ~ H\mbox{,} & \nu \mod 2 = 1}\mbox{.}}
+Dabei ist $i= 0,\dots,n-1$ und $\nu$ die Anzahl der Schnitte. Folgende 
+Sonderf"alle sind zu beachten: Ein Streckenzug wird in einem Eckpunkt vom 
+Teststrahl geschnitten oder f"allt mit dem Teststrahl zusammen. Diese F"alle 
+werden genau dann als Schnitt gez"ahlt, wenn es im Folgenden zu einem 
+Seitenwechsel bez"uglich des Teststrahls kommt.
+
+\label{polyeder_test}
+Das Verfahren l"asst sich auch auf beliebige \textbf{Polyeder} (dann mit Test 
+auf Schnitt der Teil\-oberfl"achen) "ubertragen. 
+
+Alternativ l"asst sich das Verfahren leicht abwandeln, wenn man die 
+\emph{Orientierung} der Polygon-/Polyeder-R"ander ausnutzt 
+(\textbf{Teststrahlmethode}). Jetzt muss nur der zu ${\bf Q}$ am n"achsten 
+gelegene Streckenzug bzw. die zu ${\bf Q}$ am n"achstengelegene 
+Teiloberfl"ache\footnote{wieder entlang eines Teststrahls oder alternativ 
+der/die allgemein am n"achsten gelegene Streckenzug bzw. Teil\-oberfl"ache} 
+ermittelt werden. Dann kann mit Hilfe des unten 
+beschriebenen Tests der \emph{Lage eines Punktes bez"uglich einer Ebene} 
+(als Basispunkt der Ebene den Schnittpunkt ${\bf S}$ einsetzen) bestimmt 
+werden, ob sich der Punkt innerhalb oder au"serhalb des Polyeders befindet. 
+Liegt ${\bf Q}$ in der Ebene der Teiloberfl"ache, so wird diese Fl"ache 
+einfach unber"ucksichtigt gelassen. Der Sonderfall ${\bf Q}$ liegt in der 
+Teilfl"ache wurde zuvor durch ${\bf Q} = {\bf S}$ "uberpr"uft. Befindet 
+sich ${\bf Q}$ in der Ebene, aber nicht auf der Teilfl"ache, muss es 
+mindestens eine weitere Fl"ache geben, die genauso weit von ${\bf Q}$ entfernt 
+ist, deren Ebene jedoch nicht mit dem Teststrahl $\strch{{\bf Q}{\bf S}}$ 
+zusammenf"allt. Kann keine n"achstliegende Fl"ache gefunden werden, befindet 
+sich ${\bf Q}$ au"serhalb des Polyeders. 
+Prinzipiell l"asst sich das Verfahren auch auf Objekte mit gekr"ummten Rand 
+"ubertragen. Dabei ist jedoch -- neben der schwereren Schnittpunktermittlung 
+-- zu beachten, dass mehrere Schnittpunkte (nicht nur im Sonderfall des 
+Zusammenfallens von Streckenzug/Fl"achenst"uck mit dem Teststrahl) 
+existieren k"onnen. Des Weiteren ist die Orientierung gekr"ummter Fl"achen 
+i.A. nicht global gleich und muss dehalb am entsprechenden Schnittpunkt 
+ermittelt werden. 
+
+Werden nicht beliebige, sondern nur \emph{konvexe Polygone} eingesetzt, 
+k"onnen effizientere oder einfachere Verfahren gefunden werden: 
+
+Besonders effizient ist dabei das \textbf{Umlaufsinnverfahren}. 
+Sei ein Dreieck $H= \triangle{\bf A}{\bf B}{\bf C}$ im 
+\emph{Zweidimensionalen} gegeben. 
+Der Punkt ${\bf Q}$ befindet sich genau dann in $H$, wenn der Umlaufsinn der 
+Dreiecke die durch Ersetzen von jeweils einem der Punkte ${\bf A}$, ${\bf B}$ 
+bzw. ${\bf C}$ durch ${\bf Q}$ entstehen, mit dem Umlaufsinn von $H$ identisch 
+ist, also 
+\gl{gl_point_in_triangle_ccw}{\func{ccw}{{\large H}} = 
+    \func{ccw}{$\triangle${\bf Q}{\bf B}{\bf C}} = 
+    \func{ccw}{$\triangle${\bf A}{\bf Q}{\bf C}} = 
+    \func{ccw}{$\triangle${\bf A}{\bf B}{\bf Q}}\mbox{.}}
+Dabei ist \func{ccw}{} ein Funktion, die zu einem Dreieck seinen 
+Umlaufsinn bestimmt. Die Umlaufsinnbestimmung kann im zweidimensionalen 
+Fall mit Hilfe des Skalarprodukts sehr effizient geschehen (vgl. 
+\cite{algo_cpp}). Die "Ubertragung ins Dreidimensionale erweist sich als 
+schwieriger. Hier gibt es keine nat"urliche Definition des Uhrzeigersinns. 
+Als L"osung k"onnten im Falle, dass ${\bf Q}$ in der Ebene des Dreiecks $H$ 
+liegt, die betreffenden Punkte in einer (zweidimensionalen) Basis 
+zweier Ebenenvektoren dargestellt werden. Alternativ k"onnten die Richtungen 
+der Normalvektoren der Dreiecke verglichen werden.
+
+\label{point_in_polygon_angle}
+\cite{point_in_polygon} stellt das in dieser Arbeit verwendete 
+\textbf{Winkelverfahren} vor. Ein Punkt ${\bf Q}$, der in der Ebene $E$ des 
+konvexen Polygons $H$ liegt, befindet sich genau dann innerhalb von $H$, 
+wenn gilt:
+\gl{gl_point_in_polygon_angle}{{\sum_{i=0}^{n-1} \arccos{
+    \left<{\vct{Q{p_i}} \over |\vct{Q{p_i}}|}; 
+	  {\vct{Q{p_{i+1}}} \over |\vct{Q{p_{i+1}}}|} \right>}} = 2\pi\mbox{.}}
+Dabei ist wieder $\overline{{\bf p}_0{\bf p}_1}, \dots, 
+\overline{{\bf p}_{n-1}{\bf p}_n}$ (mit ${\bf p}_n={\bf p}_0$ und 
+${\bf Q} \notin \overline{{{\bf p}_i}{{\bf p}_{i+1}}}$) der den Rand 
+von $H$ definierende geschlossen Streckenzug. 
+
+F"ur konvexe Polygone kann auch das \textbf{Eckpunkt-Schnittverfahren} 
+verwendet werden. 
+Ein Punkt ${\bf Q}$ der sich nicht auf dem Polygonrand befindet, liegt genau 
+dann im Polygon $H$, welches durch den Streckenzug 
+$\overline{{\bf p}_0{\bf p}_1}$,\dots,$\overline{{\bf p}_{n-1}{\bf p}_n}$ 
+mit ${\bf p}_n={\bf p}_0$ gegeben ist, wenn gilt
+\gl{gl_point_in_polygon_corner_intersect}{%
+    \forall i \in [0; n) \forall k \in [0; n) \setminus \{i; i+1\}:
+    \overline{{\bf Q}{\bf p}_i} \land \overline{{\bf p}_k{ \bf p}_{k+1}}
+    = \emptyset\mbox{,}} 
+also keine Strecke $\overline{{\bf Q}{\bf p}_i}$ durch einen Streckenzug des 
+Polygons $\overline{{\bf p}_k{\bf p}_{k+1}}$ geschnitten wird.
+
+\subsubsection{Lage eines Punktes bez"uglich einer Fl"ache}
+Aus der Orientierung der Fl"achen nach \glref{gl_flaechenorientierung} ergibt 
+sich f"ur alle Fl"achen eine Innen- und Au"senseite. 
+F"ur einen Punkt ${\bf Q}$, der sich nicht auf der Ebene befindet, kann nun 
+durch 
+\gl{gl_point_plane_side}{{\bf Q} ~ \mathrm{is} ~ 
+        \cases{\mbox{inside},  & \varphi > 0\\
+	       \mbox{outside}, & \varphi < 0}}
+sein Lage berechnet werden. $\varphi$ ist ein dem Winkel 
+zwischen dem Normalenvektor $\vct{n_E}$ und dem Vektor zwischen ${\bf Q}$ 
+und einem Fl"achenpunkt ${\bf F}$ entsprechender Wert. Es gilt 
+\gl{gl_phi_from_skalar_prod}{\varphi = \left<\vct{n_E}; \vct{QF}
+	\right>\mbox{.}}
+
+%% End of Document

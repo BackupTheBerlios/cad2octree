@@ -1,0 +1,82 @@
+%% doc/ausarbeitung.sty
+%%
+%% Style-Definitionen fuer die Ausarbeitung
+%% Diplomarbeit Nr. 2035
+%% "Erzeugung und Evaluierung von Oktalbaumstrukturen als Schnittstelle 
+%%   zu CAD-Programmen"
+%%
+%% Autor: Stefan Mahler 2002
+%%   Universitaet Stuttgart, SgS
+%% Betreuer: Ralf Mundani%%
+%%
+
+%% Absaetze ohne Einzuege, dafuer mit spacing 
+\RequirePackage{parskip}
+
+%% deutsche TeX-Begriffe, Trennregeln, etc.
+\RequirePackage[ngerman]{babel, varioref} 
+
+%% ASCII-8bit als Eingabe ermoeglichen
+%% nur aus kompatibilitaetsgruenden aufgefuehrt, da nur ASCII-7bit 
+%% erlaubt sind.
+\RequirePackage[latin1]{inputenc}
+
+%& Graphikeinbettung 
+\RequirePackage{graphicx}
+
+%% epic-Graphicen aktivieren
+\RequirePackage{epic}
+
+%% \url{} aktivieren
+\RequirePackage{url}
+
+%% fancychap fuer die schoenen Ueberschriften
+\RequirePackage{fncychap}
+
+% fuer Symbole
+\RequirePackage{latexsym}
+
+% mal ne andere Schrift, die einem auch den pdf-Export erleichtert!
+\RequirePackage{palatino}
+
+%Postscript T1 coding for textsymbols
+\RequirePackage[T1]{fontenc}
+\RequirePackage{textcomp}
+
+%% caption au"serhalb von Gleitobjektumgebungen
+\RequirePackage{capt-of}
+
+% neue Tabelle, die laenger ist :-) 
+%\RequirePackage{longtable}
+% erweiterte Tabelle
+\RequirePackage{tabularx}
+
+% Verbatim-Umgebung
+\RequirePackage{alltt}
+
+\RequirePackage{bibgerm} % - new VERISON!!!!
+
+% angepasste pdf-Ausgabe
+\RequirePackage{pdfout}
+
+% -------------
+
+\raggedbottom
+
+%%%%
+%% and here we change the behavior of \cleardoublepage:
+%% I want a good typogrphy which includes REAL clear pages
+%% if they ment to be clear: no footer, no headers!
+%%%%
+\def\cleardoublepage{\clearpage\thispagestyle{empty}%
+  \if@twoside \ifodd\c@page\else
+  \hbox{}\newpage%
+  \if@twocolumn\hbox{}\newpage\fi\fi\fi
+}
+
+\makeatother
+
+%% graphicx-Anpassungen (Pfade, in der Grafiken gesucht werden sollen)
+\graphicspath{{models/}, {graf/}, {diagrams/}}
+
+% %%

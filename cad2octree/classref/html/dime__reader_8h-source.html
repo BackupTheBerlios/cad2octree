@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>dime_reader.h</h1><a href="dime__reader_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00013 <font class="preprocessor">#ifndef __DIME_READER_H__</font>
+00014 <font class="preprocessor"></font><font class="preprocessor">#define __DIME_READER_H__</font>
+00015 <font class="preprocessor"></font>
+00016 <font class="preprocessor">#include &lt;<a class="code" href="dxf__reader_8h.html">reader/dxf_reader.h</a>&gt;</font>
+00017 <font class="preprocessor">#include &lt;<a class="code" href="dime__help_8h.html">reader/dime_help.h</a>&gt;</font>
+00018 
+00019 <font class="preprocessor">#include &lt;dime/Model.h&gt;</font>
+00020 <font class="preprocessor">#include &lt;dime/entities/Entity.h&gt;</font>
+00021 
+<a name="l00026"></a><a class="code" href="classDimeReader.html">00026</a> <font class="keyword">class </font><a class="code" href="classDimeReader.html">DimeReader</a> : <font class="keyword">public</font> <a class="code" href="classDxfReader.html">DxfReader</a> {
+00027  <font class="keyword">public</font>:
+00034   <a class="code" href="classDimeReader.html#a0">DimeReader</a>(<font class="keyword">const</font> <font class="keywordtype">char</font>* dxfFile)
+00035     <font class="keywordflow">throw</font> (ReadFileException*, FileFormatException*);
+00036 
+00040   <font class="keyword">virtual</font> <a class="code" href="classDimeReader.html#a1">~DimeReader</a>();
+00041 
+00042   <font class="keyword">virtual</font> <a class="code" href="classCadModel.html">CadModel</a>* <a class="code" href="classDimeReader.html#a2">getCadModel</a>(<a class="code" href="global_8h.html#a23">Color</a> <a class="code" href="classDimeReader.html#o1">color</a>, <font class="keywordtype">bool</font> splitQuad);
+00043   <font class="keyword">virtual</font> <font class="keyword">const</font> <font class="keywordtype">char</font>* <a class="code" href="classDimeReader.html#a3">getFileFormatVersion</a>();
+00044 
+00049   <font class="keyword">virtual</font> <font class="keyword">const</font> <font class="keywordtype">char</font>* <a class="code" href="classDimeReader.html#a4">getLibVersion</a>();
+00050 
+00051   <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classDimeReader.html#a5">print</a>();
+00052 
+00053  <font class="keyword">private</font>:
+00062   <font class="keyword">static</font> <font class="keyword">const</font> <font class="keywordtype">char</font>* <a class="code" href="classDimeReader.html#f0">dimeParam2str</a>(dimeParam param, <font class="keywordtype">int</font> groupCode);
+00063 
+00076   <font class="keyword">static</font> <font class="keywordtype">bool</font> <a class="code" href="classDimeReader.html#f1">generateCadModel</a>(<font class="keyword">const</font> dimeState* <font class="keyword">const</font> state,
+00077                                dimeEntity *entity, <font class="keywordtype">void</font> *data);
+00078 
+00090   <font class="keyword">static</font> <font class="keywordtype">bool</font> <a class="code" href="classDimeReader.html#f2">printEntity</a>(<font class="keyword">const</font> dimeState* <font class="keyword">const</font> state,
+00091                           dimeEntity *entity, <font class="keywordtype">void</font> *data);
+00092 
+00100   dimeModel* <a class="code" href="classDimeReader.html#c0">getDimeModel</a>();
+00101 
+<a name="l00107"></a><a class="code" href="classDimeReader.html#o0">00107</a>   <a class="code" href="classCadModel.html">CadModel</a>* <a class="code" href="classDimeReader.html#o0">cadModel</a>;
+00108 
+<a name="l00115"></a><a class="code" href="classDimeReader.html#o1">00115</a>   <a class="code" href="global_8h.html#a23">Color</a> <a class="code" href="classDimeReader.html#o1">color</a>;
+00116 
+<a name="l00121"></a><a class="code" href="classDimeReader.html#o2">00121</a>   dimeModel* <a class="code" href="classDimeReader.html#o2">model</a>;
+00122 
+00123 }; <font class="comment">// class DimeReader</font>
+00124 
+00125 <font class="preprocessor">#endif // ! __DIME_READER_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

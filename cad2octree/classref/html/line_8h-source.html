@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>line.h</h1><a href="line_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00012 <font class="preprocessor">#ifndef __LINE_H__</font>
+00013 <font class="preprocessor"></font><font class="preprocessor">#define __LINE_H__</font>
+00014 <font class="preprocessor"></font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="geom__vec_8h.html">geom_vec.h</a>&gt;</font>
+00016 
+<a name="l00020"></a><a class="code" href="classLine.html">00020</a> <font class="keyword">class </font><a class="code" href="classLine.html">Line</a> {
+00021  <font class="keyword">public</font>:
+00028   <a class="code" href="classLine.html#a0">Line</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> pA, <a class="code" href="classGeomPoint.html">GeomPoint</a> pB);
+00029 
+00034   <font class="keywordtype">int</font> <a class="code" href="classLine.html#a1">getCount</a>();
+00035 
+00040   <a class="code" href="classGeomVec.html">GeomVec</a> <a class="code" href="classLine.html#a2">getDirVec</a>();
+00041 
+00048   <a class="code" href="classGeomVec.html">GeomVec</a> <a class="code" href="classLine.html#a3">getDistVec</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p);
+00049 
+00057   <a class="code" href="classGeomPoint.html">GeomPoint</a> <a class="code" href="classLine.html#a4">getFootpoint</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p);
+00058 
+00063   <a class="code" href="global_8h.html#a21">Hight</a> <a class="code" href="classLine.html#a5">getHight</a>();
+00064 
+00071   <a class="code" href="classGeomPoint.html">GeomPoint</a> <a class="code" href="classLine.html#a6">getPoint</a>(<font class="keywordtype">int</font> idx);
+00072 
+00079   <font class="keywordtype">bool</font> <a class="code" href="classLine.html#a7">isAtLine</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p);
+00080 
+00086   <font class="keywordtype">bool</font> <a class="code" href="classLine.html#a8">isEndpoint</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p);
+00087 
+00094   <font class="keywordtype">bool</font> <a class="code" href="classLine.html#a9">isInStretch</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p);
+00095 
+00099   <font class="keywordtype">void</font> <a class="code" href="classLine.html#a10">print</a>();
+00100 
+00105   <font class="keywordtype">void</font> <a class="code" href="classLine.html#a11">setHight</a>(<a class="code" href="global_8h.html#a21">Hight</a> h);
+00106 
+00113   <a class="code" href="classGeomPoint.html">GeomPoint</a> <a class="code" href="classLine.html#a12">operator[]</a>(<font class="keywordtype">int</font> idx);
+00114 
+00115  <font class="keyword">private</font>:
+<a name="l00119"></a><a class="code" href="classLine.html#o0">00119</a>   <a class="code" href="classGeomPoint.html">GeomPoint</a> <a class="code" href="classLine.html#o0">pointA</a>;
+00120 
+<a name="l00124"></a><a class="code" href="classLine.html#o1">00124</a>   <a class="code" href="classGeomPoint.html">GeomPoint</a> <a class="code" href="classLine.html#o1">pointB</a>;
+00125 }; <font class="comment">// class Line</font>
+00126 
+00127 <font class="preprocessor">#endif // ! __LINE_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

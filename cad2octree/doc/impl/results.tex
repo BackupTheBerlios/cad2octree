@@ -1,0 +1,533 @@
+% doc/impl/results.tex
+% Testresultate
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%   
+% Autor: Stefan Mahler 2002
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\subsection{Testergebnisse}
+\label{test_results}
+Die Tests wurden in den im letzten Abschnitt geschilderten Umgebungen 
+durchgef"uhrt. Des Weiteren kann auf die Testdaten 
+von \cite[S.53]{dipl_anw_oct}
+zur"uckgegriffen werden, die in Tabelle \ref{tbl_daten_jaksch} aufgelistet 
+sind. Die Angaben sind in der Form Laufzeit (in Sekunden)/Speicherbedarf 
+(in Tausend kB) dargestellt. Laufzeiten \emph{xx:yy} sind als xx Minuten 
+yy Sekunden zu lesen.
+Man beachte, dass diese in einer anderen Umgebung mit anderen Modellen 
+erhoben wurden. 
+
+\tabbeg
+\newcommand*\myitem[6]{\emph{#1} & #2 & #3 & #4 & #5 & #6 \\ \hline}
+\begin{tabular}{|l|r|r|r|r|r|}
+\hline
+\textbf{\emph{Modell}} & \textbf{\# Dreiecke} 
+    & \multicolumn{4}{c|}{\textbf{Tiefe}} \\
+\myitem{}{}{%
+    \multicolumn{1}{c|}{\textbf{5}}}{\multicolumn{1}{c|}{\textbf{6}}}{%
+    \multicolumn{1}{c|}{\textbf{7}}}{\multicolumn{1}{c|}{\textbf{8}}}
+
+\myitem{Kugel     }{528}{~~~3/1MB}{~~12/~1MB}{~~~45/~4MB}{~3:00/~17MB}
+\myitem{W"urfel    }{24}{~~~1/1MB}{~~~1/~2MB}{~~~~4/~8MB}{~~~16/~32MB}
+\myitem{Tor       }{498}{~~14/2MB}{~~55/~8MB}{~3:35/34MB}{15:18/137MB}
+\myitem{K"uhlturm}{1920}{1:09/2MB}{4:15/~7MB}{20:35/32MB}{87:46/141MB}
+\end{tabular}
+\tabend[Zeit-/Speicherbedarf zur Oktalbaumgenerierung von 
+    \cite{dipl_anw_oct}]{tbl_daten_jaksch}{Laufzeiten [s] / Speicherbedarf
+    zur Oktalbaumgenerierung von \cite{dipl_anw_oct}}
+
+Im Folgenden werden die Resultate der eigenen Analysen vorgestellt.
+Die Laufzeit wurde mit Hilfe der C-Funktionen \texttt{setititmer()} mit 
+Option \texttt{ITIMERRAL} und \texttt{getittimer()} ermittelt, die die 
+abgelaufene Systemzeit messen. Entsprechende Marken, die diese Befehle 
+enthalten, wurden in das Programm eingef"ugt. 
+Zeitangaben im Format \emph{xx.y} stehen f"ur xx,y Sekunden, \emph{xx:yy} 
+f"ur xx Minuten und yy Sekunden. 
+Zur Messung des Speicherbedarfs von cad2octree wurde \texttt{top} verwendet.  
+
+\subsubsection{Modelle mit polygonaler Oberfl"ache}
+
+Um die Plattformabh"angigkeit der Laufzeit zu analysieren, wurden 
+Testreihen in zwei unterschiedlichen Umgebungen durchgef"uhrt. 
+Beim Speicherbedarf sind in diesem Fall keine Unterschiede zu erwarten, da 
+beide Systeme auf der gleichen Architektur basieren. 
+Die Tabellen \ref{tbl_diff_testenv_scanline_plane}, 
+\ref{tbl_diff_testenv_isin_plane} und \ref{tbl_diff_testenv_classic_plane} 
+stellen die Ergebnisse vergleichend dar. Mit \emph{s)} wurde die 
+Basis-Umgebung mit SuSE-Linux auf P-1000 bezeichnet, \emph{m)} steht f"ur die 
+Alternativ-Plattform mit Mandrake auf P-350. 
+
+\tabbeg
+\newcommand*\myhline{\hline\hline}
+\newcommand*\myitema[6]{\emph{#1} & s) & #2 & #3 & #4 & #5 & #6 \\\cline{2-7}}
+\newcommand*\myitemb[5]{          & m) & #1 & #2 & #3 & #4 & #5 \\}
+\begin{tabular}{|lr|r|r|r|r|r|}
+\hline
+\textbf{\emph{Modell}} & & \multicolumn{5}{c|}{\textbf{Tiefe}} \\
+  & & \multicolumn{1}{c|}{\textbf{5}} & \multicolumn{1}{c|}{\textbf{6}}
+    & \multicolumn{1}{c|}{\textbf{7}} & \multicolumn{1}{c|}{\textbf{8}} 
+    & \multicolumn{1}{c|}{\textbf{9}} \\
+\hline\hline
+\myitema{gear2}{      3.4/1MB}{~5.4/2MB}{~7.0/4MB}{~8.4/~7MB}{22.1/16MB}
+\myitemb{             4.0/2MB}{11.5/4MB}{11.2/8MB}{24.9/11MB}{1:09/22MB}
+\myhline
+\myitema{kugel\_poly}{5.8/1MB}{~5.7/2MB}{~6.1/5MB}{13.3/10MB}{49.6/32MB}
+\myitemb{             3.5/1MB}{~6.5/3MB}{10.6/8MB}{32.4/12MB}{2:24/34MB}
+\myhline
+\myitema{ship}{       3.9/1MB}{~3.8/2MB}{~5.1/3MB}{~7.5/~7MB}{20.2/22MB}
+\myitemb{             5.5/1MB}{~5.1/2MB}{~6.9/6MB}{21.6/10MB}{1:05/26MB}
+\myhline
+\myitema{wuerfel}{    5.9/1MB}{~5.6/2MB}{~6.4/5MB}{12.6/12MB}{33.6/39MB}
+\myitemb{             4.0/1MB}{~5.2/4MB}{~8.3/7MB}{19.2/13MB}{1:18/41MB}
+\hline
+\end{tabular}
+\tabend[Zeit-/Speicherbedarf auf versch. Plattformen 
+    (polygon./Scan-Line)]{tbl_diff_testenv_scanline_plane}{%
+    Laufzeiten [s] / Speicherbedarf auf s) \small{(= P1000 mit SuSE)} und 
+    m) \small{(= P350 mit Mandrake)} (polygonale Modelle/Scan-Line-Verfahren)}
+
+F"ur die Tests in Tabelle \ref{tbl_diff_testenv_scanline_plane} kam das 
+Scan-Line-Verfahren zum Einsatz, die Ergebnisse in den Tabellen 
+\ref{tbl_diff_testenv_isin_plane} und \ref{tbl_diff_testenv_classic_plane} 
+basieren auf dem hybriden Anstatz bzw. auf dem klassischen Verfahren. 
+Als F"ullmodus wurde \texttt{MARK\_BORDER} mit einer 
+\texttt{MAX\_RECURSIVE\_DEEP} von $8000$ verwendet. 
+
+\tabbeg[!t]
+\newcommand*\myhline{\hline\hline}
+\newcommand*\myitema[6]{\emph{#1} & s) & #2 & #3 & #4 & #5 & #6 \\\cline{2-7}}
+\newcommand*\myitemb[5]{          & m) & #1 & #2 & #3 & #4 & #5 \\}
+\begin{tabular}{|lr|r|r|r|r|r|}
+\hline
+\textbf{\emph{Modell}} & & \multicolumn{5}{c|}{\textbf{Tiefe}} \\
+  & & \multicolumn{1}{c|}{\textbf{5}} & \multicolumn{1}{c|}{\textbf{6}}
+    & \multicolumn{1}{c|}{\textbf{7}} & \multicolumn{1}{c|}{\textbf{8}} 
+    & \multicolumn{1}{c|}{\textbf{9}} \\
+\hline \hline
+\myitema{gear2}{      14.6/2MB}{25.2/3MB}{41.6/5MB}{1:17/~9MB}{3:04/23MB}
+\myitemb{             29.4/2MB}{53.0/4MB}{1:22/6MB}{2:47/10MB}{6:42/25MB}
+\myhline
+\myitema{kugel\_poly}{~5.0/1MB}{~9.9/3MB}{18.4/5MB}{52.2/~9MB}{2:46/36MB}
+\myitemb{             11.7/1MB}{16.8/2MB}{37.8/7MB}{1:46/13MB}{5:56/38MB}
+\myhline
+\myitema{ship}{       ~7.2/1MB}{10.4/2MB}{18.1/4MB}{33.7/~7MB}{1:26/25MB}
+\myitemb{             13.8/1MB}{21.6/2MB}{32.1/5MB}{1:07/~9MB}{3:04/27MB}
+\myhline
+\myitema{wuerfel}{    ~3.3/1MB}{~3.8/2MB}{13.5/5MB}{39.5/12MB}{2:22/39MB}
+\myitemb{             ~4.9/1MB}{~7.4/2MB}{32.1/5MB}{1:16/14MB}{5:08/41MB}
+\hline
+\end{tabular}
+\tabend[Zeit-/Speicherbedarf auf versch. Plattformen 
+    (polygon./hybrid)]{tbl_diff_testenv_isin_plane}{%
+    Laufzeiten [s] / Speicherbedarf auf s) \small{(= P1000 mit SuSE)} und 
+    m) \small{(= P350 mit Mandrake)} (polygonale Modelle/Hybrid-Verfahren)}
+
+\tabbeg[!t]
+\newcommand*\myitema[6]{\emph{#1} & s) & #2 & #3 & #4 & #5 & #6 \\\cline{2-7}}
+\newcommand*\myitemb[5]{          & m) & #1 & #2 & #3 & #4 & #5 \\}
+\begin{tabular}{|lr|r|r|r|r|r|}
+\hline
+\textbf{\emph{Modell}} & & \multicolumn{5}{c|}{\textbf{Tiefe}} \\
+  & & \multicolumn{1}{c|}{\textbf{5}} & \multicolumn{1}{c|}{\textbf{6}}
+    & \multicolumn{1}{c|}{\textbf{7}} & \multicolumn{1}{c|}{\textbf{8}} 
+    & \multicolumn{1}{c|}{\textbf{9}} \\
+\hline
+\myitema{wuerfel}{2.0/1MB}{~9.3/2MB}{36.3/3MB}{2:30/10MB}{~9:58/38MB}
+\myitemb{         5.8/1MB}{20.3/2MB}{1:20/3MB}{5:27/10MB}{22:05/38MB}
+\hline
+\end{tabular}
+\tabend[Zeit-/Speicherbedarf auf versch. Plattformen 
+    (\emph{wuerfel}/klassisch)]{tbl_diff_testenv_classic_plane}{%
+%    Einige Modelle in beiden Testumgebungen (glatt/klassisch)
+    Laufzeiten [s] / Speicherbedarf auf s) \small{(= P1000 mit SuSE)} und 
+    m) \small{(= P350 mit Mandrake)} (\emph{wuerfel}/Klassisches Verfahren)}
+
+Alle weiteren Analysen beziehen sich auf das P-1000 / SuSE-Linux System.
+
+In Abbildung \ref{abb_scanline_plane_ram_plane} sind die Laufzeiten 
+des Scan-Line-Verfahrens sowie der Speicherverbrauch des Scan-Line und 
+des hybriden Verfahrens dargestellt. 
+
+\dia[!t]{abb_scanline_plane_ram_plane}{%
+    Laufzeiten, Speicherverbrauch (polygon.)}{Laufzeiten Scan-Line}{%
+    scanline-plane}{Speicherverbrauch}{ram-plane}
+
+Tabelle \ref{tbl_nodes_plane} zeigt wieviele Bl"atter und 
+Knoten insgesamt ein durch das Scan-Line-Verfahren erzeugter 
+Oktalbaum eines bestimmten Modells enth"alt. 
+Die Werte in Klammern geben die jeweilige Knotenanzahl nach der Kompaktierung 
+an, die Werte davor entsprechend vor der Kompaktierung. In der Spalte 
+\emph{\#Randknoten} steht die Anzahl der Knoten, die die K"orperoberfl"ache 
+wiedergeben. 
+\emph{d} gibt die Maximaltiefe des Oktalbaums an. 
+Die Spalte \emph{\#Normzellen} enth"alt die Anzahl der Zellen 
+(auf Knotenh"ohe~$0$), 
+die das Modell enthalten. Hieraus kann abgeleitet werden, wieviele Zellen 
+in einem entsprechenden Normzellen-Aufz"ahlungsschema die Geometrie tragen
+(\emph{\#Normzellen} korreliert somit mit der Generierungszeit eines solchen 
+Normzellenaufz"ahlungsschemas). 
+
+Die Zusammenh"ange zwischen maximaler Baumtiefe (und damit der Aufl"osung) 
+und Knoten- bzw. Zallanzahl sind in 
+Abbildung \ref{abb_nodes_cells_plane} f"ur das 
+\emph{kugel\_poly}-Modell und f"ur das \emph{ship}-Modell dargestellt. 
+Abbildung \ref{abb_t_plane} zeigt m"ogliche Abh"angigkeiten zwischen 
+Laufzeit und Randknoten bzw. Polygonanzahl. 
+
+\tabbeg[!t]
+\newcommand*\headitem[2]{\multicolumn{#1}{c|}{{\bf #2}}}
+\newcommand*\myitem[8]{\emph{#1} & \small{#2} & \small{#3} & \small{(#4)} 
+    & \small{#5} & \small{(#6)} & \small{#7} & \small{#8} \\}
+\newcommand*\mline{\cline{2-8}}
+\newcommand*\lline{\hline\hline}
+\begin{tabular}{|lr|rr|rr|r|r|r|}
+\hline
+\textbf{\emph{Modell}} & {\bf\textrm{d}} & \headitem{2}{\# Bl"atter} 
+    & \headitem{2}{\# Knoten} & \headitem{1}{\# Rand-} 
+    & \headitem{1}{\# Norm-} \\
+ & & & \tiny{(kompaktiert)} & & \tiny{(kompaktiert)} & \headitem{1}{knoten} 
+    & \headitem{1}{zellen} \\
+\hline\hline
+\myitem{bungalow}{5}{5 797}{5 713}{6 625}{6 529}{2 440}{2 440} \mline
+\myitem{        }{6}{22 877}{8 401}{26 145}{9 601}{17 694}{17 814} \mline
+\myitem{        }{7}{146 735}{113 534}{167 697}{129 753}{71 377}{%
+      90 552} \mline
+\myitem{        }{8}{646 374}{471 962}{738 713}{539 385}{285 670}{%
+      518 278} \mline
+\myitem{        }{9}{2 646 064}{1 906 556}{3 024 073}{2 178 921}{%
+      1 141 322}{3 323 782}
+\lline
+\myitem{gear}{5}{4 831}{1 786}{5 521}{2 041}{2 464}{4 744} \mline
+\myitem{    }{6}{22 002}{21 862}{25 145}{24 985}{9 830}{9 830} \mline
+\myitem{    }{7}{90 322}{89 706}{103 225}{102 521}{39 753}{39 753} \mline
+\myitem{    }{8}{366 052}{365 170}{418 345}{417 337}{157 501}{%
+      157 501} \mline
+\myitem{    }{9}{1 465 682}{1 464 660}{1 675 065}{1 673 897}{631 725}{%
+      631 725}
+\lline
+\myitem{gear2}{5}{3 452}{2 248}{3 945}{2 569}{2 032}{2 260} \mline
+\myitem{     }{6}{17 676}{10 760}{20 201}{12 297}{9 368}{13 526} \mline
+\myitem{     }{7}{83 056}{49 162}{94 921}{56 185}{38 823}{87 452} \mline
+\myitem{     }{8}{351 527}{284 341}{401 745}{324 961}{155 097}{285 807} \mline
+\myitem{     }{9}{1 427 056}{1 163 422}{1 630 921}{1 329 625}{611 128}{%
+      1 787 403} 
+\lline
+\myitem{kugel\_poly}{5}{10 438}{5 972}{11 929}{6 825}{4 664}{19 108} \mline
+\myitem{    	   }{6}{42 995}{25 334}{49 137}{28 953}{18 647}{%
+      142 010} \mline
+\myitem{    	   }{7}{175 547}{102 607}{200 625}{117 265}{74 851}{%
+      1 114 576} \mline
+\myitem{    	   }{8}{707 757}{413 946}{808 625}{473 081}{299 128}{%
+      8 763 306} \mline
+\myitem{           }{9}{2 833 034}{1 651 728}{3 237 753}{1 887 689}{%
+      1 199 874}{69 407 440}
+\lline
+\myitem{ship}{5}{3 088}{1 898}{3 529}{2 169}{1 635}{2 350} \mline
+\myitem{    }{6}{14 337}{8 359}{16 385}{9 553}{6 961}{15 316} \mline
+\myitem{    }{7}{60 873}{34 994}{69 569}{39 993}{27 683}{107 257} \mline
+\myitem{    }{8}{246 639}{137 460}{281 873}{157 097}{107 817}{800 866} \mline
+\myitem{    }{9}{971 328}{552 133}{1 110 089}{631 009}{418 355}{6 178 095}
+\lline
+\myitem{wuerfel}{5}{11 992}{1}{13 705}{1}{5 768}{32 768} \mline
+\myitem{       }{6}{52 368}{1}{58 849}{1}{23 816}{262 144} \mline
+\myitem{       }{7}{219 880}{1}{250 377}{1}{96 776}{2 097 152} \mline
+\myitem{       }{8}{896 512}{1}{1 024 585}{1}{390 152}{16 777 216} \mline
+\myitem{       }{9}{3 627 576}{1}{4 145 801}{1}{1 566 728}{134 217 728}
+\hline
+\end{tabular}
+\tabend{tbl_nodes_plane}{Knoten- und Normzellenanzahl f"ur polygonale Modelle}
+
+\dia[!t]{abb_nodes_cells_plane}{Knoten- und Normzellenanzahl (polygon.)}{%
+    kugel\_poly}{nodes-cells-kugel-poly}{%
+    ship}{nodes-cells-ship}
+
+\diabeg[!t]
+\begin{tabular}{cc}
+\includegraphics[width=0.44\linewidth]{t-border-plane}
+    & \includegraphics[width=0.44\linewidth]{t-polygon-plane}
+\end{tabular}
+\caption{Laufzeit - Randknoten-/Polygonanzahl - Diagramm (polygon.)}
+\label{abb_t_plane}
+\diaend
+
+Die Tabellen \ref{tbl_diff_verfahren_wuerfel} und 
+\ref{tbl_diff_verfahren_ship} zeigen die unterschiedlichen 
+Laufzeiten zur Generierung von \emph{wuerfel} bzw. \emph{ship}
+bei den Baumtiefen $6$ und $8$ bei der Nutzung verschiedener Algorithmen. 
+
+\tabbeg[!t]
+\newcommand*\myitem[9]{%
+    \emph{#1} & #2 &\small{(#3 /}&\small{#4 /}&\small{#5)} 
+    & #6 &\small{(#7 /}&\small{#8 /}&\small{#9)} \\ \hline }
+\begin{tabular}{|l|rrrr|rrrr|}
+\hline
+\textbf{Tiefe} & \multicolumn{4}{c|}{\textbf{6}} 
+    & \multicolumn{4}{c|}{\textbf{8}} \\ \hline
+\hline
+\myitem{Std. Scan-Line }{5.4}{1.9}{1.7}{2.0}{12.6}{2.8}{8.0}{1.8}
+\myitem{Limited Stack  }{5.4}{1.9}{1.7}{2.0}{10.1}{2.9}{5.4}{1.8}
+\myitem{Comb. Scan-Line}{5.4}{1.9}{1.7}{2.0}{11.7}{3.8}{6.1}{1.8}
+\hline
+\myitem{Hybrid         }{3.8}{2.1}{1.7}{0.0}{39.5}{29.6}{8.0}{1.9}
+\myitem{Check-Det      }{6.0}{2.3}{1.7}{2.0}{37.9}{29.9}{6.1}{1.9}
+\emph{Klassisch      } & \multicolumn{4}{c|}{9.3} 
+    & \multicolumn{4}{c|}{2:30} \\ \hline 
+\hline
+\myitem{Debug          }{3.6}{2.0}{1.6}{0.0}{14.0}{2.7}{9.5}{1.8}
+\end{tabular}
+\tabend[Laufzeiten unterschiedlicher Algorithmen 
+    (\emph{wuerfel})]{tbl_diff_verfahren_wuerfel}{%
+    Laufzeiten [s] unterschiedlicher Algorithmen (\emph{wuerfel})}
+
+\tabbeg[!t]
+\newcommand*\myitem[9]{%
+    \emph{#1} & #2 &\small{(#3 /}&\small{#4 /}&\small{#5)} 
+    & #6 &\small{(#7 /}&\small{#8 /}&\small{#9)} \\ \hline }
+\begin{tabular}{|l|rrrr|rrrr|}
+\hline
+\textbf{Tiefe} & \multicolumn{4}{c|}{\textbf{6}} 
+    & \multicolumn{4}{c|}{\textbf{8}} \\ \hline
+\hline 
+\myitem{Std. Scan-Line }{3.8}{1.9}{1.9}{0.0}{7.5}{1.3}{4.2}{2.0}
+\myitem{Limited Stack  }{3.8}{1.9}{1.9}{0.0}{23.6}{1.3}{20.3}{2.0}
+\myitem{Comb. Scan-Line}{3.8}{1.9}{1.9}{0.0}{8.8}{2.6}{4.2}{2.0}
+\hline
+\myitem{Hybrid         }{10.4}{8.5}{1.9}{0.0}{33.7}{27.3}{4.5}{1.9}
+\myitem{Check-Det      }{11.9}{8.0}{1.9}{2.0}{27.8}{22.6}{3.2}{2.0}
+\hline
+\myitem{Debug          }{3.7}{1.9}{1.8}{0.0}{9.3}{1.3}{6.0}{2.0}
+\end{tabular}
+\tabend[Laufzeiten unterschiedlicher Algorithmen 
+    (\emph{ship})]{tbl_diff_verfahren_ship}{%
+    Laufzeiten [s] unterschiedlicher Algorithmen (\emph{ship})}
+
+In Abbildung \ref{abb_algos} sind die Laufzeitunterschiede zwischen 
+den verschiedenen Generierungsverfahren grafisch dargestellt. 
+
+\dia[!t]{abb_algos}{Laufzeitabh"angigkeit von der Verfahrenswahl (polygon.)}{%
+    wuerfel}{algos-wuerfel}{ship}{algos-ship}
+
+\subsubsection{Modelle mit Spline-Oberfl"ache}
+Zur Oktalbaumgenerierung aus Spline-Fl"achen-Modellen, werden die 
+Spline-Fl"achen durch Polygone, die nicht gr"o"ser als die Randfl"achen der 
+Zellen (auf Knotenh"ohe~$0$) sind, approximiert. Diese Polygone werden 
+zum Spline-Modell hinzugef"ugt. Dieser Vorgang wird als 
+\emph{Spline-Extrahierung} bezeichnet. Im weiteren Verlauf der 
+Oktalbaumgenerierung werden die extrahierten Polygone an Stelle der Spline 
+genutzt. Tabelle \ref{tbl_polycount_spline} listet auf, wieviele Polygone ein 
+Spline-Modell nach der Extrahierung f"ur eine bestimmte Maximalbaumtiefe 
+besitzt. 
+
+\tabbeg[!ht]
+\newcommand*\myitem[6]{\emph{#1} & #2 & #3 & #4 & #5 & #6 \\ \hline}
+\begin{tabular}{|l|r|r|r|r|r|}
+\hline
+\textbf{\emph{Modell}} & \multicolumn{5}{c|}{\textbf{Tiefe}} \\
+  & \multicolumn{1}{c|}{\textbf{5}} & \multicolumn{1}{c|}{\textbf{6}}
+    & \multicolumn{1}{c|}{\textbf{7}} & \multicolumn{1}{c|}{\textbf{8}} 
+    & \multicolumn{1}{c|}{\textbf{9}} \\
+\hline
+\myitem{2\_kugeln   }{  642}{1 394}{ 4 434}{ 16 658}{ 65 682}
+\myitem{gelenk      }{1 322}{5 562}{22 874}{ 92 826}{374 042}
+\myitem{kugel\_nurbs}{1 986}{8 066}{32 514}{130 562}{523 266}
+\myitem{sgs\_logo   }{  998}{2 390}{ 6 710}{ 27 080}{109 484}
+\end{tabular}
+\tabend{tbl_polycount_spline}{Anzahl der Polygone eines Spline-Modells nach 
+    Extrahierung}
+
+Die Messungen wurden analog zu den Modellen mit polygonaler Oberfl"ache 
+durchgef"uhrt. Die entsprechenden Ergebnisse sind in den Tabellen 
+\ref{tbl_diff_testenv_scanline_spline}, \ref{tbl_diff_testenv_isin_spline}, 
+\ref{tbl_nodes_spline} und \ref{tbl_diff_verfahren_gelenk} 
+aufgef"uhrt und in den Abbildungen \ref{abb_scanline_spline_ram_pline}, 
+\ref{abb_t_spline} und \ref{abb_octstat_algos_gelenk} grafisch dargestellt. 
+
+\tabbeg[!ht]
+\newcommand*\myhline{\hline\hline}
+\newcommand*\myitema[4]{\emph{#1} & s) & #2 & #3 & #4 \\ \cline{2-5}}
+\newcommand*\myitemb[3]{          & m) & #1 & #2 & #3 \\}
+\begin{tabular}{|lr|r|r|r|}
+\hline
+\textbf{\emph{Modell}} & & \multicolumn{3}{c|}{\textbf{Tiefe}} \\
+  & & \multicolumn{1}{c|}{\textbf{5}} & \multicolumn{1}{c|}{\textbf{6}}
+    & \multicolumn{1}{c|}{\textbf{7}} \\
+\hline\hline
+\myitema{gelenk      }{5.1 / 2MB}{~5.9 / 3MB}{15.8 / ~8MB}
+\myitemb{              4.1 / 1MB}{12.6 / 3MB}{59.2 / 10MB}
+\myhline
+\myitema{kugel\_nurbs}{4.7 / 2MB}{~5.5 / 2MB}{17.8 / ~8MB}
+\myitemb{              4.2 / 1MB}{13.6 / 5MB}{4:14 / 11MB}
+\hline
+\end{tabular}
+\tabend[Zeit-/Speicherbedarf auf versch. Plattformen 
+    (Spline/Scan-Line)]{tbl_diff_testenv_scanline_spline}{%
+%    Einige Modelle in beiden Testumgebungen (Spline/Scan Line)
+    Laufzeiten [s] / Speicherbedarf auf s) \small{(= P1000 mit SuSE)} und 
+    m) \small{(= P350 mit Mandrake)} (Spline-Modelle/Scan-Line-Verfahren)}
+
+\tabbeg[!ht]
+\newcommand*\myhline{\hline\hline}
+\newcommand*\myitema[4]{\emph{#1} & s) & #2 & #3 & #4 \\ \cline{2-5}}
+\newcommand*\myitemb[3]{          & m) & #1 & #2 & #3 \\}
+\begin{tabular}{|lr|r|r|r|}
+\hline
+\textbf{\emph{Modell}} & & \multicolumn{3}{c|}{\textbf{Tiefe}} \\
+  & & \multicolumn{1}{c|}{\textbf{5}} & \multicolumn{1}{c|}{\textbf{6}}
+    & \multicolumn{1}{c|}{\textbf{7}} \\
+\hline\hline
+\myitema{gelenk      }{12.5 / 2MB}{58.6 / 4MB}{~3:49 / 12MB}
+\myitemb{              25.3 / 2MB}{1:47 / 6MB}{~8:18 / 14MB}
+\myhline
+\myitema{kugel\_nurbs}{17.3 / 2MB}{1:08 / 6MB}{~5:09 / 15MB}
+\myitemb{              32.4 / 2MB}{2:21 / 8MB}{11:36 / 17MB}
+\hline
+\end{tabular}
+\tabend[Zeit-/Speicherbedarf auf versch. Plattformen 
+    (Spline/hybrid)]{tbl_diff_testenv_isin_spline}{%
+%    Einige Modelle in beiden Testumgebungen (Spline/hybrid)
+    Laufzeiten [s] / Speicherbedarf auf s) \small{(= P1000 mit SuSE)} und 
+    m) \small{(= P350 mit Mandrake)} (Spline-Modelle/Hybrid-Verfahren)}
+
+\dia[!ht]{abb_scanline_spline_ram_pline}{%
+    Laufzeiten, Speicherverbrauch (Spline)}{Laufzeiten Scan-Line}{%
+    scanline-spline}{Speicherverbrauch}{ram-spline}
+
+\tabbeg[!ht]
+\newcommand*\headitem[2]{\multicolumn{#1}{c|}{{\bf #2}}}
+\newcommand*\myitem[8]{\emph{#1} & \small{#2} & \small{#3 (} & \small{#4)} 
+    & \small{#5 (} & \small{#6)} & \small{#7} & \small{#8} \\}
+\newcommand*\mline{\cline{2-8}}
+\newcommand*\lline{\hline\hline}
+\begin{tabular}{|lr|rr|rr|r|r|r|}
+\hline
+\textbf{\emph{Modell}} & {\bf\textrm{d}} & \headitem{2}{\# Bl"atter} 
+    & \headitem{2}{\# Knoten} & \headitem{1}{\# Rand-} 
+    & \headitem{1}{\# Norm-} \\
+ & & & \tiny{(kompaktiert)} & & \tiny{(kompaktiert)} & \headitem{1}{knoten} 
+    & \headitem{1}{zellen} \\
+\hline \hline
+\myitem{2\_kugeln}{5}{2 255}{1 520}{2 577}{1 737}{994}{1 634} \mline
+\myitem{         }{6}{9 199}{5 860}{10 513}{6 697}{3 963}{11 007} \mline
+\myitem{         }{7}{38 039}{22 268}{43 473}{25 449}{16 802}{80 945} 
+\lline
+\myitem{gelenk}{5}{5 608}{2 332}{6 409}{2 665}{3 269}{5 275} \mline
+\myitem{      }{6}{29 632}{11 376}{33 865}{13 001}{15 387}{38 493} \mline
+\myitem{      }{7}{134 996}{55 049}{154 281}{62 913}{66 531}{281 132} 
+\lline
+\myitem{kugel\_nurbs}{5}{9 479}{5 307}{10 833}{6 065}{4 290}{14 530} \mline
+\myitem{            }{6}{39 922}{20 931}{45 625}{23 921}{19 089}{%
+    109 735} \mline
+\myitem{            }{7}{165 222}{86 045}{188 825}{98 337}{80 756}{841 690} 
+\lline
+\myitem{sgs\_logo}{5}{2 031}{2 031}{2 321}{2 321}{642}{642} \mline
+\myitem{         }{6}{6 840}{6 840}{7 817}{7 817}{2 417}{2 417} \mline
+\myitem{         }{7}{25 376}{24 956}{29 001}{28 521}{9 628}{9 628} 
+\hline
+\end{tabular}
+\tabend{tbl_nodes_spline}{Knoten- und Normzellenanzahl f"ur Spline-Modelle}
+
+
+\diabeg[!ht]
+\begin{tabular}{cc}
+\includegraphics[width=0.44\linewidth]{t-border-spline}
+    & \includegraphics[width=0.44\linewidth]{t-polygon-spline}
+\end{tabular}
+\caption{Laufzeit - Randknoten-/Polygonanzahl - Diagramm (Spline)}
+\label{abb_t_spline}
+\diaend
+
+
+\tabbeg[!ht]
+\newcommand*\itema[6]{%
+    \emph{#1} & #2 &\small{(~#3~/~#4~/~#5~/~#6)}&}
+\newcommand*\itemb[5]{%
+    #1 &\small{(#2~/~#3~/~#4~/~#5)} \\ \hline }
+\begin{tabular}{|l|rc|rc|}
+\hline
+\textbf{Tiefe} & \multicolumn{2}{c|}{\textbf{6}} 
+    & \multicolumn{2}{c|}{\textbf{7}} \\ \hline
+\hline
+\itema{Std. Scan-Line }{~5.9}{1.4}{~1.7}{2.8}{0.0}
+    \itemb{17.8}{3.8}{~2.2}{~~9.8}{2.0}
+\itema{Limited Stack  }{~5.9}{1.5}{~1.6}{2.8}{0.0}
+    \itemb{1:15}{3.8}{~3.8}{1:05}{2.0}
+\itema{Comb. Scan-Line}{~5.7}{1.5}{~1.3}{2.9}{0.0}
+    \itemb{21.5}{3.8}{~5.8}{~~9.9}{2.0}
+\hline
+\itema{Hybrid         }{56.6}{1.5}{54.0}{1.1}{2.0}
+    \itemb{3:49}{3.8}{3:31}{11.7}{2.0}
+\itema{Check-Det      }{41.2}{1.5}{37.0}{2.7}{0.0}
+    \itemb{3:12}{3.8}{2:58}{~~8.1}{2.0}
+\hline
+\itema{Debug          }{~7.0}{1.4}{~1.5}{2.1}{2.0}
+    \itemb{23.8}{3.6}{~3.6}{14.6}{2.0}
+\end{tabular}
+\tabend[Laufzeiten unterschiedlicher Algorithmen (\emph{gelenk})]{%
+    tbl_diff_verfahren_gelenk}{%
+    Laufzeiten [s] unterschiedlicher Algorithmen (\emph{gelenk})}
+
+\dia[!ht]{abb_octstat_algos_gelenk}{%
+    Knoten-/Zellenanzahl und Laufzeiten (\emph{gelenk})}{%
+    \#Knoten/Normzellen}{nodes-cells-gelenk}{%
+    Laufzeiten untersch. Verfahren}{algos-gelenk}
+
+\subsubsection{Auswertung}
+Bevor aus den erhobenen Werten Schlussfolgerungen abgeleitet werden k"onnen, 
+m"ussen m"ogliche Wertverf"alschungen betrachtet werden:
+\begin{description}
+\item[Speicherbedarf] Hier ist nicht der reine Speicherbedarf f"ur die 
+    Geometrie, sondern f"ur das gesamte Programm cad2octree dargestellt 
+    worden. Der zugeteilte Haldenspeicher durch das Betriebssystem kann 
+    gr"o"ser sein, als es das Programm ben"otigt. Vom Programm nicht mehr 
+    verwendeter Speicher kann erst sp"ater wieder dealloziert werden. 
+    Der Speicherbedarf ist zyklisch in Abstand einer Sekunde ermittelt 
+    worden. Als Speicherbedarf wird dabei der Maximalwert verwendet.
+    F"ur die Me"swerte sind deshalb Abweichungen bis zu 1MB bzw. 10\% 
+    einzurechnen. 
+\item[Laufzeit] Einerseits werden durch das Betriebssystem und die Hardware 
+    Optimierungen wie Caching eingesetzt. Andererseits k"onnen durch 
+    unterschiedliche Resourcen-Bereitstellungen des Betriebsystems 
+    Abweichungen auftreten, die mit 2 Sekunden bzw. 10\% abzusch"atzen sind. 
+\end{description}
+Die scheinbar linearen Zusammenh"ange zwischen maximaler Baumtiefe und 
+Speicherbedarf und Laufzeit bei 'kleinen' Werten sind deshalb irref"uhrend. 
+Aussagekr"aftiger sind Speicherwerte von > 10MB und Zeiten von >10s. 
+Ohnehin sind f"ur Aufwandsabsch"atzungen 'gro"se' Werte relevanter.
+    
+Allgemein ergibt sich eine Korrelation zwischen Speicherbedarf und Laufzeit 
+(falls das gleiche Modell bei gleicher Maximalbaumtiefe auf gleicher 
+Plattform und das gleiche Generierungsverfahren betrachtet wird).
+Die Unterschiede zwischen verbrauchtem Speicher bei unterschiedlichen 
+Verfahren sind nur gering.
+Im Allgemeinen liefert das Scan-Line-Verfahren die besten Laufzeitergebnisse 
+(Die meiste Zeit wird zum F"ullen, beim Hybridverfahren hingegen zur 
+Oberfl"achengenerierung ben"otigt).
+
+Betrachtet man die Anzahl der ben"otigten Baum-Knoten, soll lassen sich 
+f"ur die hier verwendeten Modelle folgende Erkenntnisse ableiten: 
+Die Anzahl der Baumknoten steigt um das maximal Vierfache, falls die 
+maximale Baumtiefe um $1$ erh"oht wird. Hingegen verachtfacht sich 
+die Anzahl der notwendigen Zellen in einem entsprechenden 
+Normzellenaufz"ahlungsschema. Die Zahl der inneren Knoten ist auf maximal 
+ca. 20\% der Gesamtknotenanzahl des Oktalbaums beschr"ankt. 
+Im Allgemeinen kann durch Kompaktierung die Knotenzahl im Oktalbaum um 
+10\% --- 40\% reduziert werden.
+Knotenanzahl und Speicherbedarf sind linear voneinander abh"angig 
+(n"amlich mit der Konstante Speicherbedarf pro Knoten).
+
+F"ur polygonale Modelle ergibt sich mit der Erh"ohung der Maximalbaumtiefe um 
+$1$ maximal eine Vervierfachung der Laufzeit.
+Bei Spline-Modellen ist hingegen auch mehr als eine Vervierfachung m"oglich, 
+da jetzt die Polygonzahl von der Baumtiefe abh"angig ist (sie vervierfacht 
+sich).
+
+%\newpage
+%Diagramme t-d\_max fuer untersch. Modelle, fuer untersch. Algorithmen
+%Diagramme RAM-d\_max fuer untersch. Modelle, fuer untersch. Algorithmen
+%Diagramme t-\#extr. Poly fuer untersch. Algorithmen
+
+
+%% End of Document

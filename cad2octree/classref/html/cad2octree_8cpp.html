@@ -1,0 +1,156 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>cad2octree.cpp Dateireferenz</h1><b>Hauptdatei</b> zur Oktalbaumstruktur-Generierung. 
+<a href="#_details">Mehr...</a>
+<p>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="a0" doxytag="cad2octree.cpp::STD_MAX_DEPTH"></a>
+#define&nbsp;</td><td valign=bottom><a class="el" href="cad2octree_8cpp.html#a0">STD_MAX_DEPTH</a>&nbsp;&nbsp;&nbsp;6</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Maximaltiefe des Oktalbaums, falls keine andere Maximaltiefe an der Kommandozeile festgelegt wird.</em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Funktionen</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="a1" doxytag="cad2octree.cpp::usage"></a>
+int&nbsp;</td><td valign=bottom><a class="el" href="cad2octree_8cpp.html#a1">usage</a> (const char *progname)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Schreibt ein Hilfstext zur Verwendung (Aufrufparameter) auf die die Konsole.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="cad2octree_8cpp.html#a2">convert</a> (const char *inFile, const char *outFile, <a class="el" href="global_8h.html#a21">Hight</a> maxTreeHight, bool splitQuad)  throw ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liest die Datei inFile ein, generiert aus den enthaltenen Geometriedaten den Oktalbaum mit Maximaltiefe depth und schreibt ihn in outFile.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="cad2octree_8cpp.html#a3">main</a> (int argc, char *argv[])</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Hauptfunktion.</em> <a href="#a3"></a><em></em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+<b>Hauptdatei</b> zur Oktalbaumstruktur-Generierung.
+<p>
+ Erzeugt unter Verwendung der DXF-Daten eine Oktalbaumstruktur.
+<p>
+Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen" <dl compact><dt><b>
+Autor: </b><dd>
+Stefan Mahler </dl><dl compact><dt><b>
+Datum: </b><dd>
+2002</dl><hr><h2>Dokumentation der Funktionen</h2>
+<a name="a2" doxytag="cad2octree.cpp::convert"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> int convert </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const char *&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>inFile</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>const char *&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>outFile</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a21">Hight</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>maxTreeHight</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>bool&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>splitQuad</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2">  throw ()</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liest die Datei inFile ein, generiert aus den enthaltenen Geometriedaten den Oktalbaum mit Maximaltiefe depth und schreibt ihn in outFile.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>inFile</em>&nbsp;</td><td>
+einzulesende Datei </td></tr>
+<tr><td valign=top><em>outFile</em>&nbsp;</td><td>
+zu schreibende Datei </td></tr>
+<tr><td valign=top><em>maxTreeHight</em>&nbsp;</td><td>
+Maximaltiefe des zu generierenden Oktalbaums </td></tr>
+<tr><td valign=top><em>splitQuad</em>&nbsp;</td><td>
+Ob alle Vierecke des Eingabemodells als 2 Dreiecke im  cadModel repräsentiert werden sollen. </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+<em>-1</em>, falls etwas schief ging (Lesefehler, falsches Format, nicht genügend Speicher, Schreibfehler)<br>
+ <em>0</em>, ansonsten </dl>    </td>
+  </tr>
+</table>
+<a name="a3" doxytag="cad2octree.cpp::main"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> int main </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>argv</em>[]</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Hauptfunktion.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+-1, falls ein Fehler auftrat<br>
+ 1, falls die Hilfe angezeigt wurde<br>
+ 0, ansonsten </dl>    </td>
+  </tr>
+</table>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

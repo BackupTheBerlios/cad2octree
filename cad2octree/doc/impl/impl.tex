@@ -1,0 +1,298 @@
+% doc/impl/impl.tex
+% Implementierungstechnische Details, Programmbeschreibung 
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%   
+% Autor: Stefan Mahler 2002
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\chapter{Implementierung}
+\label{impl}
+Dieses Kapitel besch"aftigt sich mit der innerhalb dieser Arbeit erzeugten 
+Implementierung. Programmaufbau und Programmoptionen werden im Abschnitt 
+\ref{umsetzung} beschrieben. Ergebnisse bez"uglich Zeit- und 
+Speicheraufwand bei der Oktalbaumgenerierung mit dieser Implementierung sind 
+im Abschnitt \ref{leistungstest} zu lesen.
+
+\section{Umsetzung}
+\label{umsetzung}
+Zun"achst soll auf einige implementierungstechnischen Besonderheiten 
+eingegangen werden. Anschlie"send erfolgt im Abschnitt \ref{prg_descr} 
+eine Beschreibung der erstellten Implementierung. 
+
+\subsection{Einige implementierungstechnische Details} 
+Zur Implementierung wurde die Programmiersprache C++ verwendet. 
+Einschl"agige C++-Compiler sind f"ur alle g"angigen Betriebsysteme, 
+insbesondere f"ur alle Unix-Derivate wie Linux und alle Windows-Varianten 
+verf"ugbar. Der Quellcode kann somit auf unterschiedlichen Plattformen 
+"ubersetzt werden. 
+
+In C++ k"onnen Programme im objekt-orientierten Programmierstil erstellt 
+werden. In der hier erzeugten Implementierung wurde 
+unter anderem von den Mitteln des Exception Handling, des Polymorphismus und 
+des Overloading und der Unterst"utzung von Assertions Gebrauch gemacht. 
+C++ l"asst die Erzeugung von hochperformantem Code  zu. (In dieser Arbeit 
+wurde der \texttt{g++}-Compiler mit der Option \texttt{-O3} verwendet.)
+
+Wegen ihrer hohen Popularit"at existieren eine Vielzahl von 
+Ver"offentlichungen zu C++. Neben Werken, die eine "Ubersicht "uber die 
+Programmiersprache geben (z.B. \cite{prgspr_cpp}), gibt es Abhandlungen 
+zu speziellen Merkmalen von C++, wie die 
+STL\footnote{Standard Template Library: Bibliothek, die grundlegende 
+Datenstukturen wie Listen, beliebig lange Felder und Zeichenketten (Strings) 
+oder Str"ome (Streams) enth"alt.} (z.B. \cite{stl}) oder algorithmische 
+Umsetzungen in C++(\cite{algo_cpp}), die auch in dieser Arbeit verwendet 
+wurden. Zus"atzlich finden sich Bibliotheken f"ur konkrete Aufgabenstellungen, 
+die sich einfach verwenden lassen. Ein Beispiel hierf"ur ist 
+\emph{dime}, eine Bibliothek, 
+die zum Einlesen der Oberfl"achenmodelle 
+im DXF-Format (vgl. Abschnitt \ref{dxf_bibliotheken}) benutzt wird.
+
+\label{option_switch}
+Eine Besonderheit von C++ ist die Verwendbarkeit von sogenannten 
+Pr"aprozessormakros. Sie wurden z.B. f"ur \emph{Optionsschalter} eingesetzt. 
+Soll das Programm mit eingeschalteten Option 'XYZ' compiliert werden, 
+so muss in \texttt{global.h} die Zeile 
+\begin{alltt}
+\#define XYZ
+\end{alltt}
+stehen. Zum Ausschalten der Option 'XYZ' muss diese vor erneuter Compilierung 
+durch \texttt{//} auskommentiert werden. 
+In der Datei \texttt{global.h} steht also 
+\begin{alltt}
+//#define XYZ
+\end{alltt}
+anstatt obiger Zeile. Zum Wiedereinschalten wird \texttt{//} wieder entfernt. 
+Im ausf"uhrbaren Programm sind somit immer nur Methoden zu einer 
+Optionsschalterstellung (ein \emph{oder} aus) enthalten. Optionen, die 
+sich von Programmlauf zu Programmlauf "andern k"onnen, werden als 
+Programmparameter beim Programmstart "ubergeben. "Uber alle Optionsschalter 
+und Programmparameter gibt Abschnitt \ref{prg_descr} Auskunft.
+
+Zum besseren Verst"andnis des Quellcodes wurde eine Klassenreferenz mit Hilfe 
+von \emph{doxygen} (\cite{doxygen}) generiert.
+
+Wegen ihrer herausragenden Bedeutung soll hier die implementierte 
+Zeigerstruktur des Oktalbaums vorgestellt werden 
+(vgl. Abbildung \ref{oct_struct}): 
+
+\diabeg
+\begin{alltt}
+\struct{Node}
+\typedef{Node* \_octree}
+
+\struct{Node \{
+  \struct{\_octree parts}
+  Color flag;
+\}} 
+\end{alltt}
+\caption{Implementierte Zeigerstruktur des Oktalbaums}\label{oct_struct}
+\diaend
+
+Ein Knoten besteht aus einer Referenz auf seine S"ohne \texttt{parts} und 
+einem Status-Attribut \texttt{flag}. F"ur Bl"atter ist 
+\texttt{parts}~$=$~\texttt{NULL} und \texttt{flag} enth"alt die Knotenfarbe. 
+F"ur innere Knoten referenziert \texttt{parts} die acht Sohnknoten, 
+\texttt{flag} ist undefiniert. 
+\texttt{parts} wird f"ur innere Knoten dynamisch als Feld erzeugt. 
+Durch das gemeinsame Abspeichern aller S"ohne hintereinander und die Nutzung 
+nur einer Referenz 
+\begin{itemize}
+\item ist gew"ahrleistet, dass ein Knoten entweder genau acht oder gar kein 
+    Sohn hat. Der erzeugte Baum ist somit immer ein Oktalbaum im Sinne der 
+    Definition. 
+\item wird weniger Speicherplatz ben"otigt, da nur einer anstatt acht Zeiger  
+    f"ur die acht S"ohne eines inneren Knotens ben"otigt wird.
+\end{itemize}
+Diese Datenstruktur wurde bereits in anderen Implementierungen als 
+Oktalbaumstruktur von der Abteilung Simulation gro"ser Systeme eingesetzt und 
+hat sich dort bew"ahrt. 
+Des Weiteren ist gew"ahrleistet, dass die Wurzel eines Oktalbaums immer 
+referenzierbar ist, auch wenn der Oktalbaum kein Geometrie-Modell enth"alt. 
+
+F"ur jeden Knoten des Oktalbaums werden in den verwendeten Testumgebungen 
+64 Bytes Speicher alloziert.
+
+\subsection{Programmbeschreibung} 
+\label{prg_descr}
+Mit \textbf{cad2octree} l"asst sich zu einem gegebenen Oberfl"achen-Modell 
+ein Oktalbaum generieren, der das gleiche Modell repr"asentiert.
+
+\begin{description}
+\item[Anforderungen an das gegebene Oberfl"achenmodell]\label{%
+    oberflmodel_anf}~\\
+    Das Oberfl"achenmodell stellt einen Rigid Body dar. Als Format wird DXF 
+    verwendet. Zur Modellierung von glatten Oberfl"achen wurde die ENTITY 
+    \texttt{3DFACE}, f"ur Spline-Oberfl"achen die ENTITY \texttt{POLYLINE} 
+    benutzt. (Es werden nur \texttt{POLYLINE}-Entities vom Oberfl"achentyp 
+    \emph{Cubic B-spline surface} (Group code 75), dem Typ 
+    \emph{polygon mesh} und dem Flag \emph{Spline-fit, 3D polygon mesh} 
+    (Groupcode 70) ausgewertet, vgl. Abschnitt \ref{import} und 
+    \cite[S. 62, 97]{dxf_ref}.) 
+\item[Erzeugter Oktalbaum]~\\ 
+    Der generierte Oktalbaum wird in Pr"aorder-Traversierung als Bin"arstrom 
+    geschrieben, vgl. Abschnitt \ref{export_pot}.
+\item[Programmparameter]~\\ 
+    \emph{cad2octree} wird durch: 
+
+    \texttt{cad2octree [-q] [-d <depth>] <input> [-o <output>]}
+
+    aufgerufen. Dabei ist: 
+
+    \begin{tabularx}{\linewidth}{p{1.7cm}X}
+	 -q       & die Option, die das Aufpalten von Vierecken in 
+		    $2$ Dreiecke erzwingt. 
+    \end{tabularx}
+    \begin{tabularx}{\linewidth}{p{1.7cm}X}
+	 <depth>  & die maximale Baumtiefe 
+    \end{tabularx}
+    \begin{tabularx}{\linewidth}{p{1.7cm}X}
+	 <input>  & der Name der Eingabedatei. Das ist die DXF-Datei, die das
+		    Oberfl"achenmodell ent"alt. Sie muss die Erweiterung 
+		    \texttt{dxf} oder \texttt{dxb} besitzen. 
+    \end{tabularx}
+    \begin{tabularx}{\linewidth}{p{1.7cm}X}
+         <output> & der Name der Ausgabedatei f"ur den Oktalbaum als 
+		    Bin"arstrom in Pr"aordertraversierung. Der Dateiname muss 
+		    die Endung \texttt{pot} haben. Wird nur die Eingabedatei, 
+		    aber keine Ausgabedatei angegeben, wird der Oktalbaum zur 
+		    Eingabedatei \emph{xyz}\texttt{.dxf} in die Ausgabedatei 
+		    \emph{xyz}\texttt{.pot} geschrieben. 
+    \end{tabularx}
+\item[Optionsschalter]~\\ 
+    Mit \emph{cad2octree} ist es prinzipiell m"oglich, aus unterschiedlichen 
+    Verfahren einen Algorithmus zur Oktalbaumgenerierung auszuw"ahlen. 
+    Die Optionsschalter m"ussen \emph{vor} dem Compilieren von cad2octree 
+    festgelegt werden (vgl. Abschnitt \ref{option_switch}). 
+    Einige Optionsschalter sind nur in Verbindung mit anderen wirksam. 
+    So ist z.B. \switch{ALGORITHM\_CHECK\_DET} nur wirksam, 
+    falls \switch{ALGORITHM\_ISIN} eingeschaltet ist und 
+    \switch{ALGORITHM\_ISIN} hat nur eine Wirkung, wenn \switch{CLASSIC\_MODE} 
+    ausgeschaltet ist. 
+    Diese Abh"angigkeiten werden aus der Zuordnung der Optionsschalter 
+    in der folgenden Beschreibung ersichtlich. \textbf{\emph{ein}} steht 
+    f"ur einen eingeschalteten, \textbf{\emph{aus}} f"ur einen ausgeschalteten 
+    Optionsschalter. Fehlt die Angabe \textbf{\emph{ein}} bzw. 
+    \textbf{\emph{aus}}, ist immer der eingeschaltete Optionsschalter gemeint. 
+
+    \newcommand*\option[1]{\textbf{\switch{#1}}}
+    \newcommand*\opton{\textbf{\emph{ein}:}~}
+    \newcommand*\optoff{\textbf{\emph{aus}:}~}
+    \newcommand*\see{$\leadsto$ }
+
+    \option{CLASSIC\_MODE}
+    \begin{itemize}
+    \item\optoff Nutze ein Alternativverfahren.
+    
+	\option{FILL\_SOLIDS}
+	\begin{itemize}
+	\item\optoff Es wird ausschlie"slich die K"orperoberfl"ache erzeugt. 
+	\item\opton Nach der Generierung der K"orperoberfl"ache wird ein 
+	    F"ullalgorithmus gestartet und danach kompaktiert. 
+	    
+	    \option{MARK\_BORDER:} Der Rand des F"ullgebiets wird beim 
+		Erreichen der Rekursionstiefe \const{MAX\_RECURSIVE\_DEEP} 
+		innerhalb der Funktion \func{fill}{} mit der 
+		entsprechenden Randfarbe markiert und der F"ullalgorithmus 
+		abgebrochen.
+	    
+	    \option{LIMITED\_STACK:} Beim Erreichen der Rekursionstiefe 
+		\const{MAX\_RECURSIVE\_DEEP} innerhalb der Funktion 
+		\func{fill}{} wird der F"ull\-algo\-rith\-mus abgebrochen und 
+		auf einem zuvor gemerkten Punkt wieder aufgesetzt.
+	    
+	    \hide{\option{USE\_QUEUE:} Anstatt des rekursiven Aufrufs von 
+		\func{fill}{} wird eine \emph{Queue} zum Merken der 
+		Knoten der F"ullfront verwendet.} 
+	\end{itemize}
+
+	\option{ALGORITHM\_ISIN}
+	\begin{itemize}
+	\item\optoff Das Scan-Line-Verfahren wird verwendet.
+	    
+	    \option{COMB\_SCAN\_LINE}
+	    \begin{itemize}
+	    \item\optoff Als Nachbarpunkte werden nur die Nachbarn entlang 
+		der Achsrichtungen angesehen. 
+	    \item\opton Als Nachbarpunkte k"onnen auch die Nachbarn entlang 
+		der Diagonalrichtungen angesehen werden.  
+	    \end{itemize}
+	\item\opton Es wird ein hybrides Verfahren eingesetzt, d.h. der 
+	    K"orperrand wird "uber den rekursiven Abstieg mit Hilfe 
+	    des Teststrahlverfahrens auf den Oberfl"achenpolygonen 
+	    generiert.
+	
+	    \option{ALGORITHM\_CHECK\_DET}
+	    \begin{itemize}
+	    \item\optoff Ob ein Punkt in der Polygonebene liegt, wird "uber 
+		seinen Abstand zum Fu"spunkt bestimmt.
+	    \item\opton Ob ein Punkt in der Polygonebene liegt, wird 
+		mit Hilfe des Determinantenverfahrens bestimmt.
+	    \end{itemize}
+	\end{itemize}
+    \item\opton Nutze das klassisches Verfahren. Der Oktalbaum wird mit Hilfe 
+	des rekursiven Abstiegs erzeugt.
+	\hide{\paragraph{CM\_PART} Es werden nur die Polygone des 
+	    CAD-Modells betrachtet die duch den Teststrahl ausgehend von 
+	    der Vaterknoten-Zelle geschnitten wurden.}
+    \end{itemize}
+    
+    \option{NDEBUG} 
+    \begin{itemize}
+    \item\optoff Die "Uberpr"ufungen durch Assertions sind eingeschaltet. Dies 
+	ist w"ahrend dem Entwicklungsstadium des Programms hilfreich, da 
+	dadurch m"ogliche Fehler in der Implementierung besser eingegrenzt
+	werden k"onnen. 
+	So wird z.B. vor der Bestimmung der Farbe eines Knotens durch 
+	\func{getColor}{} "uberpr"uft, ob der Knoten ein Blatt innerhalb 
+	des Oktalbaums ist. 
+    \item\opton Es werden keine zus"atzlichen "Uberpr"ufungen durch 
+	\emph{Assertions} durchgef"uhrt, 
+	was die Ausf"uhrgeschwindigkeit des Programms erh"oht. 
+    \end{itemize}
+\item[Unterst"utzte Plattformen]~\\ 
+    Das Programmpaket ist in C++ nach dem ANSI C++ - Standard entwickelt 
+    worden. Es sollte somit auch mit einem beliebigen ANSI C++ - konformen 
+    Compiler "ubersetzbar und ausf"uhrbar sein. Zum "Ubersetzen bzw. zum 
+    Ausf"uhren von cad2octree wird dime ben"otigt. 
+    Wird die Ausf"uhrung abgebrochen, da dime nicht gefunden werden kann, 
+    obwohl es installiert ist, kann evtl. das Hinzu"ugen des 
+    Verzeichnisses, indem sich die compilierte dime-Bibliothek 
+    \texttt{libdime.la} befindet, zur Umgebungsvariable 
+    \texttt{LD\_LIBRARY\_PATH} helfen. 
+\item[Compilieren der Sourcen]~\\
+    Als erstes muss \emph{dime} installiert werden (eine 
+    Installationsanleitung ist im dime-Programmpaket enthalten). 
+    Zum Compilieren k"onnen die \texttt{Makefile}s verwendet werden, falls 
+    \emph{gmake Version 3.79} oder kombatibel installiert ist. 
+    Vor dem Aufruf von \texttt{make} im \texttt{src}-Verzeichnis zum 
+    Compilieren der Sourcen m"ussen die Pfadangaben in \texttt{Makefile.incl} 
+    (im Projekthauptverzeichnis) angepasst werden:
+    \begin{itemize}
+    \item \texttt{INCLUDES} muss das dime-Include-Verzeichnis enthalten. 
+    \item \texttt{LDFLAGS} muss das Verzeichnis enthalten, indem die 
+	compilierte dime-Bibliothek steht. 
+    \item Eventuell m"ussen noch die Angaben bei \texttt{CC}, \texttt{LD} 
+	und \texttt{AR} (entsprechend auch bei \texttt{CCFLAGS}, 
+	\texttt{LDFLAGS} und \texttt{ARFLAGS}) angepasst werden, falls ein 
+	anderer Compiler als \texttt{g++} verwendet wird, bzw. \texttt{ld} 
+	nicht als Linker oder \texttt{ar} zur Codeerzeugung nicht zur 
+	Verf"ugung stehen. 
+    \end{itemize} 
+    Alternativ zur Nutzung von \texttt{make} kann cad2octree auch direkt 
+    unter Angabe aller Programmbibliotheken (einschlie"slich dime) "ubersetzt 
+    werden. 
+\item[Verwendete Bibliotheken Dritter]~\\
+    cad2octree verwendet die DXF-Bibliothek \textbf{dime} \cite{dime}. 
+    Es ist die GPL Version 2 zu beachten\footnote{Zu finden unter: 
+    \url{http://www.gnu.org/licenses/gpl.txt}, \\ Deutsche "Ubersetzung: 
+    \url{http://www.gnu.de/gpl-ger.html}}. 
+\end{description}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{impl/test}
+
+%% End of Document

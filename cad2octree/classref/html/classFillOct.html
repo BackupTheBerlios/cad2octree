@@ -1,0 +1,419 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>FillOct Klassenreferenz</h1>'Füllbarer' Oktalbaum. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="fill__oct_8h-source.html">fill_oct.h</a>&gt;</code>
+<p>
+<p>Klassendiagramm für FillOct:
+<p><center><img src="classFillOct.png" usemap="#FillOct_map" border="0"></center>
+<map name="FillOct_map">
+<area href="classIndexOct.html" alt="IndexOct" shape="rect" coords="0,56,65,80">
+<area href="classOctStruct.html" alt="OctStruct" shape="rect" coords="0,0,65,24">
+</map>
+<a href="classFillOct-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="classFillOct.html#a0">FillOct</a> (<a class="el" href="classIndexOct.html">IndexOct</a> idxOct)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Konstrukor.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classFillOct.html#a1">fill</a> (<a class="el" href="classOctGen.html">OctGen</a> *generator)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Füllt die Körper innerhalb des Oktalbaums mit ihrer Farbe und Knoten außerhalb eines Körpers mit NO_OBJECT.</em> <a href="#a1"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classFillOct.html#c0">add</a> (<a class="el" href="classNodeIndex.html">NodeIndex</a> idx)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Falls idx UNDEF_OBJ ist, wird seine Farbe auf fillColor gesetzt und idx zu fillPoints getan.</em> <a href="#c0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="c1" doxytag="FillOct::fill"></a>
+void&nbsp;</td><td valign=bottom><a class="el" href="classFillOct.html#c1">fill</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ausgehend von den Punkten in fillPoints wird das umliegende Gebiet mit fillColor gefüllt.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classFillOct.html#c2">fillParts</a> (<a class="el" href="classOctStruct.html#s0">_octree</a> subtree, <a class="el" href="classNodeIndex.html">NodeIndex</a> myIdx, <a class="el" href="global_8h.html#a1">Axis</a> axis, <a class="el" href="node__index_8h.html#a0">AxIndex</a> partOfs)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Füllt den Teil des übergebenen subtree mit color, der auf der Achse axis auf der Seite partOfs liegt.</em> <a href="#c2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classFillOct.html#c3">fillParts</a> (<a class="el" href="classNodeIndex.html">NodeIndex</a> myIdx, <a class="el" href="global_8h.html#a1">Axis</a> axis, <a class="el" href="node__index_8h.html#a0">AxIndex</a> partOfs)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Füllt den Teil des übergebenen myIdx mit color, der auf der Achse axis auf der Seite partOfs liegt.</em> <a href="#c3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classFillOct.html#c4">fillTree</a> (<a class="el" href="classOctStruct.html#s0">_octree</a> subtree, <a class="el" href="classNodeIndex.html">NodeIndex</a> myIdx, <a class="el" href="classOctGen.html">OctGen</a> *generator)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Füllt die Körper innerhalb des Teilbaums subtree mit ihrer Farbe und Knoten außerhalb eines Körpers mit NO_OBJECT.</em> <a href="#c4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="global_8h.html#a8">Color</a>&nbsp;</td><td valign=bottom><a class="el" href="classFillOct.html#c5">getColor</a> (<a class="el" href="classOctGen.html">OctGen</a> *generator, <a class="el" href="classNodeIndex.html">NodeIndex</a> p, bool &amp;savedFill)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Farbe eines Punktes, die als Füllfarbe genutzt werden soll.</em> <a href="#c5"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="o0" doxytag="FillOct::fillColor"></a>
+<a class="el" href="global_8h.html#a8">Color</a>&nbsp;</td><td valign=bottom><a class="el" href="classFillOct.html#o0">fillColor</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Füllfarbe.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o1" doxytag="FillOct::fillPoints"></a>
+IdxHolder&nbsp;</td><td valign=bottom><a class="el" href="classFillOct.html#o1">fillPoints</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Speicher für Füllpunkte.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o2" doxytag="FillOct::wasFilled"></a>
+bool&nbsp;</td><td valign=bottom><b>wasFilled</b></td></tr>
+<tr><td nowrap align=right valign=top><a name="o3" doxytag="FillOct::fillFurther"></a>
+bool&nbsp;</td><td valign=bottom><a class="el" href="classFillOct.html#o3">fillFurther</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Weiterfüllen versuchen, da das Füllen wegen Erreichen der maximalen Itemzahl in fillPoints abgebrochen wurde?</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o4" doxytag="FillOct::keptPoint"></a>
+<a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classFillOct.html#o4">keptPoint</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Füllpunkt für das Wiederaufsetzen des Füllverfahrens bei fillFurther= true.</em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+'Füllbarer' Oktalbaum.
+<p>
+Stellt Operationen für das Füllen des Oktalbaums zur Verfügung. 
+<p>
+<hr><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a name="a0" doxytag="FillOct::FillOct"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> FillOct::FillOct </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classIndexOct.html">IndexOct</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>idxOct</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Konstrukor.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>idxOct</em>&nbsp;</td><td>
+'indizierter' Oktalbaum </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="c0" doxytag="FillOct::add"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void FillOct::add </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>idx</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Falls idx UNDEF_OBJ ist, wird seine Farbe auf fillColor gesetzt und idx zu fillPoints getan.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>idx</em>&nbsp;</td><td>
+Knoten-Index </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a1" doxytag="FillOct::fill"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void FillOct::fill </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classOctGen.html">OctGen</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>generator</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Füllt die Körper innerhalb des Oktalbaums mit ihrer Farbe und Knoten außerhalb eines Körpers mit NO_OBJECT.
+<p>
+Das heißt es werden alle undefinierten Knoten (isUndefObj(node)) auf ihre richtige Farbe gesetzt. Der Generator wird für die Lokalisation der Knoten (befindet sich der Knoten in einem Körper?) benötigt. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>generator</em>&nbsp;</td><td>
+Oktalbaumgenerator </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+generator != NULL </dl>    </td>
+  </tr>
+</table>
+<a name="c3" doxytag="FillOct::fillParts"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void FillOct::fillParts </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>myIdx</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a1">Axis</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>axis</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="node__index_8h.html#a0">AxIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>partOfs</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Füllt den Teil des übergebenen myIdx mit color, der auf der Achse axis auf der Seite partOfs liegt.
+<p>
+Falls es sich um ein Blattknoten handelt, wird dieser gefüllt. Dabei bedeutet Füllen, dass für Knoten mit <a class="el" href="classOctStruct.html#b10">isUndefObj</a>() die Farbe auf color gesetzt wird. Für solche Knoten werden auch die Nachbarn gefüllt, indem sie in fillPoints gelegt werden. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>myIdx</em>&nbsp;</td><td>
+Index des Knotens </td></tr>
+<tr><td valign=top><em>axis</em>&nbsp;</td><td>
+genutzte Achse, um zu diesem Knoten als Nachbar zu gelangen (wird für die Unterbaumbetrachtung benötigt) </td></tr>
+<tr><td valign=top><em>partOfs</em>&nbsp;</td><td>
+0, falls 'vorderer' und 1 falls 'hinterer' Teil des subtree gefüllt werden soll </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="c2" doxytag="FillOct::fillParts"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void FillOct::fillParts </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classOctStruct.html#s0">_octree</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>subtree</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>myIdx</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a1">Axis</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>axis</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="node__index_8h.html#a0">AxIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>partOfs</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Füllt den Teil des übergebenen subtree mit color, der auf der Achse axis auf der Seite partOfs liegt.
+<p>
+Falls es sich um ein Blattknoten handelt, wird dieser gefüllt. Dabei bedeutet Füllen, dass für Knoten mit <a class="el" href="classOctStruct.html#b10">isUndefObj</a>() die Farbe auf color gesetzt wird. Für solche Knoten werden auch die Nachbarn gefüllt, indem sie in fillPoints gelegt werden. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>subtree</em>&nbsp;</td><td>
+Zeiger auf den Oktalbaumknoten myIdx </td></tr>
+<tr><td valign=top><em>myIdx</em>&nbsp;</td><td>
+Index des Knotens </td></tr>
+<tr><td valign=top><em>axis</em>&nbsp;</td><td>
+genutzte Achse, um zu diesem Knoten als Nachbar zu gelangen (wird für die Unterbaumbetrachtung benötigt) </td></tr>
+<tr><td valign=top><em>partOfs</em>&nbsp;</td><td>
+0, falls 'vorderer' und 1 falls 'hinterer' Teil des subtree gefüllt werden soll </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="c4" doxytag="FillOct::fillTree"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void FillOct::fillTree </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classOctStruct.html#s0">_octree</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>subtree</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>myIdx</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classOctGen.html">OctGen</a> *&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>generator</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Füllt die Körper innerhalb des Teilbaums subtree mit ihrer Farbe und Knoten außerhalb eines Körpers mit NO_OBJECT.
+<p>
+Das heißt es werden alle undefinierten Knoten (isUndefObj(node)) auf ihre richtige Farbe gesetzt. Der Generator wird für die Lokalisation der Knoten (befindet sich der Knoten in einem Körper?) benötigt. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>subtree</em>&nbsp;</td><td>
+Teilbaum </td></tr>
+<tr><td valign=top><em>myIdx</em>&nbsp;</td><td>
+Index des Vaterknotens des Teilbaums </td></tr>
+<tr><td valign=top><em>generator</em>&nbsp;</td><td>
+Oktalbaumgenerator </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+generator != NULL </dl>    </td>
+  </tr>
+</table>
+<a name="c5" doxytag="FillOct::getColor"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="global_8h.html#a8">Color</a> FillOct::getColor </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classOctGen.html">OctGen</a> *&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>generator</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>p</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>bool &amp;&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>savedFill</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Farbe eines Punktes, die als Füllfarbe genutzt werden soll.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>savedfill</em>&nbsp;</td><td>
+(out) Ist die Füllfarbe sicher? (Die Farbe, die für die  Nachbarpunkte bestimmt wurde, ist die gleiche oder kann  entsprechend der Nachbar-Farbe im Oktalbaum als sicher  angesehen werden.  </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Füllfarbe </dl>    </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="fill__oct_8h-source.html">fill_oct.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Wed Mar 5 19:10:27 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

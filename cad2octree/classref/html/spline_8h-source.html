@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>spline.h</h1><a href="spline_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00012 <font class="preprocessor">#ifndef __SPLINE_H__</font>
+00013 <font class="preprocessor"></font><font class="preprocessor">#define __SPLINE_H__</font>
+00014 <font class="preprocessor"></font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="surface_8h.html">surface.h</a>&gt;</font>
+00016 <font class="preprocessor">#include &lt;<a class="code" href="b__spline_8h.html">b_spline.h</a>&gt;</font>
+00017 <font class="preprocessor">#include &lt;<a class="code" href="oct__gen_8h.html">generator/oct_gen.h</a>&gt;</font>
+00018 
+<a name="l00022"></a><a class="code" href="classSpline.html">00022</a> <font class="keyword">class </font><a class="code" href="classSpline.html">Spline</a> : <font class="keyword">public</font> <a class="code" href="classSurface.html">Surface</a> {
+00023  <font class="keyword">public</font>:
+00029   <a class="code" href="classSpline.html#a0">Spline</a>(<a class="code" href="classBSpline.html">BSpline</a> bSpline, <a class="code" href="classOctGen.html">OctGen</a>* generator);
+00030 
+00034   <font class="keyword">virtual</font> <a class="code" href="classSpline.html#a1">~Spline</a>();
+00035 
+00040   <font class="keywordtype">void</font> <a class="code" href="classSpline.html#a2">addToOctree</a>(<a class="code" href="global_8h.html#a23">Color</a> color);
+00041 
+00042   <font class="keyword">virtual</font> <a class="code" href="global_8h.html#a21">Hight</a> <a class="code" href="classSpline.html#a3">getHight</a>();
+00043 
+00044   <font class="keyword">virtual</font> <font class="keywordtype">bool</font> <a class="code" href="classSpline.html#a4">isIn</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p);
+00045 
+00046   <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classSpline.html#a5">setHight</a>(<a class="code" href="global_8h.html#a21">Hight</a> <a class="code" href="classSpline.html#o1">h</a>);
+00047 
+00048   <font class="keyword">virtual</font> <font class="keywordtype">bool</font> <a class="code" href="classSpline.html#a6">testLine</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p, <a class="code" href="classGeomPoint.html">GeomPoint</a> &amp;q, 
+00049                         <font class="keywordtype">bool</font> &amp;intersect, <font class="keywordtype">bool</font> &amp;inside);
+00050 
+00054   <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classSpline.html#a7">print</a>();
+00055 
+00056  <font class="keyword">private</font>:
+<a name="l00060"></a><a class="code" href="classSpline.html#u0">00060</a>   <font class="keyword">typedef</font> <a class="code" href="classBSpline.html#s2">BSpline::EXTENT</a> <a class="code" href="classSpline.html#u0">EXTENT</a>;
+00061 
+00069   <font class="keywordtype">void</font> <a class="code" href="classSpline.html#c0">basisFuns</a>(<a class="code" href="classSpline.html#u0">EXTENT</a> axis, <font class="keywordtype">int</font> i, <a class="code" href="global_8h.html#a16">Coordinate</a> u, <a class="code" href="global_8h.html#a16">Coordinate</a> N[]);
+00070 
+00081   <font class="keywordtype">bool</font> <a class="code" href="classSpline.html#c1">chkSplinePart</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p, 
+00082                      <a class="code" href="classGeomPoint.html">GeomPoint</a> &amp;q, <font class="keywordtype">bool</font> &amp;intersect, <font class="keywordtype">bool</font> &amp;inside);
+00083 
+00090   <font class="keywordtype">int</font> <a class="code" href="classSpline.html#c2">findSpan</a>(<a class="code" href="classSpline.html#u0">EXTENT</a> axis, <a class="code" href="global_8h.html#a16">Coordinate</a> u); 
+00091 
+00097   <a class="code" href="classGeomPoint.html">GeomPoint</a> <a class="code" href="classSpline.html#c3">getCP</a>(<font class="keywordtype">int</font> m_idx, <font class="keywordtype">int</font> n_idx);
+00098 
+00107   <a class="code" href="classNodeIndex.html">NodeIndex</a> <a class="code" href="classSpline.html#c4">getFaceIndex</a>(<a class="code" href="global_8h.html#a16">Coordinate</a> u, <a class="code" href="global_8h.html#a16">Coordinate</a> v);
+00108 
+00117   <a class="code" href="classGeomPoint.html">GeomPoint</a> <a class="code" href="classSpline.html#c5">getFacePoint</a>(<a class="code" href="global_8h.html#a16">Coordinate</a> u, <a class="code" href="global_8h.html#a16">Coordinate</a> v);
+00118 
+00124   <a class="code" href="node__index_8h.html#a2">AxIndex</a> <a class="code" href="classSpline.html#c6">getGranulty</a>(<a class="code" href="classSpline.html#u0">EXTENT</a> axis);
+00125 
+<a name="l00129"></a><a class="code" href="classSpline.html#o0">00129</a>   <a class="code" href="classOctGen.html">OctGen</a>* <a class="code" href="classSpline.html#o0">gen</a>;
+00130   
+<a name="l00134"></a><a class="code" href="classSpline.html#o1">00134</a>   <a class="code" href="global_8h.html#a21">Hight</a> <a class="code" href="classSpline.html#o1">h</a>;
+00135 
+<a name="l00139"></a><a class="code" href="classSpline.html#o2">00139</a>   <a class="code" href="classBSpline.html">BSpline</a> <a class="code" href="classSpline.html#o2">spl</a>;
+00140 
+00141 };
+00142 
+00143 <font class="preprocessor">#endif // ! __SPLINE_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

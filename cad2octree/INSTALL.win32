@@ -1,0 +1,5 @@
+1. set the enviroment variables
+    %DIME_INCL%, %DIME_LIB%, %CXX% and %CXXFLAGS% to the actual values
+    e.g. SET CXX=g++-2 and SET CXXFLAGS=-O3 -Wall
+2. call make.bat in src\ -Directory
+3. if it was successful you have now cad2octree.exe in src\ -Directory

@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>writer.h</h1><a href="writer_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00017 <font class="preprocessor">#ifndef __WRITER_H__</font>
+00018 <font class="preprocessor"></font><font class="preprocessor">#define __WRITER_H__</font>
+00019 <font class="preprocessor"></font>
+00020 <font class="preprocessor">#include &lt;<a class="code" href="exception_8h.html">exception.h</a>&gt;</font>
+00021 <font class="preprocessor">#include &lt;<a class="code" href="index__oct_8h.html">octree/index_oct.h</a>&gt;</font>
+00022 
+00023 <font class="preprocessor">#include &lt;stdio.h&gt;</font>
+00024 
+<a name="l00032"></a><a class="code" href="classWriter.html">00032</a> <font class="keyword">class </font><a class="code" href="classWriter.html">Writer</a> {
+00033  <font class="keyword">public</font>:
+00034   <font class="comment">// ##### Exceptions ################################################</font>
+00035 
+<a name="l00039"></a><a class="code" href="classWriter_1_1WriterException.html">00039</a>   <font class="keyword">class </font><a class="code" href="classWriter_1_1WriterException.html">WriterException</a> : <font class="keyword">public</font> <a class="code" href="classException.html">Exception</a> {
+00040   <font class="keyword">public</font>:
+<a name="l00042"></a><a class="code" href="classWriter_1_1WriterException.html#a0">00042</a>     <a class="code" href="classWriter_1_1WriterException.html#a0">WriterException</a>() : <a class="code" href="classException.html">Exception</a>() {}
+<a name="l00044"></a><a class="code" href="classWriter_1_1WriterException.html#a1">00044</a>     <a class="code" href="classWriter_1_1WriterException.html#a0">WriterException</a>(string msg) : <a class="code" href="classException.html">Exception</a>(msg) {}
+00045   };
+00046 
+<a name="l00050"></a><a class="code" href="classWriter_1_1WriteFileException.html">00050</a>   <font class="keyword">class </font><a class="code" href="classWriter_1_1WriteFileException.html">WriteFileException</a> : <font class="keyword">public</font> <a class="code" href="classWriter_1_1WriterException.html">WriterException</a> {
+00051   <font class="keyword">public</font>:
+<a name="l00053"></a><a class="code" href="classWriter_1_1WriteFileException.html#a0">00053</a>     <a class="code" href="classWriter_1_1WriteFileException.html#a0">WriteFileException</a>(<font class="keyword">const</font> <font class="keywordtype">char</font>* fileName)
+00054       : <a class="code" href="classWriter_1_1WriterException.html">WriterException</a>("Error writing file " + (string)fileName) {}
+00055   };
+00056 
+<a name="l00060"></a><a class="code" href="classWriter_1_1FileFormatException.html">00060</a>   <font class="keyword">class </font><a class="code" href="classWriter_1_1FileFormatException.html">FileFormatException</a> : <font class="keyword">public</font> <a class="code" href="classWriter_1_1WriterException.html">WriterException</a> {
+00061   <font class="keyword">public</font>:
+<a name="l00063"></a><a class="code" href="classWriter_1_1FileFormatException.html#a0">00063</a>     <a class="code" href="classWriter_1_1FileFormatException.html#a0">FileFormatException</a>(string msg) : <a class="code" href="classWriter_1_1WriterException.html">WriterException</a>(msg) {}
+00064   };
+00065 
+00066   <font class="comment">// ###### Writer ###################################################</font>
+<a name="l00070"></a><a class="code" href="classWriter.html#s2">00070</a> <font class="comment"></font>  <font class="keyword">enum</font> <a class="code" href="classWriter.html#s2">FormatType</a> {<a class="code" href="classWriter.html#s2s0">POT</a>, 
+00071                    <a class="code" href="classWriter.html#s2s1">XPM</a>  
+00072   };
+00073   
+00088   <font class="keyword">static</font> <a class="code" href="classWriter.html">Writer</a>* <a class="code" href="classWriter.html#d0">getWriter</a>(<font class="keyword">const</font> <font class="keywordtype">char</font>* fileName)
+00089     <font class="keywordflow">throw</font> (FileFormatException*);
+00090 
+00095   <font class="keyword">virtual</font> <font class="keyword">const</font> <font class="keywordtype">char</font>* <a class="code" href="classWriter.html#a0">getFormatName</a>()= 0;
+00096 
+00101   <font class="keyword">virtual</font> <font class="keyword">const</font> <a class="code" href="classWriter.html#s2">FormatType</a> <a class="code" href="classWriter.html#a1">getFormatType</a>()= 0;
+00102 
+00108   <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classWriter.html#a2">writeFile</a>(<a class="code" href="classIndexOct.html">IndexOct</a>* tree)
+00109     <font class="keywordflow">throw</font> (WriteFileException*) = 0;
+00110 
+00111 }; <font class="comment">// class Writer</font>
+00112 
+00113 <font class="preprocessor">#endif // ! WRITER_H</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

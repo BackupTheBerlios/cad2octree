@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>geom_vec.h</h1><a href="geom__vec_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00012 <font class="preprocessor">#ifndef __GEOM_VEC_H__</font>
+00013 <font class="preprocessor"></font><font class="preprocessor">#define __GEOM_VEC_H__</font>
+00014 <font class="preprocessor"></font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="geom__point_8h.html">geom_point.h</a>&gt;</font>
+00016 
+00017 <font class="preprocessor">#include &lt;<a class="code" href="node__vec_8h.html">node_vec.h</a>&gt;</font>
+00018 
+<a name="l00022"></a><a class="code" href="geom__vec_8h.html#a0">00022</a> <font class="preprocessor">#define NULL_GEOM_VEC GeomPoint(0, 0, 0)</font>
+00023 <font class="preprocessor"></font>
+<a name="l00029"></a><a class="code" href="classGeomVec.html">00029</a> <font class="keyword">class </font><a class="code" href="classGeomVec.html">GeomVec</a> : <font class="keyword">public</font> <a class="code" href="classGeomPoint.html">GeomPoint</a> {
+00030  <font class="keyword">public</font>:
+00036   <a class="code" href="classGeomVec.html#a0">GeomVec</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p);
+00037 
+00046   <a class="code" href="classGeomVec.html#a0">GeomVec</a>(<a class="code" href="classGeomVec.html">GeomVec</a> pStart, <a class="code" href="classGeomVec.html">GeomVec</a> pEnd);
+00047 
+00056   <font class="keyword">static</font> <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classGeomVec.html#d0">det</a>(<a class="code" href="classGeomVec.html">GeomVec</a> a, <a class="code" href="classGeomVec.html">GeomVec</a> b, <a class="code" href="classGeomVec.html">GeomVec</a> c);
+00057 
+00065   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classGeomVec.html#a2">getAngle</a>(<a class="code" href="classGeomVec.html">GeomVec</a> v);
+00066 
+00074   <a class="code" href="classGeomVec.html">GeomVec</a> <a class="code" href="classGeomVec.html#a3">getNormalize</a>();
+00075 
+00080   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classGeomVec.html#a4">getSqrLength</a>();
+00081 
+00086   <font class="keywordtype">bool</font> <a class="code" href="classGeomVec.html#a5">isNullVec</a>();
+00087 
+00094   <a class="code" href="classGeomVec.html">GeomVec</a> <a class="code" href="classGeomVec.html#a6">vec_prod</a>(<a class="code" href="classGeomVec.html">GeomVec</a> v);
+00095 
+00101   <a class="code" href="classGeomVec.html">GeomVec</a> <a class="code" href="classGeomVec.html#a7">operator -</a>();
+00102 };
+00103 
+00111 <a class="code" href="classGeomVec.html">GeomVec</a> <a class="code" href="node__vec_8h.html#a2">operator-</a>(<a class="code" href="classGeomVec.html">GeomVec</a> p1, <a class="code" href="classGeomVec.html">GeomVec</a> p2);
+00112 
+00120 <a class="code" href="classGeomVec.html">GeomVec</a> <a class="code" href="geom__vec_8h.html#a2">operator+</a>(<a class="code" href="classGeomVec.html">GeomVec</a> p1, <a class="code" href="classGeomVec.html">GeomVec</a> p2);
+00121 
+00128 <a class="code" href="classGeomVec.html">GeomVec</a> <a class="code" href="geom__vec_8h.html#a4">operator*</a>(<font class="keywordtype">double</font> r, <a class="code" href="classGeomVec.html">GeomVec</a> p);
+00129 
+00137 <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="geom__vec_8h.html#a4">operator*</a>(<a class="code" href="classGeomVec.html">GeomVec</a> p1, <a class="code" href="classGeomVec.html">GeomVec</a> p2);
+00138 
+00139 <font class="preprocessor">#endif // ! __GEOM_VEC_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>PotWriter Klassenreferenz</h1>Konkreter <a class="el" href="classWriter.html">Writer</a> für das POT-Format. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="pot__writer_8h-source.html">pot_writer.h</a>&gt;</code>
+<p>
+<p>Klassendiagramm für PotWriter:
+<p><center><img src="classPotWriter.png" usemap="#PotWriter_map" border="0"></center>
+<map name="PotWriter_map">
+<area href="classWriter.html" alt="Writer" shape="rect" coords="0,0,65,24">
+<area href="classOctStruct.html" alt="OctStruct" shape="rect" coords="75,0,140,24">
+</map>
+<a href="classPotWriter-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#a0">PotWriter</a> (const char *<a class="el" href="classPotWriter.html#o0">fileName</a>)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Konstruktor.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a1" doxytag="PotWriter::~PotWriter"></a>
+virtual&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#a1">~PotWriter</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Destruktor.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual const char *&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#a2">getFormatName</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Namen Formats.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual const <a class="el" href="classWriter.html#s2">FormatType</a>&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#a3">getFormatType</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Format-Typ.</em> <a href="#a3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#a4">writeFile</a> (<a class="el" href="classIndexOct.html">IndexOct</a> *tree)  throw (WriteFileException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Schreibt die Oktalbaumstruktur in die POT-Datei.</em> <a href="#a4"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#c0">binWrite</a> (<a class="el" href="pot__writer_8h.html#a0">Data</a> data)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Bitweise Kodierung und Speicherung im Bin"arformat.</em> <a href="#c0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="c1" doxytag="PotWriter::flushWrite"></a>
+void&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#c1">flushWrite</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Schreibt die gecachten Daten und leert den Cach.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>const size_t&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#c2">getCachSize</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Cach-Größe.</em> <a href="#c2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="c3" doxytag="PotWriter::writeInnerNode"></a>
+void&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#c3">writeInnerNode</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Schreibt die Daten für den inneren Knoten.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#c4">writeLeaf</a> (<a class="el" href="global_8h.html#a23">Color</a> color)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Schreibt die Daten für den Blattknoten.</em> <a href="#c4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#c5">writeTree</a> (Node node)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Schreibt den Unterbaum node in Preordertraversierung in die Ausgabedatei.</em> <a href="#c5"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="o0" doxytag="PotWriter::fileName"></a>
+const char *&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#o0">fileName</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Name der Ausgabedatei.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o1" doxytag="PotWriter::potFile"></a>
+FILE *&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#o1">potFile</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Handler für die Ausgabedatei.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o2" doxytag="PotWriter::wCount"></a>
+size_t&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#o2">wCount</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Anzahl gecachter Bits.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o3" doxytag="PotWriter::wBinary"></a>
+<a class="el" href="pot__writer_8h.html#a0">Data</a>&nbsp;</td><td valign=bottom><a class="el" href="classPotWriter.html#o3">wBinary</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gecachter Binärwert.</em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Konkreter <a class="el" href="classWriter.html">Writer</a> für das POT-Format.
+<p>
+Es wird die Oktalbaumstruktur linearisiert in Präodertraversierung  geschrieben. 
+<p>
+<hr><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a name="a0" doxytag="PotWriter::PotWriter"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> PotWriter::PotWriter </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>fileName</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Konstruktor.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>fileName</em>&nbsp;</td><td>
+Name der POT-Datei. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="c0" doxytag="PotWriter::binWrite"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void PotWriter::binWrite </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="pot__writer_8h.html#a0">Data</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>data</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Bitweise Kodierung und Speicherung im Bin"arformat.
+<p>
+Die Attribute NodeKind:LEAF bzw. NodeKind:INNER_NODE werden bitweise kodiert und im Binärformat gespeichert. Am Ende der Ausgabe muss  ein Flush durchgef"uhrt werden, wobei evtl. noch mit zus"atzlichen Nullen aufgef"ullt wird. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>data</em>&nbsp;</td><td>
+zu schreibendes Attribut </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="c2" doxytag="PotWriter::getCachSize"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> const size_t PotWriter::getCachSize </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Cach-Größe.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+Größe des Cachs </dl>    </td>
+  </tr>
+</table>
+<a name="a2" doxytag="PotWriter::getFormatName"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual const char* PotWriter::getFormatName </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Namen Formats.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+"POT" </dl>
+<p>
+Implementiert <a class="el" href="classWriter.html#a0">Writer</a>.    </td>
+  </tr>
+</table>
+<a name="a3" doxytag="PotWriter::getFormatType"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual const <a class="el" href="classWriter.html#s2">FormatType</a> PotWriter::getFormatType </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Format-Typ.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+<a class="el" href="classWriter.html#s2s0">Writer::POT</a> </dl>
+<p>
+Implementiert <a class="el" href="classWriter.html#a1">Writer</a>.    </td>
+  </tr>
+</table>
+<a name="a4" doxytag="PotWriter::writeFile"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual void PotWriter::writeFile </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classIndexOct.html">IndexOct</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>tree</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (WriteFileException*)<code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Schreibt die Oktalbaumstruktur in die POT-Datei.
+<p>
+Dazu wird der Oktalbaum linearisiert. Die inneren Knoten und Blätter des Oktalbaumes werden dazu entsprechend attributiert. Im Anschluss daran wird der Baum traversiert, d.h.,  nach dem Schema "Depth-First" (Tiefensuche) wird der Baum einmal  durchlaufen und die Werte der innere Knoten bzw. Blätter werden  bei ihrem ersten Besuch aufgeschrieben. Als Ergebnis liegt der Baum in einem in der Ausgabedatei geschriebenen Binärstrom vor. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>tree</em>&nbsp;</td><td>
+zu schreibender Oktalbaum </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>WriteFileException</em>&nbsp;</td><td>
+ Dateischreibefehler </td></tr>
+</table>
+</dl>
+<p>
+Implementiert <a class="el" href="classWriter.html#a2">Writer</a>.    </td>
+  </tr>
+</table>
+<a name="c4" doxytag="PotWriter::writeLeaf"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void PotWriter::writeLeaf </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>color</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Schreibt die Daten für den Blattknoten.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>color</em>&nbsp;</td><td>
+Blattfarbe </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="c5" doxytag="PotWriter::writeTree"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void PotWriter::writeTree </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">Node&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>node</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Schreibt den Unterbaum node in Preordertraversierung in die Ausgabedatei.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>node</em>&nbsp;</td><td>
+Unterbaum </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="pot__writer_8h-source.html">pot_writer.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

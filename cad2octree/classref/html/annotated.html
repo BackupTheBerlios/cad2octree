@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>cad2octree Übersicht</h1>Hier folgt die Aufzählung aller Klassen, Strukturen, Varianten und Schnittstellen mit einer Kurzbeschreibung:<table>
+  <tr><td class="indexkey"><a class="el" href="classBSpline.html">BSpline</a></td><td class="indexvalue">B-<a class="el" href="classSpline.html">Spline</a>-Fläche</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classCadModel.html">CadModel</a></td><td class="indexvalue"><a class="el" href="classContainer.html">Container</a>, der alle CAD-Objekte enthält</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classCadObject.html">CadObject</a></td><td class="indexvalue">Abstrakte Klasse für alle CAD-Objekte</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classContainer.html">Container</a></td><td class="indexvalue">Interface für Container für CAD-Objekte</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classContainer_1_1OutOfModelException.html">Container::OutOfModelException</a></td><td class="indexvalue">Wird geworfen, wenn versucht wird ein nichtvorhandenes <a class="el" href="classCadObject.html">CadObject</a> aus dem <a class="el" href="classCadModel.html">CadModel</a> zu lesen oder zu manipulieren</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classDataHolder.html">DataHolder&lt; ItemType &gt;</a></td><td class="indexvalue">Virtueller Datenspeicher</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classDataQueue.html">DataQueue&lt; ItemType &gt;</a></td><td class="indexvalue">Queue</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classDataStack.html">DataStack&lt; ItemType &gt;</a></td><td class="indexvalue">Stack</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classDimeHelp.html">DimeHelp</a></td><td class="indexvalue">Klasse, die zum Erzeugen des <a class="el" href="classCadModel.html">CadModel</a> aus dem dimeModel benötigt wird</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classDimeReader.html">DimeReader</a></td><td class="indexvalue">Konkreter <a class="el" href="classReader.html">Reader</a> für das DXF-Format</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classDxfReader.html">DxfReader</a></td><td class="indexvalue">Abstrakter <a class="el" href="classReader.html">Reader</a> für DXF-Dateien</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classException.html">Exception</a></td><td class="indexvalue">Vaterklasse für alle geworfenen Exceptions</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classFace.html">Face</a></td><td class="indexvalue">Allgemeine Klasse für Flächen</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classFaces.html">Faces</a></td><td class="indexvalue"><a class="el" href="classContainer.html">Container</a> für Oberflächen</td></tr>
+  <tr><td class="indexkey"><a class="el" href="structFaces_1_1Iterator.html">Faces::Iterator</a></td><td class="indexvalue">Interner <a class="el" href="structFaces_1_1Iterator.html">Iterator</a></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classGenHelp.html">GenHelp</a></td><td class="indexvalue">Klasse, die Routinen enthält, die zum Generieren der Oktalbaumstruktur benötigt werden</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classGeomPoint.html">GeomPoint</a></td><td class="indexvalue">Bildet den <a class="el" href="classNodeIndex.html">NodeIndex</a> im (R,R,R) ab</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classGeomVec.html">GeomVec</a></td><td class="indexvalue">Definiert Vektoren zwischen geometrischen Punkten</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classIndexOct.html">IndexOct</a></td><td class="indexvalue">'Indizierter' Oktalbaum</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classLine.html">Line</a></td><td class="indexvalue">Eine Line, die durch 2 Punkte geht</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classNodeIndex.html">NodeIndex</a></td><td class="indexvalue">Klasse für den Index für Oktalbaumknoten</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classNodeVec.html">NodeVec</a></td><td class="indexvalue">Klasse für Vektoren zwischen Oktalbaumknoten</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a></td><td class="indexvalue">Konnte nicht genügend Abreitsspeicher allozieren</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classOctGen.html">OctGen</a></td><td class="indexvalue">Oktalbaumgenerator</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classOctStruct.html">OctStruct</a></td><td class="indexvalue">Oktalbaumstruktur</td></tr>
+  <tr><td class="indexkey"><a class="el" href="structOctStruct_1_1Node.html">OctStruct::Node</a></td><td class="indexvalue">Typ für Knoten im Oktalbaum</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classPlane.html">Plane</a></td><td class="indexvalue">Allgemeine Klasse für <em>ebene</em> Flächen</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classPoint.html">Point</a></td><td class="indexvalue">Konkrete Klasse für ein Punkt</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classPolygon.html">Polygon</a></td><td class="indexvalue">Drei- oder Viereck</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classPotWriter.html">PotWriter</a></td><td class="indexvalue">Konkreter <a class="el" href="classWriter.html">Writer</a> für das POT-Format</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classQuadrilateral.html">Quadrilateral</a></td><td class="indexvalue">Konkrete Klasse für ein Viereck</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classReader.html">Reader</a></td><td class="indexvalue">Abstrakte Reader-Klasse</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classReader_1_1FileFormatException.html">Reader::FileFormatException</a></td><td class="indexvalue">Wird geworfen, wenn Datei falsches Format besaß</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classReader_1_1ReaderException.html">Reader::ReaderException</a></td><td class="indexvalue">Vaterklasse für alle von einem <a class="el" href="classReader.html">Reader</a> geworfenen Exceptions</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classReader_1_1ReadFileException.html">Reader::ReadFileException</a></td><td class="indexvalue">Wird geworfen, wenn ein Lesefehler auftrat</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classScanLine.html">ScanLine</a></td><td class="indexvalue">Klasse zum Berechnen des 'Nachfolgepunktes' einer <a class="el" href="classLine.html">Line</a> auf <a class="el" href="classNodeIndex.html">NodeIndex</a>-Basis</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classSpline.html">Spline</a></td><td class="indexvalue">Spline-Fläche, die über ihre geometrischen Punkte definiert ist</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classSurface.html">Surface</a></td><td class="indexvalue">Oberfläche, die durch geometrische Punkte definiert ist</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classTimer.html">Timer</a></td><td class="indexvalue">Zeitmesser</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classTriangle.html">Triangle</a></td><td class="indexvalue">Konkrete Klasse für ein Dreieck</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classWriter.html">Writer</a></td><td class="indexvalue">Abstrakte Writer-Klasse</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classWriter_1_1FileFormatException.html">Writer::FileFormatException</a></td><td class="indexvalue">Wird geworfen, wenn Datei falsches Format besaß</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classWriter_1_1WriteFileException.html">Writer::WriteFileException</a></td><td class="indexvalue">Wird geworfen, wenn ein Schreibfehler auftrat</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classWriter_1_1WriterException.html">Writer::WriterException</a></td><td class="indexvalue">Vaterklasse für alle von einem <a class="el" href="classWriter.html">Writer</a> geworfenen Exceptions</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classWrongModelException.html">WrongModelException</a></td><td class="indexvalue">Das <a class="el" href="classCadModel.html">CadModel</a> enthält keine Geometriedaten oder die Geometriedaten bilden keine 3D-Objekte (z.B</td></tr>
+  <tr><td class="indexkey"><a class="el" href="classXpmWriter.html">XpmWriter</a></td><td class="indexvalue">Konkreter <a class="el" href="classWriter.html">Writer</a> für das XPM-Format</td></tr>
+</table>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

@@ -1,0 +1,17 @@
+Code-Beschreibung der im Rahmen der Diplomarbeit Nr. 2035
+" Erzeugung und Evaluierung von Oktalbaumstrukturen als Schnittstelle
+  zu CAD-Programmen" erstellten Software cad2octree
+
+Mit Hilfe dieses Programms können Geometrieinformationen aus
+gültigen DXF (Drawable Exchange Format) - Dateien extrahiert werden.
+Diese Daten werden zur Erzeugung einer Octree-Struktur verwendet.
+
+- Autor: Stefan Mahler
+- Betreuer: Ralf-Peter Mundani
+- erstellt: 2002, Universität Stuttgart, Institut für Informatik,
+		    Abteilung Simulation großer Systeme
+
+\note
+Zum Einlesen des DXF-Formats wird die GPL-Bibliothek Dime Version 0.9.1
+verwendet. Beachten sie die in der Datei \file LICENCE beschriebenen
+Richtlinien.

@@ -1,0 +1,19 @@
+Benchmarks 23.10.2002 auf v0.1.0
+
+a) P(III)M 1000, 256MB RAM, 1GB swap, SuSE Linux 8.0, g++ -O3
+
+Schalter ein: NDEBUG, FILL_SOLIDS, FAST_FILL
+Schalter aus: ALGORITHM_ISIN, ALGORITHM_DET_CHECK
+
+Zeiten: Flächenerzeugung/Füllen/Kompaktieren
+
+a)		d= 7		d= 8		d= 9		d= 10
+bungalow.dxf	1.56/0.88/0.0	5.23/1.74/0.97	24.44/6.66/0.89	1:44/28.18/0.52
+gear.dxf (1)	2.76/0.81/0.0	8.38/1.17/0.99	34.57/3.30/0.95	2:18/15.16/0.79
+gear.dxf (5)	2.76/2.39/0.99	7.92/2.80/0.98	24.14/4.56/0.95	1:35/17.74/0.77
+kugel_poly.dxf	1.95/0.64/0.99	3.43/1.42/0.96	13.68/7.97/0.86	51.7/30.25/0.48
+ship.dxf	0.43/0.75/0.0	1.33/0.33/0.99	5.41/2.65/0.95	20.42/10.66/0.83
+wuerfel.dxf	0.52/0.59/0.99	1.9/1.6/0.94	7.23/8.5/0.76	31.37/6:44/1.69
+
+
+

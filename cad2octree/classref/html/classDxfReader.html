@@ -1,0 +1,158 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>DxfReader Klassenreferenz</h1>Abstrakter <a class="el" href="classReader.html">Reader</a> für DXF-Dateien. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="dxf__reader_8h-source.html">dxf_reader.h</a>&gt;</code>
+<p>
+<p>Klassendiagramm für DxfReader:
+<p><center><img src="classDxfReader.png" usemap="#DxfReader_map" border="0"></center>
+<map name="DxfReader_map">
+<area href="classReader.html" alt="Reader" shape="rect" coords="0,0,81,24">
+<area href="classDimeReader.html" alt="DimeReader" shape="rect" coords="0,112,81,136">
+</map>
+<a href="classDxfReader-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>virtual const char *&nbsp;</td><td valign=bottom><a class="el" href="classDxfReader.html#a0">getFormatName</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Formatnamen zurück.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual const <a class="el" href="classReader.html#s1">Reader::FormatType</a>&nbsp;</td><td valign=bottom><a class="el" href="classDxfReader.html#a1">getFormatType</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Formattyp.</em> <a href="#a1"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Öffentliche, statische Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classReader.html">Reader</a> *&nbsp;</td><td valign=bottom><a class="el" href="classDxfReader.html#d0">readFile</a> (const char *fileName)  throw (ReadFileException*, FileFormatException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Erzeugt den DxfReader für die Datei fileName.</em> <a href="#d0"></a><em></em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Abstrakter <a class="el" href="classReader.html">Reader</a> für DXF-Dateien.
+<p>
+Die Fabrikmethode <a class="el" href="classDxfReader.html#d0">readFile</a>() erzeugt einen konkreten <a class="el" href="classReader.html">Reader</a> für DXF-Dateien unter Zuhilfename einer DXF-Importbibliothek, <a class="el" href="classDxfReader.html#a0">getFormatName</a>() und <a class="el" href="classDxfReader.html#a1">getFormatType</a>() setzen diese Methoden des <a class="el" href="classReader.html">Reader</a>-Interface für <em>DXF</em> um. 
+<p>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="a0" doxytag="DxfReader::getFormatName"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual const char* DxfReader::getFormatName </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Formatnamen zurück.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+"DXF" </dl>
+<p>
+Implementiert <a class="el" href="classReader.html#a3">Reader</a>.    </td>
+  </tr>
+</table>
+<a name="a1" doxytag="DxfReader::getFormatType"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual const <a class="el" href="classReader.html#s1">Reader::FormatType</a> DxfReader::getFormatType </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Formattyp.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+<a class="el" href="classReader.html#s1s0">Reader::DXF</a> </dl>
+<p>
+Implementiert <a class="el" href="classReader.html#a4">Reader</a>.    </td>
+  </tr>
+</table>
+<a name="d0" doxytag="DxfReader::readFile"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classReader.html">Reader</a>* DxfReader::readFile </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>fileName</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (ReadFileException*, FileFormatException*)<code> [static]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Erzeugt den DxfReader für die Datei fileName.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>fileName</em>&nbsp;</td><td>
+Name der Datei, aus der die Geometriedaten extrahiert  werden sollen.  </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+DxfReader zur Datei </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+fileName spezifiziert eine gültige DXF-Datei. </dl>
+<p>
+Erneute Implementation von <a class="el" href="classReader.html#d0">Reader</a>.    </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="dxf__reader_8h-source.html">dxf_reader.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

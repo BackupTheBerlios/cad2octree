@@ -1,0 +1,79 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>b_spline.h</h1><a href="b__spline_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00012 <font class="preprocessor">#ifndef __B_SPLINE_H__</font>
+00013 <font class="preprocessor"></font><font class="preprocessor">#define __B_SPLINE_H__</font>
+00014 <font class="preprocessor"></font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="face_8h.html">face.h</a>&gt;</font>
+00016 <font class="preprocessor">#include &lt;<a class="code" href="point_8h.html">point.h</a>&gt;</font>
+00017 
+00018 <font class="preprocessor">#include &lt;vector&gt;</font>
+00019 
+<a name="l00023"></a><a class="code" href="b__spline_8h.html#a0">00023</a> <font class="preprocessor">#define DEGREE 3</font>
+00024 <font class="preprocessor"></font>
+<a name="l00028"></a><a class="code" href="classBSpline.html">00028</a> <font class="keyword">class </font><a class="code" href="classBSpline.html">BSpline</a> : <font class="keyword">public</font> <a class="code" href="classFace.html">Face</a> {
+00029  <font class="keyword">public</font>:
+<a name="l00033"></a><a class="code" href="classBSpline.html#s2">00033</a>   <font class="keyword">enum</font> <a class="code" href="classBSpline.html#s2">EXTENT</a> { <a class="code" href="classBSpline.html#s2s0">M_DIR</a>= 0, 
+00034                 <a class="code" href="classBSpline.html#s2s1">N_DIR</a>= 1  
+00035   };
+00036 
+00044   <a class="code" href="classBSpline.html#a0">BSpline</a>(<font class="keywordtype">int</font> m_count, <font class="keywordtype">bool</font> pMeshClosedM, <font class="keywordtype">int</font> n_count, <font class="keywordtype">bool</font> pMeshClosedN);
+00045 
+00049   <font class="keyword">virtual</font> <a class="code" href="classBSpline.html#a1">~BSpline</a>();
+00050 
+00055   <font class="keywordtype">void</font> <a class="code" href="classBSpline.html#a2">addCP</a>(<a class="code" href="classPoint.html">Point</a> p);
+00056 
+00062   <a class="code" href="classPoint.html">Point</a> <a class="code" href="classBSpline.html#a3">getControlPoint</a>(<font class="keywordtype">int</font> m_idx, <font class="keywordtype">int</font> n_idx);
+00063 
+00070   <font class="keywordtype">int</font> <a class="code" href="classBSpline.html#a4">getCount</a>(<a class="code" href="classBSpline.html#s2">EXTENT</a> axis);
+00071 
+00076   <font class="keyword">virtual</font> <font class="keyword">const</font> <a class="code" href="classCadObject.html#s4">DataType</a> <a class="code" href="classBSpline.html#a5">getDataType</a>();
+00077 
+00084   <font class="keywordtype">int</font> <a class="code" href="classBSpline.html#a6">getKnot</a>(<a class="code" href="classBSpline.html#s2">EXTENT</a> axis, <font class="keywordtype">int</font> n_idx);
+00085 
+00091   <font class="keywordtype">int</font> <a class="code" href="classBSpline.html#a7">getKnotCount</a>(<a class="code" href="classBSpline.html#s2">EXTENT</a> axis);
+00092 
+00098   <font class="keywordtype">int</font> <a class="code" href="classBSpline.html#a8">getKnotMax</a>(<a class="code" href="classBSpline.html#s2">EXTENT</a> axis);
+00099 
+00105   <font class="keywordtype">int</font> <a class="code" href="classBSpline.html#a9">getKnotMin</a>(<a class="code" href="classBSpline.html#s2">EXTENT</a> axis);
+00106 
+00114   <font class="keyword">virtual</font> <a class="code" href="classPoint.html">Point</a> <a class="code" href="classBSpline.html#a10">getMaxPoint</a>();
+00115 
+00123   <font class="keyword">virtual</font> <a class="code" href="classPoint.html">Point</a> <a class="code" href="classBSpline.html#a11">getMinPoint</a>();
+00124 
+00130   <font class="keywordtype">bool</font> <a class="code" href="classBSpline.html#a12">isClosed</a>(<a class="code" href="classBSpline.html#s2">EXTENT</a> axis);
+00131 
+00135   <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classBSpline.html#a13">print</a>();
+00136 
+00137  <font class="keyword">private</font>:
+<a name="l00142"></a><a class="code" href="classBSpline.html#u0">00142</a>   <font class="keyword">typedef</font> vector&lt;Point&gt; <a class="code" href="classBSpline.html#u0">CPContainer</a>;
+00143 
+<a name="l00147"></a><a class="code" href="classBSpline.html#o0">00147</a>   <font class="keywordtype">bool</font> <a class="code" href="classBSpline.html#o0">closedM</a>;
+00148 
+<a name="l00152"></a><a class="code" href="classBSpline.html#o1">00152</a>   <font class="keywordtype">bool</font> <a class="code" href="classBSpline.html#o1">closedN</a>;
+00153 
+<a name="l00157"></a><a class="code" href="classBSpline.html#o2">00157</a>   <a class="code" href="classBSpline.html#u0">CPContainer</a> <a class="code" href="classBSpline.html#o2">controlPoints</a>;
+00158 
+<a name="l00162"></a><a class="code" href="classBSpline.html#o3">00162</a>   <font class="keywordtype">int</font> <a class="code" href="classBSpline.html#o3">countM</a>;
+00163 
+<a name="l00167"></a><a class="code" href="classBSpline.html#o4">00167</a>   <font class="keywordtype">int</font> <a class="code" href="classBSpline.html#o4">countN</a>;
+00168 
+00169 };
+00170 
+00171 <font class="preprocessor">#endif // ! __BSPLINE_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

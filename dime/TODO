@@ -1,0 +1,27 @@
+TODO for DIME
+
+Just to clarify something; the order of the items in the list and the
+priority we have given the items do not guarantee when (or even if) the
+items will be implemented.
+
+ *) upgrade configure setup and and DLLify library - make Mac OS X framework
+    [top priority]
+
+ *) Write more and better doxygen documentation comments.
+    [high priority]
+
+ *) Make a more robust run-time type checking system.
+    [high priority]
+    - shouldn't require client apps to be recompiled if new types are added
+    - maybe make it possible to override the "built-in" types
+    - must be in place before v1.0
+
+ *) Implement a (better) debug/warning/error system with callbacks
+    [high priority]
+
+ *) Implement more of the entities, tables, etc. used by AutoCAD
+    [medium priority]
+
+ *) implement some means of "seamless" integration with Coin
+    [medium-low priority?]
+

@@ -1,0 +1,170 @@
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%   
+% Autor: Stefan Mahler 2002/2003
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\section{Spline-Fl"achen-Generierung}
+\label{algo_spline}
+In den letzten Abschnitten wurden M"oglichkeiten der Oktalbaumgenerierung 
+f"ur glatte K"orperoberfl"achen ausf"uhrlich beschrieben. Zur 
+Oktalbaumerzeugung mit Spline-Oberfl"achen wird ein Trick benutzt: 
+
+Die Genauigkeit des Oktalbaummodells ist durch das durch die Zellen der 
+untersten Ebene entstehende Gitter begrenzt. Durch \glref{gl_geompoint_equ} 
+ist gegeben, wann zwei Punkte als gleich angesehen werden k"onnen. Eine 
+Oberfl"ache, die durch entsprechend kleine Polygone approximiert wurde, wird 
+demnach durch den selben Oktalbaum repr"asentiert, wie die urspr"ungliche 
+Spline-Oberfl"ache. Zur Oktalbaumgenerierung wird die Spline-Oberfl"ache 
+demnach durch ein Polygonnetz ersetzt, welches die Spline-Fl"ache hinreichend 
+genau ann"ahert. 
+
+\alg{alg_getfacepoint}{\funcdef{getFacePoint}{u, v}{GeomPoint}}{%
+\pre{\(u \in [0; \max\{u^{\ast}_i | u^{\ast}_i \in U\}) \land 
+       v \in [0; \max\{v^{\ast}_i | v^{\ast}_i \in V\}) \)}\\
+\funcdef[\\\hspace{1em}]{getFacePoint}{Coordinate u, Coordinate v}{GeomPoint}
+\funcbeg
+  \field{0..3}{Coordinate} N\_u\\
+  \field{0..3}{Coordinate} N\_v\\
+~\\
+  \integer~u\_span:= \func{findSpan}{\const{U\_DIR}, u}\\
+  \proc{basisFuns}{\const{U\_DIR}, u\_span, u, N\_u}\\
+  \integer~v\_span:= \func{findSpan}{\const{V\_DIR}, v}\\
+  \proc{basisFuns}{\const{V\_DIR}, v\_span, v, N\_v}\\
+~\\
+  GeomPoint x:= \( (0; 0; 0| 0)\)\\
+  \integer~u\_ind:= u\_span - 3\\
+  \forloop{\integer~k}{0}{3}{1}
+    GeomPoint temp:= \( (0; 0; 0| 0)\)\\
+    \integer~v\_ind:= v\_span - 3\\
+    \forloop{\integer~l}{0}{3}{1}
+      temp:= temp \(+~N_u[l] *
+                      { \bf c}_{u_{\mathrm{ind}}+l; v_{\mathrm{ind}}+k}\)\\
+    \closefor
+    x:= x + N\_v[k] * temp\\
+  \closefor
+  \ret{x}
+\closefunc
+}
+
+\alg{alg_findspan}{\funcdef{findSpan}{extent, u}{\integer}}{%
+\funcdef{findSpan}{Extent extent, Coordinate u}{\integer}
+\funcbeg
+  \ifthen{\func{isClosed}{extent}}
+    \ret{\(\trunc{u}\)}
+  \closeif
+~\\  
+  n:= \func{getControllpointCount}{extent}\\
+  \ifthen{u \ge n}
+     \ret{n}
+  \closeif
+~\\  
+  \ret{\(\trunc{u} + 3\)}
+\closefunc
+}
+
+\alg{alg_basisfuns}{\procdef{basisFuns}{extent, i, u, \outparam{N[]}}}{%
+\pre{\(u \in [\func{getKnot}{extent, i}; \func{getKnot}{extent, i+1})\)}\\
+\procdef{basisFuns}{Extent extent, \integer~i, Coordinate u, \\
+\hspace{11em}\outparam{\field{0..3}{Coordinate} N}}
+\procbeg
+  \field{0..3}{Coordinate} left\\
+  \field{0..3}{Coordinate} right\\
+~\\
+  N[0]:= 1\\
+  \forloop{\integer~k}{1}{3}{1}
+    left[k]:= u - \func{getKnot}{extent, i + 1 - k}\\
+    right[k]:= \func{getKnot}{extent, i + k} - u\\
+    Coordinate saved:= 0\\
+    \forloop{\integer~r}{0}{k-1}{1}
+      Coordinate temp:= N[r] / (left[k-r] + right[r+1])\\
+      N[r]:= saved + temp*right[r+1]\\
+      saved:= left[k-r] * temp\\
+    \closefor
+    N[k]:= saved\\
+  \closefor
+\closeproc
+}
+
+Um f"ur ein Parameterwertpaar $(u; v)$ den entsprechenden 
+Oberfl"achenpunkt ${\bf x}(u; v)$ zu bestimmen, werden die sehr effizienten 
+Algorithmen \ref{alg_getfacepoint}, \ref{alg_findspan} und \ref{alg_basisfuns} 
+verwendet, die auf den in \cite{nurbs_book} beschriebenen Methoden 
+\emph{SurfacePoint()}, \emph{FindSpan()} und \emph{BasisFuns()} basieren. 
+
+\param{extent} gibt an, welche der beiden Richtungen der Splinefl"ache 
+betrachtet werden soll. Als Knotenvektoren dienen $U$ und $V$. 
+Die zugeh"origen (von $0$ verschiedenen) Basisfunktionen werden in $N_u$ und 
+$N_v$ gespeichert. 
+${\bf c}_{l;k}$ bezeichnet den $(l;k)$-ten Kontrollpunkt der Spline.
+
+Man beachte, dass die in \cite{nurbs_book} beschriebenen und in den 
+Algorithmen \ref{alg_getfacepoint}, \ref{alg_findspan} und 
+\ref{alg_basisfuns} verwendeten Knoten $u^\ast_i$ offener B-Splines aus 
+implementierungstechnischen Gr"unden einen Indexwert $i \in [0; n+p+1)$ haben. 
+Im Gegensatz dazu hatten die im Abschnitt \ref{spline} eingef"uhrten 
+Spline-Knoten $u_{i\alt}$ Indexwerte $i{\alt} \in [-p-1;n)$. Dabei 
+ist $n$ die Anzahl der Kontrollpunkte und $p$ der Grad der Spline-Kurve.
+
+Da die in der Abteilung erstellten DXF-Modelle ausschlie"slich kubische 
+B-Splines als Spline-Fl"achen enthalten, wurde das Verfahren auf diese 
+Gruppe von Splines eingeschr"ankt. (Eine Erweiterung auf beliebige Splines 
+ist jedoch sehr einfach m"oglich.) 
+Der Knotenvektor $U = \left\{u^\ast_i\right\}$ einer 
+Ausdehnungsrichtung "uber $n$ Kontrollpunkte ist f"ur eine offene Spline mit 
+\gl{gl_knotvector_open}{u^\ast_i = 
+	\cases{0,   & i \le 3\\
+	       i-3, & i \le n\\
+	       n-3, & i  >  n}}
+($i \in [0; n+p+1)$) und im geschlossenen Fall mit
+\gl{gl_knotvector_closed}{U = \left\{0, \dots, n\right\}}
+gegeben.
+Im geschlossen Fall seien zus"atzlich die Kontrollpunkte $c_n=c_0$, 
+$c_{n+1}=c_1$,\dots und $c_{-1}=c_{n-1}$.
+
+Durch die Polygonnetz-Approximation der B-Spline-Oberfl"ache entsteht eine 
+gro"se Menge an Objekten, die auf etwaigen Schnitt mit dem Teststrahl zur 
+Lagebestimmung von Zellen (vgl. Abschnitt \emph{Punkt-in-Polygon-Test} 
+\vpageref{polyeder_test} und \algref{alg_locate}) durchlaufen werden m"ussen. 
+F"ur die Lokalisation von Zellen innerhalb des F"ullalgorithmus (Abschnitt 
+\ref{fill_alg}) ist aber unter Umst"anden die Verwendung des 
+Kontrollpunktnetzes anstatt des feinen Oberfl"achenpolygonnetzes ausreichend: 
+
+Vor Anwendung des F"ullalgorithmus ist bereits der K"orperrand in 
+den Oktalbaum "ubertragen worden. Damit der F"ullalgorithmus korrekt arbeitet, 
+m"ussen die zur Bestimmung der F"ullfarbe aufgew"ahlten Punkte korrekt 
+lokalisiert werden. Wir nehmen an, dass das Kontrollpunktnetz nicht 
+selbstschneidend ist (f"ur den modellierten K"orper muss dies ohnehin gelten 
+(vgl. Abschnitt \ref{flmodels}). Des Weiteren sollen, falls ein K"orper aus 
+mehreren nicht zusammenh"angenden Teilen besteht oder mehrere K"orper sich 
+innerhalb eines Modells befinden, die dazugeh"origen Kontrollpunktnetze 
+einander schnittfrei sein. Dann werden aufgrund der Eigenschaft, dass sich 
+Spline-Oberfl"achen immer innerhalb ihres Kontrollpunktnetzes befinden, 
+K"orperinnenpunkte immer richtig lokalisiert. 
+
+Wurden keine Hohlk"orper modelliert (es gibt kein Gebiet, dass vollst"andig 
+vom K"orperrand umschlossen ist und nicht zum K"orper geh"ort), muss jetzt nur 
+noch der Au"senbereich richtig bestimmt werden:
+Beim F"ullalgorithmus wird immer der erstm"ogliche Punkt zur Ermittlung 
+der F"ullfarbe verwendet. Befindet sich die 
+Zelle $\trunc{{\bf g}_{{\bf p}_{\min}}}$ nicht auf den K"orperrand, wird sie 
+zur F"ullfarbenermittlung verwendet. Liegt in ihr auch kein Kontrollpunkt, 
+wird der gesamte Au"senbereich korrekt mit der Farbe \const{NO\_OBJECT\_COLOR} 
+markiert. Dass die Zelle $\trunc{{\bf g}_{{\bf p}_{\min}}}$ stets 'freie' 
+Zelle ist (sie enth"alt kein Modellierungspunkte, wie z.B. Kontrollpunkte), 
+kann allgemein durch eine entsptechende Verschiebung des 
+Punkts ${\bf p}_{\min}$ nach weiter 'au"sen' (in Richtung 
+$(-\infty; -\infty; -\infty)$) um eine Zelle erreicht werden (vgl. zur 
+Anpassung des Oktalbaumgebiets Abschnitt \ref{point_in_cell_lowest_level}). 
+Bei h"oheren Aufl"osungen m"ussen somit wesentlich weniger Polygone zur 
+Lokalisation beachtet werden. Die Zahl der zu durchlaufenden Polygone ist 
+--~wie bei der Modellierung glatter K"orperoberfl"achen~-- unabh"angig von 
+der Oktalbaumtiefe. 
+
+Beim klassischen Verfahren kann die Aufl"osung des Approxiamtion-Netzes f"ur 
+die Spline-Fl"ache entsprechend der Knotentiefe adaptiert werden. Es muss 
+also nicht schon bei der Wurzel eine Spline-Extrahierung mit Polygonen der 
+Abmessungen entsprechend der Zellen der untersten Ebene erfolgen. 
+
+%% End of Document

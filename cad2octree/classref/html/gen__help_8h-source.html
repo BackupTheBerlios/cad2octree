@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>gen_help.h</h1><a href="gen__help_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00012 <font class="preprocessor">#ifndef __GEN_HELP_H__</font>
+00013 <font class="preprocessor"></font><font class="preprocessor">#define __GEN_HELP_H__</font>
+00014 <font class="preprocessor"></font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="point_8h.html">point.h</a>&gt;</font>
+00016 <font class="preprocessor">#include &lt;<a class="code" href="quadrilateral_8h.html">quadrilateral.h</a>&gt;</font>
+00017 <font class="preprocessor">#include &lt;<a class="code" href="triangle_8h.html">triangle.h</a>&gt;</font>
+00018 <font class="preprocessor">#include &lt;<a class="code" href="node__vec_8h.html">node_vec.h</a>&gt;</font>
+00019 <font class="preprocessor">#include &lt;<a class="code" href="polygon_8h.html">polygon.h</a>&gt;</font>
+00020 <font class="preprocessor">#include &lt;<a class="code" href="exception_8h.html">exception.h</a>&gt;</font>
+00021 
+<a name="l00031"></a><a class="code" href="classGenHelp.html">00031</a> <font class="keyword">class </font><a class="code" href="classGenHelp.html">GenHelp</a> {
+00032  <font class="keyword">public</font>:
+00042   <a class="code" href="classGenHelp.html#a0">GenHelp</a>(<a class="code" href="global_8h.html#a21">Hight</a> maxTreeHight, <a class="code" href="classPoint.html">Point</a> minPoint, <a class="code" href="classPoint.html">Point</a> maxPoint)
+00043     <font class="keywordflow">throw</font> (NotEnoughMemoryException);
+00044 
+00059   <a class="code" href="global_8h.html#a17">Axis</a> <a class="code" href="classGenHelp.html#a1">bestAxis</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> current, <a class="code" href="classNodeIndex.html">NodeIndex</a> end, <a class="code" href="classNodeVec.html">NodeVec</a> line,
+00060                 <a class="code" href="classNodeIndex.html">Direction</a> direction);
+00061 
+00068   <a class="code" href="classPoint.html">Point</a> <a class="code" href="classGenHelp.html#a2">getCadPoint</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p);
+00069 
+00075   <a class="code" href="classGeomPoint.html">GeomPoint</a> <a class="code" href="classGenHelp.html#a3">getGeomPoint</a>(<a class="code" href="classPoint.html">Point</a> p);
+00076 
+00082   <a class="code" href="classNodeIndex.html">NodeIndex</a> <a class="code" href="classGenHelp.html#a4">getNodeIndex</a>(<a class="code" href="classPoint.html">Point</a> p);
+00083 
+00093   <a class="code" href="classPolygon.html">Polygon</a> <a class="code" href="classGenHelp.html#a5">getPolygon</a>(<a class="code" href="classQuadrilateral.html">Quadrilateral</a> *q, <a class="code" href="classPolygon.html">Polygon</a>* &amp;t2);  
+00094 
+00101   <a class="code" href="classPolygon.html">Polygon</a> <a class="code" href="classGenHelp.html#a5">getPolygon</a>(<a class="code" href="classTriangle.html">Triangle</a> *t);  
+00102 
+00103  <font class="keyword">private</font>:
+00110   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classGenHelp.html#c0">getCadCoord</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p, <a class="code" href="global_8h.html#a17">Axis</a> axis);
+00111 
+00121   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classGenHelp.html#c1">getError</a>(<a class="code" href="classNodeVec.html">NodeVec</a> fromTestpoint, <a class="code" href="classNodeVec.html">NodeVec</a> line);
+00122 
+00129   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classGenHelp.html#c2">getGeomCoord</a>(<a class="code" href="classPoint.html">Point</a> p, <a class="code" href="global_8h.html#a17">Axis</a> axis);
+00130 
+00138   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classGenHelp.html#c3">getMaxExtent</a>(<a class="code" href="classPoint.html">Point</a> <a class="code" href="classGenHelp.html#o1">min</a>, <a class="code" href="classPoint.html">Point</a> max);
+00139   
+<a name="l00143"></a><a class="code" href="classGenHelp.html#o0">00143</a>   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classGenHelp.html#o0">density</a>;
+00144 
+<a name="l00149"></a><a class="code" href="classGenHelp.html#o1">00149</a>   <a class="code" href="classPoint.html">Point</a> min;
+00150 };
+00151 
+00152 <font class="preprocessor">#endif // ! __GEN_HELP_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

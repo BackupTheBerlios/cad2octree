@@ -1,0 +1,344 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>Container Klassenreferenz</h1>Interface für Container für CAD-Objekte. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="container_8h-source.html">container.h</a>&gt;</code>
+<p>
+<p>Klassendiagramm für Container:
+<p><center><img src="classContainer.png" usemap="#Container_map" border="0"></center>
+<map name="Container_map">
+<area href="classFaces.html" alt="Faces" shape="rect" coords="0,56,70,80">
+<area href="classCadModel.html" alt="CadModel" shape="rect" coords="0,112,70,136">
+</map>
+<a href="classContainer-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="classContainer.html#a0">add</a> (<a class="el" href="container_8h.html#a0">Element</a> object)=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Fügt object zum Container hinzu.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual unsigned&nbsp;</td><td valign=bottom><a class="el" href="classContainer.html#a1">count</a> ()=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert zurück, wieviele Objekte sich im Container befinden.</em> <a href="#a1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual bool&nbsp;</td><td valign=bottom><a class="el" href="classContainer.html#a2">empty</a> ()=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ist kein Objekt im Container vorhanden?</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual bool&nbsp;</td><td valign=bottom><a class="el" href="classContainer.html#a3">exist</a> (<a class="el" href="container_8h.html#a0">Element</a> object)=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ist object im Container vorhanden?</em> <a href="#a3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="classContainer.html#a4">first</a> ()=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Setzt den internen Cursor des Containers auf das erste Element.</em> <a href="#a4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual <a class="el" href="classCadObject.html">CadObject</a> *&nbsp;</td><td valign=bottom><a class="el" href="classContainer.html#a5">getObject</a> ()=0  throw (OutOfModelException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert das Objekt zurück, auf dem gerade der interne Cursor des Containers steht.</em> <a href="#a5"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual bool&nbsp;</td><td valign=bottom><a class="el" href="classContainer.html#a6">hasObject</a> ()=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Befindet sich der interne Cursor innerhalb des Container?</em> <a href="#a6"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="classContainer.html#a7">next</a> ()=0  throw (OutOfModelException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Setzt den internen Cursor auf das nachfolgende Element.</em> <a href="#a7"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a8" doxytag="Container::print"></a>
+virtual void&nbsp;</td><td valign=bottom><a class="el" href="classContainer.html#a8">print</a> ()=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gibt alle im Container enthaltene Elemente auf der Konsole aus.</em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Interface für Container für CAD-Objekte.
+<p>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="a0" doxytag="Container::add"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual void Container::add </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="container_8h.html#a0">Element</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>object</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Fügt object zum Container hinzu.
+<p>
+@object hinzuzufügendes Element <dl compact><dt><b>
+Vorbedingung: </b><dd>
+object != NULL </dl>    </td>
+  </tr>
+</table>
+<a name="a1" doxytag="Container::count"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual unsigned Container::count </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert zurück, wieviele Objekte sich im Container befinden.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+Anzahl der Objekte im Container </dl>
+<p>
+Implementiert in <a class="el" href="classFaces.html#a5">Faces</a>.    </td>
+  </tr>
+</table>
+<a name="a2" doxytag="Container::empty"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual bool Container::empty </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ist kein Objekt im Container vorhanden?
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+true, falls sich kein Objekt im Container befindet<br>
+ false, sonst </dl>
+<p>
+Implementiert in <a class="el" href="classFaces.html#a6">Faces</a>.    </td>
+  </tr>
+</table>
+<a name="a3" doxytag="Container::exist"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual bool Container::exist </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="container_8h.html#a0">Element</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>object</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ist object im Container vorhanden?
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>object</em>&nbsp;</td><td>
+zu suchendes Objekt </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+true, falls object im Container existiert<br>
+ false, sonst </dl>    </td>
+  </tr>
+</table>
+<a name="a4" doxytag="Container::first"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual void Container::first </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Setzt den internen Cursor des Containers auf das erste Element.
+<p>
+Falls der Container leer ist, wirft ein anschließender Aufruf von <a class="el" href="classContainer.html#a5">getObject</a>() oder <a class="el" href="classContainer.html#a7">next</a>() eine <a class="el" href="classContainer_1_1OutOfModelException.html">OutOfModelException</a>. 
+<p>
+Implementiert in <a class="el" href="classFaces.html#a7">Faces</a>.    </td>
+  </tr>
+</table>
+<a name="a5" doxytag="Container::getObject"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual <a class="el" href="classCadObject.html">CadObject</a>* Container::getObject </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (<a class="el" href="classContainer_1_1OutOfModelException.html">OutOfModelException</a>*)<code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert das Objekt zurück, auf dem gerade der interne Cursor des Containers steht.
+<p>
+<dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a class="el" href="classContainer_1_1OutOfModelException.html">OutOfModelException</a></em>&nbsp;</td><td>
+ falls <a class="el" href="classContainer.html#a6">hasObject</a>()==false </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+aktuelles Element </dl>
+<p>
+Implementiert in <a class="el" href="classFaces.html#a8">Faces</a>.    </td>
+  </tr>
+</table>
+<a name="a6" doxytag="Container::hasObject"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual bool Container::hasObject </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Befindet sich der interne Cursor innerhalb des Container?
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+<em>false</em>, falls der Cursor sich außerhalb des Containers (z.B. hinter dem letzten Element) befindet<br>
+ <em>true</em>, sonst </dl>
+<p>
+Implementiert in <a class="el" href="classFaces.html#a9">Faces</a>.    </td>
+  </tr>
+</table>
+<a name="a7" doxytag="Container::next"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual void Container::next </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (<a class="el" href="classContainer_1_1OutOfModelException.html">OutOfModelException</a>*)<code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Setzt den internen Cursor auf das nachfolgende Element.
+<p>
+<dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a class="el" href="classContainer_1_1OutOfModelException.html">OutOfModelException</a></em>&nbsp;</td><td>
+ <a class="el" href="classContainer.html#a6">hasObject</a>() lieferte bereits vor der Anwendung von <a class="el" href="classContainer.html#a7">next</a>() false zurück. </td></tr>
+</table>
+</dl>
+<p>
+Implementiert in <a class="el" href="classFaces.html#a10">Faces</a>.    </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="container_8h-source.html">container.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

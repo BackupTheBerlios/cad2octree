@@ -1,0 +1,65 @@
+% algorithmen/schnitt.tex
+% Schnitt zweier Linien, Schnitt Linie mit Polygon
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%
+% Autor: Stefan Mahler 2002/2003
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\subsection{Schnitt geometrischer Objekte}
+Im Folgenden werden einige Schnittverfahren f"ur einfache Objekte vorgestellt. 
+Wie im oberen Abschnitt zu sehen ist, wird die Schnittbestimmung insbesondere 
+f"ur einige Verfahren zur Lagebestimmung verwendet.
+
+\subsubsection{Schnitt zweier Strecken}
+\cite{algo_cpp} beschreibt einen besonders effizienten Algorithmus, der  
+"uberpr"uft, ob sich zwei Strecken $\overline{{\bf A}{\bf B}}$ und 
+$\overline{{\bf C}{\bf D}}$, die sich in einer Ebene befinden, schneiden. 
+Der Einfachheit halber soll verlangt sein, dass die Punkte 
+${\bf A}$, ${\bf B}$, ${\bf C}$, ${\bf D}$ paarweise verschieden 
+sind und nicht kollinear liegen. 
+(Der Originalalgorithmus macht diese Einschr"ankung nicht, da hier f"ur diese 
+Sonderf"alle die \func{ccw}{{}${\bf p}_1$, ${\bf p}_2$, ${\bf p}_3$} speziell 
+definierte Werte liefert.)
+\gl{gl_intersect_two_str_ccw}{ 
+    \begin{array}{c} 
+    \overline{{\bf A}{\bf B}} \; \mathrm{intersect} \; 
+	\overline{{\bf C}{\bf D}} \; \equival \\
+    \left( \func{ccw}{{\bf A},{\bf B},{\bf C}} = 
+	\func{ccw}{{\bf B},{\bf A},{\bf D}} \right) 
+     ~ \land ~ \left( \func{ccw}{{\bf C},{\bf D},{\bf A}} = 
+	\func{ccw}{{\bf D},{\bf C},{\bf B}} \right) 
+    \end{array}
+}
+
+\subsubsection{Schnitt einer achsparallelen Geraden mit einem Polygon}
+Es soll der Schnittpunkt zwischen einer achsparallelen Geraden mit einem 
+Polygon $H$ bestimmt werden, wenn ein solcher existiert. 
+Hier soll auf die Mittel der Vektorrechnung zur"uckgegriffen werden. 
+Die Verwendung einer achsparallelen Gerade f"ur den Schnitt hat den Vorteil, 
+dass bereits zwei Koordinaten des Schnittpunkts bekannt sind.  
+Es sind die jeweiligen Koordinaten der Geraden. O.B.d.A. soll eine Gerade
+parallel zur z-Achse betrachtet werden, die durch den Punkt 
+${\bf Q} = (x_0; y_0; z_0 | h)$ verl"auft: 
+\[g = \left\{ (x_0; y_0; z | h) : z \in \Realnumbers \right\}\mbox{.}\]
+Dann muss f"ur den Schnittpunkt ${\bf S}=\left(x_0; y_0; z_{\bf S}\right)$ 
+gelten:
+\gl{gl_S_in_polygon}{\left(x_0; y_0; z_{\bf S}\right) \in H\mbox{.}}
+Die Gerade liegt in der Polygonebene oder verl"auft parallel zu ihr, falls 
+\gl{gl_z_line_parallel_polygon}{\vct{n_H}[2] = 0\mbox{.}}
+Solche F"alle werden im Folgenden nicht weiter betrachtet.
+F"ur den Schnittpunkt gilt nun 
+\gl{gl_z_s_line_polygon}{z_{\bf S} = z_0 + { \scriptstyle{ \left<
+    \vct{Q{p_0}}; \vct{n_H} \right>} \over \vct{n_H}[2]}
+    \mbox{.}}
+Zur Bestimmung, ob der Schnittpunkt mit der Polygonebene auch im Polygon 
+selbst liegt, kann die Projektion in die $xy$-Ebene betrachtet und die 
+Umlaufsinnmethode angewendet werden. 
+ 
+F"ur die Strahlmethode (im Abschnitt \emph{Punkt-in-Polygon-Test} 
+\vpageref{polyeder_test} beschrieben) muss 
+nun noch $z_{\bf S} > {\bf Q}[2]$ sein.
+
+%% End of Document

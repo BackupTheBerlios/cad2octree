@@ -1,0 +1,15 @@
+CAD-Modellierung, numerische Simulation und Visualisierung werden heutzutage 
+haeufig zusammen innerhalb eines Prozesses (z.B. beim Designen neuer Produkte) 
+eingesetzt.
+Die Geometrie wird dabei durch unterschiedliche Datenstrukturen 
+repraesentiert. 
+
+Innerhalb der CAD-Modellierung sind Oberflaechenmodelle weit verbreitet. 
+Zur Integration von Modellierung, numerischer Simulation und Visualisierung 
+scheinen jedoch raumpartionierende Strukturen, insbesondere 
+Oktalbaumstrukturen (im 3-Dimensionalen) geeignet.
+Diese Arbeit beschaeftigt sich mit Moeglichkeiten, um aus Oberflaechenmodellen 
+(am Beispiel von DXF) Oktalbaeume zu generieren. Die Oberflaechen sind als 
+Dreiecks-, Vierecks- oder kubische B-Splineflaechen gegeben. Neben dem 
+klassischen Verfahren des rekursiven Abstiegs wurden alternative Methoden 
+umgesetzt und analysiert. 

@@ -1,0 +1,135 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>model_viewer.cpp Dateireferenz</h1>Hauptdatei zur <a class="el" href="classCadModel.html">CadModel</a>-Anzeige. 
+<a href="#_details">Mehr...</a>
+<p>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Funktionen</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="a0" doxytag="model_viewer.cpp::usage"></a>
+void&nbsp;</td><td valign=bottom><a class="el" href="model__viewer_8cpp.html#a0">usage</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Schreibt ein Hilfstext zur Verwendung (Aufrufparameter) auf die die Konsole.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="model__viewer_8cpp.html#a1">read</a> (const char *fileName, bool splitQuad)  throw ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liest die Datei fileName ein und gibt die in ihr enthaltenen Geometriedaten auf der Konsole aus.</em> <a href="#a1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="model__viewer_8cpp.html#a2">main</a> (int argc, char *argv[])</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Hauptfunktion.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Hauptdatei zur <a class="el" href="classCadModel.html">CadModel</a>-Anzeige.
+<p>
+ Gibt die Geometriedaten der CAD-Datei aus. Dazu wird ein <a class="el" href="classReader.html">Reader</a> verwendet.
+<p>
+Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen" <dl compact><dt><b>
+Autor: </b><dd>
+Stefan Mahler </dl><dl compact><dt><b>
+Datum: </b><dd>
+2002</dl><hr><h2>Dokumentation der Funktionen</h2>
+<a name="a2" doxytag="model_viewer.cpp::main"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> int main </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>char *&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>argv</em>[]</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Hauptfunktion.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+-1, falls ein Fehler auftritt<br>
+ 0, ansonsten </dl>    </td>
+  </tr>
+</table>
+<a name="a1" doxytag="model_viewer.cpp::read"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> int read </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const char *&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>fileName</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>bool&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>splitQuad</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2">  throw ()</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liest die Datei fileName ein und gibt die in ihr enthaltenen Geometriedaten auf der Konsole aus.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>fileName</em>&nbsp;</td><td>
+Dateiname </td></tr>
+<tr><td valign=top><em>splitQuad</em>&nbsp;</td><td>
+Ob alle Vierecke in 2 Dreiecke geteilt werden sollen. </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+-1, falls die Datei nicht gelesen werden konnte (Lesefehler, falsches Format)<br>
+ 0, ansonsten </dl>    </td>
+  </tr>
+</table>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>data_holder.h</h1><a href="data__holder_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00014 <font class="preprocessor">#ifndef __DATA_HOLDER_H__</font>
+00015 <font class="preprocessor"></font><font class="preprocessor">#define __DATA_HOLDER_H__</font>
+00016 <font class="preprocessor"></font>
+00017 <font class="preprocessor">#include &lt;<a class="code" href="exception_8h.html">exception.h</a>&gt;</font>
+00018 
+00019 <font class="preprocessor">#include &lt;assert.h&gt;</font>
+00020 <font class="preprocessor">#include &lt;stdlib.h&gt;</font>
+00021 
+<a name="l00027"></a><a class="code" href="classDataHolder.html">00027</a> <font class="keyword">template</font> &lt;<font class="keyword">class</font> ItemType&gt; <font class="keyword">class </font><a class="code" href="classDataHolder.html">DataHolder</a> {
+00028  <font class="keyword">public</font>:
+<a name="l00033"></a><a class="code" href="classDataHolder.html#a0">00033</a>   <a class="code" href="classDataHolder.html#a0">DataHolder</a>(<font class="keywordtype">unsigned</font> <font class="keywordtype">long</font> <a class="code" href="classDataHolder.html#o0">size</a>) <font class="keywordflow">throw</font> (NotEnoughMemoryException) 
+00034       : <a class="code" href="classDataHolder.html#n0">last</a>(0), <a class="code" href="classDataHolder.html#o0">size</a>(<a class="code" href="classDataHolder.html#o0">size</a>) {
+00035     <a class="code" href="classDataHolder.html#n1">pool</a>= (ItemType *)malloc(<a class="code" href="classDataHolder.html#o0">size</a> * <font class="keyword">sizeof</font>(ItemType));
+00036     
+00037     <font class="keywordflow">if</font> (<a class="code" href="classDataHolder.html#n1">pool</a> == NULL) {
+00038       <font class="keywordflow">throw</font> <font class="keyword">new</font> <a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>();
+00039     }
+00040   }
+00041 
+<a name="l00045"></a><a class="code" href="classDataHolder.html#a1">00045</a>   <font class="keyword">virtual</font> <a class="code" href="classDataHolder.html#a1">~DataHolder</a>() {
+00046     free(<a class="code" href="classDataHolder.html#n1">pool</a>);
+00047   }
+00048 
+00054   <font class="keyword">virtual</font> ItemType <a class="code" href="classDataHolder.html#a2">get</a>()= 0;
+00055 
+00060   <font class="keyword">virtual</font> <font class="keywordtype">bool</font> <a class="code" href="classDataHolder.html#a3">isEmpty</a>()= 0;
+00061 
+00067   <font class="keyword">virtual</font> <font class="keywordtype">bool</font> <a class="code" href="classDataHolder.html#a4">isFull</a>()= 0;
+00068 
+<a name="l00074"></a><a class="code" href="classDataHolder.html#a5">00074</a>   <font class="keyword">inline</font> <font class="keywordtype">void</font> <a class="code" href="classDataHolder.html#a5">put</a>(ItemType item) {
+00075     assert (!<a class="code" href="classDataHolder.html#a4">isFull</a>());
+00076     
+00077     <a class="code" href="classDataHolder.html#n1">pool</a>[<a class="code" href="classDataHolder.html#n0">last</a>]= item;
+00078     <a class="code" href="classDataHolder.html#n0">last</a>= (<a class="code" href="classDataHolder.html#n0">last</a> + 1) % <a class="code" href="classDataHolder.html#b0">getSize</a>();
+00079   }
+00080 
+00081  <font class="keyword">protected</font>:  
+<a name="l00086"></a><a class="code" href="classDataHolder.html#b0">00086</a>   <font class="keyword">inline</font> <font class="keywordtype">unsigned</font> <font class="keywordtype">long</font> <a class="code" href="classDataHolder.html#b0">getSize</a>() {
+00087     <font class="keywordflow">return</font> <a class="code" href="classDataHolder.html#o0">size</a>;
+00088   }
+00089   
+<a name="l00093"></a><a class="code" href="classDataHolder.html#n0">00093</a>   <font class="keywordtype">unsigned</font> <font class="keywordtype">long</font> <a class="code" href="classDataHolder.html#n0">last</a>;
+00094  
+<a name="l00098"></a><a class="code" href="classDataHolder.html#n1">00098</a>   ItemType* <a class="code" href="classDataHolder.html#n1">pool</a>;
+00099 
+00100  <font class="keyword">private</font>: 
+<a name="l00104"></a><a class="code" href="classDataHolder.html#o0">00104</a>   <font class="keywordtype">unsigned</font> <font class="keywordtype">long</font> <a class="code" href="classDataHolder.html#o0">size</a>;
+00105 
+00106 };
+00107 
+00108 <font class="preprocessor">#endif // ! __DATA_HOLDER_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

@@ -1,0 +1,518 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>Faces Klassenreferenz</h1><a class="el" href="classContainer.html">Container</a> für Oberflächen. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="faces_8h-source.html">faces.h</a>&gt;</code>
+<p>
+<p>Klassendiagramm für Faces:
+<p><center><img src="classFaces.png" usemap="#Faces_map" border="0"></center>
+<map name="Faces_map">
+<area href="classContainer.html" alt="Container" shape="rect" coords="0,0,70,24">
+<area href="classCadModel.html" alt="CadModel" shape="rect" coords="0,112,70,136">
+</map>
+<a href="classFaces-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="a0" doxytag="Faces::Faces"></a>
+&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#a0">Faces</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Default-Konstruktor.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#a1">Faces</a> (<a class="el" href="classFace.html">Face</a> *object)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Konstuktor.</em> <a href="#a1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a2" doxytag="Faces::~Faces"></a>
+virtual&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#a2">~Faces</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Destruktor.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#a3">add</a> (<a class="el" href="classFace.html">Face</a> *object)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Fügt object zum <a class="el" href="classContainer.html">Container</a> hinzu.</em> <a href="#a3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#a4">clear</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert zurück, wieviele Objekte sich im <a class="el" href="classContainer.html">Container</a> befinden.</em> <a href="#a4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>unsigned&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#a5">count</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert zurück, wieviele Objekte sich im <a class="el" href="classContainer.html">Container</a> befinden.</em> <a href="#a5"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#a6">empty</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ist kein Objekt im <a class="el" href="classContainer.html">Container</a> vorhanden?</em> <a href="#a6"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#a7">first</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Setzt den internen Cursor des Containers auf das erste Element.</em> <a href="#a7"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="container_8h.html#a0">Element</a>&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#a8">getObject</a> ()  throw (OutOfModelException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert das Objekt zurück, auf dem gerade der interne Cursor des Containers steht.</em> <a href="#a8"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#a9">hasObject</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Befindet sich der interne Cursor innerhalb des <a class="el" href="classContainer.html">Container</a>?</em> <a href="#a9"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#a10">next</a> ()  throw (OutOfModelException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Setzt den internen Cursor auf das nachfolgende Element.</em> <a href="#a10"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a11" doxytag="Faces::print"></a>
+void&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#a11">print</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gibt alle im <a class="el" href="classContainer.html">Container</a> enthaltene Elemente auf der Konsole aus.</em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Typen</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="u0" doxytag="Faces::FaceContainer"></a>
+typedef slist&lt; <a class="el" href="classFace.html">Face</a> * &gt;&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#u0">FaceContainer</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Typ für Oberflächen-<a class="el" href="classContainer.html">Container</a>.</em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#c0">exist</a> (<a class="el" href="classFace.html">Face</a> *object)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ist object im <a class="el" href="classContainer.html">Container</a> vorhanden?</em> <a href="#c0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#c1">exist</a> (<a class="el" href="structFaces_1_1Iterator.html">Iterator</a> it)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ist das <a class="el" href="structFaces_1_1Iterator.html">Iterator</a>-Objekt im <a class="el" href="classContainer.html">Container</a> vorhanden.</em> <a href="#c1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="structFaces_1_1Iterator.html">Iterator</a>&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#c2">find</a> (<a class="el" href="classFace.html">Face</a> *object)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Sucht object im <a class="el" href="classContainer.html">Container</a>.</em> <a href="#c2"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="o0" doxytag="Faces::current_object"></a>
+<a class="el" href="structFaces_1_1Iterator.html">Iterator</a>&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#o0">current_object</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Cursor auf das aktuelle Objekt des Containers.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o1" doxytag="Faces::objs"></a>
+<a class="el" href="classFaces.html#u0">FaceContainer</a>&nbsp;</td><td valign=bottom><a class="el" href="classFaces.html#o1">objs</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Oberflächen-<a class="el" href="classContainer.html">Container</a>.</em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+<a class="el" href="classContainer.html">Container</a> für Oberflächen.
+<p>
+<hr><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a name="a1" doxytag="Faces::Faces"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> Faces::Faces </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classFace.html">Face</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>object</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Konstuktor.
+<p>
+Es wird object im <a class="el" href="classFace.html">Face</a>-<a class="el" href="classContainer.html">Container</a> abgelegt. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>object</em>&nbsp;</td><td>
+Oberflächen-Objekt </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="a3" doxytag="Faces::add"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void Faces::add </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classFace.html">Face</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>object</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Fügt object zum <a class="el" href="classContainer.html">Container</a> hinzu.
+<p>
+@object hinzuzufügendes Element <dl compact><dt><b>
+Vorbedingung: </b><dd>
+object != NULL </dl>    </td>
+  </tr>
+</table>
+<a name="a4" doxytag="Faces::clear"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void Faces::clear </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert zurück, wieviele Objekte sich im <a class="el" href="classContainer.html">Container</a> befinden.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+Anzahl der Objekte im <a class="el" href="classContainer.html">Container</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a5" doxytag="Faces::count"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> unsigned Faces::count </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert zurück, wieviele Objekte sich im <a class="el" href="classContainer.html">Container</a> befinden.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+Anzahl der Objekte im <a class="el" href="classContainer.html">Container</a> </dl>
+<p>
+Implementiert <a class="el" href="classContainer.html#a1">Container</a>.    </td>
+  </tr>
+</table>
+<a name="a6" doxytag="Faces::empty"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool Faces::empty </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ist kein Objekt im <a class="el" href="classContainer.html">Container</a> vorhanden?
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+true, falls sich kein Objekt im <a class="el" href="classContainer.html">Container</a> befindet<br>
+ false, sonst </dl>
+<p>
+Implementiert <a class="el" href="classContainer.html#a2">Container</a>.    </td>
+  </tr>
+</table>
+<a name="c1" doxytag="Faces::exist"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool Faces::exist </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="structFaces_1_1Iterator.html">Iterator</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>it</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ist das <a class="el" href="structFaces_1_1Iterator.html">Iterator</a>-Objekt im <a class="el" href="classContainer.html">Container</a> vorhanden.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>it</em>&nbsp;</td><td>
+Cursor </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Ob der Cursor auf ein Objekt des Containers zeigt. </dl>    </td>
+  </tr>
+</table>
+<a name="c0" doxytag="Faces::exist"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool Faces::exist </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classFace.html">Face</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>object</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ist object im <a class="el" href="classContainer.html">Container</a> vorhanden?
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>object</em>&nbsp;</td><td>
+zu suchendes Objekt </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+true, falls object im <a class="el" href="classContainer.html">Container</a> existiert<br>
+ false, sonst </dl>    </td>
+  </tr>
+</table>
+<a name="c2" doxytag="Faces::find"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="structFaces_1_1Iterator.html">Iterator</a> Faces::find </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classFace.html">Face</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>object</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Sucht object im <a class="el" href="classContainer.html">Container</a>.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>object</em>&nbsp;</td><td>
+zu suchendes Objekt </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Cursor auf das erste Element im <a class="el" href="classContainer.html">Container</a>, welches mit object identisch ist. Falls object nicht im <a class="el" href="classContainer.html">Container</a> vorhanden ist, wird ein Cursor, der sich außerhalb des Containers befindet zurückgegeben. </dl>    </td>
+  </tr>
+</table>
+<a name="a7" doxytag="Faces::first"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void Faces::first </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Setzt den internen Cursor des Containers auf das erste Element.
+<p>
+Falls der <a class="el" href="classContainer.html">Container</a> leer ist, wirft ein anschließender Aufruf von <a class="el" href="classFaces.html#a8">getObject</a>() oder <a class="el" href="classFaces.html#a10">next</a>() eine OutOfModelException. 
+<p>
+Implementiert <a class="el" href="classContainer.html#a4">Container</a>.    </td>
+  </tr>
+</table>
+<a name="a8" doxytag="Faces::getObject"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="container_8h.html#a0">Element</a> Faces::getObject </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (OutOfModelException*)<code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert das Objekt zurück, auf dem gerade der interne Cursor des Containers steht.
+<p>
+<dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>OutOfModelException</em>&nbsp;</td><td>
+ falls <a class="el" href="classFaces.html#a9">hasObject</a>()==false </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+aktuelles Element </dl>
+<p>
+Implementiert <a class="el" href="classContainer.html#a5">Container</a>.    </td>
+  </tr>
+</table>
+<a name="a9" doxytag="Faces::hasObject"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool Faces::hasObject </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Befindet sich der interne Cursor innerhalb des <a class="el" href="classContainer.html">Container</a>?
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+<em>false</em>, falls der Cursor sich außerhalb des Containers (z.B. hinter dem letzten Element) befindet<br>
+ <em>true</em>, sonst </dl>
+<p>
+Implementiert <a class="el" href="classContainer.html#a6">Container</a>.    </td>
+  </tr>
+</table>
+<a name="a10" doxytag="Faces::next"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void Faces::next </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (OutOfModelException*)<code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Setzt den internen Cursor auf das nachfolgende Element.
+<p>
+<dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>OutOfModelException</em>&nbsp;</td><td>
+ <a class="el" href="classFaces.html#a9">hasObject</a>() lieferte bereits vor der Anwendung von <a class="el" href="classFaces.html#a10">next</a>() false zurück. </td></tr>
+</table>
+</dl>
+<p>
+Implementiert <a class="el" href="classContainer.html#a7">Container</a>.    </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="faces_8h-source.html">faces.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

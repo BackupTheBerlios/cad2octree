@@ -1,0 +1,17 @@
+\form#0:$\forall axis \in [0;\dim) : p1[axis] = p2[axis] $
+\form#1:$\exists \{ axis \in [0;\dim)~ \forall a \in [0;axis) | p1[a] = p2[a] \land p1[axis] < p2[axis] \} $
+\form#2:$\forall axis \in [0;\dim) : p1[axis] < p2[axis] $
+\form#3:$ 2^{\mbox{maxTreeHight}} $
+\form#4:$ [0; 2^{\mbox{hight}}-1] $
+\form#5:$ \forall i \in [0;\dim) : p_1[i] = p_2[i] $
+\form#6:$\exists i \in [0; \dim) : p_1[i] < p_2[i] ~ \wedge ~ \forall k \in [0; i) : p_1[k] = p_2[k] $
+\form#7:$ \sum_{i=0}^{\dim-1} \max_{p \in \mbox{CadModel-Container}} \{ p[i] \} * \vec e_i $
+\form#8:$ \sum_{i=0}^{\dim-1} \min_{p \in \mbox{CadModel-Container}} \{ p[i] \} * \vec e_i $
+\form#9:$ \sum_{i=0}^{\dim-1} \max \{ \mbox{getMinPoint()[i]}, p[i] \} \ast \vec e_i $
+\form#10:$ \sum_{i=0}^{\dim-1} \min \{ \mbox{getMinPoint()[i]}, p[i] \} \ast \vec e_i $
+\form#11:$ \triangle p_Ap_Bp_C $
+\form#12:$\over{\mbox{pA pB}} $
+\form#13:$\over{\mbox{pStart}\ \mbox{pEnd}}$
+\form#14:$ \sum_{i= 0}^{\dim - 1} \mbox{getCoordinate(i)}^2 $
+\form#15:$ ( \mbox{partNumber} \triangleleft \mbox{axis} ) \bmod \mbox{AXIS\_PARTS} $
+\form#16:$ \forall_{i} \in [0;\dim) : 0 <= p[i] < 1 \triangleright \mbox{getMaxTreeHight} $

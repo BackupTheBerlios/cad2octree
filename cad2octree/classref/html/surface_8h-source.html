@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>surface.h</h1><a href="surface_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00012 <font class="preprocessor">#ifndef __SURFACE_H__</font>
+00013 <font class="preprocessor"></font><font class="preprocessor">#define __SURFACE_H__</font>
+00014 <font class="preprocessor"></font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="geom__point_8h.html">geom_point.h</a>&gt;</font>
+00016 
+<a name="l00020"></a><a class="code" href="classSurface.html">00020</a> <font class="keyword">class </font><a class="code" href="classSurface.html">Surface</a> {
+00021  <font class="keyword">public</font>:
+00026   <font class="keyword">virtual</font> <a class="code" href="global_8h.html#a21">Hight</a> <a class="code" href="classSurface.html#a0">getHight</a>()= 0;  
+00027 
+00033   <font class="keyword">virtual</font> <font class="keywordtype">bool</font> <a class="code" href="classSurface.html#a1">isIn</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p)= 0;
+00034 
+00039   <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classSurface.html#a2">setHight</a>(<a class="code" href="global_8h.html#a21">Hight</a> h)= 0;  
+00040 
+00051   <font class="keyword">virtual</font> <font class="keywordtype">bool</font> <a class="code" href="classSurface.html#a3">testLine</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p, <a class="code" href="classGeomPoint.html">GeomPoint</a> &amp;q, <font class="keywordtype">bool</font> &amp;intersect, 
+00052                         <font class="keywordtype">bool</font> &amp;inside)= 0;
+00053 
+00054 }; <font class="comment">// class Surface</font>
+00055 
+00056 <font class="preprocessor">#endif // ! __SURFACE_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

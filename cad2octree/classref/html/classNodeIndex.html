@@ -1,0 +1,609 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>NodeIndex Klassenreferenz</h1>Klasse für den Index für Oktalbaumknoten. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="node__index_8h-source.html">node_index.h</a>&gt;</code>
+<p>
+<p>Klassendiagramm für NodeIndex:
+<p><center><img src="classNodeIndex.png" usemap="#NodeIndex_map" border="0"></center>
+<map name="NodeIndex_map">
+<area href="classNodeVec.html" alt="NodeVec" shape="rect" coords="0,56,72,80">
+</map>
+<a href="classNodeIndex-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#a0">NodeIndex</a> (<a class="el" href="node__index_8h.html#a2">AxIndex</a> x, <a class="el" href="node__index_8h.html#a2">AxIndex</a> y, <a class="el" href="node__index_8h.html#a2">AxIndex</a> z, <a class="el" href="global_8h.html#a21">Hight</a> h=BASE_NODE_HIGHT)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Konstruktor.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#a1">getCoordinate</a> (<a class="el" href="global_8h.html#a17">Axis</a> axis)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Index in Richtunng der Achse axis.</em> <a href="#a1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="global_8h.html#a21">Hight</a>&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#a2">getHight</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Höhe des Punktes in der Oktalbaumstruktur.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#a3">getX</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Index in x-Richtung.</em> <a href="#a3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#a4">getY</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Index in y-Richtung.</em> <a href="#a4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#a5">getZ</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Index in z-Richtung.</em> <a href="#a5"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a6" doxytag="NodeIndex::print"></a>
+virtual void&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#a6">print</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gibt die Punkt-Indizes und seine Höhe auf der Konsole aus.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#a7">set</a> (<a class="el" href="node__index_8h.html#a2">AxIndex</a> x, <a class="el" href="node__index_8h.html#a2">AxIndex</a> y, <a class="el" href="node__index_8h.html#a2">AxIndex</a> z)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Setzt die Indizes des Punktes.</em> <a href="#a7"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#a8">setCoordinate</a> (<a class="el" href="global_8h.html#a17">Axis</a> axis, <a class="el" href="node__index_8h.html#a2">AxIndex</a> value)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Setzt den Index in Richtung der Achse axis auf den Wert value.</em> <a href="#a8"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#a9">setHight</a> (<a class="el" href="global_8h.html#a21">Hight</a> h)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Setzt die Höhe des Punktes in der Oktalbaumstruktur.</em> <a href="#a9"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#a10">setX</a> (<a class="el" href="node__index_8h.html#a2">AxIndex</a> x)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Setzt den Index in x-Richtung.</em> <a href="#a10"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#a11">setY</a> (<a class="el" href="node__index_8h.html#a2">AxIndex</a> y)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Setzt den Index in y-Richtung.</em> <a href="#a11"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#a12">setZ</a> (<a class="el" href="node__index_8h.html#a2">AxIndex</a> z)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Setzt den Index in z-Richtung.</em> <a href="#a12"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#a13">operator[]</a> (<a class="el" href="global_8h.html#a17">Axis</a> axis)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Equivalent zu getCoordinate(axis).</em> <a href="#a13"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="o0" doxytag="NodeIndex::indices"></a>
+<a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#o0">indices</a> [DIMENSIONS]</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Indizes des Punktes.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o1" doxytag="NodeIndex::hight"></a>
+<a class="el" href="global_8h.html#a21">Hight</a>&nbsp;</td><td valign=bottom><a class="el" href="classNodeIndex.html#o1">hight</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Höhe des Punktes.</em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Klasse für den Index für Oktalbaumknoten.
+<p>
+Für jede Dimension ist ein ganzzahliger Index definiert. Der Indexbereich ergibt sich aus der 'Höhe' hight zu <img align="top" src="form_4.png">
+.
+<p>
+NodeIndex wird von <a class="el" href="classOctStruct.html">OctStruct</a> verwendet. hight gibt hier die Höhe des Punktes in der Oktalbaumstruktur. Die Indizies in alle Raumrichtungen bilden den Punkt eindeutig in einem Octreesegment ab. Für einen zu betrachtenden 'indizierten Punkt' der Oktalbaumstruktur ist der Unterschied des Index zum Nachbar = 1. 
+<p>
+<hr><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a name="a0" doxytag="NodeIndex::NodeIndex"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> NodeIndex::NodeIndex </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>y</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>z</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a21">Hight</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>h</em> = BASE_NODE_HIGHT</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Konstruktor.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>x</em>&nbsp;</td><td>
+x-Index </td></tr>
+<tr><td valign=top><em>y</em>&nbsp;</td><td>
+y-Index </td></tr>
+<tr><td valign=top><em>z</em>&nbsp;</td><td>
+z-Index </td></tr>
+<tr><td valign=top><em>h</em>&nbsp;</td><td>
+Höhe des Punktes in der Oktalbaumstruktur </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+DIMENSIONS = 3 </dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="a1" doxytag="NodeIndex::getCoordinate"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="node__index_8h.html#a2">AxIndex</a> NodeIndex::getCoordinate </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="global_8h.html#a17">Axis</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>axis</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Index in Richtunng der Achse axis.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>axis</em>&nbsp;</td><td>
+Index-Achse </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Index der Achse </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+axis &lt; DIMENSIONS </dl>    </td>
+  </tr>
+</table>
+<a name="a2" doxytag="NodeIndex::getHight"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="global_8h.html#a21">Hight</a> NodeIndex::getHight </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Höhe des Punktes in der Oktalbaumstruktur.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+Punkthöhe </dl>    </td>
+  </tr>
+</table>
+<a name="a3" doxytag="NodeIndex::getX"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="node__index_8h.html#a2">AxIndex</a> NodeIndex::getX </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Index in x-Richtung.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+x-Index </dl>    </td>
+  </tr>
+</table>
+<a name="a4" doxytag="NodeIndex::getY"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="node__index_8h.html#a2">AxIndex</a> NodeIndex::getY </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Index in y-Richtung.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+y-Index </dl>    </td>
+  </tr>
+</table>
+<a name="a5" doxytag="NodeIndex::getZ"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="node__index_8h.html#a2">AxIndex</a> NodeIndex::getZ </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Index in z-Richtung.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+z-Index </dl>    </td>
+  </tr>
+</table>
+<a name="a13" doxytag="NodeIndex::operator[]"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="node__index_8h.html#a2">AxIndex</a> NodeIndex::operator[] </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="global_8h.html#a17">Axis</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>axis</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Equivalent zu getCoordinate(axis).
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>axis</em>&nbsp;</td><td>
+Achsnummer </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Index der Achse axis </dl>    </td>
+  </tr>
+</table>
+<a name="a7" doxytag="NodeIndex::set"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void NodeIndex::set </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>y</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>z</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Setzt die Indizes des Punktes.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>x</em>&nbsp;</td><td>
+neuer x-Index </td></tr>
+<tr><td valign=top><em>y</em>&nbsp;</td><td>
+neuer y-Index </td></tr>
+<tr><td valign=top><em>z</em>&nbsp;</td><td>
+neuer z-Index </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+DIMENSIONS = 3 </dl>    </td>
+  </tr>
+</table>
+<a name="a8" doxytag="NodeIndex::setCoordinate"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void NodeIndex::setCoordinate </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="global_8h.html#a17">Axis</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>axis</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>value</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Setzt den Index in Richtung der Achse axis auf den Wert value.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>axis</em>&nbsp;</td><td>
+Index-Achse </td></tr>
+<tr><td valign=top><em>value</em>&nbsp;</td><td>
+neuer Wert </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+axis &lt; DIMENSIONS </dl>    </td>
+  </tr>
+</table>
+<a name="a9" doxytag="NodeIndex::setHight"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void NodeIndex::setHight </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="global_8h.html#a21">Hight</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>h</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Setzt die Höhe des Punktes in der Oktalbaumstruktur.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>h</em>&nbsp;</td><td>
+Höhe </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a10" doxytag="NodeIndex::setX"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void NodeIndex::setX </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>x</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Setzt den Index in x-Richtung.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>x</em>&nbsp;</td><td>
+x-Index </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a11" doxytag="NodeIndex::setY"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void NodeIndex::setY </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>y</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Setzt den Index in y-Richtung.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>y</em>&nbsp;</td><td>
+y-Index </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a12" doxytag="NodeIndex::setZ"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void NodeIndex::setZ </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="node__index_8h.html#a2">AxIndex</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>z</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Setzt den Index in z-Richtung.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>z</em>&nbsp;</td><td>
+z-Index </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="node__index_8h-source.html">node_index.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

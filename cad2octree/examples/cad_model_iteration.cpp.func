@@ -1,0 +1,25 @@
+/**
+ * @file examples/cad_model_iteration.cpp.func
+ * Beispiel zum Durchlaufen des CadModel um die enthaltenen CAD-Objekte
+ * auszulesen.
+ *
+ * Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung von Oktalbaumstrukturen
+ * als Schnittstelle zu CAD-Programmen"\n
+ * SgS, Universität Stuttgart
+ * @author Stefan Mahler
+ * @date 2002
+ */
+
+#include <cad/cad_model.h>   // CadModel einbinden
+#include <cad_object.h>      // CadObject einbinden
+
+void printObjectsInCadModel(CadModel model) {
+  model.first();                        // Iterator auf erstes Objekt setzen
+  while (model.hasObject()) {           // Ist das noch ein Objekt von model?
+    CadObject obj= model.getObject();   // Lese das Objekt aus ...
+    obj.print();                        // ... und gebe es aus
+    model.next();                       // Suche nach nächsten Objekt in model
+  }
+}
+
+// EOF: examples/cad_model_iteration.cpp.func

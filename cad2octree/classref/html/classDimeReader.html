@@ -1,0 +1,549 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>DimeReader Klassenreferenz</h1>Konkreter <a class="el" href="classReader.html">Reader</a> für das DXF-Format. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="dime__reader_8h-source.html">dime_reader.h</a>&gt;</code>
+<p>
+<p>Klassendiagramm für DimeReader:
+<p><center><img src="classDimeReader.png" usemap="#DimeReader_map" border="0"></center>
+<map name="DimeReader_map">
+<area href="classDxfReader.html" alt="DxfReader" shape="rect" coords="0,56,81,80">
+<area href="classReader.html" alt="Reader" shape="rect" coords="0,0,81,24">
+</map>
+<a href="classDimeReader-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="classDimeReader.html#a0">DimeReader</a> (const char *dxfFile)  throw (ReadFileException*, FileFormatException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Konstruktor.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a1" doxytag="DimeReader::~DimeReader"></a>
+virtual&nbsp;</td><td valign=bottom><a class="el" href="classDimeReader.html#a1">~DimeReader</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Destruktor.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual <a class="el" href="classCadModel.html">CadModel</a> *&nbsp;</td><td valign=bottom><a class="el" href="classDimeReader.html#a2">getCadModel</a> (<a class="el" href="global_8h.html#a23">Color</a> <a class="el" href="classDimeReader.html#o1">color</a>, bool splitQuad)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert das flächenorientierte CAD-Model zurück.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual const char *&nbsp;</td><td valign=bottom><a class="el" href="classDimeReader.html#a3">getFileFormatVersion</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die in der Datei eingetragene Formatversion.</em> <a href="#a3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual const char *&nbsp;</td><td valign=bottom><a class="el" href="classDimeReader.html#a4">getLibVersion</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die DIME-Version.</em> <a href="#a4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="classDimeReader.html#a5">print</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gibt Geometriedaten aus.</em> <a href="#a5"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>dimeModel *&nbsp;</td><td valign=bottom><a class="el" href="classDimeReader.html#c0">getDimeModel</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert das interne Model der aus der DXF-Datei eingelesenen Daten.</em> <a href="#c0"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private, statische Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>const char *&nbsp;</td><td valign=bottom><a class="el" href="classDimeReader.html#f0">dimeParam2str</a> (dimeParam param, int groupCode)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Konvertiert den Inhalt eines Records param unter Berücksichtigung des Gruppen-Codes groupCode des Records in einen char-String.</em> <a href="#f0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classDimeReader.html#f1">generateCadModel</a> (const dimeState *const state, dimeEntity *entity, void *data)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Fügt die aus entity extrahierten Geometridaten zu dem <a class="el" href="classCadModel.html">CadModel</a> data hinzu.</em> <a href="#f1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classDimeReader.html#f2">printEntity</a> (const dimeState *const state, dimeEntity *entity, void *data)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gibt die Entity aus der Konsole aus.</em> <a href="#f2"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classCadModel.html">CadModel</a> *&nbsp;</td><td valign=bottom><a class="el" href="classDimeReader.html#o0">cadModel</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>aus dem dimeModel zu erstellendes <a class="el" href="classCadModel.html">CadModel</a></em> <a href="#o0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td><td valign=bottom><a class="el" href="classDimeReader.html#o1">color</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Farbe mit der alle Objekte des zu erzeugenden <a class="el" href="classCadModel.html">CadModel</a> eingefärbt werden sollen.</em> <a href="#o1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>dimeModel *&nbsp;</td><td valign=bottom><a class="el" href="classDimeReader.html#o2">model</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Internes Model.</em> <a href="#o2"></a><em></em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Konkreter <a class="el" href="classReader.html">Reader</a> für das DXF-Format.
+<p>
+Zur Implementierung der Methoden des <a class="el" href="classReader.html">Reader</a>-Interface wird die DIME-Bibliothek verwendet. 
+<p>
+<hr><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a name="a0" doxytag="DimeReader::DimeReader"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> DimeReader::DimeReader </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const char *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>dxfFile</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (ReadFileException*, FileFormatException*)</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Konstruktor.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>dxfFile</em>&nbsp;</td><td>
+Name der DXF-Datei. </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>ReadFileException</em>&nbsp;</td><td>
+ Lesefehler </td></tr>
+<tr><td valign=top><em>FileFormatException</em>&nbsp;</td><td>
+ Datei dxfFile besitzt nicht das DXF-Format </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="f0" doxytag="DimeReader::dimeParam2str"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> const char* DimeReader::dimeParam2str </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">dimeParam&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>param</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>groupCode</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [static, private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Konvertiert den Inhalt eines Records param unter Berücksichtigung des Gruppen-Codes groupCode des Records in einen char-String.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>param</em>&nbsp;</td><td>
+Inhalt des Records </td></tr>
+<tr><td valign=top><em>groupCode</em>&nbsp;</td><td>
+der Gruppen-Code des Records (definiert das Format von param) </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Inhalt des Records als char-String </dl>    </td>
+  </tr>
+</table>
+<a name="f1" doxytag="DimeReader::generateCadModel"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool DimeReader::generateCadModel </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const dimeState *const&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>state</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>dimeEntity *&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>entity</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>void *&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>data</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [static, private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Fügt die aus entity extrahierten Geometridaten zu dem <a class="el" href="classCadModel.html">CadModel</a> data hinzu.
+<p>
+(Callback-Routine: Wird von dimeModel::traverseEntity() in <a class="el" href="classDimeReader.html#a2">getCadModel</a>() verwendet.) <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>state</em>&nbsp;</td><td>
+dime-interner Parameter </td></tr>
+<tr><td valign=top><em>entity</em>&nbsp;</td><td>
+die Entity </td></tr>
+<tr><td valign=top><em>data</em>&nbsp;</td><td>
+<a class="el" href="classCadModel.html">CadModel</a>, in das entity eingefügt werden soll </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+true, entity != NULL<br>
+ </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+data != NULL </dl>    </td>
+  </tr>
+</table>
+<a name="a2" doxytag="DimeReader::getCadModel"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual <a class="el" href="classCadModel.html">CadModel</a>* DimeReader::getCadModel </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>color</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>bool&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>splitQuad</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert das flächenorientierte CAD-Model zurück.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>color</em>&nbsp;</td><td>
+Farbe der Modell-Objekte </td></tr>
+<tr><td valign=top><em>splitQuad</em>&nbsp;</td><td>
+Ob alle eingelesenen Vierecke als 2 Dreiecke im  <a class="el" href="classCadModel.html">CadModel</a> abgespeichert werden sollen.  </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+<a class="el" href="classCadModel.html">CadModel</a> </dl>
+<p>
+Implementiert <a class="el" href="classReader.html#a0">Reader</a>.    </td>
+  </tr>
+</table>
+<a name="c0" doxytag="DimeReader::getDimeModel"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> dimeModel* DimeReader::getDimeModel </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert das interne Model der aus der DXF-Datei eingelesenen Daten.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+internes Model </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+das interne Model wurde erzeugt (geschieht im Konstruktor und sollte eigentlich immer der Fall sein :-) </dl>    </td>
+  </tr>
+</table>
+<a name="a3" doxytag="DimeReader::getFileFormatVersion"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual const char* DimeReader::getFileFormatVersion </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die in der Datei eingetragene Formatversion.
+<p>
+Falls diese von der Import-Bibliothek extrahiert werden kann und ansonsten "unknown". <dl compact><dt><b>
+Rückgabe: </b><dd>
+extrahierte Formatversion </dl>
+<p>
+Implementiert <a class="el" href="classReader.html#a2">Reader</a>.    </td>
+  </tr>
+</table>
+<a name="a4" doxytag="DimeReader::getLibVersion"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual const char* DimeReader::getLibVersion </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die DIME-Version.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+DIME-Version </dl>
+<p>
+Implementiert <a class="el" href="classReader.html#a1">Reader</a>.    </td>
+  </tr>
+</table>
+<a name="a5" doxytag="DimeReader::print"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual void DimeReader::print </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Gibt Geometriedaten aus.
+<p>
+Gibt die Geometriedaten, die der <a class="el" href="classReader.html">Reader</a> extrahiert und in seinem internen Model gespeichert hat auf der Konsole aus. 
+<p>
+Implementiert <a class="el" href="classReader.html#a5">Reader</a>.    </td>
+  </tr>
+</table>
+<a name="f2" doxytag="DimeReader::printEntity"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool DimeReader::printEntity </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">const dimeState *const&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>state</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>dimeEntity *&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>entity</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>void *&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>data</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [static, private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Gibt die Entity aus der Konsole aus.
+<p>
+(Callback-Routine: Wird von dimeModel::traverseEntity() in <a class="el" href="classDimeReader.html#a5">print</a>()  verwendet.) <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>state</em>&nbsp;</td><td>
+dime-interner Parameter </td></tr>
+<tr><td valign=top><em>entity</em>&nbsp;</td><td>
+die Entity </td></tr>
+<tr><td valign=top><em>data</em>&nbsp;</td><td>
+wird nicht verwendet (aber Bestandteil der Definition) </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+true, entity != NULL<br>
+ false, sonst </dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Datenelemente</h2>
+<a name="o0" doxytag="DimeReader::cadModel"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classCadModel.html">CadModel</a>* DimeReader::cadModel<code> [private]</code>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+aus dem dimeModel zu erstellendes <a class="el" href="classCadModel.html">CadModel</a>
+<p>
+<dl compact><dt><b>
+Siehe auch: </b><dd>
+<a class="el" href="classDimeReader.html#a2">getCadModel</a>() , <a class="el" href="classDimeReader.html#f1">generateCadModel</a>() </dl>    </td>
+  </tr>
+</table>
+<a name="o1" doxytag="DimeReader::color"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="global_8h.html#a23">Color</a> DimeReader::color<code> [private]</code>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Farbe mit der alle Objekte des zu erzeugenden <a class="el" href="classCadModel.html">CadModel</a> eingefärbt werden sollen.
+<p>
+<dl compact><dt><b>
+Siehe auch: </b><dd>
+<a class="el" href="classDimeReader.html#a2">getCadModel</a>() , <a class="el" href="classDimeReader.html#f1">generateCadModel</a>() </dl>    </td>
+  </tr>
+</table>
+<a name="o2" doxytag="DimeReader::model"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> dimeModel* DimeReader::model<code> [private]</code>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Internes Model.
+<p>
+Wird beim Einlesen der DXF-Datei von Dime erzeugt und zum extrahieren der CAD-Information verwendet.     </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="dime__reader_8h-source.html">dime_reader.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

@@ -1,0 +1,63 @@
+% grundlagen/k2flaechen.tex
+% kurven ==> Fleachen
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%
+% Autor: Stefan Mahler 2002
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\subsubsection{Fl"achenerzeugung aus Kurven}
+\label{freiform}
+Im folgenden Abschnitt soll es um die Gewinnung von Fl"achen aus Kurven gehen. 
+Analog zum \emph{Verschiebegeometrieschema} \vpageref{vschiebgeom}, wo aus 
+einem 2D-Objekt, welches entlang einer Kurve verschoben wird, ein 3D-Objekt 
+erzeugt wird, k"onnte hier aus einer Kurve (1D) eine Fl"ache (2D) erzeugt 
+werden. 
+
+\paragraph{Coons Patch}~\\
+Im einfachsten Fall lassen sich 
+Vierecke $P_1P_2P_4P_3$ durch Verschieben 
+der Strecke $\overline{P_1P_2}$ auf geradem Weg nach $\overline{P_3P_4}$ 
+generieren. Ein Viereckspunkt $x_{s,t}$ wird dann durch die Gleichung
+\gl{gl_viereckspunkt}{{\bf x}_{s,t}(s, t) = (1 - s) (1 - t) {~\bf P}_1 
+    + s (1 - t) {~\bf P}_2 + (1 - s) t {~\bf P}_3 + s t {~\bf P}_4}
+beschrieben, wobei $s, t \in [0, 1]$ sind. Es stellt den linearen Fall
+des Tensorprodukts dar. Allgemein l"asst sich die Gleichung
+\gl{gl_allg_fl}{{\bf x}(s, t) = { \bf x}_s(s, t) + { \bf x}_t(s, t)
+    - { \bf x}_{s,t}(s, t)}
+ermitteln. Hierbei ist
+\gl{gl_fl_kv_xs}{{\bf x}_s(s, t) = g_0(t) { \bf \gamma}_0(s)
+    + g_1(t) { \bf \gamma}_1(s)}
+und
+\gl{gl_fl_kv_xt}{{\bf x}_t(s, t) = f_0(s) { \bf \delta}_0(t) 
+    + f_1(s) { \bf \delta}_1(t)\mbox{,}} 
+wobei $f_0(s) + f_1(s) = 1$ ($s \in{} [0, 1]$) und 
+$f_0(0) = f_1(1) = 1$ bzw. $g_0(t) + g_1(t) = 1$ ($t \in{} [0, 1]$) 
+und $g_0(0) = g_1(1) = 1$ ist. ${\bf \gamma}_0$, ${\bf \gamma}_1$, 
+${\bf \delta}_0$ und ${\bf \delta}_1$ bilden die Randkurven, 
+$f_0$, $f_1$, $g_0$ und $g_1$ sind allgemeine Interpolationskurven.
+Der Anteil ${\bf x}_{st}$ ist sowohl in ${\bf x}_s$ als auch in 
+${\bf x}_t$ enthalten und muss deshalb von der Summe wieder abgezogen 
+werden, um nicht f"alschlicher Weise doppelt aufgerechnet zu werden.
+
+\paragraph{\bez-Fl"achen}~\\
+Unter Nutzung von Bernstein-Polymen ${\bf b}_{i,k}$ ergibt sich mit 
+\glref{gl_bezier_kurve}
+\gl{gl_bezier_fl}{{\bf x}(s, t) = \sum_{i=0}^{n} \sum_{k=0}^{m}~ 
+    B_i^{n}(s)~B_k^{m}(t)~{ \bf b}_{i,k}\mbox{, }~	
+	~s, t \in{} [0, 1]\mbox{,}} 
+wobei die \bez-Punkte ${\bf b}_{i,k}$ das zur \bez-Fl"ache zugeh"orige 
+Kontrollnetz aufspannen.
+
+\paragraph{B-Spline-Fl"achen}~\\
+Analog ergibt sich f"ur B-Spline-Fl"achen mit \glref{gl_b_spline_kurve}
+\gl{gl_spline_fl}{{\bf x}(s, t) = \sum_{i=0}^{n}\sum_{k=0}^{m}~ 
+    N_i^p(s)~N_k^q(t)~{ \bf c}_{i,j}\mbox{.}}
+Dabei sind ${\bf c}_{i,k}$ die Kontrollpunkte der Splinefl"ache, die das 
+zugeh"orige Kontrollpunktnetz aufspannen und $N_{i,p}(s)$ bzw. $N_{k,q}(t)$ 
+die Basisfunktionen. Die zur Fl"achenpunkt-Berechnung der verwendeten 
+B-Splines genutzten Algorithmen finden sich im Abschnitt \ref{algo_spline}.
+
+%% End of Document

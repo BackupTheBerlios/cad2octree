@@ -1,0 +1,151 @@
+% fazit.tex
+% Einschaetzung der Arbeit und Ausblick
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%
+% Autor: Stefan Mahler 2002
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\chapter{Fazit}
+\label{fazit}
+%Was sollte gemacht werden? Was wurde gemacht? Gut/ schlecht? 
+%Verbesserungsmoeglichkeiten als Ausblick?
+Wie \cite{diss_oct} zeigt k"onnen Oktalbaumstrukturen 
+als integrierendes Element zwischen CAD-Programmen zur Geometriemodellierung 
+und Simulation genutzt werden. Ziel dieser Arbeit war die Erzeugung und 
+Evaluierung von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen. 
+Im Mittelpunkt stand dabei die Generierung 
+des Oktalbaums aus einem geeignenten weitverbreiteten frei zug"anglichen 
+Oberfl"achenformat, in welches in der Abteilung befindliche 
+Oberfl"achenmodelle leicht exportiert werden k"onnen. Neben der 
+Unterst"utzung von triangulierten Modellen sollten auch Spline-Fl"achen 
+verarbeitet werden k"onnen. Die Integrit"at des Oberfl"achenmodells soll
+durch den Erzeuger des Modells gew"ahrleistet sein, eine "Uberpr"ufung 
+innerhalb der in dieser Arbeit erstellten Implementierung ist somit nicht 
+notwendig.
+
+Es existieren bereits einige L"osungen, die in diese Richtung gehen und 
+beachtenswerte Ergebnisse erzielen, wie \cite{dipl_anw_oct} oder
+\cite{konvex_polygon_anw_oct}.
+Diese L"osungen zeigen jedoch jeweils einige der folgenden
+Unzul"anglichkeiten:
+\begin{itemize}
+\item Die L"osung ist nicht frei zug"anglich. Neben dem Code oder der 
+    Architektur betrifft das z.T. die L"osungsidee oder die verwendeten
+    Algorithmen.
+\item Es kann der Oktalbaum nur aus einem Teil der geforderten m"oglichen 
+    Oberfl"achenmodelle generiert werden, z.B. nur aus Polygonfl"achenmodellen 
+    nicht aber f"ur K"orper mit Freiformfl"achen als Oberfl"ache.
+\item Als Importformat f"ur die Oberfl"achenmodelle wird ein 'Spezialformat'
+    verwendet, also keine weitverbreiteten Formate, deren Struktur frei 
+    zug"anglich dokumentiert ist. Oberfl"achenmodelle in "ublichen Formaten 
+    lassen sich dadurch nicht einfach in dieses Format exportieren, wodurch
+    nicht die einschl"agigen Werkzeuge (CAD-Programme) zur Erzeugung der 
+    Geometriemodelle verwendet werden k"onnen.
+\item F"ur die Generierung der Oktalbaumstruktur aus dem Oberfl"achenmodell 
+    werden Methoden und Makros eines Programms verwendet, dass zur Erstellung 
+    und Bearbeitung von Oberfl"achenmodellen dient. Somit wird zur 
+    Oktalbaumgenerierung stets das (nicht frei verf"ugbare) 
+    Modellierungswerkzeug ben"otigt. Der Umfang von einsetzbaren 
+    Datenstrukturen und verwendbaren Methoden ist stark durch den Umfang
+    der durch das Modellierungswerkzeug bereitgestellter Bibliotheken
+    korelliert, woraus sich auch weitere Erschwernisse bez"uglich 
+    Erweiterbarkeit (insbesondere f"ur andere Formate) und Optimierbarkeit
+    ergeben.
+\end{itemize}
+Durch die im Rahmen dieser Diplomarbeit erstellte Implementierung werden die 
+Anforderungen erf"ullt. Sie stellt somit eine erfolgreiche Umsetzung der
+Ziele dar und konnte damit die Nutzbarkeit von Oktalbaumstrukturen als 
+Schnittstelle zu CAD-Programmen best"atigen. Dabei wurde u.a. bewusst ein 
+anderer Weg gegen"uber dem klassischen Ansatz zur Oktalbaumerzeugung 
+beschritten. "Ublicher Weise wird sukzessive die Lage des durch den aktuellen 
+Oktalbaumknoten repr"asentierten W"urfels bez"uglich dem zu erzeugenden K"orper 
+analysiert (in/out/on) und entsprechend unter Ausnutzung hierachischen 
+Struktur des Oktalbaums verfeinert. Bei der hier erarbeiten Implementierung 
+wird ein Index f"ur jeden Oktalbaumknoten definiert. Das Schema erlaubt mit 
+Hilfe der Indizes einen zum Normzellenschema "aquivalenten Zugriff. Nun 
+k"onnen wie bei einem Normzellenschema die Oberfl"achenw"urfel des K"orpers 
+in den Oktalbaum eingef"ugt werden, anschlie"send werden die Innen- und 
+Au"sengebiete durch ein spezielles Verfahren gef"ullt. Nach einer letztlichen 
+Kompaktierung liegt der gew"unschte Oktalbaum vor. Die durchgef"uhrten 
+Messungen bis zu einer Baumtiefe von $9$ zeigen: Die durch dieses Vorgehen 
+erzielten Generierungsgeschwindigkeiten zeigen sehr gute Resultate. Durch die 
+verwendete kompakte Datenstruktur ist nur ein relativ geringer Speicherplatz 
+zur Generierung n"otig. 
+
+Wird die Baumtiefe um $1$ erh"oht, steigen Laufzeit und Speicherbedarf um 
+den Faktor $4$.
+Die gew"ahlte Programmarchitektur erm"oglicht das 
+einfache Erweitern des Programms zur Integration weiterer Formate und das 
+Hinzuf"ugen alternativer bzw. das Erweitern vorhandener Algorithmen.
+Hiermit 
+lassen sich Werte auch f"ur gr"o"sere maximale Baumtiefen absch"atzen. 
+Das Programm bietet jedoch keine M"oglichkeit bereits aus einem CAD-Modell 
+erzeugte Oktalb"aume unter Nutzung des CAD-Modells weiter zu verfeinern.
+
+Daraus lassen sich die Verbesserungsm"oglichkeiten ableiten: 
+\begin{itemize}
+\item Der erarbeitete Oktalbaumgenerator ist f"ur den Ein-Prozessor-Betrieb 
+ausgelegt. Der 'klassische Algorithmus' zur Oktalbaumgenerierung nutzt die 
+Organisationsprinzipien \emph{Hierachie}, \emph{Rekursion} und 
+\emph{Adaptivit"at} aus und l"asst sich leicht in einen effizienten 
+Algorithmus f"ur Mehrprozessorbetrieb umwandeln. Das hiervorgestellte 
+Verfahren umgeht hingegen an einigen relevanten Stellen diese 
+Organisationsprinzipien. So wird das F"ull-Verfahren auf dem unterliegenden 
+virtuellen Gitter durchgef"uhrt, was eine effiziente Parallelisierung 
+erschwert.
+ 
+%- Generierung des Oktalbaums aus mehreren Quellen: bin"are Mengenoperationen
+\item Eine n"utzliche Erweiterung w"are die Oktalbaumgenerierung unter Nutzung 
+mehrerer Quellen, also der Import von Teilgeometrien aus unterschiedlichen 
+Dateien. Ein m"ogliches Vorgehen hierf"ur w"are jeweils gesondert einen neuen 
+Oktalbaum f"ur jede Datenquelle zu generieren und diesen mit den vorhandenen 
+zu vereinigen. Es lassen sich einfach effiziente Algorithmen f"ur 
+Mengenoperationen implementieren. Besondere Aufmerksamkeit verdient dabei 
+jedoch die Kollisionsaufl"osung. Die zentrale Frage dabei ist, wie reagiert 
+werden soll, wenn sich in der gleichen Zelle unterschiedliche K"orper 
+befinden. Dabei m"ussen sich die realen K"orper im Gegensatz zum 
+diskretisierten Oktalbaummodell gar nicht "uberschneiden.
+
+%- Optimierungen Effizienz/Genauigkeit der Geometriewiedergabe bei einer 
+%gew"ahlten Aufl"osung
+%- andere Formate : CSG relativ einfach, erh"ohte Stellung bei der Integration
+%von CAD-, Simulation und Visualisierung und den bei ihnen verwendeten 
+%Geometriemodellen
+\item Neben Optimierungen der Ausf"uhrungseffizenz des Programmcodes 
+w"are die Unterst"utzung weiterer Formate eine sinnvolle Erweiterung. Die 
+Architektur des Programms unterst"utzt das Hinzuf"ugen weiterer 
+Import"=/Exportformate. Es k"onnte "uber den Einbau einer Importfunktion f"ur 
+ein CSG-Schema nachgedacht werden: Mengenoperationen auf Oktalb"aumen sowie 
+die Oktalbaumgenerierung f"ur Grundprimitive lassen sich sehr effizient 
+realisieren. Da die Primitivenanzahl begrenzt und ihre Gestalt im Voraus 
+bekannt sind, k"onnen zur Effizienzsteigerung relevante Daten zur 
+Oktalbaumgenerierung sogar in einer Tabelle abgelegt werden.\footnote{"Ahnliche
+Verfahren werden zur Quadratwurzelberechnung von Flie"skommazahlen verwendet.}
+F"ur die Transformationsoperationen sind effiziente Verfahren bekannt 
+\footnote{\cite{diss_oct} verweist in diesem Zusammenhang auf einen 
+"Ubersichtsartikel von Chen und Huang.}.
+
+%- R"uckgewinnung der Ausgangsgeometrie: schwierig bis unm"oglich:
+%    zus"atzliche Attributierung der Oktalbaumknoten n"otig,
+%    Verlust an Strukturiertheit, Problem der Konsistenzhaltung des Oktalbaums
+%    bei Modifikationen, Pr"amissen bei Effizienz, Modifikationsm"oglichkeiten,
+%    Genauigkeit des r"uckgewonnenen Oberfl"achenmodells
+\item Da die Diskretisierung, die bei der Oktalbaumgenerierung aus stetigen 
+Modellen erfolgt, mit einem Informationsverlust einhergeht, ist eine 
+R"uckgewinnung der Ausgangsgeometrie aus der Oktalbaumstruktur hingegen 
+schwierig. Die Oktalbaumstruktur m"usste hierf"ur um zus"atzliche Attribute 
+erweitert werden. 
+Hieraus w"urde sich direkt ein Verlust der Strukturiertheit ergeben. Bei jeder 
+Modifikation des Oktalbaums m"ussten die Attribute mit "uberarbeitet werden, 
+um die Konsistenz der Oktalbaumstruktur zu erhalten. 
+Pr"amissen bei Effizenz, Modifikationsm"oglichkeiten und Genauigkeit der 
+r"uckgewonnen Geometrie w"aren unvermeidbar.
+\end{itemize}
+
+Dennoch zeigt sich die Eignung der Oktalbaumstruktur als Schnittstelle 
+zur geometrischen Modellierung.
+
+%% End of Document

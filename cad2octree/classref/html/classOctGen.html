@@ -1,0 +1,753 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>OctGen Klassenreferenz</h1>Oktalbaumgenerator. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="oct__gen_8h-source.html">oct_gen.h</a>&gt;</code>
+<p>
+<a href="classOctGen-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#a0">OctGen</a> (<a class="el" href="classCadModel.html">CadModel</a> *model)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Konstruktor.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#a1">add</a> (<a class="el" href="classNodeIndex.html">NodeIndex</a> p, <a class="el" href="global_8h.html#a23">Color</a> color)  throw (NotEnoughMemoryException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Fügt den Punkts p mit der Farbe color in den Oktalbaum ein.</em> <a href="#a1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#a2">addQuadrilateral</a> (<a class="el" href="classNodeIndex.html">NodeIndex</a> pA, <a class="el" href="classNodeIndex.html">NodeIndex</a> pB, <a class="el" href="classNodeIndex.html">NodeIndex</a> pC, <a class="el" href="classNodeIndex.html">NodeIndex</a> pD, <a class="el" href="global_8h.html#a23">Color</a> color)  throw (NotEnoughMemoryException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Fügt das Viereck pApBpCpD mit der Farbe color in den Oktalbaum ein.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#a3">addTriangle</a> (<a class="el" href="classNodeIndex.html">NodeIndex</a> pA, <a class="el" href="classNodeIndex.html">NodeIndex</a> pB, <a class="el" href="classNodeIndex.html">NodeIndex</a> pC, <a class="el" href="global_8h.html#a23">Color</a> color)  throw (NotEnoughMemoryException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Fügt das Dreieck <img align="top" src="form_11.png">
+ mit der Farbe color in den Oktalbaum ein.</em> <a href="#a3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classCadModel.html">CadModel</a> *&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#a4">getCadModel</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert das zur Oktalbaumgenerierung genutzte <a class="el" href="classCadModel.html">CadModel</a>.</em> <a href="#a4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#a5">getColor</a> (<a class="el" href="classNodeIndex.html">NodeIndex</a> p)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Farbe des Knotens p, die unter Zuhilfenahme des <a class="el" href="classCadModel.html">CadModel</a> ermittelt wurde.</em> <a href="#a5"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classGenHelp.html">GenHelp</a> *&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#a6">getGenHelp</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert das Hilfsobjekt zur Oktalbaumgenerierung.</em> <a href="#a6"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classIndexOct.html">IndexOct</a> *&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#a7">getGenTree</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Oktalbaum, der für die Generierung verwendet wird.</em> <a href="#a7"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classIndexOct.html">IndexOct</a> *&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#a8">getOctree</a> (<a class="el" href="global_8h.html#a21">Hight</a> maxTreeHight)  throw (NotEnoughMemoryException*, WrongModelException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Generiert unter Nutzung des <a class="el" href="classCadModel.html">CadModel</a> einen Oktalbaum mit maximaler Baumhöhe maxTreeHight.</em> <a href="#a8"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#c0">addLine</a> (<a class="el" href="classNodeIndex.html">NodeIndex</a> start, <a class="el" href="classNodeIndex.html">NodeIndex</a> end, <a class="el" href="global_8h.html#a23">Color</a> color)  throw (NotEnoughMemoryException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Fügt die Strecke <img align="top" src="form_12.png">
+ mit der Farbe color in den Oktalbaum ein.</em> <a href="#c0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#c1">addObject</a> (<a class="el" href="classCadObject.html">CadObject</a> *object, <a class="el" href="global_8h.html#a23">Color</a> color)  throw (NotEnoughMemoryException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Fügt das <a class="el" href="classCadObject.html">CadObject</a> object mit der Farbe color in den Oktalbaum ein.</em> <a href="#c1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#c2">checkModel</a> ()  throw (WrongModelException*)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Überprüft, ob das cadModel gültig ist.</em> <a href="#c2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#c3">nextPointColor</a> (<a class="el" href="classNodeIndex.html">NodeIndex</a> p)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert, NO_OBJECT, falls sich p außerhalb eines Körpers befindet und ansonsten die Farbe des Knotens einer 'Nachbarfläche' (entspricht der Körperfarbe) ermittelt wurde.</em> <a href="#c3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#c4">testRayColor</a> (<a class="el" href="classNodeIndex.html">NodeIndex</a> p)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert NO_OBJECT, falls sich p außerhalb eines Körpers befindet und ansonsten die Farbe des Knotens einer 'Nachbarfläche' (entspricht der Körperfarbe)<br>
+ Es wird die Testraymethode verwendet.</em> <a href="#c4"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="o0" doxytag="OctGen::cadModel"></a>
+<a class="el" href="classCadModel.html">CadModel</a> *&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#o0">cadModel</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Zur Generierung verwendetes <a class="el" href="classCadModel.html">CadModel</a>.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o1" doxytag="OctGen::genHelp"></a>
+<a class="el" href="classGenHelp.html">GenHelp</a> *&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#o1">genHelp</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Hilfsobjekt für die Generierung der Oktalbaumstruktur.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o2" doxytag="OctGen::octree"></a>
+<a class="el" href="classIndexOct.html">IndexOct</a> *&nbsp;</td><td valign=bottom><a class="el" href="classOctGen.html#o2">octree</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Oktalbaum, in den die Punkte generiert werden sollen.</em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Oktalbaumgenerator.
+<p>
+Erstellt unter Zuhilfenahme des <a class="el" href="classCadModel.html">CadModel</a> einen Oktalbaum. OctGen bildet somit die Schnittstelle zwischen <a class="el" href="classCadModel.html">CadModel</a> und der Oktalbaumstruktur. 
+<p>
+<hr><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a name="a0" doxytag="OctGen::OctGen"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> OctGen::OctGen </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classCadModel.html">CadModel</a> *&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>model</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Konstruktor.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>model</em>&nbsp;</td><td>
+zur Generierung verwendetes <a class="el" href="classCadModel.html">CadModel</a> </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="a1" doxytag="OctGen::add"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctGen::add </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>p</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>color</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2">  throw (<a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*)</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Fügt den Punkts p mit der Farbe color in den Oktalbaum ein.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Knotenindex des Punkts </td></tr>
+<tr><td valign=top><em>color</em>&nbsp;</td><td>
+Farbe </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a></em>&nbsp;</td><td>
+ Nicht genügend Speicher, um die neue Oktalbaumstruktur zu allozieren. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="c0" doxytag="OctGen::addLine"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctGen::addLine </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>start</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>end</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>color</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2">  throw (<a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*)<code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Fügt die Strecke <img align="top" src="form_12.png">
+ mit der Farbe color in den Oktalbaum ein.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>start</em>&nbsp;</td><td>
+Knotenindex des Streckenanfangspunkts </td></tr>
+<tr><td valign=top><em>end</em>&nbsp;</td><td>
+Knotenindex des Streckenendpunkts </td></tr>
+<tr><td valign=top><em>color</em>&nbsp;</td><td>
+Farbe </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a></em>&nbsp;</td><td>
+ Nicht genügend Speicher, um die neue Oktalbaumstruktur zu allozieren.  </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+start.getHight() = end.getHight() </dl>    </td>
+  </tr>
+</table>
+<a name="c1" doxytag="OctGen::addObject"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctGen::addObject </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classCadObject.html">CadObject</a> *&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>object</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>color</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2">  throw (<a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*)<code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Fügt das <a class="el" href="classCadObject.html">CadObject</a> object mit der Farbe color in den Oktalbaum ein.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>object</em>&nbsp;</td><td>
+<a class="el" href="classCadObject.html">CadObject</a> </td></tr>
+<tr><td valign=top><em>color</em>&nbsp;</td><td>
+Farbe </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a></em>&nbsp;</td><td>
+ Nicht genügend Speicher, um die neue Oktalbaumstruktur zu allozieren.  </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+object != NULL </dl>    </td>
+  </tr>
+</table>
+<a name="a2" doxytag="OctGen::addQuadrilateral"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctGen::addQuadrilateral </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pA</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pB</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pC</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pD</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>color</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2">  throw (<a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*)</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Fügt das Viereck pApBpCpD mit der Farbe color in den Oktalbaum ein.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>pA</em>&nbsp;</td><td>
+Knotenindex des Viereckpunkts A </td></tr>
+<tr><td valign=top><em>pB</em>&nbsp;</td><td>
+Knotenindex des Viereckpunkts B </td></tr>
+<tr><td valign=top><em>pC</em>&nbsp;</td><td>
+Knotenindex des Viereckpunkts C </td></tr>
+<tr><td valign=top><em>pD</em>&nbsp;</td><td>
+Knotenindex des Viereckpunkts D </td></tr>
+<tr><td valign=top><em>color</em>&nbsp;</td><td>
+Farbe </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a></em>&nbsp;</td><td>
+ Nicht genügend Speicher, um neue Oktalbaumstrukturteile zu allozieren.  </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+pA.getHight() = pB.getHight() = pC.getHight() = pD.getHight() </dl>    </td>
+  </tr>
+</table>
+<a name="a3" doxytag="OctGen::addTriangle"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctGen::addTriangle </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pA</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pB</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pC</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap><a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>color</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2">  throw (<a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*)</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Fügt das Dreieck <img align="top" src="form_11.png">
+ mit der Farbe color in den Oktalbaum ein.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>pA</em>&nbsp;</td><td>
+Knotenindex des Dreieckspunkts A </td></tr>
+<tr><td valign=top><em>pB</em>&nbsp;</td><td>
+Knotenindex des Dreieckspunkts B </td></tr>
+<tr><td valign=top><em>pC</em>&nbsp;</td><td>
+Knotenindex des Dreieckspunkts C </td></tr>
+<tr><td valign=top><em>color</em>&nbsp;</td><td>
+Farbe </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a></em>&nbsp;</td><td>
+ Nicht genügend Speicher, um neue Oktalbaumstrukturteile zu allozieren.  </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+pA.getHight() = pB.getHight() = pC.getHight() </dl>    </td>
+  </tr>
+</table>
+<a name="c2" doxytag="OctGen::checkModel"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void OctGen::checkModel </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (<a class="el" href="classWrongModelException.html">WrongModelException</a>*)<code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Überprüft, ob das cadModel gültig ist.
+<p>
+Falls es nicht gültig ist wird eine <a class="el" href="classWrongModelException.html">WrongModelException</a> geworfen. <dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a class="el" href="classWrongModelException.html">WrongModelException</a></em>&nbsp;</td><td>
+ cadModel == NULL or else cadModel-&gt;empty() or else not cadModel-&gt;getMinPoint() &lt;&lt; cadModel-&gt;getMaxPoint() </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a4" doxytag="OctGen::getCadModel"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classCadModel.html">CadModel</a>* OctGen::getCadModel </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert das zur Oktalbaumgenerierung genutzte <a class="el" href="classCadModel.html">CadModel</a>.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+<a class="el" href="classCadModel.html">CadModel</a> </dl><dl compact><dt><b>
+Nachbedingung: </b><dd>
+return != NULL </dl>    </td>
+  </tr>
+</table>
+<a name="a5" doxytag="OctGen::getColor"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="global_8h.html#a23">Color</a> OctGen::getColor </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>p</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Farbe des Knotens p, die unter Zuhilfenahme des <a class="el" href="classCadModel.html">CadModel</a> ermittelt wurde.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Knoten-Index </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+NO_OBJECT, falls sich p außerhalb eines Körpers befindet und ansonsten die Farbe des Knotens einer 'Nachbarfläche' (entspricht der Körperfarbe) </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+cadModel != NULL </dl>    </td>
+  </tr>
+</table>
+<a name="a6" doxytag="OctGen::getGenHelp"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classGenHelp.html">GenHelp</a>* OctGen::getGenHelp </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert das Hilfsobjekt zur Oktalbaumgenerierung.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+<a class="el" href="classGenHelp.html">GenHelp</a> </dl><dl compact><dt><b>
+Nachbedingung: </b><dd>
+return != NULL </dl>    </td>
+  </tr>
+</table>
+<a name="a7" doxytag="OctGen::getGenTree"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classIndexOct.html">IndexOct</a>* OctGen::getGenTree </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Oktalbaum, der für die Generierung verwendet wird.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+Oktalbaum </dl>    </td>
+  </tr>
+</table>
+<a name="a8" doxytag="OctGen::getOctree"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classIndexOct.html">IndexOct</a>* OctGen::getOctree </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="global_8h.html#a21">Hight</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>maxTreeHight</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (<a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*, <a class="el" href="classWrongModelException.html">WrongModelException</a>*)</td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Generiert unter Nutzung des <a class="el" href="classCadModel.html">CadModel</a> einen Oktalbaum mit maximaler Baumhöhe maxTreeHight.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>maxTreeHight</em>&nbsp;</td><td>
+maximale Baumhöhe </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+generierter Oktalbaum </dl><dl compact><dt><b>
+Ausnahmebehandlung: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a></em>&nbsp;</td><td>
+ Nicht genügend Speicher, um die neue Oktalbaumstruktur zu allozieren. </td></tr>
+<tr><td valign=top><em><a class="el" href="classWrongModelException.html">WrongModelException</a></em>&nbsp;</td><td>
+ Das zugrundeliegende <a class="el" href="classCadModel.html">CadModel</a> ist ungültig (vgl. <a class="el" href="classOctGen.html#c2">checkModel</a>()). </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="c3" doxytag="OctGen::nextPointColor"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="global_8h.html#a23">Color</a> OctGen::nextPointColor </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>p</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert, NO_OBJECT, falls sich p außerhalb eines Körpers befindet und ansonsten die Farbe des Knotens einer 'Nachbarfläche' (entspricht der Körperfarbe) ermittelt wurde.
+<p>
+Es wird die nächster-Punkt-Methode verwendet. <dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Knoten-Index </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Farbe des Knotens p </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+cadModel != NULL <dd>
+p.getHight() = BASE_NODE_HIGHT </dl>    </td>
+  </tr>
+</table>
+<a name="c4" doxytag="OctGen::testRayColor"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="global_8h.html#a23">Color</a> OctGen::testRayColor </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classNodeIndex.html">NodeIndex</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>p</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [private]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert NO_OBJECT, falls sich p außerhalb eines Körpers befindet und ansonsten die Farbe des Knotens einer 'Nachbarfläche' (entspricht der Körperfarbe)<br>
+ Es wird die Testraymethode verwendet.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Knoten-Index </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Farbe des Knotens p </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+cadModel != NULL <dd>
+p.getHight() = BASE_NODE_HIGHT <dd>
+RAY_AXIS &lt; DIMENSIONS <dd>
+RAY_DIR = BACKWARD or RAY_DIR = FORWARD </dl>    </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="oct__gen_8h-source.html">oct_gen.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

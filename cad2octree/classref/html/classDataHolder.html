@@ -1,0 +1,307 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>DataHolder&lt; ItemType &gt; Template Klassenreferenz</h1>Virtueller Datenspeicher. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="data__holder_8h-source.html">data_holder.h</a>&gt;</code>
+<p>
+<p>Klassendiagramm für DataHolder&lt; ItemType &gt;:
+<p><center><img src="classDataHolder.png" usemap="#DataHolder< ItemType >_map" border="0"></center>
+<map name="DataHolder< ItemType >_map">
+<area href="classDataQueue.html" alt="DataQueue< ItemType >" shape="rect" coords="0,56,150,80">
+<area href="classDataStack.html" alt="DataStack< ItemType >" shape="rect" coords="160,56,310,80">
+</map>
+<a href="classDataHolder-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="classDataHolder.html#a0">DataHolder</a> (unsigned long <a class="el" href="classDataHolder.html#o0">size</a>)  throw (NotEnoughMemoryException)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Konstruktor.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a1" doxytag="DataHolder::~DataHolder"></a>
+virtual&nbsp;</td><td valign=bottom><a class="el" href="classDataHolder.html#a1">~DataHolder</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Destruktor.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual ItemType&nbsp;</td><td valign=bottom><a class="el" href="classDataHolder.html#a2">get</a> ()=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert das aktuelle Item und löscht es aus dem Datenspeicher.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual bool&nbsp;</td><td valign=bottom><a class="el" href="classDataHolder.html#a3">isEmpty</a> ()=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ist der Datenspeicher leer?</em> <a href="#a3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual bool&nbsp;</td><td valign=bottom><a class="el" href="classDataHolder.html#a4">isFull</a> ()=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ist der Datenspeicher voll?</em> <a href="#a4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classDataHolder.html#a5">put</a> (ItemType item)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Legt das Element item auf dem Datenspeicher ab.</em> <a href="#a5"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Geschützte Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>unsigned long&nbsp;</td><td valign=bottom><a class="el" href="classDataHolder.html#b0">getSize</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Maximal-Größe des Datenspeichers [Item].</em> <a href="#b0"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Geschützte Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="n0" doxytag="DataHolder::last"></a>
+unsigned long&nbsp;</td><td valign=bottom><a class="el" href="classDataHolder.html#n0">last</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Letztes Element des Datenspeichers.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="n1" doxytag="DataHolder::pool"></a>
+ItemType *&nbsp;</td><td valign=bottom><a class="el" href="classDataHolder.html#n1">pool</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Item-<a class="el" href="classContainer.html">Container</a>.</em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="o0" doxytag="DataHolder::size"></a>
+unsigned long&nbsp;</td><td valign=bottom><a class="el" href="classDataHolder.html#o0">size</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Größe des Datenspeichers.</em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+<h3>template&lt;class ItemType&gt;<br>
+ class DataHolder&lt; ItemType &gt;</h3>
+
+Virtueller Datenspeicher.
+<p>
+Virtuelles Template für einfache <a class="el" href="classContainer.html">Container</a> (Stack, Queue). 
+<p>
+<hr><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a name="a0" doxytag="DataHolder::DataHolder"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" colspan="4">
+template&lt;class ItemType&gt; </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap valign="top"> DataHolder&lt; ItemType &gt;::DataHolder </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">unsigned long&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>size</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap>  throw (<a class="el" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>)<code> [inline]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Konstruktor.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>size</em>&nbsp;</td><td>
+Maximal-Größe [Item] des zu erstellenden Datenspeichers. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="a2" doxytag="DataHolder::get"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" colspan="4">
+template&lt;class ItemType&gt; </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap valign="top"> virtual ItemType DataHolder&lt; ItemType &gt;::get </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert das aktuelle Item und löscht es aus dem Datenspeicher.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+aktuelles Element </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+!<a class="el" href="classDataHolder.html#a3">isEmpty</a>() </dl>
+<p>
+Implementiert in <a class="el" href="classDataQueue.html#a1">DataQueue&lt; ItemType &gt;</a> und <a class="el" href="classDataStack.html#a1">DataStack&lt; ItemType &gt;</a>.    </td>
+  </tr>
+</table>
+<a name="b0" doxytag="DataHolder::getSize"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" colspan="4">
+template&lt;class ItemType&gt; </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap valign="top"> unsigned long DataHolder&lt; ItemType &gt;::getSize </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [inline, protected]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Maximal-Größe des Datenspeichers [Item].
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+Datenspeicher-Größe </dl>    </td>
+  </tr>
+</table>
+<a name="a3" doxytag="DataHolder::isEmpty"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" colspan="4">
+template&lt;class ItemType&gt; </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap valign="top"> virtual bool DataHolder&lt; ItemType &gt;::isEmpty </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ist der Datenspeicher leer?
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+Ob der Datenspeicher kein Item enthält. </dl>
+<p>
+Implementiert in <a class="el" href="classDataQueue.html#a2">DataQueue&lt; ItemType &gt;</a> und <a class="el" href="classDataStack.html#a2">DataStack&lt; ItemType &gt;</a>.    </td>
+  </tr>
+</table>
+<a name="a4" doxytag="DataHolder::isFull"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" colspan="4">
+template&lt;class ItemType&gt; </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap valign="top"> virtual bool DataHolder&lt; ItemType &gt;::isFull </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ist der Datenspeicher voll?
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+Ob kein weiteres Element in den Datenspeicher aufgenommen werden  kann. </dl>
+<p>
+Implementiert in <a class="el" href="classDataQueue.html#a3">DataQueue&lt; ItemType &gt;</a> und <a class="el" href="classDataStack.html#a3">DataStack&lt; ItemType &gt;</a>.    </td>
+  </tr>
+</table>
+<a name="a5" doxytag="DataHolder::put"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" colspan="4">
+template&lt;class ItemType&gt; </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap valign="top"> void DataHolder&lt; ItemType &gt;::put </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">ItemType&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>item</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [inline]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Legt das Element item auf dem Datenspeicher ab.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>item</em>&nbsp;</td><td>
+Element </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+!<a class="el" href="classDataHolder.html#a4">isFull</a>() </dl>    </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="data__holder_8h-source.html">data_holder.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>reader.h</h1><a href="reader_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00018 <font class="preprocessor">#ifndef __READER_H__</font>
+00019 <font class="preprocessor"></font><font class="preprocessor">#define __READER_H__</font>
+00020 <font class="preprocessor"></font>
+00021 <font class="preprocessor">#include &lt;<a class="code" href="global_8h.html">global.h</a>&gt;</font>
+00022 <font class="preprocessor">#include &lt;<a class="code" href="exception_8h.html">exception.h</a>&gt;</font>
+00023 <font class="preprocessor">#include &lt;<a class="code" href="cad__model_8h.html">cad/cad_model.h</a>&gt;</font>
+00024 
+00025 <font class="preprocessor">#include &lt;stdio.h&gt;</font>
+00026 
+<a name="l00034"></a><a class="code" href="classReader.html">00034</a> <font class="keyword">class </font><a class="code" href="classReader.html">Reader</a> {
+00035  <font class="keyword">public</font>:
+00036   <font class="comment">// ##### Exceptions ################################################</font>
+00037 
+<a name="l00041"></a><a class="code" href="classReader_1_1ReaderException.html">00041</a>   <font class="keyword">class </font><a class="code" href="classReader_1_1ReaderException.html">ReaderException</a> : <font class="keyword">public</font> <a class="code" href="classException.html">Exception</a> {
+00042   <font class="keyword">public</font>:
+<a name="l00044"></a><a class="code" href="classReader_1_1ReaderException.html#a0">00044</a>     <a class="code" href="classReader_1_1ReaderException.html#a0">ReaderException</a>() : <a class="code" href="classException.html">Exception</a>() {}
+<a name="l00046"></a><a class="code" href="classReader_1_1ReaderException.html#a1">00046</a>     <a class="code" href="classReader_1_1ReaderException.html#a0">ReaderException</a>(string msg) : <a class="code" href="classException.html">Exception</a>(msg) {}
+00047   };
+00048 
+<a name="l00052"></a><a class="code" href="classReader_1_1ReadFileException.html">00052</a>   <font class="keyword">class </font><a class="code" href="classReader_1_1ReadFileException.html">ReadFileException</a> : <font class="keyword">public</font> <a class="code" href="classReader_1_1ReaderException.html">ReaderException</a> {
+00053   <font class="keyword">public</font>:
+<a name="l00055"></a><a class="code" href="classReader_1_1ReadFileException.html#a0">00055</a>     <a class="code" href="classReader_1_1ReadFileException.html#a0">ReadFileException</a>(<font class="keyword">const</font> <font class="keywordtype">char</font>* fileName)
+00056       : <a class="code" href="classReader_1_1ReaderException.html">ReaderException</a>("Error reading file " + (string)fileName) {}
+00057   };
+00058 
+<a name="l00062"></a><a class="code" href="classReader_1_1FileFormatException.html">00062</a>   <font class="keyword">class </font><a class="code" href="classReader_1_1FileFormatException.html">FileFormatException</a> : <font class="keyword">public</font> <a class="code" href="classReader_1_1ReaderException.html">ReaderException</a> {
+00063   <font class="keyword">public</font>:
+<a name="l00065"></a><a class="code" href="classReader_1_1FileFormatException.html#a0">00065</a>     <a class="code" href="classReader_1_1FileFormatException.html#a0">FileFormatException</a>(string msg) : <a class="code" href="classReader_1_1ReaderException.html">ReaderException</a>(msg) {}
+00066   
+<a name="l00073"></a><a class="code" href="classReader_1_1FileFormatException.html#a1">00073</a>     <a class="code" href="classReader_1_1FileFormatException.html#a0">FileFormatException</a>(<font class="keyword">const</font> <font class="keywordtype">char</font>* formatName, <font class="keyword">const</font> <font class="keywordtype">char</font>* fileName,
+00074                         <font class="keywordtype">int</font> line) {
+00075       <font class="keywordtype">char</font> msg[<a class="code" href="global_8h.html#a13">STR_LEN</a>];
+00076 
+00077       sprintf(msg, <font class="stringliteral">"%s-Format Error at line %d in File %s"</font>, 
+00078               formatName, line, fileName);
+00079       <a class="code" href="classException.html#n0">message</a>= msg;
+00080     }
+00081   };
+00082 
+00083   <font class="comment">// ###### Reader ###################################################</font>
+<a name="l00087"></a><a class="code" href="classReader.html#s1">00087</a> <font class="comment"></font>  <font class="keyword">enum</font> <a class="code" href="classReader.html#s1">FormatType</a> {<a class="code" href="classReader.html#s1s0">DXF</a> 
+00088   };
+00089   
+00106   <font class="keyword">static</font> <a class="code" href="classReader.html">Reader</a>* <a class="code" href="classReader.html#d0">readFile</a>(<font class="keyword">const</font> <font class="keywordtype">char</font>* fileName)
+00107     <font class="keywordflow">throw</font> (ReadFileException*, FileFormatException*);
+00108 
+00116   <font class="keyword">virtual</font> <a class="code" href="classCadModel.html">CadModel</a>* <a class="code" href="classReader.html#a0">getCadModel</a>(<a class="code" href="global_8h.html#a23">Color</a> color, <font class="keywordtype">bool</font> splitQuad)= 0;
+00117 
+00123   <font class="keyword">virtual</font> <font class="keyword">const</font> <font class="keywordtype">char</font>* <a class="code" href="classReader.html#a1">getLibVersion</a>()= 0;
+00124 
+00131   <font class="keyword">virtual</font> <font class="keyword">const</font> <font class="keywordtype">char</font>* <a class="code" href="classReader.html#a2">getFileFormatVersion</a>()= 0;
+00132 
+00137   <font class="keyword">virtual</font> <font class="keyword">const</font> <font class="keywordtype">char</font>* <a class="code" href="classReader.html#a3">getFormatName</a>()= 0;
+00138 
+00143   <font class="keyword">virtual</font> <font class="keyword">const</font> <a class="code" href="classReader.html#s1">FormatType</a> <a class="code" href="classReader.html#a4">getFormatType</a>()= 0;
+00144 
+00151   <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classReader.html#a5">print</a>()= 0;
+00152 
+00153 }; <font class="comment">// class Reader</font>
+00154 
+00155 <font class="preprocessor">#endif // ! READER_H</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

@@ -1,0 +1,18 @@
+Vesrion 0.2.1, 14. März 2003
+    - Verwendung der autotools
+    - Binary für Windows
+
+Diese Implementierung ist als Teil der Diplomarbeit "Erzeugung und Evaluierung 
+von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen" DIP-Nr. 2035 
+an der Universität Stuttgart, Institut für Parallele und Verteilte Systeme, 
+Abteilung Simulation großer Systeme enstanden.
+
+Abschlußversion: 0.2.0, 6. März 2003
+    - Generierung von Oktalbäumen in POT aus Oberflächenmodellen im DXF-Format 
+      für Rigid Bodies mit polygonalen und/oder Spline-Oberflächen
+      
+letzte stabile Version: 0.1.9d
+
+Version 0.1.0
+    - Generierung von Oktalbäumen in POT aus Oberflächenmodellen im DXF-Format 
+      für Rigid Bodies mit polygonalen Oberflächen

@@ -1,0 +1,81 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>scan_line.h</h1><a href="scan__line_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00012 <font class="preprocessor">#ifndef __SCAN_LINE_H__</font>
+00013 <font class="preprocessor"></font><font class="preprocessor">#define __SCAN_LINE_H__</font>
+00014 <font class="preprocessor"></font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="node__vec_8h.html">node_vec.h</a>&gt;</font>
+00016 
+<a name="l00020"></a><a class="code" href="classScanLine.html">00020</a> <font class="keyword">class </font><a class="code" href="classScanLine.html">ScanLine</a> {
+00021  <font class="keyword">public</font>:
+00028   <a class="code" href="classScanLine.html#a0">ScanLine</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> start, <a class="code" href="classNodeIndex.html">NodeIndex</a> <a class="code" href="classScanLine.html#o2">end</a>);
+00029 
+00034   <a class="code" href="classNodeIndex.html">NodeIndex</a> <a class="code" href="classScanLine.html#a1">getCurrent</a>();
+00035 
+00040   <font class="keywordtype">bool</font> <a class="code" href="classScanLine.html#a2">hasNext</a>();
+00041 
+00045   <font class="keywordtype">void</font> <a class="code" href="classScanLine.html#a3">next</a>();
+00046 
+00047  <font class="keyword">private</font>:
+00048 <font class="preprocessor">#ifndef COMB_SCAN_LINE</font>
+00049 <font class="preprocessor"></font>
+00055   <a class="code" href="node__index_8h.html#a2">AxIndex</a> <a class="code" href="classScanLine.html#c0">getError</a>(<a class="code" href="global_8h.html#a17">Axis</a> testAx);
+00056 <font class="preprocessor">#else</font>
+00057 <font class="preprocessor"></font>
+00064   <a class="code" href="node__index_8h.html#a2">AxIndex</a> getErrorComb(AxComb testAxComb);
+00065 <font class="preprocessor">#endif</font>
+00066 <font class="preprocessor"></font>
+00067 <font class="preprocessor">#ifndef COMB_SCAN_LINE</font>
+00068 <font class="preprocessor"></font>
+00073   <a class="code" href="classNodeIndex.html">NodeIndex</a> <a class="code" href="classScanLine.html#c1">getErrorVec</a>(<a class="code" href="global_8h.html#a17">Axis</a> testAx);
+00074 <font class="preprocessor">#else</font>
+00075 <font class="preprocessor"></font>
+00081   <a class="code" href="classNodeIndex.html">NodeIndex</a> getErrorCombVec(AxComb testAxComb);
+00082 <font class="preprocessor">#endif</font>
+00083 <font class="preprocessor"></font>
+00084 <font class="preprocessor">#ifndef COMB_SCAN_LINE</font>
+00085 <font class="preprocessor"></font>
+00089   <a class="code" href="classNodeIndex.html">NodeIndex</a> <a class="code" href="classScanLine.html#c2">getNext</a>(<a class="code" href="global_8h.html#a17">Axis</a> ax);
+00090 <font class="preprocessor">#else</font>
+00091 <font class="preprocessor"></font>
+00095   <a class="code" href="classNodeIndex.html">NodeIndex</a> getNextComb(AxComb axComb);
+00096 <font class="preprocessor">#endif</font>
+00097 <font class="preprocessor"></font>
+00103   <a class="code" href="node__index_8h.html#a2">AxIndex</a> <a class="code" href="classScanLine.html#c3">maxError</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> testError);
+00104 
+00110   <a class="code" href="node__index_8h.html#a2">AxIndex</a> <a class="code" href="classScanLine.html#c4">minError</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> testError);
+00111 
+00112 <font class="preprocessor">#ifndef COMB_SCAN_LINE</font>
+00113 <font class="preprocessor"></font>
+00116   <font class="keywordtype">void</font> <a class="code" href="classScanLine.html#c5">refreshError</a>(<a class="code" href="global_8h.html#a17">Axis</a> stepAx);
+00117 <font class="preprocessor">#else</font>
+00118 <font class="preprocessor"></font>
+00121   <font class="keywordtype">void</font> refreshErrorComb(AxComb stepAxComb);
+00122 <font class="preprocessor">#endif</font>
+00123 <font class="preprocessor"></font>
+<a name="l00127"></a><a class="code" href="classScanLine.html#o0">00127</a>   <a class="code" href="classNodeIndex.html">NodeIndex</a> <a class="code" href="classScanLine.html#o0">current</a>; 
+00128   
+<a name="l00132"></a><a class="code" href="classScanLine.html#o1">00132</a>   <a class="code" href="classNodeIndex.html">NodeIndex</a> <a class="code" href="classScanLine.html#o1">dir</a>;
+00133   
+<a name="l00137"></a><a class="code" href="classScanLine.html#o2">00137</a>   <a class="code" href="classNodeIndex.html">NodeIndex</a> <a class="code" href="classScanLine.html#o2">end</a>;
+00138   
+<a name="l00142"></a><a class="code" href="classScanLine.html#o3">00142</a>   <a class="code" href="classNodeIndex.html">NodeIndex</a> <a class="code" href="classScanLine.html#o3">error</a>;
+00143 };
+00144 
+00145 <font class="preprocessor">#endif // ! __SCAN_LINE_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>oct_struct.h</h1><a href="oct__struct_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00015 <font class="preprocessor">#ifndef __OCT_STRUCT_H__</font>
+00016 <font class="preprocessor"></font><font class="preprocessor">#define __OCT_STRUCT_H__</font>
+00017 <font class="preprocessor"></font>
+00018 <font class="preprocessor">#include &lt;<a class="code" href="global_8h.html">global.h</a>&gt;</font>
+00019 <font class="preprocessor">#include &lt;<a class="code" href="exception_8h.html">exception.h</a>&gt;</font>
+00020 
+<a name="l00024"></a><a class="code" href="oct__struct_8h.html#a0">00024</a> <font class="keyword">typedef</font> <font class="keywordtype">int</font> <a class="code" href="oct__struct_8h.html#a0">PartType</a>;
+00025 
+<a name="l00030"></a><a class="code" href="oct__struct_8h.html#a1">00030</a> <font class="keyword">const</font> <a class="code" href="oct__struct_8h.html#a0">PartType</a> <a class="code" href="oct__struct_8h.html#a1">OCT_PARTS</a> = 1 &lt;&lt; <a class="code" href="global_8h.html#a7">DIMENSIONS</a>;
+00031 
+<a name="l00036"></a><a class="code" href="oct__struct_8h.html#a2">00036</a> <font class="keyword">typedef</font> <a class="code" href="global_8h.html#a23">Color</a> <a class="code" href="oct__struct_8h.html#a2">NodeStatus</a>;
+00037 
+<a name="l00042"></a><a class="code" href="oct__struct_8h.html#a3">00042</a> <font class="keyword">const</font> <a class="code" href="oct__struct_8h.html#a2">NodeStatus</a> <a class="code" href="oct__struct_8h.html#a3">NO_OBJECT</a>= 0;
+00043 
+<a name="l00048"></a><a class="code" href="oct__struct_8h.html#a4">00048</a> <font class="keyword">const</font> <a class="code" href="oct__struct_8h.html#a2">NodeStatus</a> <a class="code" href="oct__struct_8h.html#a4">UNDEF_OBJ</a>= (-<a class="code" href="global_8h.html#a24">MAX_COLOR</a> - 2);
+00049 
+<a name="l00056"></a><a class="code" href="classOctStruct.html">00056</a> <font class="keyword">class </font><a class="code" href="classOctStruct.html">OctStruct</a> {
+00057  <font class="keyword">public</font>:
+00058   <font class="keyword">struct </font><a class="code" href="structOctStruct_1_1Node.html">Node</a>;
+<a name="l00062"></a><a class="code" href="classOctStruct.html#s0">00062</a>   <font class="keyword">typedef</font> <a class="code" href="structOctStruct_1_1Node.html">Node</a>* <a class="code" href="classOctStruct.html#s0">_octree</a>;
+00063 
+00069   <font class="keywordtype">void</font> <a class="code" href="classOctStruct.html#a0">clear</a>();
+00070 
+00077   <font class="keywordtype">bool</font> <a class="code" href="classOctStruct.html#a1">empty</a>();
+00078 
+00085   <font class="keywordtype">void</font> <a class="code" href="classOctStruct.html#a2">flush</a>();
+00086 
+00094   <a class="code" href="global_8h.html#a23">Color</a> <a class="code" href="classOctStruct.html#a3">getMaxColor</a>();
+00095 
+00100   size_t <a class="code" href="classOctStruct.html#a4">getNodeSize</a>();
+00101 
+00106   _octree&amp; <a class="code" href="classOctStruct.html#a5">getTree</a>();
+00107 
+00111   <font class="keywordtype">void</font> <a class="code" href="classOctStruct.html#a6">print</a>();
+00112 
+00122   <font class="keywordtype">void</font> <a class="code" href="classOctStruct.html#a7">stat</a>(<a class="code" href="global_8h.html#a21">Hight</a> h, <font class="keywordtype">unsigned</font> &amp;sumNodes, <font class="keywordtype">unsigned</font> &amp;leafs, 
+00123             <font class="keywordtype">unsigned</font> &amp;innerNodes, <font class="keywordtype">unsigned</font> &amp;borderNodes, <font class="keywordtype">unsigned</font> &amp;normCells);
+00124 
+00125  <font class="keyword">protected</font>:
+<a name="l00129"></a><a class="code" href="structOctStruct_1_1Node.html">00129</a>   <font class="keyword">struct </font><a class="code" href="structOctStruct_1_1Node.html">Node</a> {
+<a name="l00134"></a><a class="code" href="structOctStruct_1_1Node.html#m0">00134</a>     <font class="keyword">struct </font><a class="code" href="structOctStruct_1_1Node.html">Node</a> *parts;
+00135 
+<a name="l00142"></a><a class="code" href="structOctStruct_1_1Node.html#m1">00142</a>     <a class="code" href="oct__struct_8h.html#a2">NodeStatus</a> <a class="code" href="structOctStruct_1_1Node.html#m1">flag</a>;
+00143   };
+00144 
+00151   <a class="code" href="classOctStruct.html#b0">OctStruct</a>() <font class="keywordflow">throw</font> (<a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*);
+00152 
+00161   _octree <a class="code" href="classOctStruct.html#b1">createLeafs</a>() <font class="keywordflow">throw</font> (<a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*);
+00162 
+00170   _octree <a class="code" href="classOctStruct.html#b2">createOneLeaf</a>() <font class="keywordflow">throw</font> (<a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*);
+00171 
+00176   <font class="keywordtype">bool</font> <a class="code" href="classOctStruct.html#b3">exist</a>(_octree tree);
+00177 
+00178 <font class="preprocessor">#ifdef MARK_BORDER</font>
+00179 <font class="preprocessor"></font>
+00185   <a class="code" href="global_8h.html#a23">Color</a> getBorderColor(Node node);
+00186 <font class="preprocessor">#endif</font>
+00187 <font class="preprocessor"></font>
+00196   _octree <a class="code" href="classOctStruct.html#b4">getChild</a>(_octree parent, <a class="code" href="oct__struct_8h.html#a0">PartType</a> i);
+00197 
+00204   <a class="code" href="global_8h.html#a23">Color</a> <a class="code" href="classOctStruct.html#b5">getColor</a>(Node node);
+00205 
+00206 <font class="preprocessor">#ifdef MARK_BORDER</font>
+00207 <font class="preprocessor"></font>
+00213   <font class="keywordtype">bool</font> isBorderNode(Node node);
+00214 <font class="preprocessor">#endif</font>
+00215 <font class="preprocessor"></font>
+00221   <font class="keywordtype">bool</font> <a class="code" href="classOctStruct.html#b6">isLeaf</a>(Node node);
+00222 
+00228   <font class="keywordtype">bool</font> <a class="code" href="classOctStruct.html#b7">isNoObject</a>(Node node);
+00229 
+00235   <font class="keywordtype">bool</font> <a class="code" href="classOctStruct.html#b8">isUndefObj</a>(Node node);
+00236 
+00242   <font class="keywordtype">void</font> <a class="code" href="classOctStruct.html#b9">remove</a>(_octree &amp;subtree);
+00243 
+00244 <font class="preprocessor">#ifdef MARK_BORDER</font>
+00245 <font class="preprocessor"></font>
+00252   <font class="keywordtype">void</font> setBorderColor(Node &amp;node, <a class="code" href="global_8h.html#a23">Color</a> color);
+00253 <font class="preprocessor">#endif</font>
+00254 <font class="preprocessor"></font>
+00262   <font class="keywordtype">void</font> <a class="code" href="classOctStruct.html#b10">setColor</a>(Node &amp;node, <a class="code" href="global_8h.html#a23">Color</a> color);
+00263 
+00272   <font class="keywordtype">void</font> <a class="code" href="classOctStruct.html#b11">setTree</a>(_octree &amp;tree) <font class="keywordflow">throw</font> (<a class="code" href="classNotEnoughMemoryException.html">NotEnoughMemoryException</a>*);
+00273 
+<a name="l00277"></a><a class="code" href="classOctStruct.html#n0">00277</a>   <font class="keywordtype">unsigned</font> <a class="code" href="classOctStruct.html#n0">countBorderNodes</a>;
+00278 
+00279  <font class="keyword">private</font>:
+00288   <font class="keywordtype">bool</font> <a class="code" href="classOctStruct.html#c0">canCompact</a>(<a class="code" href="structOctStruct_1_1Node.html">Node</a> node, <a class="code" href="global_8h.html#a23">Color</a> &amp;color);
+00289 
+00295   <font class="keywordtype">void</font> <a class="code" href="classOctStruct.html#c1">compact</a>(<a class="code" href="structOctStruct_1_1Node.html">Node</a> &amp;node);
+00296 
+00302   <font class="keywordtype">void</font> <a class="code" href="classOctStruct.html#c1">compact</a>(<a class="code" href="structOctStruct_1_1Node.html">Node</a> &amp;node, <a class="code" href="global_8h.html#a23">Color</a> color);
+00303 
+00309   <font class="keywordtype">void</font> <a class="code" href="classOctStruct.html#c3">printTree</a>(<a class="code" href="structOctStruct_1_1Node.html">Node</a> node);
+00310 
+00317   <font class="keywordtype">void</font> <a class="code" href="classOctStruct.html#c4">setLeaf</a>(<a class="code" href="structOctStruct_1_1Node.html">Node</a> &amp;node);
+00318 
+00329   <font class="keywordtype">void</font> <a class="code" href="classOctStruct.html#a7">stat</a>(_octree tree, <a class="code" href="global_8h.html#a21">Hight</a> h, <font class="keywordtype">unsigned</font> &amp;sumNodes, <font class="keywordtype">unsigned</font> &amp;leafs, 
+00330             <font class="keywordtype">unsigned</font> &amp;innerNodes, <font class="keywordtype">unsigned</font> &amp;normCells);
+00331 
+<a name="l00336"></a><a class="code" href="classOctStruct.html#o0">00336</a>   _octree <a class="code" href="classOctStruct.html#o0">root</a>;
+00337 };
+00338 
+00339 <font class="preprocessor">#endif // ! __OCT_STRUCT_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

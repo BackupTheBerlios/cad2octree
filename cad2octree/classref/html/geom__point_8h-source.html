@@ -1,0 +1,79 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>geom_point.h</h1><a href="geom__point_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00012 <font class="preprocessor">#ifndef __GEOM_POINT_H__</font>
+00013 <font class="preprocessor"></font><font class="preprocessor">#define __GEOM_POINT_H__</font>
+00014 <font class="preprocessor"></font>
+00015 <font class="preprocessor">#include &lt;<a class="code" href="global_8h.html">global.h</a>&gt;</font>
+00016 <font class="preprocessor">#include &lt;<a class="code" href="node__index_8h.html">node_index.h</a>&gt;</font>
+00017 
+00021 <font class="keyword">static</font> <font class="keyword">const</font> <a class="code" href="global_8h.html#a16">Coordinate</a> OFS= 0.5;
+00022 
+<a name="l00026"></a><a class="code" href="classGeomPoint.html">00026</a> <font class="keyword">class </font><a class="code" href="classGeomPoint.html">GeomPoint</a> {
+00027  <font class="keyword">public</font>:
+00036   <a class="code" href="classGeomPoint.html#a0">GeomPoint</a>(<a class="code" href="global_8h.html#a16">Coordinate</a> x, <a class="code" href="global_8h.html#a16">Coordinate</a> y, <a class="code" href="global_8h.html#a16">Coordinate</a> z,
+00037             <a class="code" href="global_8h.html#a21">Hight</a> h= <a class="code" href="node__index_8h.html#a0">BASE_NODE_HIGHT</a>);
+00038 
+00043   <a class="code" href="classGeomPoint.html#a0">GeomPoint</a>(<a class="code" href="classNodeIndex.html">NodeIndex</a> p);
+00044 
+00056   <font class="keywordtype">int</font> <a class="code" href="classGeomPoint.html#a2">ccw</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p1, <a class="code" href="classGeomPoint.html">GeomPoint</a> p2, <a class="code" href="global_8h.html#a17">Axis</a> proj);
+00057 
+00064   <a class="code" href="node__index_8h.html#a2">AxIndex</a> <a class="code" href="classGeomPoint.html#a3">getAxIndex</a>(<a class="code" href="global_8h.html#a17">Axis</a> axis);
+00065 
+00072   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classGeomPoint.html#a4">getCoordinate</a>(<a class="code" href="global_8h.html#a17">Axis</a> axis);
+00073 
+00078   <a class="code" href="classGeomPoint.html">GeomPoint</a> <a class="code" href="classGeomPoint.html#a5">getDup</a>();
+00079 
+00084   <a class="code" href="global_8h.html#a21">Hight</a> <a class="code" href="classGeomPoint.html#a6">getHight</a>();
+00085 
+00091   <a class="code" href="classNodeIndex.html">NodeIndex</a> <a class="code" href="classGeomPoint.html#a7">getNodeIndex</a>();
+00092 
+00097   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classGeomPoint.html#a8">getX</a>();
+00098 
+00103   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classGeomPoint.html#a9">getY</a>();
+00104 
+00109   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classGeomPoint.html#a10">getZ</a>();
+00110 
+00114   <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classGeomPoint.html#a11">print</a>();
+00115 
+00123   <font class="keywordtype">void</font> <a class="code" href="classGeomPoint.html#a12">set</a>(<a class="code" href="global_8h.html#a16">Coordinate</a> x, <a class="code" href="global_8h.html#a16">Coordinate</a> y, <a class="code" href="global_8h.html#a16">Coordinate</a> z);
+00124 
+00131   <font class="keywordtype">void</font> <a class="code" href="classGeomPoint.html#a13">setCoordinate</a>(<a class="code" href="global_8h.html#a17">Axis</a> axis, <a class="code" href="global_8h.html#a16">Coordinate</a> value);
+00132 
+00137   <font class="keywordtype">void</font> <a class="code" href="classGeomPoint.html#a14">setHight</a>(<a class="code" href="global_8h.html#a21">Hight</a> h);
+00138 
+00143   <font class="keywordtype">void</font> <a class="code" href="classGeomPoint.html#a15">setX</a>(<a class="code" href="global_8h.html#a16">Coordinate</a> value);
+00144 
+00149   <font class="keywordtype">void</font> <a class="code" href="classGeomPoint.html#a16">setY</a>(<a class="code" href="global_8h.html#a16">Coordinate</a> value);
+00150 
+00155   <font class="keywordtype">void</font> <a class="code" href="classGeomPoint.html#a17">setZ</a>(<a class="code" href="global_8h.html#a16">Coordinate</a> value);
+00156 
+00161   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classGeomPoint.html#a18">operator[]</a>(<a class="code" href="global_8h.html#a17">Axis</a> axis);
+00162 
+00163  <font class="keyword">private</font>:
+<a name="l00167"></a><a class="code" href="classGeomPoint.html#o0">00167</a>   <a class="code" href="global_8h.html#a16">Coordinate</a> <a class="code" href="classGeomPoint.html#o0">coordinates</a>[<a class="code" href="global_8h.html#a7">DIMENSIONS</a>];
+00168 
+<a name="l00172"></a><a class="code" href="classGeomPoint.html#o1">00172</a>   <a class="code" href="global_8h.html#a21">Hight</a> <a class="code" href="classGeomPoint.html#o1">indexHight</a>; 
+00173 }; <font class="comment">// class GeomPoint</font>
+00174 
+00175 <font class="comment">// ##### zugehörige Vergleichsoperatoren #############################</font>
+00176 
+00185 <font class="keywordtype">bool</font> <a class="code" href="node__index_8h.html#a6">operator==</a>(<a class="code" href="classGeomPoint.html">GeomPoint</a> p1, <a class="code" href="classGeomPoint.html">GeomPoint</a> p2);
+00186 
+00187 <font class="preprocessor">#endif // ! __GEOM_POINT_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:50 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

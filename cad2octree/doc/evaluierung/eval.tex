@@ -1,0 +1,306 @@
+% evaluierung/eval.tex
+% Dime als Importbibliothek
+%
+% Ausarbeitung zur Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung 
+% von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen"
+%
+% Autor: Stefan Mahler 2002
+%   Universitaet Stuttgart, SgS
+% Betreuer: Ralf Mundani
+
+\chapter{Unterst"utzte Formate}
+\label{eval}
+%Warum ? Bindeglied zwischen CAD und Simulation
+%Importformat/-bibliothek,-format
+%Anforderungen
+%Eigenschaften
+Wie bereits diskutiert, eignen sich Oktalb"aume zur Integration von 
+Modellierung und Simulation. Durch die im Rahmen dieser Arbeit entstandene 
+Implementierung sollen Oktalb"aume unter Zuhilfenahme eines 
+Oberfl"achenmodells erzeugt werden k"onnen. 
+
+Es musste ein \emph{geeignetes} Format f"ur das Oberfl"achenmodell festgelegt
+werden, aus welchem der Oktalbaum generiert wird. Es wird im Folgenden als
+Importformat bezeichnet. Abschnitt \ref{import} besch"aftigt sich
+mit Auswahl und Eigenschaften des gew"ahlten Importformats.
+
+Der erzeugte Oktalbaum wird abschlie"send in eine Datei geschrieben. 
+Das hierf"ur verwendeteFormat wird als Exportformat bezeichnet. Abschnitt 
+\ref{export_pot} erl"autertdas unterst"utzte Exportformat \emph{POT}.
+
+\section{Import}
+\label{import}
+Um ein geeignetes Importformat finden zu k"onnen, m"ussen zun"achst Kriterien 
+festgelegt werden, die dieses Format erf"ullen muss. Die Auswahlkriterien
+sind Bestandteil des Abschnitts \ref{import_kriterien}. Im zweiten Schritt
+erfolgt die Auswahl eines Formats nach diesen Kriterien. 
+
+Zu dem gew"ahlten DXF-Format existieren frei zug"angliche Bibliotheken, die
+den Umgang mit dem Format erleichtern. Abschnitt \ref{dxf_bibliotheken} 
+bewertet drei DXF-Bibliotheken hinsichtlich ihrer Anwendbarkeit zur Umsetzung 
+der Aufgabenstellung.
+
+\subsection{Anforderungen an Importformate}
+\label{import_kriterien}
+Die Anforderungen ergeben sich unmittelbar aus der Aufgabenstellung f"ur die
+gesamte Arbeit und sind:
+\begin{description}
+\item [Unterst"utzung von Dreiecksnetzen und Freiformfl"achen] ~\\ 
+    Das Format muss Strukturen bereitstellen, die es erm"oglichen, sowohl 
+    K"orper mit einfacher polygonaler Oberfl"ache (mindestens Drei- oder 
+    Vierecke) als auch Freiformfl"achen in Form von Spline-Fl"achen zu 
+    generieren.
+    Es sollte auch eine gemischte Darstellung (eine Datei enth"alt z.B. zwei
+    K"orper, von denen der eine mit triangulierter Oberfl"ache und der andere 
+    durch Splinefl"achen modelliert ist) m"oglich sein.
+\item [Erzeugbarkeit durch in der Abteilung vorhandene Applikationen] ~\\ 
+    Die in der Abteilung SgS vorhandenen regul"aren 
+    Fl"achenmodelle\footnote{Fl"achenmodelle von starren K"orpern 
+    im Sinne der geometrischen Modellierung}, die in einem "ublichen 
+    Format vorliegen,  sollen durch eine Exportfunktion, 
+    die sich bereits in einem der in der Abteilung genutzten 
+    Modellierungswerkzeuge befindet, einfach in das Importformat "uberf"uhrt 
+    werden k"onnen, falls das Oberfl"achenmodell nicht bereits in diesem 
+    Format vorliegt. Alternativ gibt es zu diesem Zweck ein frei verf"ugbares 
+    Konvertierungswerkzeug. Das so erzeugte Modell stellt (nat"urlich) den 
+    urspr"unglich modellierten K"orper in einer regul"aren Form da.
+    Ein Modell soll auch mehrere K"orper enthalten k"onnen.
+\item [Hohe Verbreitung] ~\\ 
+    Das Format ist am Markt verbreitet. Es gibt 
+    eine Vielzahl von Werkzeugen, die das Format verwenden. Es finden sich 
+    Verweise auf das Format in der einschl"agigen Literatur. Es gibt 
+    Anwendungen zum Erstellen und Bearbeiten von geometrischen Modellen, 
+    die in diesem Format vorliegen. 
+\item [Freie Zug"anglichkeit der Formatspezifikation] ~\\ 
+    Die Formatspezifikation ist frei einsehbar. Es finden sich 
+    Formatbeschreibungen im Internet und in einschl"agiger Literatur.
+    Es handelt sich also um ein standardisiertes Format oder um einen offenen
+    Pseudostandard.
+\item [Einfaches Handling] ~\\ 
+    Idealerweise existieren frei nutzbare Bibliotheken f"ur das Format. 
+    Alternativ ist das Format einfach und leicht verst"andlich strukturiert. 
+    Dies ist auch bei vorhandenen Bibliotheken f"ur Verifikationen
+    w"unschenswert. Hierzu geh"oren auch frei verf"ugbare Betrachter f"ur 
+    dieses Format. ASCII-Formate sind Bin"arformaten wegen der leichteren 
+    Verifizierbarkeit vorzuziehen.
+\end{description}
+Die Formate DXF, IGES und STEP erf"ullen diese Kriterien. IGES und STEP 
+werden von zahlreichen kommerziellen Systemen unterst"utzt. F"ur DXF finden 
+sich hingegen auch viele frei verf"ugbare Quellen, weshalb die Wahl auf
+DXF als Importformat fiel. Tabelle \ref{tbl_importformate} stellt die Formate
+DXF, IGES und STEP gegen"uber. 
+
+\tabbeg{}
+\newcommand\headline[4]
+    {\textbf{\emph{#1}} & \textbf{#2} & \textbf{#3} & \textbf{#4} \\}
+\newcommand{\feature}[4]{\emph{#1} & #2 & #3 & #4 \\ \hline }
+\begin{tabular}{|l|rrr|}
+\hline
+\headline{Format}{DXF}{IGES}{STEP}
+\hline
+\feature{Version}{2002}{5.3}{214}
+\feature{Quelle}{\cite{dxf_ref}}{\cite{iges_docu}}{\cite{step_docu}}
+\feature{Standard}{offener Psyeudostandard}{ANS US}{AP}
+\end{tabular}
+\tabend{tbl_importformate}{Formate DXF, IGES und STEP}
+
+DXF besitzt einen relativ einfachen Aufbau. DXF ist ein ASCII-Format. Es gibt 
+auch eine Bin"arversion DXB. Die Geometrieinformationen werden in der Sektion
+\emph{Entity} abgespeichert. F"ur unterschiedliche geometrische Formen gibt 
+es unterschiedliche Entities. F"ur diese Arbeit sind die Entities 3DFACE 
+f"ur planare Oberfl"achen (Drei- oder Vierecke), POLYLINE (gekr"ummte Kurve 
+oder Fl"ache, in diesem Fall kubische B-Spline-Fl"ache) und VERTEX (Einzelner 
+Punkt der Spline-Fl"ache) wichtig. Einzelne Informationen finden sich hinter 
+dem entsprechenden \emph{Group Code} wieder. So steht beispielsweise 
+hinter dem Group Code 10 der 3DFACE-Entity die x-Koordinate des ersten 
+Eckpunkts. Die Orientierung von Fl"achen ergibt sich aus der Reihenfolge 
+der Eck-/Kontrollpunkte (vgl. mit \gvref{gl_flaechenorientierung}).
+Die Entities werden einfach hintereinander gespeichert. 
+
+\subsection{DXF-Bibliotheken}
+\label{dxf_bibliotheken}
+Im Folgenden wurden einige DXF-Bibliotheken evaluiert. Gesucht wurde eine 
+Bibliothek zum Einlesen der im DXF-Format vorliegenden Geometriedaten. 
+
+Folgende Kriterien wurden zur Bewertung der Importbibliotheken angewendetet:
+\begin{description}
+\item[Lizenz] ~\\ 
+    Die Bibliothek muss frei verf"ugbar sein. Die hier betrachteten 
+    Bibliotheken stehen unter (L)GPL und sind somit frei nutzbar.
+\item[Installierbarkeit] ~\\ 
+    Mit welchem Aufwand kann die Bibliothek zum Laufen gebracht werden?
+\item[Funktionalit"at] ~\\ 
+    Hierbei wurde getestet, inwieweit die Bibliotheken
+    mit Geometriemodellen von K"orpern mit triangulierten bzw. 
+    Splineoberfl"achen zurechtkamen. Hierf"ur konnten zum Teil beiliegende 
+    Beispielprogramme verwendet werden. In anderen F"allen wurde die 
+    eingeschr"ankte Benutzbarkeit aus der Dokumentation ersichtlich.
+    Ein weiteres Augenmerk lag auf dem Einarbeitungsaufwand f"ur das
+    Verst"andnis der relevanten Teile und der Komplexit"at der Einbindung.
+    Die Bibliothek muss in C++-Programme integrierbar sein.
+\item[Dokumentation] ~\\ 
+    Mit welchen Mitteln wird die Bibliothek dokumentiert?
+    Welchen Umfang hat die Dokumentation? Wie verst"andlich ist sie?
+\item[Aktivit"at] ~\\ 
+    Inwieweit wird die Bibliothek weiterentwickelt und gepflegt? 
+    Wann fand die letzte Aktualisierung statt?
+\end{description}
+
+\tabbeg{}
+\newcommand\headline[4]
+    {\textbf{\emph{#1}} & \textbf{#2} & & \textbf{#3} & & \textbf{#4} \\}
+\newcommand{\feature}[4]{\emph{#1} & #2 & & #3 & & #4 \\ \hline }
+\begin{tabular}{|l|rcrcr|}
+\hline
+\headline{Library}{dime}{dxflib}{libdxf}
+\hline
+\feature{Version}{0.9.1}{0.1.2}{0.7}
+\feature{Quelle}{\cite{dime}}{\cite{dxflib}}{\cite{libdxf}}
+\feature{Lizenz}{GPL}{LGPL}{GPL}
+\feature{Paket-Format}{tar.gz}{tar.gz}{tar.gz}
+\feature{Installierbarkeit}{\neutral}{\neutral}{\neutral}
+\feature{Funktionalit"at}{\positive}{\negative}{\neutral}
+\feature{Dokumentation}{\neutral}{\negative}{\negative}
+\feature{Aktivit"at}{\positive}{\positive}{\negative}
+\feature{Verbreitung}{\positive}{\neutral}{\negative}
+\feature{Eignung}{\positive}{\negative}{\negative}
+\end{tabular}
+\tabend{tbl_importlibs}{DXF-Bibliotheken dime, dxflib und libdxf}
+
+Tabelle \ref{tbl_importlibs} zeigt die Bewertung f"ur dime, dxflib und libdxf.
+Laut Dokumentation lassen sich alle 3 Bibliotheken sowohl auf Unix-Derivaten
+wie auf allen Windows-Versionen einsetzen: Zur Installation werden lediglich 
+neben einem \texttt{tar.gz}-Entpacker, ein \texttt{gcc}-kompatibler Compiler 
+und eine funktionsf"ahige \texttt{make}-Umgebung ben"otigt. Die Bibliotheken 
+wurden ausschlie"slich auf Linux (SuSE Linux 8.0) getestet.
+
+Ein Vielzahl von Links verweisen auf die \textbf{dime}-Bibliothek. Sie 
+l"asst sich u.a. als Debian-Paket auf den Debian-Seiten finden. Die hier 
+eingesetzte Version stammt von Coin3d, dem Hersteller von dime. Zuerst muss 
+das \texttt{tar.gz}-Archiv entpackt werden. Anschlie"send kann mit Hilfe des 
+\texttt{configure}-Werkzeugs und \texttt{make} dime relativ einfach 
+installiert werden. Neben dem Source-Code ist eine doxygen\footnote{Mit Hilfe 
+von doxygen (\cite{doxygen}) kann aus Beschreibungstexten u.a. im 
+C++-Source-Code eine Klassenreferenz ("ahnlich \texttt{javadoc} f"ur Java) 
+generiert werden.}-generierte 
+Klassenreferenz und ein VRML-Konverter als Beispielprogramm enthalten.
+Die Klassen- und Methodenbeschreibungen sind knapp gehalten, manchmal 
+zu knapp. So fehlt zu einigen Methoden die Beschreibung g"anzlich, f"ur 
+andere ist sie wenig aussagekr"aftig. Dennoch ist die Dokumentation wie auch 
+das Beispielprogramm sehr hilfreich. Manchmal kann auch ein Blick in 
+den gut strukturierten Code Klarheit bringen. Man arbeitet sich relativ 
+schnell in die Bibliothek ein. Alle notwendigen Geometriemodelle k"onnen 
+mit dime extrahiert werden. Dime wird seit 1999 entwickelt und weiterhin 
+gepflegt. Die aktuelle Version enth"alt den Stand vom Oktober 2002. Dime 
+ist als Importbibliothek f"ur die beschrieben Zwecke geeignet.
+
+Als Alternative zu dime wird seit August 2000 \textbf{dxflib} entwickelt.
+Die dxflib-Projektseite findet sich auf 
+SourceForge\footnote{\url{http://www.sorceforge.net}}, eine popul"are Seite 
+f"ur OpenSource-Projekte. Die getestete Version ist von April 2002, dxflib 
+wird auch weiterhin gepflegt. Einige Vermerke zu \emph{libdxf} scheinen 
+eigentlich dxflib gewidmet. So beziehen sich die Eintr"age im 
+Debian-Bugreport unter libdxf offensichtlich auf dxflib. 
+Die Installation erfolgt analog zu der von dime. Es m"ussen jedoch 
+noch zus"atzliche Bibliotheken installiert werden, die nicht im Standardumfang 
+der Distribution enthalten sind. F"ur dxflib existiert eine Klassenreferenz.
+Dxflib scheint sich noch in einem fr"uhen Stadium zu befinden. 
+Wesentliche Funktionen f"ur den notwendigen Import 
+sind noch nicht enthalten. Dxflib ist somit in der aktuellen Version als 
+Importbibliothek unbrauchbar. Die laufende Pflege verspricht aber f"ur 
+zuk"unftige Zeiten Besserung.
+
+Zu \textbf{libdxf} finden sich nur eine begrenzte Anzahl von Verweisen. 
+Libdxf wurde seit 1997 entwickelt, wird aber anscheinend seit 1999 nicht
+mehr weitergepflegt. Der tar-Ball\footnote{So werden in der Unix-Welt h"aufig 
+\texttt{tar.gz}-Archive genannt.} l"asst sich "ahnlich zu dime installieren 
+und enth"alt neben dem Source-Code ein Beispielprogramm. Mit einigen der 
+Beispielgeometrien konnte das Beispielprogramm von libdxf nicht umgehen. 
+Eine weitere Analyse zeigte, dass dies nicht am Beispielprogramm sondern 
+an der mangelnden Unterst"utzung durch die Bibliothek liegt. Libdxf ist somit 
+als Importbibliothek unbrauchbar.
+
+Als Importbibliothek wurde deshalb dime verwendet wird.
+
+\section{Export}
+\label{export_pot}
+\alg{alg_writepot}{\procdef{writePot}{depth, filename}}{%
+\pre{\begin{itemize}
+     \item\param{filename} enth"alt den Namen einer beschreibbaren Datei.
+     \end{itemize}}\\
+\procdef{writePot}{Depth depth, String filename}
+\procbeg
+  \proc{out.open}{filename}\\
+  \proc{out.writeLine}{depth}\\
+  wCount:= 0\\
+  wBinary:= 0\\
+  \proc{writeTree}{\func{getTree}{}}\\
+  \ifthen{wCount > 0}
+    wBinary:= \(2^{8-\mbox{wCount}} *\) wBinary\\
+    \proc{out.writeChar}{wBinary}
+  \closeif
+  \proc{out.close}{}
+\closeproc
+}
+
+Zur permanenten Speicherung der Oktalbaumstruktur wird sie in einem 
+pr"aorder-traversierten Bin"arstrom geschrieben, der der Ausgabedatei 
+zugeordnet ist (vgl. \algref{alg_writepot}). 
+Das hier als POT-Format bezeichnete Format besitzt folgende Struktur:  
+
+\alg[!t]{alg_oct_to_potstream}{\procdef{writeTree}{tree}}{%
+\pre{\begin{itemize}
+     \item\param{out} ist der der Ausgabedatei zugeordnete ge"offnete 
+        Ausgabestrom.
+     \item\param{wCount} enth"alt die Anzahl der 'gecachten' Bits
+	-- also beim externen Aufruf von \proc{writeTree}{} $0$.
+     \item\param{wBinary} enth"alt die 'gecachten' Bits
+	-- also beim externen Aufruf von \proc{writeTree}{} $0$.
+     \end{itemize}}\\ 
+\procdef{writeTree}{\_octree tree}
+\procbeg
+  Node node:= \func{getNode}{tree}\\
+~\\
+  \ifthen{\func{isLeaf}{node}}
+    \integer~colBit:= 0\\
+    \ifthen{\func{getColor}{node} \not= \const{NO\_OBJECT\_COLOR}}
+      colBit:= 1
+    \closeif
+    wBinary:= 4*wBinary + colBit\\
+    wCount:= wCount + 2
+  \ifelse
+    wBinary:= 2*Binary + 1\\
+    wCount:= wCount + 1
+  \closeif
+~\\
+  \ifthen{wCount \ge 8}
+    wCount:= wCount / 8\\
+    \integer~bitsToWrite:= wBinary / \(2^{\mbox{wCount}}\)\\
+    \proc{out.writeChar}{bitsToWrite}\\
+    wBinary:= wBinray - bitsToWrite
+  \closeif
+~\\
+  \ifthen{\neg \func{isLeaf}{node}}
+    \forloop{PartType~i}{0}{2^{\dim}-1}{1}
+      \proc{writeTree}{\func{getChild}{tree, i}}
+    \closefor
+  \closeif
+\closeproc
+}
+
+Als Dateikopf (Header) dient eine Zeile im ASCII-Format, die die maximale 
+Baumtiefe enth"alt.
+Es folgt der in Pr"aorder-Traversierung (vgl. Abschnitt 
+\emph{Pr"aorder-Traversierung} auf Seite \pageref{pot_code}) 
+umgewandelte Oktalbaum, wof"ur \algref{alg_oct_to_potstream} verwendet 
+werden kann. 
+
+F"ur einen inneren Knoten wird dabei eine \texttt{1} geschrieben, 
+ein Blattknoten der Farbe \const{NO\_OBJECT\_COLOR} wird durch \texttt{00} 
+repr"asentiert und alle anderen Knoten durch \texttt{01}. 
+
+Um eine m"oglichst kompakte Darstellung zu erhalten, werden jeweils acht 
+Bits des Bin"arstroms zu einem Byte zusammengefasst. 
+(Es wird also \emph{nicht} f"ur einen Knoten ein Byte verwendet.)
+
+%% End of Document

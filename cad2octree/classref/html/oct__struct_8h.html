@@ -1,0 +1,128 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>oct_struct.h Dateireferenz</h1>Oktalbaumstruktur. 
+<a href="#_details">Mehr...</a>
+<p>
+
+<p>
+<a href="oct__struct_8h-source.html">gehe zum Quellcode dieser Datei</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Übersicht</h2></td></tr>
+<tr><td nowrap align=right valign=top>struct &nbsp;</td><td valign=bottom><a class="el" href="structOctStruct_1_1Node.html">Node</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Typ für Knoten im Oktalbaum.</em> <a href="structOctStruct_1_1Node.html#_details">Mehr...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>class &nbsp;</td><td valign=bottom><a class="el" href="classOctStruct.html">OctStruct</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Oktalbaumstruktur.</em> <a href="classOctStruct.html#_details">Mehr...</a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Typendefinitionen</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="a0" doxytag="oct_struct.h::PartType"></a>
+typedef int&nbsp;</td><td valign=bottom><a class="el" href="oct__struct_8h.html#a0">PartType</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Typ für Partitionen.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>typedef <a class="el" href="global_8h.html#a23">Color</a>&nbsp;</td><td valign=bottom><a class="el" href="oct__struct_8h.html#a2">NodeStatus</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Knotenattributstyp.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Variablen</h2></td></tr>
+<tr><td nowrap align=right valign=top>const <a class="el" href="oct__struct_8h.html#a0">PartType</a>&nbsp;</td><td valign=bottom><a class="el" href="oct__struct_8h.html#a1">OCT_PARTS</a> = 1 &lt;&lt; DIMENSIONS</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Anzahl der Oktagon-Partitionen.</em> <a href="#a1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a3" doxytag="oct_struct.h::NO_OBJECT"></a>
+const <a class="el" href="oct__struct_8h.html#a2">NodeStatus</a>&nbsp;</td><td valign=bottom><a class="el" href="oct__struct_8h.html#a3">NO_OBJECT</a> = 0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Farbe eines Blatts, welches außerhalb aller Körper sich befindet und somit zu keinem Körper gehört.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>const <a class="el" href="oct__struct_8h.html#a2">NodeStatus</a>&nbsp;</td><td valign=bottom><a class="el" href="oct__struct_8h.html#a4">UNDEF_OBJ</a> = (-<a class="el" href="global_8h.html#a24">MAX_COLOR</a> - 2)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Farbe eines Blatts, für welches unbestimmt ist, ob bzw.</em> <a href="#a4"></a><em></em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Oktalbaumstruktur.
+<p>
+ Unterste Schicht. Stellt Low-Level-Operationen für die Oktalbaumsturktur zur Verfügung.
+<p>
+Diplomarbeit Nr. 2035 - "Erzeugung und Evaluierung von Oktalbaumstrukturen als Schnittstelle zu CAD-Programmen" <br>
+ SgS, Universität Stuttgart <dl compact><dt><b>
+Autor: </b><dd>
+Stefan Mahler </dl><dl compact><dt><b>
+Datum: </b><dd>
+2002</dl><hr><h2>Dokumentation der benutzerdefinerten Typen</h2>
+<a name="a2" doxytag="oct_struct.h::NodeStatus"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> typedef <a class="el" href="global_8h.html#a23">Color</a> NodeStatus
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Knotenattributstyp.
+<p>
+Definiert für Blätter die Farbe des Körpers, zu dem sie gehören.     </td>
+  </tr>
+</table>
+<hr><h2>Variablen-Dokumentation</h2>
+<a name="a1" doxytag="oct_struct.h::OCT_PARTS"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> const <a class="el" href="oct__struct_8h.html#a0">PartType</a> OCT_PARTS = 1 &lt;&lt; DIMENSIONS
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Anzahl der Oktagon-Partitionen.
+<p>
+Entspricht der Zahl der Kinder eines inneren Knotens im Oktalbaum.     </td>
+  </tr>
+</table>
+<a name="a4" doxytag="oct_struct.h::UNDEF_OBJ"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> const <a class="el" href="oct__struct_8h.html#a2">NodeStatus</a> UNDEF_OBJ = (-<a class="el" href="global_8h.html#a24">MAX_COLOR</a> - 2)
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Farbe eines Blatts, für welches unbestimmt ist, ob bzw.
+<p>
+zu welchem Körper  es gehört.     </td>
+  </tr>
+</table>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

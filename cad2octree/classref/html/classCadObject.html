@@ -1,0 +1,356 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>CadObject Klassenreferenz</h1>Abstrakte Klasse für alle CAD-Objekte. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="cad__object_8h-source.html">cad_object.h</a>&gt;</code>
+<p>
+<p>Klassendiagramm für CadObject:
+<p><center><img src="classCadObject.png" usemap="#CadObject_map" border="0"></center>
+<map name="CadObject_map">
+<area href="classFace.html" alt="Face" shape="rect" coords="48,56,134,80">
+<area href="classPoint.html" alt="Point" shape="rect" coords="144,56,230,80">
+<area href="classBSpline.html" alt="BSpline" shape="rect" coords="0,112,86,136">
+<area href="classPlane.html" alt="Plane" shape="rect" coords="96,112,182,136">
+<area href="classQuadrilateral.html" alt="Quadrilateral" shape="rect" coords="48,168,134,192">
+<area href="classTriangle.html" alt="Triangle" shape="rect" coords="144,168,230,192">
+</map>
+<a href="classCadObject-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Typen</h2></td></tr>
+<tr><td nowrap align=right valign=top>enum &nbsp;</td><td valign=bottom><a class="el" href="classCadObject.html#s4">DataType</a> { <a class="el" href="classCadObject.html#s4s0">TRIANGLE</a>, 
+<a class="el" href="classCadObject.html#s4s1">QUADRILATERAL</a>, 
+<a class="el" href="classCadObject.html#s4s2">B_SPLINE</a>, 
+<a class="el" href="classCadObject.html#s4s3">POINT</a>
+ }</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Um was für ein CAD-Objekt handelt es sich?</em> <a href="#s4">Mehr...</a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>virtual const <a class="el" href="classCadObject.html#s4">DataType</a>&nbsp;</td><td valign=bottom><a class="el" href="classCadObject.html#a0">getDataType</a> ()=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Art des CAD_Objekts zurück.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual int&nbsp;</td><td valign=bottom><a class="el" href="classCadObject.html#a1">getDimension</a> ()=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert zurück, wieviele Dimensionen das CAD-Objekt besitzt.</em> <a href="#a1"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual <a class="el" href="classPoint.html">Point</a>&nbsp;</td><td valign=bottom><a class="el" href="classCadObject.html#a2">getMaxPoint</a> ()=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Punkt zurück, der jeweils das Maximum aller das CAD-Objekt beschreibenden Koordinaten enthält.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual <a class="el" href="classPoint.html">Point</a>&nbsp;</td><td valign=bottom><a class="el" href="classCadObject.html#a3">getMinPoint</a> ()=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Punkt zurück, der jeweils das Minimum aller das CAD-Objekt beschreibenden Koordinaten enthält.</em> <a href="#a3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual bool&nbsp;</td><td valign=bottom><a class="el" href="classCadObject.html#a4">isPlane</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ist das Objekt eben?</em> <a href="#a4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classPoint.html">Point</a>&nbsp;</td><td valign=bottom><a class="el" href="classCadObject.html#a5">max</a> (<a class="el" href="classPoint.html">Point</a> p)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert einen <a class="el" href="classPoint.html">Point</a> der das jeweilige Maximum der Koordinaten zwischen dem internen maxPoint und dem <a class="el" href="classPoint.html">Point</a> p enthält.</em> <a href="#a5"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classPoint.html">Point</a>&nbsp;</td><td valign=bottom><a class="el" href="classCadObject.html#a6">min</a> (<a class="el" href="classPoint.html">Point</a> p)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert einen <a class="el" href="classPoint.html">Point</a> der das jeweilige Minimum der Koordinaten zwischen dem internen maxPoint und dem <a class="el" href="classPoint.html">Point</a> p enthält.</em> <a href="#a6"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a7" doxytag="CadObject::print"></a>
+virtual void&nbsp;</td><td valign=bottom><a class="el" href="classCadObject.html#a7">print</a> ()=0</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gibt die das CAD-Objekt beschreibenden Geometriedaten auf der Konsole aus.</em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Abstrakte Klasse für alle CAD-Objekte.
+<p>
+Dies kann eine Fläche (<a class="el" href="classFace.html">Face</a>) oder ein Punkt (<a class="el" href="classPoint.html">Point</a>) sein. 
+<p>
+<hr><h2>Dokumentation der Aufzählungstypen</h2>
+<a name="s4" doxytag="CadObject::DataType"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> enum CadObject::DataType
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Um was für ein CAD-Objekt handelt es sich?
+<p>
+<dl compact><dt><b>
+Aufzählungswerte:</b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a name="s4s0" doxytag="TRIANGLE"></a><em>TRIANGLE</em></em>&nbsp;</td><td>
+Dreieck.</td></tr>
+<tr><td valign=top><em><a name="s4s1" doxytag="QUADRILATERAL"></a><em>QUADRILATERAL</em></em>&nbsp;</td><td>
+Viereck.</td></tr>
+<tr><td valign=top><em><a name="s4s2" doxytag="B_SPLINE"></a><em>B_SPLINE</em></em>&nbsp;</td><td>
+B-<a class="el" href="classSpline.html">Spline</a>-Fläche.</td></tr>
+<tr><td valign=top><em><a name="s4s3" doxytag="POINT"></a><em>POINT</em></em>&nbsp;</td><td>
+Punkt.</td></tr>
+</table>
+</dl>
+    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="a0" doxytag="CadObject::getDataType"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual const <a class="el" href="classCadObject.html#s4">DataType</a> CadObject::getDataType </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Art des CAD_Objekts zurück.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+um welches CAD-Objekt es sich handelt </dl>
+<p>
+Implementiert in <a class="el" href="classBSpline.html#a5">BSpline</a>, <a class="el" href="classPoint.html#a2">Point</a>, <a class="el" href="classQuadrilateral.html#a2">Quadrilateral</a> und <a class="el" href="classTriangle.html#a2">Triangle</a>.    </td>
+  </tr>
+</table>
+<a name="a1" doxytag="CadObject::getDimension"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual int CadObject::getDimension </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert zurück, wieviele Dimensionen das CAD-Objekt besitzt.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+Dimensionalität das CAD-Objekts </dl>
+<p>
+Implementiert in <a class="el" href="classFace.html#a0">Face</a> und <a class="el" href="classPoint.html#a3">Point</a>.    </td>
+  </tr>
+</table>
+<a name="a2" doxytag="CadObject::getMaxPoint"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual <a class="el" href="classPoint.html">Point</a> CadObject::getMaxPoint </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Punkt zurück, der jeweils das Maximum aller das CAD-Objekt beschreibenden Koordinaten enthält.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+hinterer oberer rechter Punkt des CAD-Objekt umschließenden Quaders </dl>
+<p>
+Implementiert in <a class="el" href="classBSpline.html#a10">BSpline</a>, <a class="el" href="classPlane.html#a1">Plane</a> und <a class="el" href="classPoint.html#a4">Point</a>.    </td>
+  </tr>
+</table>
+<a name="a3" doxytag="CadObject::getMinPoint"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual <a class="el" href="classPoint.html">Point</a> CadObject::getMinPoint </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [pure virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Punkt zurück, der jeweils das Minimum aller das CAD-Objekt beschreibenden Koordinaten enthält.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+vorderer unterer linker Punkt des CAD-Objekt umschließenden Quaders </dl>
+<p>
+Implementiert in <a class="el" href="classBSpline.html#a11">BSpline</a>, <a class="el" href="classPlane.html#a2">Plane</a> und <a class="el" href="classPoint.html#a5">Point</a>.    </td>
+  </tr>
+</table>
+<a name="a4" doxytag="CadObject::isPlane"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual bool CadObject::isPlane </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ist das Objekt eben?
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+false </dl>
+<p>
+Erneute Implementation in <a class="el" href="classPlane.html#a3">Plane</a>.    </td>
+  </tr>
+</table>
+<a name="a5" doxytag="CadObject::max"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classPoint.html">Point</a> CadObject::max </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classPoint.html">Point</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>p</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert einen <a class="el" href="classPoint.html">Point</a> der das jeweilige Maximum der Koordinaten zwischen dem internen maxPoint und dem <a class="el" href="classPoint.html">Point</a> p enthält.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Vergleichspunkt </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+<img align="top" src="form_9.png">
+ </dl>    </td>
+  </tr>
+</table>
+<a name="a6" doxytag="CadObject::min"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classPoint.html">Point</a> CadObject::min </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classPoint.html">Point</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>p</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert einen <a class="el" href="classPoint.html">Point</a> der das jeweilige Minimum der Koordinaten zwischen dem internen maxPoint und dem <a class="el" href="classPoint.html">Point</a> p enthält.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Vergleichspunkt </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+<img align="top" src="form_10.png">
+ </dl>    </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="cad__object_8h-source.html">cad_object.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

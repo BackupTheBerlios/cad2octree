@@ -1,0 +1,695 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>BSpline Klassenreferenz</h1>B-<a class="el" href="classSpline.html">Spline</a>-Fläche. 
+<a href="#_details">Mehr...</a>
+<p>
+<code>#include &lt;<a class="el" href="b__spline_8h-source.html">b_spline.h</a>&gt;</code>
+<p>
+<p>Klassendiagramm für BSpline:
+<p><center><img src="classBSpline.png" usemap="#BSpline_map" border="0"></center>
+<map name="BSpline_map">
+<area href="classFace.html" alt="Face" shape="rect" coords="0,56,72,80">
+<area href="classCadObject.html" alt="CadObject" shape="rect" coords="0,0,72,24">
+</map>
+<a href="classBSpline-members.html">Aufstellung aller Elemente</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Öffentliche Typen</h2></td></tr>
+<tr><td nowrap align=right valign=top>enum &nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#s2">EXTENT</a> { <a class="el" href="classBSpline.html#s2s0">M_DIR</a> =  0, 
+<a class="el" href="classBSpline.html#s2s1">N_DIR</a> =  1
+ }</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ausdehnungsrichtung.</em> <a href="#s2">Mehr...</a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Öffentliche Datenelemente</h2></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#a0">BSpline</a> (int m_count, bool pMeshClosedM, int n_count, bool pMeshClosedN)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Konstruktor.</em> <a href="#a0"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a1" doxytag="BSpline::~BSpline"></a>
+virtual&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#a1">~BSpline</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Destruktor.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#a2">addCP</a> (<a class="el" href="classPoint.html">Point</a> p)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Fügt den Kontrollpunkt p zur <a class="el" href="classSpline.html">Spline</a>-Fläche hinzu.</em> <a href="#a2"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="classPoint.html">Point</a>&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#a3">getControlPoint</a> (int m_idx, int n_idx)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Kontrollpunkt (m_idx; n_idx).</em> <a href="#a3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#a4">getCount</a> (<a class="el" href="classBSpline.html#s2">EXTENT</a> axis)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Anzahl der Kontrollpunkte in M- oder N-Richtung.</em> <a href="#a4"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual const <a class="el" href="classCadObject.html#s4">DataType</a>&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#a5">getDataType</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Art des CAD-Objekts zurück.</em> <a href="#a5"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#a6">getKnot</a> (<a class="el" href="classBSpline.html#s2">EXTENT</a> axis, int n_idx)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den n_idx-ten Knoten in axis-Richtung.</em> <a href="#a6"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#a7">getKnotCount</a> (<a class="el" href="classBSpline.html#s2">EXTENT</a> axis)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Größe des Knotenvektors in axis-Richtung.</em> <a href="#a7"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#a8">getKnotMax</a> (<a class="el" href="classBSpline.html#s2">EXTENT</a> axis)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Maximalgröße eines Knotens in axis-Richtung.</em> <a href="#a8"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#a9">getKnotMin</a> (<a class="el" href="classBSpline.html#s2">EXTENT</a> axis)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert die Minimalgröße eines Knotens in axis-Richtung.</em> <a href="#a9"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual <a class="el" href="classPoint.html">Point</a>&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#a10">getMaxPoint</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Punkt zurück, der jeweils das Maximum aller Eckpunktkoordinaten enthält.</em> <a href="#a10"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual <a class="el" href="classPoint.html">Point</a>&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#a11">getMinPoint</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Liefert den Punkt zurück, der jeweils das Minimum aller Eckpunktkoordinaten enthält.</em> <a href="#a11"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#a12">isClosed</a> (<a class="el" href="classBSpline.html#s2">EXTENT</a> axis)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Ist die Spine-Fläche in axis-Richtung geschlossen?</em> <a href="#a12"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="a13" doxytag="BSpline::print"></a>
+virtual void&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#a13">print</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gibt die Kontrollpunkte auf der Konsole aus.</em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Typen</h2></td></tr>
+<tr><td nowrap align=right valign=top>typedef vector&lt; <a class="el" href="classPoint.html">Point</a> &gt;&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#u0">CPContainer</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Typ für alle Kontrollpunkte der Splinefläche.</em> <a href="#u0"></a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Private Attribute</h2></td></tr>
+<tr><td nowrap align=right valign=top><a name="o0" doxytag="BSpline::closedM"></a>
+bool&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#o0">closedM</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em><a class="el" href="classSpline.html">Spline</a>-Fläche in M-Richtung geschlossen?</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o1" doxytag="BSpline::closedN"></a>
+bool&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#o1">closedN</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em><a class="el" href="classSpline.html">Spline</a>-Fläche in N-Richtung geschlossen?</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a name="o2" doxytag="BSpline::controlPoints"></a>
+<a class="el" href="classBSpline.html#u0">CPContainer</a>&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#o2">controlPoints</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Kontrollpunkte der <a class="el" href="classSpline.html">Spline</a>-Fläche.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#o3">countM</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Anzahl d.</em> <a href="#o3"></a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="classBSpline.html#o4">countN</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Anzahl d.</em> <a href="#o4"></a><em></em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+B-<a class="el" href="classSpline.html">Spline</a>-Fläche.
+<p>
+<hr><h2>Dokumentation der benutzerdefinierten Datentypen</h2>
+<a name="u0" doxytag="BSpline::CPContainer"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> typedef vector&lt;<a class="el" href="classPoint.html">Point</a>&gt; BSpline::CPContainer<code> [private]</code>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Typ für alle Kontrollpunkte der Splinefläche.
+<p>
+Kontrollpunkte in M- und in N-Richtung.     </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Aufzählungstypen</h2>
+<a name="s2" doxytag="BSpline::EXTENT"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> enum BSpline::EXTENT
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ausdehnungsrichtung.
+<p>
+<dl compact><dt><b>
+Aufzählungswerte:</b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em><a name="s2s0" doxytag="M_DIR"></a><em>M_DIR</em></em>&nbsp;</td><td>
+M-Richtung.</td></tr>
+<tr><td valign=top><em><a name="s2s1" doxytag="N_DIR"></a><em>N_DIR</em></em>&nbsp;</td><td>
+N-Richtung.</td></tr>
+</table>
+</dl>
+    </td>
+  </tr>
+</table>
+<hr><h2>Beschreibung der Konstruktoren und Destruktoren</h2>
+<a name="a0" doxytag="BSpline::BSpline"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> BSpline::BSpline </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>m_count</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>bool&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pMeshClosedM</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>n_count</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>bool&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>pMeshClosedN</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Konstruktor.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>m_count</em>&nbsp;</td><td>
+Kontrollpunkte in M-Richtung </td></tr>
+<tr><td valign=top><em>pMeshClosedM</em>&nbsp;</td><td>
+Ob die <a class="el" href="classSpline.html">Spline</a>-Fläche in M-Richtung geschlossen ist. </td></tr>
+<tr><td valign=top><em>n_count</em>&nbsp;</td><td>
+Kontrollpunkte in N-Richtung </td></tr>
+<tr><td valign=top><em>pMeshClosedN</em>&nbsp;</td><td>
+Ob die <a class="el" href="classSpline.html">Spline</a>-Fläche in N-Richtung geschlossen ist. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Elementfunktionen</h2>
+<a name="a2" doxytag="BSpline::addCP"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> void BSpline::addCP </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classPoint.html">Point</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>p</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Fügt den Kontrollpunkt p zur <a class="el" href="classSpline.html">Spline</a>-Fläche hinzu.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>p</em>&nbsp;</td><td>
+Kontrollpunkt </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a3" doxytag="BSpline::getControlPoint"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> <a class="el" href="classPoint.html">Point</a> BSpline::getControlPoint </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">int&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>m_idx</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>n_idx</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Kontrollpunkt (m_idx; n_idx).
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+m_idx-ten Laufzahl in M-Richtung n_idx-ten Laufzahl in N-Richtung </dl>    </td>
+  </tr>
+</table>
+<a name="a4" doxytag="BSpline::getCount"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> int BSpline::getCount </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classBSpline.html#s2">EXTENT</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>axis</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Anzahl der Kontrollpunkte in M- oder N-Richtung.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>axis</em>&nbsp;</td><td>
+M_DIR oder N_DIR </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Kontrollpunkte in diese Richtung </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+axis = M_DIR or axis = N_DIR </dl>    </td>
+  </tr>
+</table>
+<a name="a5" doxytag="BSpline::getDataType"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual const <a class="el" href="classCadObject.html#s4">DataType</a> BSpline::getDataType </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Art des CAD-Objekts zurück.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+CadObject::SPLINE </dl>
+<p>
+Implementiert <a class="el" href="classCadObject.html#a0">CadObject</a>.    </td>
+  </tr>
+</table>
+<a name="a6" doxytag="BSpline::getKnot"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> int BSpline::getKnot </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classBSpline.html#s2">EXTENT</a>&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>axis</em>, </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="md" nowrap>int&nbsp;</td>
+          <td class="mdname" nowrap>&nbsp; <em>n_idx</em></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den n_idx-ten Knoten in axis-Richtung.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>axis</em>&nbsp;</td><td>
+M_DIR oder N_DIR </td></tr>
+<tr><td valign=top><em>n_idx</em>&nbsp;</td><td>
+Laufzahl </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+n_idx-ter Knoten </dl>    </td>
+  </tr>
+</table>
+<a name="a7" doxytag="BSpline::getKnotCount"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> int BSpline::getKnotCount </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classBSpline.html#s2">EXTENT</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>axis</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Größe des Knotenvektors in axis-Richtung.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>axis</em>&nbsp;</td><td>
+M_DIR oder N_DIR </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Dimension des Knotenvektors </dl>    </td>
+  </tr>
+</table>
+<a name="a8" doxytag="BSpline::getKnotMax"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> int BSpline::getKnotMax </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classBSpline.html#s2">EXTENT</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>axis</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Maximalgröße eines Knotens in axis-Richtung.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>axis</em>&nbsp;</td><td>
+M_DIR oder N_DIR </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Maximale Knotengröße </dl>    </td>
+  </tr>
+</table>
+<a name="a9" doxytag="BSpline::getKnotMin"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> int BSpline::getKnotMin </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classBSpline.html#s2">EXTENT</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>axis</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert die Minimalgröße eines Knotens in axis-Richtung.
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>axis</em>&nbsp;</td><td>
+M_DIR oder N_DIR </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Minimale Knotengröße </dl>    </td>
+  </tr>
+</table>
+<a name="a10" doxytag="BSpline::getMaxPoint"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual <a class="el" href="classPoint.html">Point</a> BSpline::getMaxPoint </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Punkt zurück, der jeweils das Maximum aller Eckpunktkoordinaten enthält.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+vorderer oberer rechter Punkt des ebenen Flächenobjekts umschließenden Quaders </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+getCount(M_DIR) &gt; 0 </dl>
+<p>
+Implementiert <a class="el" href="classCadObject.html#a2">CadObject</a>.    </td>
+  </tr>
+</table>
+<a name="a11" doxytag="BSpline::getMinPoint"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> virtual <a class="el" href="classPoint.html">Point</a> BSpline::getMinPoint </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp;          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap><code> [virtual]</code></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Liefert den Punkt zurück, der jeweils das Minimum aller Eckpunktkoordinaten enthält.
+<p>
+<dl compact><dt><b>
+Rückgabe: </b><dd>
+hinterer unterer linker Punkt des ebenen Flächenobjekts umschließenden Quaders </dl><dl compact><dt><b>
+Vorbedingung: </b><dd>
+getCount(M_DIR) &gt; 0 </dl>
+<p>
+Implementiert <a class="el" href="classCadObject.html#a3">CadObject</a>.    </td>
+  </tr>
+</table>
+<a name="a12" doxytag="BSpline::isClosed"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> bool BSpline::isClosed </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classBSpline.html#s2">EXTENT</a>&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>&nbsp; <em>axis</em>          </td>
+          <td class="md" valign="top">)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Ist die Spine-Fläche in axis-Richtung geschlossen?
+<p>
+<dl compact><dt><b>
+Parameter: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>axis</em>&nbsp;</td><td>
+M_DIR oder N_DIR </td></tr>
+</table>
+</dl><dl compact><dt><b>
+Rückgabe: </b><dd>
+Ob die <a class="el" href="classSpline.html">Spline</a>-Fläche in Richtung axis geschlossen ist. </dl>    </td>
+  </tr>
+</table>
+<hr><h2>Dokumentation der Datenelemente</h2>
+<a name="o3" doxytag="BSpline::countM"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> int BSpline::countM<code> [private]</code>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Anzahl d.
+<p>
+Kontrollpunkte in M-Richtung     </td>
+  </tr>
+</table>
+<a name="o4" doxytag="BSpline::countN"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top"> int BSpline::countN<code> [private]</code>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Anzahl d.
+<p>
+Kontrollpunkte in N-Richtung     </td>
+  </tr>
+</table>
+<hr>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Datei:<ul>
+<li><a class="el" href="b__spline_8h-source.html">b_spline.h</a></ul>
+<hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>

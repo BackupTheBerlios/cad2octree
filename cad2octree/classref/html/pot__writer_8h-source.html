@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<TITLE>cad2octree Source Code Documentation</TITLE>
+<META NAME=description
+      CONTENT="Documentation for cad2octree">
+<META NAME=keywords
+      CONTENT="diplomarbeit, octree, cad, C++ class library">
+</HEAD>
+<BODY>
+<!-- Erzeugt von Doxygen 1.2.16 -->
+<center>
+<a class="qindex" href="index.html">Hauptseite</a> &nbsp; <a class="qindex" href="hierarchy.html">Klassenhierarchie</a> &nbsp; <a class="qindex" href="annotated.html">Übersicht</a> &nbsp; <a class="qindex" href="files.html">Auflistung der Dateien</a> &nbsp; <a class="qindex" href="functions.html">Datenstruktur-Elemente</a> &nbsp; <a class="qindex" href="globals.html">Datei-Elemente</a> &nbsp; </center>
+<hr><h1>pot_writer.h</h1><a href="pot__writer_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre>00001 
+00015 <font class="preprocessor">#ifndef __POT_WRITER_H__</font>
+00016 <font class="preprocessor"></font><font class="preprocessor">#define __POT_WRITER_H__</font>
+00017 <font class="preprocessor"></font>
+00018 <font class="preprocessor">#include &lt;<a class="code" href="writer_8h.html">writer/writer.h</a>&gt;</font>
+00019 <font class="preprocessor">#include &lt;<a class="code" href="oct__struct_8h.html">octree/oct_struct.h</a>&gt;</font>
+00020 
+<a name="l00024"></a><a class="code" href="pot__writer_8h.html#a0">00024</a> <font class="keyword">typedef</font> <font class="keywordtype">unsigned</font> <font class="keywordtype">int</font> <a class="code" href="pot__writer_8h.html#a0">Data</a>;
+00025 
+<a name="l00029"></a><a class="code" href="pot__writer_8h.html#a1">00029</a> <font class="keyword">const</font> <a class="code" href="pot__writer_8h.html#a0">Data</a> <a class="code" href="pot__writer_8h.html#a1">LEAF</a>= 0;
+00030 
+<a name="l00034"></a><a class="code" href="pot__writer_8h.html#a2">00034</a> <font class="keyword">const</font> <a class="code" href="pot__writer_8h.html#a0">Data</a> <a class="code" href="pot__writer_8h.html#a2">INNER_NODE</a>= 1;
+00035 
+<a name="l00042"></a><a class="code" href="classPotWriter.html">00042</a> <font class="keyword">class </font><a class="code" href="classPotWriter.html">PotWriter</a> : <font class="keyword">public</font> <a class="code" href="classWriter.html">Writer</a>, <font class="keyword">private</font> <a class="code" href="classOctStruct.html">OctStruct</a> {
+00043  <font class="keyword">public</font>:
+00048   <a class="code" href="classPotWriter.html#a0">PotWriter</a>(<font class="keyword">const</font> <font class="keywordtype">char</font>* <a class="code" href="classPotWriter.html#o0">fileName</a>);
+00049 
+00053   <font class="keyword">virtual</font> <a class="code" href="classPotWriter.html#a1">~PotWriter</a>();
+00054 
+00059   <font class="keyword">virtual</font> <font class="keyword">const</font> <font class="keywordtype">char</font>* <a class="code" href="classPotWriter.html#a2">getFormatName</a>();
+00060 
+00065   <font class="keyword">virtual</font> <font class="keyword">const</font> <a class="code" href="classWriter.html#s2">FormatType</a> <a class="code" href="classPotWriter.html#a3">getFormatType</a>();
+00066 
+00081   <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="classPotWriter.html#a4">writeFile</a>(<a class="code" href="classIndexOct.html">IndexOct</a>* tree)
+00082     <font class="keywordflow">throw</font> (WriteFileException*);
+00083 
+00084  <font class="keyword">private</font>:
+00094   <font class="keywordtype">void</font> <a class="code" href="classPotWriter.html#c0">binWrite</a>(<a class="code" href="pot__writer_8h.html#a0">Data</a> data);
+00095 
+00099   <font class="keywordtype">void</font> <a class="code" href="classPotWriter.html#c1">flushWrite</a>();
+00100 
+00105   <font class="keyword">const</font> size_t <a class="code" href="classPotWriter.html#c2">getCachSize</a>();
+00106 
+00110   <font class="keywordtype">void</font> <a class="code" href="classPotWriter.html#c3">writeInnerNode</a>();
+00111 
+00116   <font class="keywordtype">void</font> <a class="code" href="classPotWriter.html#c4">writeLeaf</a>(<a class="code" href="global_8h.html#a23">Color</a> color);
+00117 
+00122   <font class="keywordtype">void</font> <a class="code" href="classPotWriter.html#c5">writeTree</a>(Node node);
+00123 
+00124 <font class="comment">// ##### Variablen ###################################################</font>
+00125 
+<a name="l00129"></a><a class="code" href="classPotWriter.html#o0">00129</a>   <font class="keyword">const</font> <font class="keywordtype">char</font>* <a class="code" href="classPotWriter.html#o0">fileName</a>;
+00130 
+<a name="l00134"></a><a class="code" href="classPotWriter.html#o1">00134</a>   FILE* <a class="code" href="classPotWriter.html#o1">potFile</a>;
+00135 
+<a name="l00139"></a><a class="code" href="classPotWriter.html#o2">00139</a>   size_t <a class="code" href="classPotWriter.html#o2">wCount</a>;
+00140 
+<a name="l00144"></a><a class="code" href="classPotWriter.html#o3">00144</a>   <a class="code" href="pot__writer_8h.html#a0">Data</a> <a class="code" href="classPotWriter.html#o3">wBinary</a>;
+00145 };
+00146 
+00147 <font class="preprocessor">#endif // ! __POT_WRITER_H__</font>
+</pre></div><hr><address align="right"><small>Erzeugt am Fri Mar 14 19:44:51 2003 für cad2octree von
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border=0 
+width=110 height=53></a>1.2.16 </small></address>
+</body>
+</html>
