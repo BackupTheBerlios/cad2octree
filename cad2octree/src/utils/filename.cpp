@@ -8,6 +8,7 @@
  */
 
 #include <filename.h>
+#include <global.h>
 
 #include <string>
 #include <iostream>

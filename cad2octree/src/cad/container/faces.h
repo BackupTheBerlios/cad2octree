@@ -14,7 +14,7 @@
 #include <cad/container/container.h>
 #include <cad/objects/face.h>
 
-#include <slist>
+#include <list>
 
 /**
  * Container für Oberflächen.
@@ -105,7 +105,7 @@ class Faces : public Container {
   /**
    * Typ für Oberflächen-Container.
    */
-  typedef slist<Face *> FaceContainer;
+  typedef list<Face *> FaceContainer;
 
   /**
    * Ist object im Container vorhanden?

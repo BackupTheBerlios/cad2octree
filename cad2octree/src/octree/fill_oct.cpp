@@ -10,6 +10,8 @@
 
 #include <octree/fill_oct.h>
 
+#include <iostream>
+
 #if !defined(CLASSIC_MODE) && defined(FILL_SOLIDS)
 
 // ##### FillOct() ###################################################

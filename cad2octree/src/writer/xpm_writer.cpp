@@ -11,6 +11,8 @@
 #include <writer/xpm_writer.h>
 #include <filename.h>
 
+#include <iostream>
+
 /**
  * Zeichen für einen Körper-Voxel.
  */

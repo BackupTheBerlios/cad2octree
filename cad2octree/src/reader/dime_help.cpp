@@ -16,6 +16,8 @@
 
 #include <octree/oct_struct.h>
 
+#include <iostream>
+
 // ##### DimeHelp() ##################################################
 DimeHelp::DimeHelp(CadModel* cadModel, Color color, bool splitQuad) :
     cadModel(cadModel), color(color), 

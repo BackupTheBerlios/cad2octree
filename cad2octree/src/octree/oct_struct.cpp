@@ -12,6 +12,7 @@
 
 #include <assert.h>
 #include <stdlib.h>
+#include <iostream>
 
 // ##### OctStruct() #################################################
 OctStruct::OctStruct() throw (NotEnoughMemoryException*) : countBorderNodes(0) 

@@ -14,6 +14,8 @@
 
 #include <limits.h>
 
+using namespace std;
+
 /**
  * assert-check ausschalten
  */

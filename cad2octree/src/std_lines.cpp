@@ -12,6 +12,8 @@
 #include <writer/writer.h>
 #include <filename.h>
 
+#include <iostream>
+
 /**
  * Maximaltiefe des Oktalbaums, falls keine andere Maximaltiefe
  * an der Kommandozeile festgelegt wird.

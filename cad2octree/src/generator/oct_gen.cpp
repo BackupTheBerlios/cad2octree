@@ -18,6 +18,8 @@
 #include <global.h>
 #include <timer.h>
 
+#include <iostream>
+
 // ##### OctGen() ####################################################
 OctGen::OctGen(CadModel* model) : cadModel(model) {
   assert (model != NULL);
